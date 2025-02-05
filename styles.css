@@ -95,3 +95,86 @@ h1 {
 p {
   color: red;
 }*/
+
+/* Section Container */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/* Common Box Style */
+.contact-box {
+    flex: 1 1 250px;
+    padding: 10px;
+}
+
+/* Grid Layout for Email & Phone Sections */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 30px 120px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Section Headers */
+.contact-header {
+    text-align: left;
+    font-weight: bold;
+    grid-column: span 2;
+}
+
+/* Image Styling */
+.contact-img {
+    width: 35px;
+    height: 35px;
+}
+
+.contact-img-small {
+    width: 24px;
+    height: 24px;
+}
+
+/* Address Section */
+.contact-address {
+    text-align: center;
+}
+
+.contact-address img {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+}
+
+.contact-address p {
+    margin-bottom: 10px;
+}
+
+/* Image styles */
+.large-banner {
+    width: 800px;
+    height: 80px;
+}
+
+.small-banner {
+    width: 400px;
+    height: 200px;
+}
+
+/* Flex container for contact section */
+.contact-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Contact text alignment */
+.contact-text-right {
+    text-align: right;
+}
+
+/* Address styling */
+.contact-address p {
+    margin-bottom: 10px;
+}
