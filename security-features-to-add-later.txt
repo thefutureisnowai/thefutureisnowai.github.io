@@ -1,0 +1,8 @@
+on server (when migrate to server I have control over)
+Access-Control-Allow-Origin: https://securecomputer.ai
+
+HTTP Headers: When you move to a host that allows more control over HTTP headers, ensure these policies are set server-side for better security enforcement.
+
+Add Strict-Transport-Security (HSTS) once moved to a self-controlled server.
+Set Access-Control-Allow-Origin only if serving API resources externally.
+Consider Jekyll or other static site generators for easier updates.
