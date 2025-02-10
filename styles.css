@@ -152,14 +152,19 @@ p {
 }
 
 /* Image styles */
-.large-banner {
-    width: 800px;
-    height: 80px;
+.dba-banner {
+    max-width: 800px;
+    max-height: 80px;
+    width: 100%; /* Shrinks when necessary */
+    height: auto;
 }
 
-.small-banner {
-    width: 400px;
-    height: 200px;
+/* Building Banner: Default size but shrinks if needed */
+.building-banner {
+    max-width: 400px;
+    max-height: 200px;
+    width: 100%; /* Shrinks when necessary */
+    height: auto;
 }
 
 /* Flex container for contact section */
