@@ -11,10 +11,14 @@
         --link-color: #80b3ff;
     }
 }
-/*@media (max-width: 600px) {
-    div {
-        max-width: 100%;
-    }
+div {
+	max-width: 100%;
+}
+section {
+    max-width: 100%;
+}
+main {
+    max-width: 100%;
 }
 */
 @media (max-width: 800px) {
@@ -151,7 +155,7 @@ p {
 
 /* Image styles */
 .dba-banner {
-    max-width: 800px;
+    max-width: min(800px, 100%);
     max-height: 80px;
     width: 100%; /* Shrinks when necessary */
     height: auto;
@@ -159,7 +163,7 @@ p {
 
 /* Building Banner: Default size but shrinks if needed */
 .building-banner {
-    max-width: 400px;
+    max-width: min(400px, 100%);
     max-height: 200px;
     width: 100%; /* Shrinks when necessary */
     height: auto;
