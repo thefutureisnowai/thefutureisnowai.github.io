@@ -11,16 +11,17 @@
         --link-color: #80b3ff;
     }
 }
-div {
-	max-width: 100%;
-}
-section {
+* {
     max-width: 100%;
+    box-sizing: border-box;
 }
-main {
+html, body, main, section {
+    width: 100%;
     max-width: 100%;
+    overflow-x: hidden; /* Prevents any horizontal scroll issues */
 }
-*/
+
+
 @media (max-width: 800px) {
     div {
         flex-basis: 100%;  /* Forces each div to take the full width of the container */
@@ -155,17 +156,19 @@ p {
 
 /* Image styles */
 .dba-banner {
+    display: block;
     max-width: min(800px, 100%);
     max-height: 80px;
-    width: 100%; /* Shrinks when necessary */
+  	 width: auto;
     height: auto;
 }
 
 /* Building Banner: Default size but shrinks if needed */
 .building-banner {
+    display: block;
     max-width: min(400px, 100%);
     max-height: 200px;
-    width: 100%; /* Shrinks when necessary */
+  	 width: auto;
     height: auto;
 }
 
