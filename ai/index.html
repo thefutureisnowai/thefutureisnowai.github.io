@@ -64,31 +64,58 @@ AI / data services we offer include:<br>
 <br>
 <b>- LLMs: (Large Language Models)</b><br>
 <br>
-LLMs are a very popular type of AI with numerous use-cases, made famous by OpenAI's ChatGPT. In fact, they are often used synonymously with AI, though AI is a much broader field. LLMs draw on machine learning techniques to learn statistical patterns in text, and require immense amounts of data and power to learn. Thus, in most applications leaning on existing LLMs (such as ChatGPT) is the most practical, though often does require some engineering. In the following services, assume we are talking about using the API (Application Programming Interface) of an existing LLM (not creating one from scratch), unless otherwise specified.<br>
+LLMs are a very popular type of AI with numerous use-cases, made famous by OpenAI's ChatGPT. In fact, they are often used synonymously with AI, though AI is a much broader field. We will sometimes use the term AI when we are talking about LLMs, for the sake of wordflow: as it is not wrong to call an LLM an AI. LLMs draw on machine learning techniques to learn statistical patterns in text, and require immense amounts of data and power to learn. Thus, in most applications leaning on existing LLMs (such as ChatGPT) is the most practical, though often does require some engineering. In the following services, assume we are talking about using the API (Application Programming Interface) of an existing LLM (not creating one from scratch), unless otherwise specified.<br>
 <br>
-We can make a custom chatbot on your website with a unique personality suited to your needs, utilizing techniques such as prompt-engineering, document retrieval, and function calling in addition to tweaking parameters such as <i>heat</i> and <i>max-tokens</i>. You can provide us information about your business you'd like your chatbot to have access to, and it can answer questions about your business within the guidelines you specify. Using these techniques we can provide guidelines for how the bot should act (specifying the kind of things we want it to say, or that we don't want it to say), make it more concise, more consistent, or even more creative. It can even automate other parts of your website, email you, schedule appointments, and much more.<br>
+We can make a custom chatbot on your website with a unique personality suited to your needs, utilizing techniques such as prompt-engineering, document retrieval, and function calling in addition to tweaking parameters such as <i>heat</i> and <i>max-tokens</i>. You can provide us information about your business you'd like your chatbot to have access to, and it can answer questions about your business within the guidelines you specify. Using these techniques we can provide guidelines for how the bot should act (specifying the kind of things you want it to say, or don't want it to say), make it more concise, more consistent, or even more creative. It can even automate other parts of your website, email you, schedule appointments, and much more.<br>
 <br>
-LLMs carry risks, such as the potential for inappropriate or repetitive responses, or referring potential clients to your competitors. If not implemented correctly, a chatbot interface can be abused and end up costing a lot of money in API calls. We have custom software and other tools for handling these risks.<br>
+Beyond website integration, LLMs have a wide array of uses for improving productivity, such as automating repetitive tasks, keeping workers on track, writing simple code snippets, searching large texts, and much more. We can write you custom software with embedded AI, to integrate into and enhance your workflow.<br>
 <br>
-Beyond website integration, LLMs (Large Language Models) have a wide array of uses for improving productivity, such as automating repetitive tasks, keeping workers on track, and much more. We can write you custom software integrated with AI to integrate into and enhance your workflow.<br>
+Though in most cases utilizing the API of an existing LLM is the most practical and cost-effective way to integrate LLMs into your workflow, it is not ideal for every scenario. In unique applications, fine-tuning (retraining) on a custom dataset can make a big difference. This is especially useful if you have data that is relevant to the task you are trying to solve with AI. LLMs do <u>not</u> need consistently formatted data, which is one of their biggest strengths as it reduces the amount of necessary data cleaning and engineering, and allows combining datasets in ways that would otherwise be very difficult.<br>
 <br>
-Though in most cases utilizing the API of an existing LLM is the most practical and cost-effective way to integrate LLMs into your workflow, it is not ideal for every use-case. In unique applications sometimes fine-tuning on a custom dataset may be enough, though you might want even more control. In this case we can design a completely unique model for you, or re-purpose an open-source model. This would allow you to have a more specialized design which you're in complete control of. We could host it on the cloud, or even at your business so you don't have to rely on a third-party entity. This approach is more involved, but we can handle it.<br>
+In some cases even fine-tuning may not be adequate. In this case we can design a completely unique LLM model for you, or re-purpose an open-source model. This would allow you to have a more specialized design which you're in complete control of. We could host it on the cloud, or even at your business so you don't have to rely on a third-party entity. This approach is more involved, but we can handle it.<br>
+<br>
+<b>Pitfalls:</b><br>
+<br>
+Although LLMs are a very useful kind of AI, they carry some risks, and people often overestimate their ability. Some of these risks we can manage, and others are inevitable. Some risks we can manage include: giving inappropriate or repetitive responses, or referring potential clients to your competitors. If not implemented correctly, a chatbot interface can be abused and end up costing a lot of money in API calls. We have custom software and other tools for managing these risks.<br>
+<br>
+LLMs are by no means a replacement for an expert in any field. For example, although one of the things they are <u>best</u> at is writing code (since there is a lot of code on the internet that was used in their training data), any AI generated code should be thoroughly tested and audited by an expert. They should be considered an assistive tool, but you can not count on them for human-level understanding. To expand on this, LLMs can be very useful for learning syntax of a new language or producing code for simple common scenarios. But they are often wrong, and we have found that they can make grave mistakes such as telling you to delete critical system files. Even the best AI will frequently suggest doing things that are poor security practice, if not blatantly dangerous. For these reasons we advise against using AI to automate critical tasks, and we ensure any AI-embedded software we write is adequately sandboxed so it cannot affect anything outside of what you are using it for.<br>
+<br>
+One common pitfall is to assume that an AI is right because it sounds convincing, but this is often not the case. LLMs are good at providing convincing arguments for things that are absolutely false: they are trained from observing humans, after all.<br>
+<br>
+Despite these risks, LLMs are still extremely powerful tools that can result in a huge boost in efficiency and understanding, when used responsibly. It is important to be aware of their risks and limitations.
 <br>
 <br>
 <b>- Control and Decision Tasks:</b><br>
 <br>
-Although LLMs can be used to some extent for control tasks, they can be inconsistent, overly complex, and wasteful. Particularly in cases where your control actions are well defined, other AI methods are usually preferable. AI methods for control include: reinforcement learning, Bayesian decision theory, rule-based methods, and decision trees. These methods are far more consistent and efficient than LLMs: they require less data, less power, and less compute resources. In some cases, they don't even require a GPU.<br>
+Although LLMs can be used to some extent for control and decision tasks, that is not what they're designed for. For specialized tasks there are more suited techniques which are more efficient, consistent, and accurate. In some cases, they can achieve perfect or near-perfect results, especially in cases where the possible control actions / decisions and possible outcomes are known in advance, though they <i>can</i> also be adapted to more dynamic situations.<br>
 <br>
-Using these more elegant methods for control, we can utilize prior knowledge and draw on your experience to guide an AI, making actions consistent and reliable. We can pool together all your data from various sources, and utilize it to help you make informed decisions and increase revenue. Applications include:<br>
+In this context, the difference between control and decision is somewhat thin. Control tasks tend to be ongoing and continuous, with well defined control actions, such as driving a car or mixing paint. Decision tasks are usually discrete, where you have a number of options to choose from and you do this once every so often. These are not hard definitions, they're just here to build some intuition. Every real-world problem is unique, and there's no need to bin everything into one of two categories.
+
+The following control theories have many similarities: Reinforcement Learning (RL), Bayesian Decision Theory (BDT), Markov Decision Processes (MDP), and Model Predictive Control (MPC).<br>
 <br>
-Weighted risk (cost/benefit analysis): Utilize your data to make decisions which minimize risk and maximize profit.
+In all of these theories there exists some sort of <i>observation</i> or <i>state</i>, and some number (possibly infinite) of possible actions. Each algorithm has its own intricacies and subtleties, and different variants (hidden, partially observed, stochastic, ...). We would be happy to go over more details with you during a consultation. We have knowledge and experience in all these algorithms, and offer services utlizing them including: software development, remote control, and consulting. This is a complex space, and it's impossible to cover every detail, so please reach out if you are interested.<br>
 <br>
-- Prediction / Forecasting: Utilizing deep learning and other statistical prediction methods, we create tools for you to make data-driven predictions.<br>
+Using these elegant methods for control, we can utilize prior knowledge and draw on your experience to guide an AI, making actions consistent and reliable. We can pool together all your data from various sources, and utilize it to help you make informed decisions and increase revenue. For example:<br>
+<br>
+Weighted risk (cost/benefit analysis): Utilize your data to make decisions which statistically minimize risk and maximize profit.<br>
+<br>
+Other algorithms we offer services in include: rule-based methods, decision trees, random forests, linear / non-linear programming, dynamic programming, genetic programming, ... .<br>
+<br>
+We are familiar with a large number of algorithms relevant to decision making and control, so if you're unsure if we can help you, please reach out. The methods in this section are far more consistent and efficient than LLMs: they require less data, less power, and less compute resources. In some cases, they don't even require a GPU.<br>
 <br>
 <br>
-<b>Data storage and transfer</b><br>
+<b>- Prediction / Forecasting:</b><br>
 <br>
-Store and access your data remotely, without compromising your security.<br>
+Utilizing deep learning and other statistical prediction methods, we create tools for you to make data-driven predictions and insights.<br>
+<br>
+<br>
+<b>- Data storage and transfer</b><br>
+<br>
+Store and access your data remotely, without compromising your security. We offer unique cost-effective solutions for remote access some of which do not lock you in to a third party company, and do not have monthly service charges.
+<br>
+<br>
+Note there are other data services listed here: <a href="../security/index.html">Security</a>
+<br>
 <br>
 <br>
 <b>Pricing:</b><br>
