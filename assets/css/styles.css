@@ -1,0 +1,644 @@
+/* -------------------
+   Global Styles
+-------------------- */
+/* Top Section: Full dark background */
+header.top-gradient {
+  width: 100%;
+  min-height: 300px;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+    z-index: 2; /* or higher than .main-content-box */
+}
+
+/* Divider line */
+hr {
+  border: none;
+  height: 2px;
+  margin: 50px 0;
+  background: linear-gradient(90deg,
+    #111111 0%,   /* Gray start */
+    #0077ff 20%,  /* Blue starts showing */
+    #00ffaa 50%,  /* Bright teal in the center */
+    #0055ff 80%,  /* Blue fades out */
+    #111111 100%  /* Gray end */
+  );
+}
+
+/* Font Face Setup */
+@font-face {
+  font-family: 'Lastica';
+  src: url('/assets/fonts/Lastica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* -------------------
+   Popout Box
+-------------------- */
+.popout-box {
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border-radius: 30px;
+  padding: 70px 90px;
+  text-align: center;
+  max-width: 900px;
+  color: #ffffff;
+  text-shadow:
+    0 0 8px rgba(0, 102, 119, 0.45),
+    0 0 12px rgba(0, 102, 119, 0.35),
+    0 0 20px rgba(0, 102, 119, 0.2);
+  box-shadow:
+    0 0 30px rgba(0, 255, 170, 0.8),    /* Bright teal edge */
+    0 0 60px rgba(102, 204, 255, 0.5),  /* Transition: light blue */
+    0 0 90px rgba(0, 119, 255, 0.3),    /* Core blue */
+    0 0 110px rgba(0, 85, 255, 0.15),   /* Indigo-blue fade */
+    0 20px 60px rgba(0, 0, 0, 0.75),
+    inset 0 4px 10px rgba(255, 255, 255, 0.06),
+    inset 0 -6px 16px rgba(0, 255, 170, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-clip: padding-box;
+  position: relative;
+  z-index: 1;
+}
+
+.popout-box:hover {
+  transform: scale(1.025);
+  box-shadow:
+    0 0 50px rgba(0, 255, 170, 0.85),   /* Strong teal core */
+    0 0 100px rgba(102, 204, 255, 0.55),/* Transition blue (light) */
+    0 0 140px rgba(0, 119, 255, 0.35),  /* Deep blue */
+    0 0 180px rgba(0, 85, 255, 0.2),    /* Indigo outer rim */
+    0 30px 90px rgba(0, 0, 0, 0.9),
+    inset 0 6px 16px rgba(255, 255, 255, 0.08),
+    inset 0 -8px 24px rgba(0, 255, 170, 0.3);
+}
+
+/* -------------------
+   Typography
+-------------------- */
+
+h1 {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+h1.main-title {
+  white-space: nowrap; /* Force H1 to stay single-line */
+}
+
+h1:hover {
+  transform: scale(1.03);
+}
+
+/* -------------------
+   Link Styles
+-------------------- */
+
+a {
+  color: #88aadd;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  color: #aaccee;
+  text-decoration: underline double;
+}
+
+a.active {
+  font-weight: bold;
+  text-decoration: underline double;
+  color: #99bbdd;
+}
+
+/* -------------------
+   Base Body Setup
+-------------------- */
+body {
+  background-color: #000;
+  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.jpg');
+    background-repeat: repeat-y;                /* Tile vertically */
+/*  background-size: cover; */
+    background-size: 100% calc(100vh - 360px); /* Adjust this height */
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #ccc;
+  font-weight: 500;
+}
+
+/* https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2023/08/webb_captures_detailed_beauty_of_ring_nebula_nircam_image/25047351-1-eng-GB/Webb_captures_detailed_beauty_of_Ring_Nebula_NIRCam_image_pillars.jpg 
+https://upload.wikimedia.org/wikipedia/commons/b/b2/Boomerang_nebula.jpg
+https://i.pinimg.com/originals/62/37/36/623736b9d363314111a4e525434275d9.jpg
+https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.75ZVnsu4WKxAzp3aqlJk0wHaEu%26pid%3DApi&f=1&ipt=632c9d0cdeb1208f99de8c3d1ab1d7d14c3bdce5b1ceead40310beb12cee113a&ipo=images
+https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.b-7-i1P-XWTycWxnTpuBnAHaEs%26pid%3DApi&f=1&ipt=96078be845e731a605e6f64d0a18b2675364404f48ad3d4ba76436440d561c95&ipo=images
+https://wallpapercave.com/wp/FjnZ25X.jpg
+https://i.pinimg.com/originals/2d/e5/98/2de598edc8c749d420452b4304db5cce.jpg
+https://www.astroasheville.org/wp-content/uploads/2013/04/Hubble-Crab-Nebula.jpg
+https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/veil-nebula-violet-blue-green-galaxy-johari-smith.jpg
+ */
+
+/* -------------------
+   Navigation Overhaul
+-------------------- */
+
+/* Hide default checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Layout */
+.nav-menu {
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 10px; /* <<< NEW: adds small push-off from title */
+}
+
+/* Label styling */
+.menu-toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 15px;
+}
+
+/* Text next to hamburger */
+.menu-text {
+  color: #ccc;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Hamburger box */
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Animate to X */
+#menu-toggle:checked + .menu-toggle-label .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle:checked + .menu-toggle-label .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .menu-toggle-label .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Dropdown Menu */
+.menu {
+  position: absolute;
+  left: 0; /* <<< use left instead of right */
+  top: 60px;
+  min-width: 220px;
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  transition: max-height 0.4s ease-in-out;
+}
+
+/* Expand on toggle */
+.menu-toggle-label:hover + .menu,
+.menu:hover {
+  max-height: 500px;
+}
+/* Menu Items */
+.menu li {
+  text-align: right;
+}
+
+.menu li a {
+  display: block;
+  padding: 15px 20px;
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+/* Navigation Menu */
+
+/* -------------------
+   Footer Styles
+-------------------- */
+
+/* -------------------
+   Main Content Box
+-------------------- */
+
+.main-content-box {
+  background: linear-gradient(160deg, #0a0a0a 0%, #111122 100%);
+  border-radius: 30px;
+  padding: 60px 80px;
+  margin: 60px auto;
+  max-width: 1000px;
+  color: #ffffff;
+  font-size: 1.5em;
+  line-height: 1.7;
+  text-shadow: 0 0 4px rgba(0, 234, 255, 0.3);
+box-shadow:
+  0 0 20px rgba(0, 255, 170, 0.4),     /* Teal edge (subtle) */
+  0 0 35px rgba(102, 204, 255, 0.25),  /* Light blue transition */
+  0 0 50px rgba(0, 119, 255, 0.15),    /* Core blue */
+  0 10px 30px rgba(0, 0, 0, 0.5),      /* Standard drop shadow */
+  inset 0 2px 6px rgba(255, 255, 255, 0.04),
+  inset 0 -4px 10px rgba(0, 255, 170, 0.15);
+
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.main-content-box:hover {
+  transform: scale(1.015);
+  box-shadow:
+  0 0 35px rgba(0, 255, 170, 0.5),
+  0 0 60px rgba(102, 204, 255, 0.3),
+  0 0 80px rgba(0, 119, 255, 0.2),
+  0 20px 60px rgba(0, 0, 0, 0.65),
+  inset 0 4px 10px rgba(255, 255, 255, 0.06),
+  inset 0 -6px 16px rgba(0, 255, 170, 0.2);
+
+}
+
+.lower-block {
+  display: flex;
+  align-items: center; /* Center the image between the two lines */
+  gap: 10px; /* Adjust space between image and text */
+  margin-top: 10px; /* Space from Secure Computer */
+}
+
+.header-image {
+  width: 100px; /* or whatever fits */
+  height: auto;
+}
+.office-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.address-block {
+  flex: 1; /* Grow to take available space */
+}
+
+.image-block {
+  flex-shrink: 0; /* Image stays its size */
+}
+
+.footer-image {
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin-top: 5px; /* adjust exactly */
+}
+
+.text-lines {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2; /* Adjust if needed */
+}
+.styled-text {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: 3em;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left; /* so it aligns correctly */
+}
+.header-content {
+  display: flex;
+  justify-content: center; /* Center the group horizontally */
+  align-items: flex-start; /* Align tops */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.title-nav-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px; /* more breathing room */
+  max-width: 100%; /* Prevents overexpansion */
+}
+
+.popout-box {
+  flex-shrink: 1;
+  flex-grow: 0;
+  min-width: fit-content; /* <-- Important */
+  max-width: calc(100% - 200px); /* Reserve nav space */
+  white-space: nowrap; /* <-- Force Secure Computer onto one line */
+}
+
+.menu {
+  right: 0;
+  top: 100%; /* dropdown menu will still open downwards */
+}
+
+/* Footer Styling */
+
+.footer-gradient {
+  width: 100%;
+  background: radial-gradient(circle at center, #001830 10%, #000f20 60%, #000810 100%);
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ccc;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.pop-hover-effect {
+  box-shadow:
+    0 0 30px rgba(0, 255, 170, 0.55),     /* Teal edge, more visible */
+    0 0 50px rgba(102, 204, 255, 0.25),   /* Light blue transition */
+    0 0 70px rgba(0, 119, 255, 0.15),     /* Core blue */
+    0 10px 30px rgba(0, 0, 0, 0.5),       /* Standard drop shadow */
+    inset 0 2px 6px rgba(255, 255, 255, 0.04),
+    inset 0 -4px 10px rgba(0, 255, 170, 0.15);
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pop-hover-effect:hover {
+  transform: scale(1.015);
+  box-shadow:
+    0 0 45px rgba(0, 255, 170, 0.6),
+    0 0 70px rgba(102, 204, 255, 0.35),
+    0 0 90px rgba(0, 119, 255, 0.25),
+    0 20px 60px rgba(0, 0, 0, 0.65),
+    inset 0 4px 10px rgba(255, 255, 255, 0.06),
+    inset 0 -6px 16px rgba(0, 255, 170, 0.25);
+}
+
+.footer-card {
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border-radius: 30px;
+  padding: 40px;
+  flex: 1 1 450px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Removed box-shadow here */
+}
+.section-divider {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: linear-gradient(
+    90deg,
+    #111111 0%,
+    #0077ff 20%,
+    #00ffaa 50%,
+    #0055ff 80%,
+    #111111 100%
+  );
+  border: none;
+}
+
+.footer-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-family: 'Lastica', sans-serif;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.office-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-icon {
+  width: 32px; /* fix height */
+  height: auto; /* auto width, preserve original aspect ratio */
+  display: block;
+}
+.footer-icon-gmail {
+  width: 48px; /* fix height */
+  height: auto; /* auto width, preserve original aspect ratio */
+  display: block;
+}
+
+.footer-label {
+  font-weight: bold;
+  color: #88aadd;
+}
+
+.footer-value, .footer-link {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.office-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.address-block {
+  flex: 1;
+}
+
+.image-block {
+  flex-shrink: 0;
+}
+
+.footer-image {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin-top: 5px; /* tiny adjustment for vertical balance */
+}
+
+.footer-bottom {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+  margin-top: 30px;
+}
+.footer-header {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contact-table {
+  display: grid;
+  grid-template-columns: 40px 150px 1fr;
+  align-items: center;
+  gap: 10px 20px;
+}
+
+.contact-row {
+  display: contents; /* flatten rows into the grid */
+}
+.footer-icon,
+.footer-icon-gmail {
+  filter: drop-shadow(0 0 2px #00ffaa)      /* inner halo */
+          drop-shadow(0 0 5px #00ffaa)      /* outer glow */;
+}
+
+.footer-icon {
+  display: block;
+  margin: 0 auto; /* center the icon horizontally */
+  width: 32px;
+  height: auto;
+}
+.footer-icon-gmail {
+  display: block;
+  margin: 0 auto; /* center the icon horizontally */
+  width: 32px;
+  height: auto;
+}
+
+.contact-label {
+  font-weight: bold;
+  color: #88aadd;
+  text-align: left;
+}
+
+.contact-value {
+  color: #ccc;
+  text-align: left;
+}
+.contact-divider {
+  grid-column: 1 / span 3;
+  height: 2px;
+  background: linear-gradient(90deg,
+    #111111 0%,   /* Gray start */
+    #0077ff 20%,  /* Blue starts showing */
+    #00ffaa 50%,  /* Bright teal in the center */
+    #0055ff 80%,  /* Blue fades out */
+    #111111 100%  /* Gray end */
+  );
+  margin: 10px 0;
+  border: none;
+}
+.contact-divider-small {
+  grid-column: 2 / span 2;
+  height: 2px;
+  background: linear-gradient(90deg,
+    #111111 0%,    /* Background gray */
+    #0077ff 47%,   /* Blue starts */
+    #00ffaa 50%,   /* Peak teal at dead center */
+    #0077ff 53%,   /* Back to main blue */
+    #111111 100%   /* Background gray again */
+  );
+  margin: 5px 0;
+  border: none;
+}
+.footer-hours {
+  max-width: 600px;
+  padding: 10px 30px; /* Even smaller vertical padding */
+  margin-top: 50px;
+  text-align: center;
+  align-self: center; /* <<< critical: prevent flex "stretch" */
+  flex: none;         /* <<< critical: don't flex-grow */
+}
+
+.footer-hours-text {
+  font-size: 1.4em;
+  color: #ccc;
+  margin-top: 5px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+details summary {
+  display: block;
+  cursor: pointer;
+  padding: 0.5em 0;
+}
+
+.summary-left {
+  text-align: left;
+    display: list-item; /* keeps the arrow */
+  list-style-position: inside;
+}
+.details-left {
+  text-align: left;
+}
+
+.details-left summary {
+  display: list-item;
+  text-align: left;
+  list-style-position: inside;
+  cursor: pointer;
+  padding: 0.5em 0;
+}
+.left-align {
+  text-align: left;
+}
+

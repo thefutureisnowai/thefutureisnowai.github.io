@@ -1,1 +1,9 @@
 *.swp
+_site
+_site
+*.jpg
+!/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith.jpg
+*.jpeg
+archive
+_site
+*.swo
