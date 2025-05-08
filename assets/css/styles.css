@@ -360,13 +360,6 @@ box-shadow:
   max-width: 100%; /* Prevents overexpansion */
 }
 
-.popout-box {
-  flex-shrink: 1;
-  flex-grow: 0;
-  min-width: fit-content; /* <-- Important */
-  max-width: calc(100% - 200px); /* Reserve nav space */
-  white-space: nowrap; /* <-- Force Secure Computer onto one line */
-}
 
 .menu {
   right: 0;
