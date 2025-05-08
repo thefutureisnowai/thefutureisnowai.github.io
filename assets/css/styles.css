@@ -123,7 +123,7 @@ a.active {
 -------------------- */
 body {
   background-color: #000;
-  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.jpg');
+  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
     background-repeat: repeat-y;                /* Tile vertically */
 /*  background-size: cover; */
     background-size: 100% calc(100vh - 360px); /* Adjust this height */
