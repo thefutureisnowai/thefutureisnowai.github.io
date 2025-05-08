@@ -90,7 +90,10 @@ h1 {
   text-align: center;
 }
 h1.main-title {
-  white-space: nowrap; /* Force H1 to stay single-line */
+  font-size: clamp(1.8rem, 5vw, 3em);
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
 }
 
 h1:hover {
@@ -338,7 +341,7 @@ box-shadow:
 .styled-text {
   font-family: 'Lastica', sans-serif;
   font-weight: bold;
-  font-size: 3em;
+    font-size: clamp(1.8rem, 5vw, 3em);
   background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
