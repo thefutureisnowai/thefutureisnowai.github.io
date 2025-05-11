@@ -9,9 +9,18 @@ header.top-gradient {
   justify-content: center;
   align-items: center;
   padding: 50px 0px;
+  margin: 0;
     z-index: 2; /* or higher than .main-content-box */
+	   box-sizing: border-box; /* Include padding in width calculation */
 }
-
+@media (max-width: 768px) {
+  .header-content, .footer-wrapper {
+    width: 100vw; /* Adjust to viewport width */
+    padding: 0; /* Remove extra padding */
+    margin: 0 auto; /* Center horizontally */
+    box-sizing: border-box;
+  }
+}
 /* Divider line */
 hr {
   border: none;
