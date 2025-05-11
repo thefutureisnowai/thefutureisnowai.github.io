@@ -3,8 +3,7 @@
 -------------------- */
 /* Top Section: Full dark background */
 header.top-gradient {
-  width: 100%;
-  min-height: 300px;
+  width: 100vw;
   background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
   display: flex;
   justify-content: center;
@@ -372,9 +371,9 @@ box-shadow:
 /* Footer Styling */
 
 .footer-gradient {
-  width: 100%;
+  width: 100vw;
   background: radial-gradient(circle at center, #001830 10%, #000f20 60%, #000810 100%);
-  padding: 60px 20px;
+  padding: 60px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
