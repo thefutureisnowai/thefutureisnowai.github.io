@@ -1,57 +1,45 @@
-/* -------------------
-   Global Styles
--------------------- */
-/* Top Section: Full dark background */
+/*
+	Header
+*/
+
 header.top-gradient {
   width: 100vw;
-  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  max-width: 100vw;
+  padding: 50px 0;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0px;
-  margin: 0;
-    z-index: 2; /* or higher than .main-content-box */
-	   box-sizing: border-box; /* Include padding in width calculation */
-}
-@media (max-width: 768px) {
-  .header-content, .footer-wrapper {
-    width: 100vw; /* Adjust to viewport width */
-    padding: 0; /* Remove extra padding */
-    margin: 0 auto; /* Center horizontally */
-    box-sizing: border-box;
-  }
-}
-/* Divider line */
-hr {
-  border: none;
-  height: 2px;
-  margin: 50px 0;
-  background: linear-gradient(90deg,
-    #111111 0%,   /* Gray start */
-    #0077ff 20%,  /* Blue starts showing */
-    #00ffaa 50%,  /* Bright teal in the center */
-    #0055ff 80%,  /* Blue fades out */
-    #111111 100%  /* Gray end */
-  );
-}
-
-/* Font Face Setup */
-@font-face {
-  font-family: 'Lastica';
-  src: url('/assets/fonts/Lastica.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 /* -------------------
    Popout Box
 -------------------- */
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%; /* Ensure it takes full width within the header */
+}
+
+.popout-wrapper {
+  width: clamp(300px, 90vw, 1000px); /* Responsive and constrained width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .popout-box {
   background: linear-gradient(145deg, #111111, #1a1a1a);
   border-radius: 30px;
   padding: 70px 90px;
   text-align: center;
-  max-width: 900px;
+  max-width: 90vw;
   color: #ffffff;
   text-shadow:
     0 0 8px rgba(0, 102, 119, 0.45),
@@ -82,6 +70,91 @@ hr {
     inset 0 6px 16px rgba(255, 255, 255, 0.08),
     inset 0 -8px 24px rgba(0, 255, 170, 0.3);
 }
+.title-content {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: clamp(1rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin: 0;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.title-nav-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px; /* more breathing room */
+  max-width: 100%; /* Prevents overexpansion */
+}
+
+.menu {
+  right: 0;
+  top: 100%; /* dropdown menu will still open downwards */
+}
+
+/* General Layout for Title Box */
+.lower-block {
+  display: flex;
+  align-items: center; /* Vertically center text and image */
+  justify-content: center; /* Horizontally center the entire block */
+  gap: 10px; /* Space between text and image */
+  margin: 20px 0;
+  padding: 10px;
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box;
+}
+
+.title-content {
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  align-items: flex-end; /* Align text to the right */
+  text-align: right;
+}
+
+/* Text Styling */
+.main-title {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive font size */
+  margin: 0;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Image Styling */
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-image {
+  max-width: 7vw; /* Responsive image size */
+  height: auto;
+}
+
+/* Title Box with Shadow */
+.popout-box {
+  padding: 40px 20px;
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4), 0 0 50px rgba(102, 204, 255, 0.25);
+  max-width: 90vw; /* Ensures it fits on smaller screens */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Font Face Setup */
+@font-face {
+  font-family: 'Lastica';
+  src: url('/assets/fonts/Lastica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* -------------------
    Typography
@@ -107,57 +180,6 @@ h1.main-title {
 h1:hover {
   transform: scale(1.03);
 }
-
-/* -------------------
-   Link Styles
--------------------- */
-
-a {
-  color: #88aadd;
-  font-weight: bold;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-a:hover {
-  color: #aaccee;
-  text-decoration: underline double;
-}
-
-a.active {
-  font-weight: bold;
-  text-decoration: underline double;
-  color: #99bbdd;
-}
-
-/* -------------------
-   Base Body Setup
--------------------- */
-body {
-  background-color: #000;
-  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
-    background-repeat: repeat-y;                /* Tile vertically */
-/*  background-size: cover; */
-    background-size: 100% calc(100vh - 360px); /* Adjust this height */
-  background-position: center center;
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #ccc;
-  font-weight: 500;
-}
-
-/* https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2023/08/webb_captures_detailed_beauty_of_ring_nebula_nircam_image/25047351-1-eng-GB/Webb_captures_detailed_beauty_of_Ring_Nebula_NIRCam_image_pillars.jpg 
-https://upload.wikimedia.org/wikipedia/commons/b/b2/Boomerang_nebula.jpg
-https://i.pinimg.com/originals/62/37/36/623736b9d363314111a4e525434275d9.jpg
-https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.75ZVnsu4WKxAzp3aqlJk0wHaEu%26pid%3DApi&f=1&ipt=632c9d0cdeb1208f99de8c3d1ab1d7d14c3bdce5b1ceead40310beb12cee113a&ipo=images
-https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.b-7-i1P-XWTycWxnTpuBnAHaEs%26pid%3DApi&f=1&ipt=96078be845e731a605e6f64d0a18b2675364404f48ad3d4ba76436440d561c95&ipo=images
-https://wallpapercave.com/wp/FjnZ25X.jpg
-https://i.pinimg.com/originals/2d/e5/98/2de598edc8c749d420452b4304db5cce.jpg
-https://www.astroasheville.org/wp-content/uploads/2013/04/Hubble-Crab-Nebula.jpg
-https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/veil-nebula-violet-blue-green-galaxy-johari-smith.jpg
- */
-
 /* -------------------
    Navigation Overhaul
 -------------------- */
@@ -265,6 +287,71 @@ https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/veil-nebula
 }
 /* Navigation Menu */
 
+/* Divider line */
+hr {
+  border: none;
+  height: 2px;
+  margin: 50px 0;
+  background: linear-gradient(90deg,
+    #111111 0%,   /* Gray start */
+    #0077ff 20%,  /* Blue starts showing */
+    #00ffaa 50%,  /* Bright teal in the center */
+    #0055ff 80%,  /* Blue fades out */
+    #111111 100%  /* Gray end */
+  );
+}
+
+/* -------------------
+   Link Styles
+-------------------- */
+
+a {
+  color: #88aadd;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  color: #aaccee;
+  text-decoration: underline double;
+}
+
+a.active {
+  font-weight: bold;
+  text-decoration: underline double;
+  color: #99bbdd;
+}
+
+/* -------------------
+   Base Body Setup
+-------------------- */
+body {
+  background-color: #000;
+  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
+    background-repeat: repeat-y;                /* Tile vertically */
+/*  background-size: cover; */
+    background-size: 100% calc(100vh - 360px); /* Adjust this height */
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #ccc;
+  font-weight: 500;
+}
+
+/* https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2023/08/webb_captures_detailed_beauty_of_ring_nebula_nircam_image/25047351-1-eng-GB/Webb_captures_detailed_beauty_of_Ring_Nebula_NIRCam_image_pillars.jpg 
+https://upload.wikimedia.org/wikipedia/commons/b/b2/Boomerang_nebula.jpg
+https://i.pinimg.com/originals/62/37/36/623736b9d363314111a4e525434275d9.jpg
+https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.75ZVnsu4WKxAzp3aqlJk0wHaEu%26pid%3DApi&f=1&ipt=632c9d0cdeb1208f99de8c3d1ab1d7d14c3bdce5b1ceead40310beb12cee113a&ipo=images
+https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.b-7-i1P-XWTycWxnTpuBnAHaEs%26pid%3DApi&f=1&ipt=96078be845e731a605e6f64d0a18b2675364404f48ad3d4ba76436440d561c95&ipo=images
+https://wallpapercave.com/wp/FjnZ25X.jpg
+https://i.pinimg.com/originals/2d/e5/98/2de598edc8c749d420452b4304db5cce.jpg
+https://www.astroasheville.org/wp-content/uploads/2013/04/Hubble-Crab-Nebula.jpg
+https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/veil-nebula-violet-blue-green-galaxy-johari-smith.jpg
+ */
+
+
 /* -------------------
    Footer Styles
 -------------------- */
@@ -308,17 +395,6 @@ box-shadow:
 
 }
 
-.lower-block {
-  display: flex;
-  align-items: center; /* Center the image between the two lines */
-  gap: 10px; /* Adjust space between image and text */
-  margin-top: 10px; /* Space from Secure Computer */
-}
-
-.header-image {
-  width: 100px; /* or whatever fits */
-  height: auto;
-}
 .office-content {
   display: flex;
   align-items: flex-start;
@@ -346,37 +422,6 @@ box-shadow:
   flex-direction: column;
   line-height: 1.2; /* Adjust if needed */
 }
-.styled-text {
-  font-family: 'Lastica', sans-serif;
-  font-weight: bold;
-    font-size: clamp(1.8rem, 5vw, 3em);
-  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: left; /* so it aligns correctly */
-}
-.header-content {
-  display: flex;
-  justify-content: center; /* Center the group horizontally */
-  align-items: flex-start; /* Align tops */
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 40px;
-  box-sizing: border-box;
-}
-.title-nav-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px; /* more breathing room */
-  max-width: 100%; /* Prevents overexpansion */
-}
-
-
-.menu {
-  right: 0;
-  top: 100%; /* dropdown menu will still open downwards */
-}
-
 /* Footer Styling */
 
 .footer-gradient {
@@ -644,32 +689,5 @@ details summary {
 }
 .left-align {
   text-align: left;
-}
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .popout-box {
-    padding: 40px 20px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .lower-block {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .styled-text {
-    text-align: center;
-  }
-
-  .nav-menu {
-    justify-content: center;
-    margin-top: 20px;
-  }
 }
 
