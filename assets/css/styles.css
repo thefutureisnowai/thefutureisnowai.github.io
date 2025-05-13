@@ -6,26 +6,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  font-family: 'Lastica', sans-serif;
-  background-color: #000;
-  color: #ccc;
-  line-height: 1.5;
-}
-
-/* Font Face for Lastica */
-@font-face {
-  font-family: 'Lastica';
-  src: url('/assets/fonts/Lastica.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Header Gradient */
 .header {
   width: 100vw;
-  padding: 50px 0;
+  padding: 5vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,32 +19,21 @@ body {
   position: relative;
   z-index: 1;
 }
-
 /* Popout Box */
 .popout-box {
   background: linear-gradient(145deg, #111111, #1a1a1a);
   border-radius: 20px;
-  padding: 40px 20px;
-  margin-bottom: 20px;
+  padding: 2vh 2vw;
+  margin-bottom: 2vh;
   text-align: center;
-  color: #ffffff;
-  text-shadow:
-    0 0 8px rgba(0, 102, 119, 0.45),
-    0 0 12px rgba(0, 102, 119, 0.35),
-    0 0 20px rgba(0, 102, 119, 0.2);
-  box-shadow:
-    0 0 30px rgba(0, 255, 170, 0.8),    /* Bright teal edge */
-    0 0 60px rgba(102, 204, 255, 0.5),  /* Transition: light blue */
-    0 0 90px rgba(0, 119, 255, 0.3),    /* Core blue */
-    0 0 110px rgba(0, 85, 255, 0.15),   /* Indigo-blue fade */
-    0 20px 60px rgba(0, 0, 0, 0.75),
-    inset 0 4px 10px rgba(255, 255, 255, 0.06),
-    inset 0 -6px 16px rgba(0, 255, 170, 0.25);
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4),
+              0 0 50px rgba(102, 204, 255, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
 .popout-box:hover {
   transform: scale(1.025);
   box-shadow:
@@ -72,19 +45,46 @@ body {
     inset 0 6px 16px rgba(255, 255, 255, 0.08),
     inset 0 -8px 24px rgba(0, 255, 170, 0.3);
 }
-
+/* Font Face for Lastica */
+@font-face {
+  font-family: 'Lastica';
+  src: url('/assets/fonts/Lastica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures the font loads smoothly */
+}
+/* Title and Logo Wrapper */
+.title-logo-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the entire block */
+  align-items: center;
+  gap: 20px; /* Space between logo and title */
+}
 /* Title */
 .title {
   font-family: 'Lastica', sans-serif;
   font-weight: bold;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(1.0rem, 4vw, 3.0rem); /* Adjusted size */
   line-height: 1.2;
   margin: 0;
+  text-align: right; /* Align to the right */
   background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
 }
-
+/* Logo Styling */
+.logo {
+  position: relative; /* Independent of the title */
+  margin-right: -8vw;
+}
+.logo img {
+  max-width: clamp(40px, 4vw, 100px); /* Responsive logo size */
+  height: auto;
+  display: block;
+}
 /* Navigation Menu */
 .nav-menu {
   display: flex;
@@ -92,7 +92,6 @@ body {
   align-items: center;
   margin-top: 20px;
 }
-
 .menu-toggle {
   display: none;
 }
@@ -159,34 +158,10 @@ body {
 .menu-toggle:checked + .menu-toggle-label + .drop-down {
   display: block;
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header {
-    padding: 30px 0;
-  }
-
-  .title {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-  }
-
-  .drop-down {
-    width: 90vw;
-    text-align: center;
-    left: 5%; /* Adjust for smaller screens */
-  }
-
-  .hamburger {
-    width: 25px;
-    height: 15px;
-  }
-
-  .hamburger span {
-    height: 2px;
-  }
-
-  .drop-down a {
-    padding: 10px;
-  }
+body {
+  font-family: 'Lastica', sans-serif;
+  background-color: #000;
+  color: #ccc;
+  line-height: 1.5;
 }
 
