@@ -32,7 +32,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: auto;  /* Let content define the width */
+  height: auto; /* Let content define the height */
+  max-width: 100%; /* Prevent overflow on small screens */
 }
 .popout-box:hover {
   transform: scale(1.025);
@@ -45,6 +47,15 @@
     inset 0 6px 16px rgba(255, 255, 255, 0.08),
     inset 0 -8px 24px rgba(0, 255, 170, 0.3);
 }
+/* Title and Logo Wrapper */
+.title-logo-wrapper {
+  position: relative;
+  justify-content: center; /* Center the entire block */
+  align-items: center;
+  width: auto;  /* Let content define the width */
+  height: auto; /* Let content define the height */
+  max-width: 100%; /* Prevent overflow on small screens */
+}
 /* Font Face for Lastica */
 @font-face {
   font-family: 'Lastica';
@@ -52,14 +63,6 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* Ensures the font loads smoothly */
-}
-/* Title and Logo Wrapper */
-.title-logo-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center; /* Center the entire block */
-  align-items: center;
-  gap: 20px; /* Space between logo and title */
 }
 /* Title */
 .title {
@@ -77,8 +80,10 @@
 }
 /* Logo Styling */
 .logo {
-  position: relative; /* Independent of the title */
-  margin-right: -8vw;
+  position: absolute; /* Allows precise placement */
+  bottom: 0; /* Align to bottom */
+  left: 3vw; /* Align to left */
+  margin: 0px; /* Space from the corner */
 }
 .logo img {
   max-width: clamp(40px, 4vw, 100px); /* Responsive logo size */
