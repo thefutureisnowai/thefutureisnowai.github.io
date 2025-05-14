@@ -379,6 +379,7 @@ box-shadow:
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .address-block {
@@ -412,14 +413,21 @@ box-shadow:
   -webkit-text-fill-color: transparent;
 }
 .contact-table {
-  display: grid;
-  grid-template-columns: 40px 150px 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: center;
   align-items: center;
-  gap: 10px 20px;
+  width: 100%; /* Full width for better alignment */
 }
 
 .contact-row {
-  display: contents; /* flatten rows into the grid */
+  display: flex;
+  gap: 1vw;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; /* Allow row to span full width */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 .footer-icon,
 .footer-icon-gmail {
@@ -439,6 +447,30 @@ box-shadow:
   width: 32px;
   height: auto;
 }
+/* Contact Table: Flex Layout for Better Responsiveness */
+.contact-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%; /* Full width for better alignment */
+}
+
+.contact-row {
+  display: flex;
+  gap: 1vw;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; /* Allow row to span full width */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  padding: 0.5vh 1vw; /* Add padding for better spacing */
+}
+
+.contact-label, .contact-value {
+  white-space: nowrap; /* Prevent text from breaking in the middle */
+  padding: .5vh 1vw; /* Add padding for uniform spacing */
+}
 
 .contact-label {
   font-weight: bold;
@@ -448,10 +480,12 @@ box-shadow:
 
 .contact-value {
   color: #ccc;
-  text-align: left;
+  text-align: right;
 }
+
+/* Divider Styling */
 .contact-divider {
-  grid-column: 1 / span 3;
+  width: 90%; /* Adjusted to fit within the contact card */
   height: 2px;
   background: linear-gradient(90deg,
     #111111 0%,   /* Gray start */
@@ -460,11 +494,11 @@ box-shadow:
     #0055ff 80%,  /* Blue fades out */
     #111111 100%  /* Gray end */
   );
-  margin: 10px 0;
+  margin: 10px auto;
   border: none;
 }
 .contact-divider-small {
-  grid-column: 2 / span 2;
+  width: 90%; /* Adjusted to fit within the contact card */
   height: 2px;
   background: linear-gradient(90deg,
     #111111 0%,    /* Background gray */
@@ -473,9 +507,10 @@ box-shadow:
     #0077ff 53%,   /* Back to main blue */
     #111111 100%   /* Background gray again */
   );
-  margin: 5px 0;
+  margin: 5px auto;
   border: none;
 }
+
 .footer-hours {
   max-width: 600px;
   padding: 10px 30px; /* Even smaller vertical padding */
