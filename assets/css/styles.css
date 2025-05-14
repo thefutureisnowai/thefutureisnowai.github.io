@@ -1,76 +1,42 @@
-/* -------------------
-   Global Styles
--------------------- */
-/* Top Section: Full dark background */
-header.top-gradient {
-  width: 100vw;
-  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0px;
+/* Reset and Global */
+*,
+*::before,
+*::after {
   margin: 0;
-    z-index: 2; /* or higher than .main-content-box */
-	   box-sizing: border-box; /* Include padding in width calculation */
+  padding: 0;
+  box-sizing: border-box;
 }
-@media (max-width: 768px) {
-  .header-content, .footer-wrapper {
-    width: 100vw; /* Adjust to viewport width */
-    padding: 0; /* Remove extra padding */
-    margin: 0 auto; /* Center horizontally */
-    box-sizing: border-box;
-  }
-}
-/* Divider line */
-hr {
-  border: none;
-  height: 2px;
-  margin: 50px 0;
-  background: linear-gradient(90deg,
-    #111111 0%,   /* Gray start */
-    #0077ff 20%,  /* Blue starts showing */
-    #00ffaa 50%,  /* Bright teal in the center */
-    #0055ff 80%,  /* Blue fades out */
-    #111111 100%  /* Gray end */
-  );
-}
-
-/* Font Face Setup */
-@font-face {
-  font-family: 'Lastica';
-  src: url('/assets/fonts/Lastica.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* -------------------
-   Popout Box
--------------------- */
-.popout-box {
-  background: linear-gradient(145deg, #111111, #1a1a1a);
-  border-radius: 30px;
-  padding: 70px 90px;
-  text-align: center;
-  max-width: 900px;
-  color: #ffffff;
-  text-shadow:
-    0 0 8px rgba(0, 102, 119, 0.45),
-    0 0 12px rgba(0, 102, 119, 0.35),
-    0 0 20px rgba(0, 102, 119, 0.2);
-  box-shadow:
-    0 0 30px rgba(0, 255, 170, 0.8),    /* Bright teal edge */
-    0 0 60px rgba(102, 204, 255, 0.5),  /* Transition: light blue */
-    0 0 90px rgba(0, 119, 255, 0.3),    /* Core blue */
-    0 0 110px rgba(0, 85, 255, 0.15),   /* Indigo-blue fade */
-    0 20px 60px rgba(0, 0, 0, 0.75),
-    inset 0 4px 10px rgba(255, 255, 255, 0.06),
-    inset 0 -6px 16px rgba(0, 255, 170, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-clip: padding-box;
+/* Header Gradient */
+.header {
+  width: 100vw;
+  height: 35vh;
+  padding: 5vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  overflow: visible; /* Ensure gradient does not expand with dropdown */
   position: relative;
   z-index: 1;
 }
-
+/* Popout Box */
+.popout-box {
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border-radius: 20px;
+  padding: 2vh 2vw;
+  margin-bottom: 2vh;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4),
+              0 0 50px rgba(102, 204, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;  /* Let content define the width */
+  height: auto; /* Let content define the height */
+  max-width: 100%; /* Prevent overflow on small screens */
+}
 .popout-box:hover {
   transform: scale(1.025);
   box-shadow:
@@ -82,62 +48,144 @@ hr {
     inset 0 6px 16px rgba(255, 255, 255, 0.08),
     inset 0 -8px 24px rgba(0, 255, 170, 0.3);
 }
-
-/* -------------------
-   Typography
--------------------- */
-
-h1 {
+/* Title and Logo Wrapper */
+.title-logo-wrapper {
+  position: relative;
+  justify-content: center; /* Center the entire block */
+  align-items: center;
+  width: auto;  /* Let content define the width */
+  height: auto; /* Let content define the height */
+  max-width: 100%; /* Prevent overflow on small screens */
+}
+/* Font Face for Lastica */
+@font-face {
+  font-family: 'Lastica';
+  src: url('/assets/fonts/Lastica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures the font loads smoothly */
+}
+/* Title */
+.title {
   font-family: 'Lastica', sans-serif;
   font-weight: bold;
-  font-size: 3em;
+  font-size: clamp(1.0rem, 4vw, 3.0rem); /* Adjusted size */
+  line-height: 1.2;
   margin: 0;
+  text-align: right; /* Align to the right */
   background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center;
+  position: relative;
+  z-index: 1;
 }
-h1.main-title {
-  font-size: clamp(1.8rem, 5vw, 3em);
-  white-space: normal;
-  word-break: break-word;
-  text-align: center;
+/* Logo Styling */
+.logo {
+  position: absolute; /* Allows precise placement */
+  bottom: 0; /* Align to bottom */
+  left: 3vw; /* Align to left */
+  margin: 0px; /* Space from the corner */
 }
-
-h1:hover {
-  transform: scale(1.03);
+.logo img {
+  max-width: clamp(40px, 4vw, 100px); /* Responsive logo size */
+  height: auto;
+  display: block;
 }
-
-/* -------------------
-   Link Styles
--------------------- */
-
-a {
-  color: #88aadd;
-  font-weight: bold;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+/* Navigation Menu */
+.menu-toggle {
+  display: none;
 }
 
-a:hover {
-  color: #aaccee;
-  text-decoration: underline double;
+.menu-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased space between text and hamburger */
+  cursor: pointer;
+  color: #ccc;
+  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
+}
+/* Hamburger Icon */
+.hamburger {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a.active {
-  font-weight: bold;
-  text-decoration: underline double;
-  color: #99bbdd;
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
 }
 
-/* -------------------
-   Base Body Setup
--------------------- */
+/* Hover Effect on Hamburger */
+.menu-toggle-label:hover .hamburger span {
+  background: #00ffaa; /* Neon teal color */
+  box-shadow: 0 0 8px rgba(0, 255, 170, 0.8),  /* Bright neon glow */
+              0 0 12px rgba(102, 204, 255, 0.5), /* Blue transition */
+              0 0 16px rgba(0, 119, 255, 0.4);  /* Core blue glow */
+}
+
+/* Animated Scale on Hover */
+.menu-toggle-label:hover .hamburger {
+  transform: scale(1.1); /* Slight enlargement */
+}
+
+/* Drop-Down Menu */
+.drop-down {
+  display: none;
+  margin-top: 5px;
+  list-style: none;
+  background: #111111; /* Solid background to remove transparency */
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4),     /* Teal edge (subtle) */
+              0 0 50px rgba(102, 204, 255, 0.25),  /* Light blue transition */
+              0 0 70px rgba(0, 119, 255, 0.15),    /* Core blue */
+              0 10px 30px rgba(0, 0, 0, 0.5),      /* Standard drop shadow */
+              inset 0 2px 6px rgba(255, 255, 255, 0.04),
+              inset 0 -4px 10px rgba(0, 255, 170, 0.15);
+  padding: 10px 0;
+  position: absolute;
+  top: 100%; /* Start from the bottom of the nav */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3; /* Ensures dropdown appears above the header */
+}
+
+/* Drop-Down Hover Effect */
+.drop-down li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.drop-down a {
+  font-family: 'Lastica', sans-serif;
+  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: block;
+  transition: background 0.3s, color 0.3s;
+}
+
+.drop-down a:hover {
+  background: rgba(0, 255, 170, 0.2);
+  color: #fff;
+}
+
+/* Toggle Dropdown */
+.menu-toggle:checked + .menu-toggle-label + .drop-down {
+  display: block;
+}
 body {
   background-color: #000;
   background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
-    background-repeat: repeat-y;                /* Tile vertically */
-/*  background-size: cover; */
-    background-size: 100% calc(100vh - 360px); /* Adjust this height */
+  background-repeat: repeat-y;                /* Tile vertically */
+  background-size: 100vw; /* Adjust this height */
   background-position: center center;
   background-attachment: fixed;
   margin: 0;
@@ -147,132 +195,6 @@ body {
   font-weight: 500;
 }
 
-/* https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2023/08/webb_captures_detailed_beauty_of_ring_nebula_nircam_image/25047351-1-eng-GB/Webb_captures_detailed_beauty_of_Ring_Nebula_NIRCam_image_pillars.jpg 
-https://upload.wikimedia.org/wikipedia/commons/b/b2/Boomerang_nebula.jpg
-https://i.pinimg.com/originals/62/37/36/623736b9d363314111a4e525434275d9.jpg
-https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.75ZVnsu4WKxAzp3aqlJk0wHaEu%26pid%3DApi&f=1&ipt=632c9d0cdeb1208f99de8c3d1ab1d7d14c3bdce5b1ceead40310beb12cee113a&ipo=images
-https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.b-7-i1P-XWTycWxnTpuBnAHaEs%26pid%3DApi&f=1&ipt=96078be845e731a605e6f64d0a18b2675364404f48ad3d4ba76436440d561c95&ipo=images
-https://wallpapercave.com/wp/FjnZ25X.jpg
-https://i.pinimg.com/originals/2d/e5/98/2de598edc8c749d420452b4304db5cce.jpg
-https://www.astroasheville.org/wp-content/uploads/2013/04/Hubble-Crab-Nebula.jpg
-https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/veil-nebula-violet-blue-green-galaxy-johari-smith.jpg
- */
-
-/* -------------------
-   Navigation Overhaul
--------------------- */
-
-/* Hide default checkbox */
-#menu-toggle {
-  display: none;
-}
-
-/* Layout */
-.nav-menu {
-  position: relative;
-  top: 0;
-  right: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  margin-left: 10px; /* <<< NEW: adds small push-off from title */
-}
-
-/* Label styling */
-.menu-toggle-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  gap: 15px;
-}
-
-/* Text next to hamburger */
-.menu-text {
-  color: #ccc;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-/* Hamburger box */
-.hamburger {
-  width: 30px;
-  height: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  background: #ccc;
-  border-radius: 2px;
-  transition: 0.4s;
-}
-
-/* Animate to X */
-#menu-toggle:checked + .menu-toggle-label .hamburger span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-#menu-toggle:checked + .menu-toggle-label .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-#menu-toggle:checked + .menu-toggle-label .hamburger span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Dropdown Menu */
-.menu {
-  position: absolute;
-  left: 0; /* <<< use left instead of right */
-  top: 60px;
-  min-width: 220px;
-  max-height: 0;
-  overflow: hidden;
-  background: rgba(20, 20, 20, 0.95);
-  border: 1px solid #333;
-  border-radius: 10px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(6px);
-  transition: max-height 0.4s ease-in-out;
-}
-
-/* Expand on toggle */
-.menu-toggle-label:hover + .menu,
-.menu:hover {
-  max-height: 500px;
-}
-/* Menu Items */
-.menu li {
-  text-align: right;
-}
-
-.menu li a {
-  display: block;
-  padding: 15px 20px;
-  color: #ccc;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
-}
-
-.menu li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-}
-/* Navigation Menu */
-
-/* -------------------
-   Footer Styles
--------------------- */
-
-/* -------------------
-   Main Content Box
--------------------- */
-
 .main-content-box {
   background: linear-gradient(160deg, #0a0a0a 0%, #111122 100%);
   border-radius: 30px;
@@ -280,7 +202,7 @@ https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/veil-nebula
   margin: 60px auto;
   max-width: 1000px;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: clamp(0.8rem, 1vw, 1.2rem); /* Adjusted size */
   line-height: 1.7;
   text-shadow: 0 0 4px rgba(0, 234, 255, 0.3);
 box-shadow:
@@ -305,135 +227,84 @@ box-shadow:
   0 20px 60px rgba(0, 0, 0, 0.65),
   inset 0 4px 10px rgba(255, 255, 255, 0.06),
   inset 0 -6px 16px rgba(0, 255, 170, 0.2);
-
 }
-
-.lower-block {
-  display: flex;
-  align-items: center; /* Center the image between the two lines */
-  gap: 10px; /* Adjust space between image and text */
-  margin-top: 10px; /* Space from Secure Computer */
-}
-
-.header-image {
-  width: 100px; /* or whatever fits */
-  height: auto;
-}
-.office-content {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.address-block {
-  flex: 1; /* Grow to take available space */
-}
-
-.image-block {
-  flex-shrink: 0; /* Image stays its size */
-}
-
-.footer-image {
-  max-width: 250px;
-  height: auto;
-  display: block;
-  margin-top: 5px; /* adjust exactly */
-}
-
-.text-lines {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2; /* Adjust if needed */
-}
-.styled-text {
-  font-family: 'Lastica', sans-serif;
-  font-weight: bold;
-    font-size: clamp(1.8rem, 5vw, 3em);
-  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: left; /* so it aligns correctly */
-}
-.header-content {
-  display: flex;
-  justify-content: center; /* Center the group horizontally */
-  align-items: flex-start; /* Align tops */
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 40px;
-  box-sizing: border-box;
-}
-.title-nav-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px; /* more breathing room */
-  max-width: 100%; /* Prevents overexpansion */
-}
-
-
-.menu {
-  right: 0;
-  top: 100%; /* dropdown menu will still open downwards */
-}
-
 /* Footer Styling */
 
+/* Footer Gradient */
 .footer-gradient {
   width: 100vw;
-  background: radial-gradient(circle at center, #001830 10%, #000f20 60%, #000810 100%);
-  padding: 60px 0px;
+  padding: 6vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
   color: #ccc;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Footer Wrapper */
 .footer-wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px;
-  max-width: 1200px;
+  gap: 5vw;  /* Adjusted to match header spacing */
+  max-width: 80vw; /* Consistent with the header's responsive width */
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 3vh;
 }
 
+/* Pop Hover Effect */
 .pop-hover-effect {
   box-shadow:
-    0 0 30px rgba(0, 255, 170, 0.55),     /* Teal edge, more visible */
-    0 0 50px rgba(102, 204, 255, 0.25),   /* Light blue transition */
-    0 0 70px rgba(0, 119, 255, 0.15),     /* Core blue */
-    0 10px 30px rgba(0, 0, 0, 0.5),       /* Standard drop shadow */
-    inset 0 2px 6px rgba(255, 255, 255, 0.04),
-    inset 0 -4px 10px rgba(0, 255, 170, 0.15);
+    0 0 2vw rgba(0, 255, 170, 0.4),      /* Teal edge (subtle) */
+    0 0 3.5vw rgba(102, 204, 255, 0.25), /* Light blue transition */
+    0 0 5vw rgba(0, 119, 255, 0.15),     /* Core blue */
+    0 1vh 3vh rgba(0, 0, 0, 0.5),        /* Standard drop shadow */
+    inset 0 0.2vw 0.6vw rgba(255, 255, 255, 0.04),
+    inset 0 -0.4vw 1vw rgba(0, 255, 170, 0.15);
   backdrop-filter: blur(2px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pop-hover-effect:hover {
-  transform: scale(1.015);
+  transform: scale(1.025);
   box-shadow:
-    0 0 45px rgba(0, 255, 170, 0.6),
-    0 0 70px rgba(102, 204, 255, 0.35),
-    0 0 90px rgba(0, 119, 255, 0.25),
-    0 20px 60px rgba(0, 0, 0, 0.65),
-    inset 0 4px 10px rgba(255, 255, 255, 0.06),
-    inset 0 -6px 16px rgba(0, 255, 170, 0.25);
+    0 0 5vw rgba(0, 255, 170, 0.85),    /* Strong teal core */
+    0 0 10vw rgba(102, 204, 255, 0.55), /* Light blue (transition) */
+    0 0 14vw rgba(0, 119, 255, 0.35),   /* Deep blue */
+    0 0 18vw rgba(0, 85, 255, 0.2),     /* Indigo outer rim */
+    0 3vh 9vh rgba(0, 0, 0, 0.9),
+    inset 0 0.6vw 1.6vw rgba(255, 255, 255, 0.08),
+    inset 0 -0.8vw 2.4vw rgba(0, 255, 170, 0.3);
 }
-
+/* Footer Card */
 .footer-card {
   background: linear-gradient(145deg, #111111, #1a1a1a);
-  border-radius: 30px;
-  padding: 40px;
-  flex: 1 1 450px;
-  max-width: 500px;
+  border-radius: 20px;
+  padding: 4vh 2vw;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* Removed box-shadow here */
+  align-items: center;
+  text-align: center;
+  width: auto;  /* Let content define the width */
+  height: auto; /* Let content define the height */
+  max-width: 100%; /* Prevent overflow on small screens */
+  box-shadow:
+    0 0 2vw rgba(0, 255, 170, 0.4),      /* Teal edge (subtle) */
+    0 0 3.5vw rgba(102, 204, 255, 0.25), /* Light blue transition */
+    0 0 5vw rgba(0, 119, 255, 0.15),     /* Core blue */
+    0 1vh 3vh rgba(0, 0, 0, 0.5),        /* Standard drop shadow */
+    inset 0 0.2vw 0.6vw rgba(255, 255, 255, 0.04),
+    inset 0 -0.4vw 1vw rgba(0, 255, 170, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .section-divider {
   width: 100%;
   height: 2px;
@@ -451,7 +322,7 @@ box-shadow:
 
 .footer-title {
   text-align: center;
-  font-size: 2.5em;
+  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
   margin-bottom: 30px;
   font-family: 'Lastica', sans-serif;
   background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
@@ -508,6 +379,7 @@ box-shadow:
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .address-block {
@@ -541,14 +413,21 @@ box-shadow:
   -webkit-text-fill-color: transparent;
 }
 .contact-table {
-  display: grid;
-  grid-template-columns: 40px 150px 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: center;
   align-items: center;
-  gap: 10px 20px;
+  width: 100%; /* Full width for better alignment */
 }
 
 .contact-row {
-  display: contents; /* flatten rows into the grid */
+  display: flex;
+  gap: 1vw;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; /* Allow row to span full width */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 .footer-icon,
 .footer-icon-gmail {
@@ -568,6 +447,30 @@ box-shadow:
   width: 32px;
   height: auto;
 }
+/* Contact Table: Flex Layout for Better Responsiveness */
+.contact-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%; /* Full width for better alignment */
+}
+
+.contact-row {
+  display: flex;
+  gap: 1vw;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; /* Allow row to span full width */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  padding: 0.5vh 1vw; /* Add padding for better spacing */
+}
+
+.contact-label, .contact-value {
+  white-space: nowrap; /* Prevent text from breaking in the middle */
+  padding: .5vh 1vw; /* Add padding for uniform spacing */
+}
 
 .contact-label {
   font-weight: bold;
@@ -577,10 +480,12 @@ box-shadow:
 
 .contact-value {
   color: #ccc;
-  text-align: left;
+  text-align: right;
 }
+
+/* Divider Styling */
 .contact-divider {
-  grid-column: 1 / span 3;
+  width: 90%; /* Adjusted to fit within the contact card */
   height: 2px;
   background: linear-gradient(90deg,
     #111111 0%,   /* Gray start */
@@ -589,11 +494,11 @@ box-shadow:
     #0055ff 80%,  /* Blue fades out */
     #111111 100%  /* Gray end */
   );
-  margin: 10px 0;
+  margin: 10px auto;
   border: none;
 }
 .contact-divider-small {
-  grid-column: 2 / span 2;
+  width: 90%; /* Adjusted to fit within the contact card */
   height: 2px;
   background: linear-gradient(90deg,
     #111111 0%,    /* Background gray */
@@ -602,9 +507,10 @@ box-shadow:
     #0077ff 53%,   /* Back to main blue */
     #111111 100%   /* Background gray again */
   );
-  margin: 5px 0;
+  margin: 5px auto;
   border: none;
 }
+
 .footer-hours {
   max-width: 600px;
   padding: 10px 30px; /* Even smaller vertical padding */
@@ -645,31 +551,3 @@ details summary {
 .left-align {
   text-align: left;
 }
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .popout-box {
-    padding: 40px 20px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .lower-block {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .styled-text {
-    text-align: center;
-  }
-
-  .nav-menu {
-    justify-content: center;
-    margin-top: 20px;
-  }
-}
-
