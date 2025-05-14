@@ -18,7 +18,7 @@
   background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
   overflow: visible; /* Ensure gradient does not expand with dropdown */
   position: relative;
-  z-index: 1;
+  z-index: 50;
 }
 /* Popout Box */
 .popout-box {
@@ -153,7 +153,7 @@
   top: 100%; /* Start from the bottom of the nav */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3; /* Ensures dropdown appears above the header */
+  z-index: 100; /* Ensures dropdown appears above the header */
 }
 
 /* Drop-Down Hover Effect */
