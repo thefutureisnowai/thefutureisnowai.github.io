@@ -202,7 +202,7 @@ body {
   margin: 60px auto;
   max-width: 1000px;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: clamp(0.8rem, 1vw, 1.2rem); /* Adjusted size */
   line-height: 1.7;
   text-shadow: 0 0 4px rgba(0, 234, 255, 0.3);
 box-shadow:
@@ -227,6 +227,292 @@ box-shadow:
   0 20px 60px rgba(0, 0, 0, 0.65),
   inset 0 4px 10px rgba(255, 255, 255, 0.06),
   inset 0 -6px 16px rgba(0, 255, 170, 0.2);
+}
+/* Footer Styling */
 
+/* Footer Gradient */
+.footer-gradient {
+  width: 100vw;
+  padding: 6vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  color: #ccc;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Footer Wrapper */
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5vw;  /* Adjusted to match header spacing */
+  max-width: 80vw; /* Consistent with the header's responsive width */
+  width: 100%;
+  margin-bottom: 3vh;
+}
+
+/* Pop Hover Effect */
+.pop-hover-effect {
+  box-shadow:
+    0 0 2vw rgba(0, 255, 170, 0.4),      /* Teal edge (subtle) */
+    0 0 3.5vw rgba(102, 204, 255, 0.25), /* Light blue transition */
+    0 0 5vw rgba(0, 119, 255, 0.15),     /* Core blue */
+    0 1vh 3vh rgba(0, 0, 0, 0.5),        /* Standard drop shadow */
+    inset 0 0.2vw 0.6vw rgba(255, 255, 255, 0.04),
+    inset 0 -0.4vw 1vw rgba(0, 255, 170, 0.15);
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pop-hover-effect:hover {
+  transform: scale(1.025);
+  box-shadow:
+    0 0 5vw rgba(0, 255, 170, 0.85),    /* Strong teal core */
+    0 0 10vw rgba(102, 204, 255, 0.55), /* Light blue (transition) */
+    0 0 14vw rgba(0, 119, 255, 0.35),   /* Deep blue */
+    0 0 18vw rgba(0, 85, 255, 0.2),     /* Indigo outer rim */
+    0 3vh 9vh rgba(0, 0, 0, 0.9),
+    inset 0 0.6vw 1.6vw rgba(255, 255, 255, 0.08),
+    inset 0 -0.8vw 2.4vw rgba(0, 255, 170, 0.3);
+}
+/* Footer Card */
+.footer-card {
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border-radius: 20px;
+  padding: 4vh 2vw;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  width: auto;  /* Let content define the width */
+  height: auto; /* Let content define the height */
+  max-width: 100%; /* Prevent overflow on small screens */
+  box-shadow:
+    0 0 2vw rgba(0, 255, 170, 0.4),      /* Teal edge (subtle) */
+    0 0 3.5vw rgba(102, 204, 255, 0.25), /* Light blue transition */
+    0 0 5vw rgba(0, 119, 255, 0.15),     /* Core blue */
+    0 1vh 3vh rgba(0, 0, 0, 0.5),        /* Standard drop shadow */
+    inset 0 0.2vw 0.6vw rgba(255, 255, 255, 0.04),
+    inset 0 -0.4vw 1vw rgba(0, 255, 170, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-divider {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: linear-gradient(
+    90deg,
+    #111111 0%,
+    #0077ff 20%,
+    #00ffaa 50%,
+    #0055ff 80%,
+    #111111 100%
+  );
+  border: none;
+}
+
+.footer-title {
+  text-align: center;
+  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
+  margin-bottom: 30px;
+  font-family: 'Lastica', sans-serif;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.office-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-icon {
+  width: 32px; /* fix height */
+  height: auto; /* auto width, preserve original aspect ratio */
+  display: block;
+}
+.footer-icon-gmail {
+  width: 48px; /* fix height */
+  height: auto; /* auto width, preserve original aspect ratio */
+  display: block;
+}
+
+.footer-label {
+  font-weight: bold;
+  color: #88aadd;
+}
+
+.footer-value, .footer-link {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.office-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.address-block {
+  flex: 1;
+}
+
+.image-block {
+  flex-shrink: 0;
+}
+
+.footer-image {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin-top: 5px; /* tiny adjustment for vertical balance */
+}
+
+.footer-bottom {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+  margin-top: 30px;
+}
+.footer-header {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contact-table {
+  display: grid;
+  grid-template-columns: 40px 150px 1fr;
+  align-items: center;
+  gap: 10px 20px;
+}
+
+.contact-row {
+  display: contents; /* flatten rows into the grid */
+}
+.footer-icon,
+.footer-icon-gmail {
+  filter: drop-shadow(0 0 2px #00ffaa)      /* inner halo */
+          drop-shadow(0 0 5px #00ffaa)      /* outer glow */;
+}
+
+.footer-icon {
+  display: block;
+  margin: 0 auto; /* center the icon horizontally */
+  width: 32px;
+  height: auto;
+}
+.footer-icon-gmail {
+  display: block;
+  margin: 0 auto; /* center the icon horizontally */
+  width: 32px;
+  height: auto;
+}
+
+.contact-label {
+  font-weight: bold;
+  color: #88aadd;
+  text-align: left;
+}
+
+.contact-value {
+  color: #ccc;
+  text-align: left;
+}
+.contact-divider {
+  grid-column: 1 / span 3;
+  height: 2px;
+  background: linear-gradient(90deg,
+    #111111 0%,   /* Gray start */
+    #0077ff 20%,  /* Blue starts showing */
+    #00ffaa 50%,  /* Bright teal in the center */
+    #0055ff 80%,  /* Blue fades out */
+    #111111 100%  /* Gray end */
+  );
+  margin: 10px 0;
+  border: none;
+}
+.contact-divider-small {
+  grid-column: 2 / span 2;
+  height: 2px;
+  background: linear-gradient(90deg,
+    #111111 0%,    /* Background gray */
+    #0077ff 47%,   /* Blue starts */
+    #00ffaa 50%,   /* Peak teal at dead center */
+    #0077ff 53%,   /* Back to main blue */
+    #111111 100%   /* Background gray again */
+  );
+  margin: 5px 0;
+  border: none;
+}
+.footer-hours {
+  max-width: 600px;
+  padding: 10px 30px; /* Even smaller vertical padding */
+  margin-top: 50px;
+  text-align: center;
+  align-self: center; /* <<< critical: prevent flex "stretch" */
+  flex: none;         /* <<< critical: don't flex-grow */
+}
+
+.footer-hours-text {
+  font-size: 1.4em;
+  color: #ccc;
+  margin-top: 5px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+details summary {
+  display: block;
+  cursor: pointer;
+  padding: 0.5em 0;
+}
+
+.summary-left {
+  text-align: left;
+    display: list-item; /* keeps the arrow */
+  list-style-position: inside;
+}
+.details-left {
+  text-align: left;
+}
+
+.details-left summary {
+  display: list-item;
+  text-align: left;
+  list-style-position: inside;
+  cursor: pointer;
+  padding: 0.5em 0;
+}
+.left-align {
+  text-align: left;
+}
