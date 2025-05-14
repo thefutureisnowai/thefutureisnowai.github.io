@@ -9,6 +9,7 @@
 /* Header Gradient */
 .header {
   width: 100vw;
+  height: 35vh;
   padding: 5vh 0;
   display: flex;
   flex-direction: column;
@@ -91,12 +92,6 @@
   display: block;
 }
 /* Navigation Menu */
-.nav-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
 .menu-toggle {
   display: none;
 }
@@ -109,13 +104,14 @@
   color: #ccc;
   font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
 }
-
+/* Hamburger Icon */
 .hamburger {
   width: 30px;
   height: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hamburger span {
@@ -123,7 +119,20 @@
   height: 3px;
   background: #ccc;
   border-radius: 2px;
-  transition: 0.4s;
+  transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
+}
+
+/* Hover Effect on Hamburger */
+.menu-toggle-label:hover .hamburger span {
+  background: #00ffaa; /* Neon teal color */
+  box-shadow: 0 0 8px rgba(0, 255, 170, 0.8),  /* Bright neon glow */
+              0 0 12px rgba(102, 204, 255, 0.5), /* Blue transition */
+              0 0 16px rgba(0, 119, 255, 0.4);  /* Core blue glow */
+}
+
+/* Animated Scale on Hover */
+.menu-toggle-label:hover .hamburger {
+  transform: scale(1.1); /* Slight enlargement */
 }
 
 /* Drop-Down Menu */
@@ -131,9 +140,14 @@
   display: none;
   margin-top: 5px;
   list-style: none;
-  background: rgba(20, 20, 20, 0.95);
-  border-radius: 10px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+  background: #111111; /* Solid background to remove transparency */
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4),     /* Teal edge (subtle) */
+              0 0 50px rgba(102, 204, 255, 0.25),  /* Light blue transition */
+              0 0 70px rgba(0, 119, 255, 0.15),    /* Core blue */
+              0 10px 30px rgba(0, 0, 0, 0.5),      /* Standard drop shadow */
+              inset 0 2px 6px rgba(255, 255, 255, 0.04),
+              inset 0 -4px 10px rgba(0, 255, 170, 0.15);
   padding: 10px 0;
   position: absolute;
   top: 100%; /* Start from the bottom of the nav */
@@ -142,12 +156,15 @@
   z-index: 3; /* Ensures dropdown appears above the header */
 }
 
-.drop-down li {
-  margin: 5px 0;
+/* Drop-Down Hover Effect */
+.drop-down li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 .drop-down a {
   font-family: 'Lastica', sans-serif;
+  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
   color: #ccc;
   text-decoration: none;
   padding: 8px 16px;
@@ -156,7 +173,7 @@
 }
 
 .drop-down a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 255, 170, 0.2);
   color: #fff;
 }
 
@@ -165,9 +182,51 @@
   display: block;
 }
 body {
-  font-family: 'Lastica', sans-serif;
   background-color: #000;
+  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
+  background-repeat: repeat-y;                /* Tile vertically */
+  background-size: 100vw; /* Adjust this height */
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #ccc;
-  line-height: 1.5;
+  font-weight: 500;
+}
+
+.main-content-box {
+  background: linear-gradient(160deg, #0a0a0a 0%, #111122 100%);
+  border-radius: 30px;
+  padding: 60px 80px;
+  margin: 60px auto;
+  max-width: 1000px;
+  color: #ffffff;
+  font-size: 1.5em;
+  line-height: 1.7;
+  text-shadow: 0 0 4px rgba(0, 234, 255, 0.3);
+box-shadow:
+  0 0 20px rgba(0, 255, 170, 0.4),     /* Teal edge (subtle) */
+  0 0 35px rgba(102, 204, 255, 0.25),  /* Light blue transition */
+  0 0 50px rgba(0, 119, 255, 0.15),    /* Core blue */
+  0 10px 30px rgba(0, 0, 0, 0.5),      /* Standard drop shadow */
+  inset 0 2px 6px rgba(255, 255, 255, 0.04),
+  inset 0 -4px 10px rgba(0, 255, 170, 0.15);
+
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.main-content-box:hover {
+  transform: scale(1.015);
+  box-shadow:
+  0 0 35px rgba(0, 255, 170, 0.5),
+  0 0 60px rgba(102, 204, 255, 0.3),
+  0 0 80px rgba(0, 119, 255, 0.2),
+  0 20px 60px rgba(0, 0, 0, 0.65),
+  inset 0 4px 10px rgba(255, 255, 255, 0.06),
+  inset 0 -6px 16px rgba(0, 255, 170, 0.2);
+
 }
 
