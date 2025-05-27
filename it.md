@@ -3,11 +3,9 @@ layout: default
 id: it
 title: IT SCS Bham
 ---
-<p style="text-align: center;">
-Information Technology and Computer Repair
-</p>
-<div class="left-align">
+## Information Technology and Computer Repair
 <br>
+<div class="left-align">
 Secure Computer Solutions is committed to protecting your data. We utilize advanced techniques to prevent or restore data loss, and to protect your privacy and security. Whatever your IT needs may be, we will find solutions which maintain the safety of your data throughout the entire process. We work with both home and business clients in the Bellingham, WA community.
 <br>
 <br>
@@ -15,9 +13,9 @@ Our services include, but are not limited to:
 <br>
 <br>
 <details class="details-left"><summary class="summary-left" style="text-align: left;"><strong>Apple Time Machine data extraction</strong></summary><br>
-Apple Time Machine backup drives are designed in a rigid way. They work great when you're just creating or restoring snapshots, but sometimes you may want to extract data from various snapshots, or to move data to another operating system, such as Windows or Android. This can be a challenging task due to the structure of Time Machine backups, but we've got you covered.<br><br>
+Apple Time Machine backup drives are designed in a rigid way. They work great when you're just creating or restoring snapshots, but sometimes you may want to extract data from various snapshots, or to move data to another operating system, such as Windows or Android. This can be a challenging task due to the structure of Time Machine backups, but we have software and techniques to handle this.<br><br>
 </details>
-
+<div style="margin-left: 20px;">
 <ul>
   <li>Business IT services</li>
   <li>Computer repair</li>
@@ -68,7 +66,8 @@ Apple Time Machine backup drives are designed in a rigid way. They work great wh
   <li>Virus removal
   </li>
 </ul>
-
+</div>
+<br>
 We are experts of every major operating system: Windows, Linux, Mac OSX, Android, and iOS.
 <br><br>
 For computer repair and other small IT jobs we charge a flat $120/hr with an hour minimum for any services: on-site, in-shop, and remote. We are by appointment only, so please contact us using any method provided, prior to coming to the office.

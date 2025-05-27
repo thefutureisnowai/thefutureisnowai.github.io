@@ -6,6 +6,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+.left-align ul {
+  padding-left: 2em; /* or whatever level of indentation you want */
+  list-style-position: inside; /* optional: keeps bullets inside margin */
+}
+
+.left-align li {
+  margin-bottom: 0.5em; /* optional: adds spacing between items */
+}
+
 /* Header Gradient */
 .header {
   width: 100vw;

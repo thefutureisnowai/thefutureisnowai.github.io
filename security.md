@@ -6,6 +6,7 @@ title: Security SCS Bham
 
 ## Security
 
+<div class="left-align">
  We look forward to providing you with secure solutions, but since we care deeply about your security, here are a few pieces of advice in the meantime. Don't worry if you don't understand everything. It's a lot to take in. We will be happy to explain anything or assist you with implementing these steps during a consultation or remote service.
 
 <hr>
@@ -81,3 +82,4 @@ Use a VPN (maybe)
 Using a VPN is especially valuable when using a public network, as public networks can open you up to various attacks (such as DHCP spoofing) and surveillance. Using a VPN can make it harder for hackers to target you and steal your data. It can make it harder for companies to profile you. It can hide your activity from your Internet Service Provider (and from your local network). Many VPN providers even offer real-time malware protection and ad-blocking: ad-blocking carries several benefits, as it can improve performance, and even stop some malware and tracking. However, a bad VPN (or ad-blocker) can be worse than no VPN (or ad-blocker), and just because a VPN is popular does not mean it is good. For example, we do NOT recommend NordVPN as their client software (at least for Linux) makes alarmingly insecure modifications to your firewall (without your consent), and NordVPN support refuses to explain why this is necessary, citing it as a "commercial secret". Feel free to ask us for more details, evidence, and additonal reasons why we dislike NordVPN. Ad-blockers can also carry some risk, as they can potentially contain spyware. Installing additional software always carries some risk, as it requires trusting the developers, and can increase the attack surface of your machine. If you follow all of our other security guidelines, in some contexts, especially on a private network, using a VPN may not be necessary or even recommended. Let us know if you want advice on which VPN or ad-blocker to choose, or if you need help installing it. Be cautious, as many scammers will masquerade as VPN providers. Not all VPNs are created equal: if you're unsure about which VPN to choose or need help installing one, feel free to reach out to Secure Computer Solutions.
 </details>
 <hr>
+</div>

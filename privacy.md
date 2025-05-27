@@ -6,7 +6,9 @@ title: Privacy SCS Bham
 
 ## Privacy
 
+<div class="left-align">
 The following privacy policy applies to The Future is Now Ai, LLC under all of our trade names. Including Secure Computer Solutions.
+</div>
 
 <hr>
 <details class="details-left">
