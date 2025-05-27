@@ -375,15 +375,6 @@ box-shadow:
   color: #88aadd;
 }
 
-.footer-value, .footer-link {
-  color: #ccc;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
 .office-content {
   display: flex;
   align-items: flex-start;
@@ -560,3 +551,20 @@ details summary {
 .left-align {
   text-align: left;
 }
+a:link {
+  color: #33ddff; /* Cyan-blue for unvisited */
+  text-decoration: none;
+}
+
+a:visited {
+  color: #bb66ff; /* Violet for visited */
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #ffffff; /* Bright white on hover */
+  text-decoration: underline;
+  text-shadow: 0 0 6px #00ffaa;
+}
+
