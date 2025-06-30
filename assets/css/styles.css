@@ -100,83 +100,164 @@
   height: auto;
   display: block;
 }
-/* Navigation Menu */
+
+/* Navigation Menu and Drop-Down Redesign */
+
+/* Navigation Menu Container with Enhanced Glow and Width */
+.nav-menu {
+  background-color: #111111;
+  border-radius: 20px;
+  padding: 1.2em 2em;
+  margin-bottom: 0vh;
+  box-shadow:
+    0 0 40px rgba(0, 255, 170, 0.75),
+    0 0 80px rgba(102, 204, 255, 0.5),
+    0 0 120px rgba(0, 119, 255, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    inset 0 6px 16px rgba(255, 255, 255, 0.06),
+    inset 0 -8px 24px rgba(0, 255, 170, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Enhancement */
+.nav-menu:hover {
+  transform: scale(1.015);
+  box-shadow:
+    0 0 60px rgba(0, 255, 170, 0.85),
+    0 0 100px rgba(102, 204, 255, 0.6),
+    0 0 140px rgba(0, 119, 255, 0.4),
+    0 30px 90px rgba(0, 0, 0, 0.75),
+    inset 0 8px 18px rgba(255, 255, 255, 0.08),
+    inset 0 -10px 28px rgba(0, 255, 170, 0.4);
+}
+
+/* Hide Checkbox for Toggle */
 .menu-toggle {
   display: none;
 }
 
+/* Full-Width Navigation Menu with Compact Height */
+.nav-menu {
+  width: 100vw;
+  background-color: #111111;
+  border-radius: 0; /* Flush edges if full-width */
+  padding: 0;       /* Remove internal padding */
+  margin: 0 auto;
+  box-shadow:
+    0 0 40px rgba(0, 255, 170, 0.75),
+    0 0 80px rgba(102, 204, 255, 0.5),
+    0 0 120px rgba(0, 119, 255, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    inset 0 6px 16px rgba(255, 255, 255, 0.06),
+    inset 0 -6px 18px rgba(0, 255, 170, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Compact Label that Fills Entire Nav Box */
 .menu-toggle-label {
   display: flex;
   align-items: center;
-  gap: 15px; /* Increased space between text and hamburger */
+  justify-content: center;
+  gap: 12px;
   cursor: pointer;
   color: #ccc;
-  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 100vw;
+  height: 48px; /* Tight vertical height */
+  box-sizing: border-box;
+  text-align: center;
 }
-/* Hamburger Icon */
+
+/* Hamburger Icon, Compact */
 .hamburger {
-  width: 30px;
-  height: 20px;
+  width: 40px;
+  height: 20px; /* Tighter total height */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hamburger span {
-  display: block;
   height: 3px;
+  width: 100%;
   background: #ccc;
-  border-radius: 2px;
+  border-radius: 1px;
   transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
 }
 
-/* Hover Effect on Hamburger */
+/* Hover Effects */
 .menu-toggle-label:hover .hamburger span {
-  background: #00ffaa; /* Neon teal color */
-  box-shadow: 0 0 8px rgba(0, 255, 170, 0.8),  /* Bright neon glow */
-              0 0 12px rgba(102, 204, 255, 0.5), /* Blue transition */
-              0 0 16px rgba(0, 119, 255, 0.4);  /* Core blue glow */
+  background: #00ffaa;
+  box-shadow:
+    0 0 6px rgba(0, 255, 170, 0.7),
+    0 0 10px rgba(102, 204, 255, 0.5),
+    0 0 14px rgba(0, 119, 255, 0.3);
 }
 
-/* Animated Scale on Hover */
 .menu-toggle-label:hover .hamburger {
-  transform: scale(1.1); /* Slight enlargement */
+  transform: scale(1.05);
+}
+
+/* Hamburger Hover Glow */
+.menu-toggle-label:hover .hamburger span {
+  background: #00ffaa;
+  box-shadow:
+    0 0 8px rgba(0, 255, 170, 0.8),
+    0 0 12px rgba(102, 204, 255, 0.5),
+    0 0 16px rgba(0, 119, 255, 0.4);
+}
+
+.menu-toggle-label:hover .hamburger {
+  transform: scale(1.1);
 }
 
 /* Drop-Down Menu */
 .drop-down {
   display: none;
-  margin-top: 5px;
+  margin-top: 8px;
   list-style: none;
-  background: #111111; /* Solid background to remove transparency */
+  background: #111111;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4),     /* Teal edge (subtle) */
-              0 0 50px rgba(102, 204, 255, 0.25),  /* Light blue transition */
-              0 0 70px rgba(0, 119, 255, 0.15),    /* Core blue */
-              0 10px 30px rgba(0, 0, 0, 0.5),      /* Standard drop shadow */
-              inset 0 2px 6px rgba(255, 255, 255, 0.04),
-              inset 0 -4px 10px rgba(0, 255, 170, 0.15);
+  box-shadow:
+    0 0 30px rgba(0, 255, 170, 0.5),
+    0 0 60px rgba(102, 204, 255, 0.3),
+    0 0 90px rgba(0, 119, 255, 0.2),
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 2px 6px rgba(255, 255, 255, 0.04),
+    inset 0 -4px 10px rgba(0, 255, 170, 0.15);
   padding: 10px 0;
   position: absolute;
-  top: 100%; /* Start from the bottom of the nav */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100; /* Ensures dropdown appears above the header */
+  z-index: 100;
+  min-width: 600px;
+  max-width: 90vw;
 }
 
-/* Drop-Down Hover Effect */
+/* Drop-Down List Items */
 .drop-down li:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
 .drop-down a {
-  font-family: 'Lastica', sans-serif;
-  font-size: clamp(1.0rem, 3vw, 2.0rem); /* Adjusted size */
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
   color: #ccc;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 12px 20px;
   display: block;
   transition: background 0.3s, color 0.3s;
 }
@@ -186,10 +267,12 @@
   color: #fff;
 }
 
-/* Toggle Dropdown */
+/* Show Dropdown on Toggle */
 .menu-toggle:checked + .menu-toggle-label + .drop-down {
   display: block;
 }
+
+
 body {
   background-color: #000;
   background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
