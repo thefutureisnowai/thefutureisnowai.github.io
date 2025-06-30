@@ -80,5 +80,19 @@ Data storage and transfer
   <br>
 Store and access your data remotely, without compromising your security. We offer unique and cost-effective remote access solutions that do not lock you into a third-party provider and do not carry monthly service fees.
 <br><br>
-Note there are other data services listed here: <a href="/ai" >ai and data</a>
 </details>
+<hr>
+<details class="details-left">
+  <summary class="summary-left" style="text-align: left;"><strong>
+Data engineering
+  </strong></summary>
+  <br>
+We will clean up your data, and prepare it for use in AI training, saving you from the arduous task.
+<br><br>
+</details>
+<hr>
+<br>
+For AI and data services listed on this page, we charge $160 for small jobs such as consulting.
+
+For larger projects will make a contract and agree on milestone payments.
+

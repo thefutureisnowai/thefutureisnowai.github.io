@@ -61,6 +61,8 @@ Apple Time Machine backup drives are designed in a rigid way. They work great wh
   </li>
   <li>Secure communication
   </li>
+  <li>Security audit
+  </li>
   <li>Systems design
   </li>
   <li>Virus removal
@@ -70,7 +72,8 @@ Apple Time Machine backup drives are designed in a rigid way. They work great wh
 <br>
 We are experts of every major operating system: Windows, Linux, Mac OSX, Android, and iOS.
 <br><br>
-For computer repair and other small IT jobs we charge a flat $120/hr with an hour minimum for any services: on-site, in-shop, and remote. We are by appointment only, so please contact us using any method provided, prior to coming to the office.
+For computer repair and other small IT jobs (not including those covered in <a href="ai.html">AI and Data</a>) we charge a flat $120/hr with an hour minimum for any services: on-site, in-shop, and remote. We are by appointment only, so please contact us using any method provided, prior to coming to the office.
+
 <br><br>
 
 No job is too small, and our list above does not cover every case. When in doubt, please reach out to us and ask.
