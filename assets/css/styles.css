@@ -253,6 +253,7 @@
 }
 
 .drop-down a {
+	  text-align: center;
   font-family: Arial, sans-serif;
   font-size: 1.25rem;
   color: #ccc;

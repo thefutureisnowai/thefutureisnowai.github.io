@@ -3,7 +3,7 @@ layout: default
 id: it
 title: IT SCS Bham
 ---
-## Information Technology and Computer Repair
+## Information Technology and Cyber Security
 <br>
 <div class="left-align">
 Secure Computer Solutions is committed to protecting your data. We utilize advanced techniques to prevent or restore data loss, and to protect your privacy and security. Whatever your IT needs may be, we will find solutions which maintain the safety of your data throughout the entire process. We work with both home and business clients in the Bellingham, WA community.
