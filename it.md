@@ -55,15 +55,17 @@ Apple Time Machine backup drives are designed in a rigid way. They work great wh
   </li>
   <li>Privacy
   </li>
-  <li>Remote access methods
+  <li>Remote access methods (third-party free)
   </li>
-  <li>Remote services
+  <li>Remote services (third-party free)
   </li>
   <li>Secure communication
   </li>
   <li>Security audit
   </li>
   <li>Systems design
+  </li>
+  <li>Tracking protection
   </li>
   <li>Virus removal
   </li>
