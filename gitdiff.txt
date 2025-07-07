@@ -1,0 +1,96 @@
+diff --git a/_includes/footer.html b/_includes/footer.html
+index 011d7a7..8ca9be2 100644
+--- a/_includes/footer.html
++++ b/_includes/footer.html
+@@ -81,6 +81,12 @@
+ 
+   <div class="footer-bottom">
+     Logos are trademarks of their respective third-party owners, and are not intended to convey any sponsorship or endorsement.
++<br>
++<br>
++<a href="privacy.html" style="color: #88aadd; text-decoration: none;">
++  Privacy Policy
++</a>
+   </div>
++
+ </footer>
+ 
+diff --git a/assets/css/styles.css b/assets/css/styles.css
+index 53b1b16..8a64d96 100644
+--- a/assets/css/styles.css
++++ b/assets/css/styles.css
+@@ -253,6 +253,7 @@
+ }
+ 
+ .drop-down a {
++	  text-align: center;
+   font-family: Arial, sans-serif;
+   font-size: 1.25rem;
+   color: #ccc;
+diff --git a/index.md b/index.md
+index 118c231..348e6ca 100644
+--- a/index.md
++++ b/index.md
+@@ -10,3 +10,49 @@ We provide AI consulting and development, cyber security, software development,
+ 
+ Rigorous measures for ethical, safe, and secure data handling are integrated into all of our work. We do not collect or use your data for any purpose beyond the bare minimum necessary to conduct business.
+ </div>
++
++<hr>
++
++## AI and Data  
++[securecomputer.ai/ai](ai.html)  
++<details class="details-left">
++  <summary class="summary-left"><strong>What can AI do for your business?</strong></summary>
++  <br>
++  We offer AI solutions including custom chatbots using large language models (LLMs), decision support tools, automation, forecasting, and data integration. Whether you're optimizing workflow or building new tools, we help you leverage AI effectively and securely.
++</details>
++
++<hr>
++
++## IT and Cyber Security  
++[securecomputer.ai/it](it.html)  
++<details class="details-left">
++  <summary class="summary-left"><strong>How we protect and optimize your systems</strong></summary>
++  <br>
++  We provide expert IT services across all major platforms, including repair, security hardening, network setup, data recovery, and privacy consulting. Our approach emphasizes resilience, data safety, and operational uptime.
++</details>
++
++<hr>
++
++## Scheduling and Payment  
++[securecomputer.ai/scheduling](scheduling.html)  
++<details class="details-left">
++  <summary class="summary-left"><strong>Rates, hours, and how to book</strong></summary>
++  <br>
++  We are open 11am–5pm daily, by appointment only.  
++  <br><br>
++  <strong>Rates:</strong>
++  <ul>
++    <li>$120/hr for IT and security services</li>
++    <li>$160/hr for AI consulting and development</li>
++  </ul>
++  <br>
++  Larger projects can be handled by milestone-based contracts.  
++  <br><br>
++  Pay securely at  
++  <a href="https://www.paypal.com/ncp/payment/2945BQTEQSAHW" target="_blank" rel="noopener">
++    https://www.paypal.com/ncp/payment/2945BQTEQSAHW
++  </a>  
++  <br><br>
++  We intentionally avoid embedded payment buttons for a more secure experience.
++</details>
++
+diff --git a/it.md b/it.md
+index 0617c21..2095103 100644
+--- a/it.md
++++ b/it.md
+@@ -3,7 +3,7 @@ layout: default
+ id: it
+ title: IT SCS Bham
+ ---
+-## Information Technology and Computer Repair
++## Information Technology and Cyber Security
+ <br>
+ <div class="left-align">
+ Secure Computer Solutions is committed to protecting your data. We utilize advanced techniques to prevent or restore data loss, and to protect your privacy and security. Whatever your IT needs may be, we will find solutions which maintain the safety of your data throughout the entire process. We work with both home and business clients in the Bellingham, WA community.

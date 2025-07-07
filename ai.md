@@ -35,7 +35,7 @@ In some cases even fine-tuning may not be adequate. In this case we can design a
 <hr>
 <details class="details-left">
   <summary class="summary-left" style="text-align: left;"><strong>
- Control and Decision Algorithms
+ Control and Decision Algorithms / Automation
 </strong></summary>
     <br>
 Although LLMs can be used to some extent for control and decision tasks, that is not what they're designed for. For specialized tasks we have better suited techniques (such as deep reinforcement learning) which are more efficient, consistent, and accurate. In some cases, we can achieve perfect or near-perfect control results, especially in cases where the possible control actions / decisions and possible outcomes are known in advance. We also have techniques for handling more dynamic problems with an unknown or changing state/action space.

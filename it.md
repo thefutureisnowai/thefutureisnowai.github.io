@@ -3,7 +3,7 @@ layout: default
 id: it
 title: IT SCS Bham
 ---
-## Information Technology and Computer Repair
+## Information Technology and Cyber Security
 <br>
 <div class="left-align">
 Secure Computer Solutions is committed to protecting your data. We utilize advanced techniques to prevent or restore data loss, and to protect your privacy and security. Whatever your IT needs may be, we will find solutions which maintain the safety of your data throughout the entire process. We work with both home and business clients in the Bellingham, WA community.
@@ -55,15 +55,17 @@ Apple Time Machine backup drives are designed in a rigid way. They work great wh
   </li>
   <li>Privacy
   </li>
-  <li>Remote access methods
+  <li>Remote access methods (third-party free)
   </li>
-  <li>Remote services
+  <li>Remote services (third-party free)
   </li>
   <li>Secure communication
   </li>
   <li>Security audit
   </li>
   <li>Systems design
+  </li>
+  <li>Tracking protection
   </li>
   <li>Virus removal
   </li>
