@@ -10,7 +10,7 @@ title: AI SCS Bham
 AI can streamline your business by: improving workflow, increasing worker productivity, answering questions about and promoting your business, automating scheduling, impressing your customers, and ultimately generating revenue for your business. AI and other statistical techniques can provide data-driven insights, and help you make decisions with cost-benefit analysis. You may have various forms of business data, in various formats, on various devices. We can bring all your data together, and make it work for you. Whatever your AI or data-related needs, we have you covered.
 <br>
 <br>
-The owner of Secure Computer Solutions, <a href="https://sethbriney.com/">Seth L. Briney</a>, is an AI expert, having earned two master's degrees largely focused on AI (in mathematics and computer science). Seth has experience in various AI projects, notably applying deep learning, reinforcement learning control, and utilizing existing LLM (Large Language Model) API (Application Programming Interface) in web development. More details can be found on Seth's website.
+The owner of Secure Computer Solutions, <a href="https://sethbriney.com/ai">Seth L. Briney</a>, is an AI expert, having earned two master's degrees largely focused on AI (in mathematics and computer science). Seth has experience in various AI projects, notably applying deep learning, reinforcement learning control, and utilizing existing LLM (Large Language Model) API (Application Programming Interface) in web development. More details can be found on Seth's website.
 
 <br>
 <br>
