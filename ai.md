@@ -1,7 +1,7 @@
 ---
 layout: default
 id: ai
-title: AI SCS Bham
+title: AI SCS Bham | Freeland 
 ---
 
 ## AI and Data

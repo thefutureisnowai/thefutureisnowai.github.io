@@ -1,7 +1,7 @@
 ---
 layout: default
 id: contact
-title: Contact SCS Bham
+title: Contact SCS Bham | Freeland 
 ---
 ## Contact
 <br>

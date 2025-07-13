@@ -1,7 +1,7 @@
 ---
 layout: default
 id: scheduling
-title: Scheduling SCS Bham
+title: Scheduling SCS Bham | Freeland
 ---
 ## Scheduling
 <br>

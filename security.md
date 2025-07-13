@@ -1,7 +1,7 @@
 ---
 layout: default
 id: security
-title: Security SCS Bham
+title: Security SCS Bham | Freeland
 ---
 
 ## Security
