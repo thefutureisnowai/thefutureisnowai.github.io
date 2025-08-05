@@ -1,7 +1,7 @@
 ---
 layout: default
 id: it
-title: IT SCS Bham | Freeland 
+title: IT SCS Bham 
 ---
 ## Information Technology and Cyber Security
 <br>

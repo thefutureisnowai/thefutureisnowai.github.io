@@ -1,7 +1,7 @@
 ---
 layout: default
 id: privacy
-title: Privacy SCS Bham | Freeland
+title: Privacy SCS Bham
 ---
 
 ## Privacy

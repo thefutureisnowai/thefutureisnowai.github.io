@@ -1,10 +1,10 @@
 ---
 layout: default
 id: intro
-title: SCS Bham | Freeland
+title: SCS Bham
 ---
 # Welcome to Secure Computer Solutions!
-## Bellingham \| Freeland
+## Bellingham
 <br>
 <div class="left-align">
 
