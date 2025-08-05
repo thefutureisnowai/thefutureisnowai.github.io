@@ -138,6 +138,10 @@
     inset 0 8px 18px rgba(255, 255, 255, 0.08),
     inset 0 -10px 28px rgba(0, 255, 170, 0.4);
 }
+.nav-menu:hover .menu-toggle-label {
+  color: #70ffff;
+  text-shadow: 0 0 24px #aaffee, 0 0 48px #70ffff;
+}
 
 /* Hide Checkbox for Toggle */
 .menu-toggle {
@@ -151,7 +155,9 @@
   justify-content: center;
   gap: 12px;
   cursor: pointer;
-  color: #ccc;
+  color: #00d9ff; /* neon blue */
+  text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0; /* neon teal backglow */
+  transition: color 0.2s, text-shadow 0.2s;
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 2rem;
@@ -169,13 +175,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background: #0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hamburger span {
   height: 3px;
   width: 100%;
-  background: #ccc;
+  background: #00d9ff; /* neon blue */
   border-radius: 1px;
   transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
 }
