@@ -159,6 +159,21 @@
   align-items: center;
   justify-content: center;
 }
+.nav-menu a {
+  color: #88e5ff !important;   /* strong, readable light blue */
+  font-weight: bold;
+  font-family: 'Lastica', Arial, sans-serif;
+  font-size: 1.25rem;
+  text-shadow: 0 0 8px #00eaff22; /* subtle blue glow, optional */
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  color: #00ffaa !important;   /* bright teal on hover, or pick your shade */
+  text-shadow: 0 0 12px #00ffaa88;
+}
+
 
 /* Compact Label that Fills Entire Nav Box */
 .menu-toggle-label {

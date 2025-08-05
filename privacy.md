@@ -12,19 +12,19 @@ The following privacy policy applies to The Future is Now Ai, LLC under all of o
 
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong> The only exception to our privacy policy is that we use Google Console, so if you use Google to find our website, Google will provide us with some statistics. </strong></summary>
+  <summary class="summary-left"><strong> The only exception to our privacy policy is that we use Google Console, so if you use Google to find our website, Google will provide us with some statistics. </strong></summary>
 <br>
 Google provides us some statistics regarding how users find our site through Google, only if you use Google to access our site. The statistics Google provides us include information regarding clicks and links to our website such as: search queries, specific pages of our site, what countries users were in, whether a desktop mobile or tablet was used, and dates. This does not give us access to your IP address or any other personal information. Again, this tracking is performed by Google, and only when you access our site from Google: not if you access our website directly by entering securecomputer.ai into the address bar. We may look at this data from time to time only for the purpose of Search Engine Optimization while we build our customer-base. We will never provide it to any third parties, and we will never use it to attempt to identify users. There is no way for us to prevent Google from collecting this information.
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong> Commitment to Privacy </strong></summary>
+  <summary class="summary-left"><strong> Commitment to Privacy </strong></summary>
     <br>
      We will never gather or congregate any customer / user data (aside from the Google caveat above), beyond information you explicitly provide us which will be used only for the necessities of conducting business with you, and providing the services you request. We will never share your data with any third parties for marketing purposes, training AI, or any purpose not directly related to the services you request. If the services you request require us to share your data with a third party, we will only do so after receiving your explicit consent. We believe data collection should be an opt-in process, rather than an opt-out process as many companies practice.
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Limited Sharing Under Legal Obligations
   </strong></summary>
   <br>
@@ -32,7 +32,7 @@ However, we may be legally required to disclose certain information in response 
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Third party requests
   </strong></summary>
   <br>
@@ -40,7 +40,7 @@ If third-party services are required to complete your order (e.g. warranty repai
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 AI
   </strong></summary>
   <br>
@@ -49,7 +49,7 @@ We believe the mass use of data for training AI, or other analytics, without con
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 This Website
   </strong></summary>
   <br>
