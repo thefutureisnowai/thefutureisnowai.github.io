@@ -18,7 +18,7 @@ AI / data services we offer include:
 </div>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 LLMs (Large Language Models), ChatBots
 </strong></summary>
 <br>
@@ -34,7 +34,7 @@ In some cases even fine-tuning may not be adequate. In this case we can design a
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
  Control and Decision Algorithms / Automation
 </strong></summary>
     <br>
@@ -54,7 +54,7 @@ We are familiar with a large number of algorithms relevant to decision making an
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Prediction / Forecasting
   </strong></summary>
   <br>
@@ -74,7 +74,7 @@ Example applications include:
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Data storage and transfer
   </strong></summary>
   <br>
@@ -83,7 +83,7 @@ Store and access your data remotely, without compromising your security. We offe
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Data engineering
   </strong></summary>
   <br>

@@ -12,10 +12,10 @@ Secure Computer Solutions is committed to protecting your data. We utilize advan
 Our services include, but are not limited to:
 <br>
 <br>
-<details class="details-left"><summary class="summary-left" style="text-align: left;"><strong>Apple Time Machine data extraction</strong></summary><br>
+<details class="details-left"><summary class="summary-left"><strong>Apple Time Machine data extraction</strong></summary><br>
 Apple Time Machine backup drives are designed in a rigid way. They work great when you're just creating or restoring snapshots, but sometimes you may want to extract data from various snapshots, or to move data to another operating system, such as Windows or Android. This can be a challenging task due to the structure of Time Machine backups, but we have software and techniques to handle this.<br><br>
 </details>
-<div style="margin-left: 20px;">
+<div>
 <ul>
   <li>Business IT services</li>
   <li>Computer repair</li>

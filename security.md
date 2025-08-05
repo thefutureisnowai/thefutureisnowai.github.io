@@ -11,7 +11,7 @@ title: Security SCS Bham | Freeland
 
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Back up your data
 </strong></summary>
 <br>
@@ -19,7 +19,7 @@ Any data you care about should be backed up in at least two places. There are nu
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Use a firewall
 </strong></summary>
     <br>
@@ -27,7 +27,7 @@ A firewall acts as a barrier to prevent unauthorized access to your device while
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Verify Programs
   </strong></summary>
   <br>
@@ -35,7 +35,7 @@ Don't run anything you don't trust, and always use official sources for your dow
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Updates: Keeping up with security updates is important
   </strong></summary>
   <br>
@@ -43,7 +43,7 @@ Ideally you should check for and install security updates every time you use you
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Power Off / Disconnect the Internet
   </strong></summary>
   <br>
@@ -51,7 +51,7 @@ Some malicious software can run in the background, and even wait until your comp
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Anti-Virus Software
   </strong></summary>
   <br>
@@ -59,7 +59,7 @@ It is a good idea to regularly scan your computer for viruses, and to use real-t
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Avoid http: Use https
   </strong></summary>
   <br>
@@ -67,7 +67,7 @@ Using http (without the s) is especially risky when sensitive information is inv
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Run your Browser in Private / Incognito mode when possible
   </strong></summary>
   <br>
@@ -75,7 +75,7 @@ Run your Browser in Private / Incognito mode when possible
 </details>
 <hr>
 <details class="details-left">
-  <summary class="summary-left" style="text-align: left;"><strong>
+  <summary class="summary-left"><strong>
 Use a VPN (maybe)
   </strong></summary>
   <br>
