@@ -104,25 +104,29 @@
 /* Navigation Menu and Drop-Down Redesign */
 
 /* Navigation Menu Container with Enhanced Glow and Width */
+
+/* Full-Width Navigation Menu with Compact Height */
 .nav-menu {
+  width: 100vw;
   background-color: #111111;
-  border-radius: 20px;
-  padding: 1.2em 2em;
-  margin-bottom: 0vh;
+  border-radius: 0; /* Flush edges if full-width */
+  padding: 0.5em 0.5em;       /* Remove internal padding */
+  margin: 0 auto;
   box-shadow:
     0 0 40px rgba(0, 255, 170, 0.75),
     0 0 80px rgba(102, 204, 255, 0.5),
     0 0 120px rgba(0, 119, 255, 0.3),
-    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 10px 30px rgba(0, 0, 0, 0.6),
     inset 0 6px 16px rgba(255, 255, 255, 0.06),
-    inset 0 -8px 24px rgba(0, 255, 170, 0.3);
+    inset 0 -6px 18px rgba(0, 255, 170, 0.3);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100vw;
+  justify-content: center;
+  margin-bottom: 0vh;
+  display: flex;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 /* Hover Enhancement */
 .nav-menu:hover {
   transform: scale(1.015);
@@ -139,41 +143,6 @@
 .menu-toggle {
   display: none;
 }
-
-/* Full-Width Navigation Menu with Compact Height */
-.nav-menu {
-  width: 100vw;
-  background-color: #111111;
-  border-radius: 0; /* Flush edges if full-width */
-  padding: 0;       /* Remove internal padding */
-  margin: 0 auto;
-  box-shadow:
-    0 0 40px rgba(0, 255, 170, 0.75),
-    0 0 80px rgba(102, 204, 255, 0.5),
-    0 0 120px rgba(0, 119, 255, 0.3),
-    0 10px 30px rgba(0, 0, 0, 0.6),
-    inset 0 6px 16px rgba(255, 255, 255, 0.06),
-    inset 0 -6px 18px rgba(0, 255, 170, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.nav-menu a {
-  color: #88e5ff !important;   /* strong, readable light blue */
-  font-weight: bold;
-  font-family: 'Lastica', Arial, sans-serif;
-  font-size: 1.25rem;
-  text-shadow: 0 0 8px #00eaff22; /* subtle blue glow, optional */
-  transition: color 0.2s;
-}
-
-.nav-menu a:hover,
-.nav-menu a:focus {
-  color: #00ffaa !important;   /* bright teal on hover, or pick your shade */
-  text-shadow: 0 0 12px #00ffaa88;
-}
-
 
 /* Compact Label that Fills Entire Nav Box */
 .menu-toggle-label {
