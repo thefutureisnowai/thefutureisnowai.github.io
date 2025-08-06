@@ -225,6 +225,43 @@
   background: #00ffaa;
   box-shadow: 0 0 16px #00ffd0ff, 0 0 28px #00d9ffcc;
 }
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 64px; /* adjust for desired fade depth */
+  pointer-events: none;
+  z-index: 100;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,19,40, 0) 0%,
+    rgba(0,12,25, 0.8) 80%,
+    rgba(0,0,0,1) 100%
+  );
+}
+.header {
+  position: relative;
+  z-index: 50;
+}
+
+.footer-gradient::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -1px;
+  height: 64px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0,19,40, 0) 0%,
+    rgba(0,12,25, 0.8) 80%,
+    rgba(0,0,0,1) 100%
+  );
+}
+.footer-gradient {
+  position: relative;
+  z-index: 1;
+}
 
 /* Drop-Down Menu */
 .drop-down {
@@ -292,40 +329,6 @@ body {
   font-weight: 500;
 }
 
-.main-content-box {
-  background: linear-gradient(160deg, #0a0a0a 0%, #111122 100%);
-  border-radius: 30px;
-  padding: 60px 80px;
-  margin: 60px auto;
-  max-width: 1000px;
-  color: #ffffff;
-  font-size: clamp(0.8rem, 1vw, 1.2rem); /* Adjusted size */
-  line-height: 1.7;
-  text-shadow: 0 0 4px rgba(0, 234, 255, 0.3);
-box-shadow:
-  0 0 20px rgba(0, 255, 170, 0.4),     /* Teal edge (subtle) */
-  0 0 35px rgba(102, 204, 255, 0.25),  /* Light blue transition */
-  0 0 50px rgba(0, 119, 255, 0.15),    /* Core blue */
-  0 10px 30px rgba(0, 0, 0, 0.5),      /* Standard drop shadow */
-  inset 0 2px 6px rgba(255, 255, 255, 0.04),
-  inset 0 -4px 10px rgba(0, 255, 170, 0.15);
-
-  backdrop-filter: blur(2px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-
-.main-content-box:hover {
-  transform: scale(1.015);
-  box-shadow:
-  0 0 35px rgba(0, 255, 170, 0.5),
-  0 0 60px rgba(102, 204, 255, 0.3),
-  0 0 80px rgba(0, 119, 255, 0.2),
-  0 20px 60px rgba(0, 0, 0, 0.65),
-  inset 0 4px 10px rgba(255, 255, 255, 0.06),
-  inset 0 -6px 16px rgba(0, 255, 170, 0.2);
-}
-/* Footer Styling */
 
 /* Footer Gradient */
 .footer-gradient {
@@ -654,5 +657,68 @@ a:focus {
   color: #ffffff; /* Bright white on hover */
   text-decoration: underline;
   text-shadow: 0 0 6px #00ffaa;
+}
+.main-content-box {
+  position: relative;
+  background: #000;
+  border-radius: 32px;
+  padding: 60px 80px;
+  margin: 64px auto;
+  max-width: 1000px;
+  z-index: 1;
+
+  color: #eaf9ff;
+  font-size: clamp(1rem, 1.1vw, 1.28rem);
+  line-height: 1.7;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 0 8px #b2f1ff88, 0 0 2px #eaf9ff;
+  text-align: center;
+  box-shadow:
+    0 0 36px 10px rgba(0, 255, 170, 0.22),
+    0 0 65px 18px rgba(102, 204, 255, 0.14),
+    0 0 80px 24px rgba(0, 119, 255, 0.11),
+    0 18px 50px 0 rgba(0,0,0,0.56);
+  backdrop-filter: blur(2.5px);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: visible; /* critical for the effect */
+}
+
+.main-content-box::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -2cm; left: -2cm; right: -2cm; bottom: -2cm; /* makes the ring "outside" */
+  border-radius: calc(32px + 2cm);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at center,
+    transparent 74%,
+    #aab0bb 82%,
+    #707985 89%,
+    #2b2e36 95%,
+    transparent 100%
+  );
+  /* Tweak the color stops for your preferred "space-grey metallic" look. */
+}
+
+/* Optional: On hover, increase the glow only */
+.main-content-box:hover::before {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 70%,
+    #d2e5ff 84%,
+    #7ab3ff 91%,
+    #004477 98%,
+    transparent 100%
+  );
+}
+.main-content-box:hover {
+  transform: scale(1.014);
+  box-shadow:
+    0 0 42px 16px rgba(0, 255, 170, 0.28),
+    0 0 90px 25px rgba(102, 204, 255, 0.21),
+    0 0 110px 32px rgba(0, 119, 255, 0.13),
+    0 20px 60px 0 rgba(0,0,0,0.64);
 }
 
