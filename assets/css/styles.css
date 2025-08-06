@@ -38,6 +38,8 @@ Extra space beneath each <li>
   font-display: swap; /* Ensures the font loads smoothly */
 }
 
+/* FIXME: was using header and footer-gradient, now using gradient, header-grad, and footer-grad
+
 /* Header Gradient */
 .header {
   width: 100vw;
@@ -51,6 +53,22 @@ Extra space beneath each <li>
   overflow: visible; /* Ensure gradient does not expand with dropdown */
   position: relative;
   z-index: 50;
+}
+.footer-gradient {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  padding: 6vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  color: #ccc;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 .header::after {
   content: "";
@@ -80,22 +98,6 @@ Extra space beneath each <li>
     rgba(0,12,25, 0.8) 80%,
     rgba(0,0,0,1) 100%
   );
-}
-.footer-gradient {
-  position: relative;
-  z-index: 1;
-  width: 100vw;
-  padding: 6vh 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
-  overflow: visible;
-  position: relative;
-  z-index: 1;
-  color: #ccc;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 .footer-wrapper {
   display: flex;
