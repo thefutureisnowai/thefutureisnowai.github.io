@@ -329,64 +329,71 @@ text-shadow:
 }
 
 /* NAV CONTAINER */
+/* NAV CONTAINER */
 .nav-menu {
   width: 100vw;
   background:
-    linear-gradient(120deg,
-      rgba(var(--black), 1) 60%,
-      rgba(var(--space-grey1), 0.96) 85%,
-      rgba(var(--teal), 0.10) 100%
+    linear-gradient(
+      120deg,
+      rgba(var(--black), 1) 58%,
+      rgba(var(--space-grey2), 0.96) 84%,
+      rgba(var(--teal), 0.11) 100%
     ),
     rgb(var(--black));
   box-shadow:
-    0 0 24px 4px rgba(var(--neon-teal), 0.13),
-    0 2px 24px 2px rgba(var(--neon-blue), 0.16),
-    0 0 0 1.5px rgba(var(--electric-violet), 0.08);
+    0 0 24px 0 rgba(var(--neon-blue), 0.19),
+    0 2px 32px 0 rgba(var(--electric-violet), 0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  font-family: 'Audiowide', 'Share Tech Mono', 'Arial', sans-serif;
-  font-size: 1.18rem;
-  letter-spacing: 0.03em;
 }
+
+/* HAMBURGER BUTTON */
+.menu-toggle { display: none; }
 
 .menu-toggle-label {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 1.8em;
+  height: 1.5em;
   cursor: pointer;
-  color: rgb(var(--neon-blue));
-  font-size: 2.2rem;
-  font-family: 'Audiowide', 'Share Tech Mono', 'Arial', sans-serif;
-  text-shadow:
-    0 0 6px rgba(var(--neon-blue), 0.60),
-    0 0 10px rgba(var(--teal), 0.27);
-  background: linear-gradient(
-    90deg,
-    rgba(var(--blue),0.12) 0%,
-    rgba(var(--black),0.89) 20%,
-    rgba(var(--space-grey2),0.85) 100%
-  );
+  color: var(--neon-blue);
+  font-size: 2rem;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--blue), 0.13) 0%,
+      rgba(var(--black), 0.89) 35%,
+      rgba(var(--space-grey2), 0.66) 100%
+    );
   border: none;
   box-shadow:
-    0 0 16px 2px rgba(var(--teal),0.09),
-    0 2px 8px rgba(var(--electric-violet),0.11);
+    0 0 10px 0 rgba(var(--teal), 0.09),
+    0 1.5px 6px rgba(var(--electric-violet), 0.10);
 }
 
+.hamburger {
+  width: 32px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 12px;
+}
 .hamburger span {
   height: 4px;
   width: 100%;
   background: linear-gradient(90deg, rgb(var(--neon-blue)), rgb(var(--neon-teal)));
-  box-shadow:
-    0 0 5px 1.5px rgba(var(--neon-teal), 0.33),
-    0 0 8px 2.5px rgba(var(--blue), 0.17);
   border-radius: 2px;
+  box-shadow:
+    0 0 6px 0.5px rgba(var(--neon-teal), 0.22),
+    0 0 7px 1px rgba(var(--blue), 0.15);
   transition: background 0.2s;
 }
 
+/* DROPDOWN MENU */
 .drop-down {
   display: none;
   position: absolute;
@@ -394,46 +401,43 @@ text-shadow:
   left: 0;
   width: 100vw;
   background:
-    linear-gradient(110deg,
+    linear-gradient(
+      110deg,
       rgba(var(--space-grey1), 0.93) 0%,
       rgba(var(--black), 1) 100%
     );
   box-shadow:
-    0 8px 32px 2px rgba(var(--neon-blue), 0.18),
-    0 0 0 2px rgba(var(--electric-violet), 0.07);
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
+    0 8px 32px rgba(var(--neon-blue), 0.12),
+    0 0 0 2px rgba(var(--electric-violet), 0.06);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   z-index: 10;
+}
+.menu-toggle:checked + .menu-toggle-label + .drop-down {
+  display: block;
 }
 
 .drop-down li {
   list-style: none;
 }
-
 .drop-down a {
   display: block;
   text-align: center;
-  font-family: 'Share Tech Mono', 'Audiowide', monospace, sans-serif;
-  font-weight: 600;
-  color: rgb(var(--neon-blue));
-  text-shadow:
-    0 0 6px rgba(var(--neon-teal), 0.31),
-    0 0 14px rgba(var(--blue), 0.16);
-  padding: 14px 0 14px 0;
-  transition: color 0.18s, background 0.18s, text-shadow 0.25s;
+  color: var(--neon-blue);
+  padding: 14px 0;
+  text-decoration: none;
   background: transparent;
+  box-shadow: none;
   border-bottom: 1px solid rgba(var(--teal), 0.06);
 }
-.drop-down a:hover,
-.drop-down a:focus {
+.drop-down a:hover {
   background: linear-gradient(90deg,
-    rgba(var(--neon-teal),0.09) 0%,
-    rgba(var(--blue),0.16) 100%
+    rgba(var(--neon-teal), 0.12) 0%,
+    rgba(var(--blue), 0.14) 100%
   );
-  color: rgb(var(--neon-yellow));
-  text-shadow:
-    0 0 8px rgba(var(--neon-yellow), 0.41),
-    0 0 22px rgba(var(--teal), 0.22);
+  color: var(--neon-teal);
+  box-shadow:
+    0 0 12px 1.5px rgba(var(--neon-yellow), 0.13);
 }
 
 /* Footer Card */
