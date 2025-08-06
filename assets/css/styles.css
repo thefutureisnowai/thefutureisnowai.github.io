@@ -116,23 +116,11 @@ body.theme-alt {
 .header::after {
   bottom: -1px;
   z-index: 100;
-  background: linear-gradient(
-    to bottom,
-    rgba(var(--rgb-neon-blue), 0) 0%,
-    rgba(var(--rgb-neon-teal), 0.8) 80%,
-    rgba(var(--rgb-bg), 1) 100%
-  );
 }
 
 .footer-gradient::before {
   top: -1px;
   z-index: 2;
-  background: linear-gradient(
-    to top,
-    rgba(var(--rgb-neon-blue), 0) 0%,
-    rgba(var(--rgb-neon-teal), 0.8) 80%,
-    rgba(var(--rgb-bg), 1) 100%
-  );
 }
 
 body {
@@ -302,32 +290,6 @@ text-shadow:
 .drop-down a:hover {
   background: rgba(var(--rgb-neon-teal), 0.11);
   color: var(--neon-teal);
-}
-
-
-/* Pop Hover Effect */
-.pop-hover-effect {
-  box-shadow:
-    0 0 2vw rgba(0, 255, 170, 0.4),      /* Teal edge (subtle) */
-    0 0 3.5vw rgba(102, 204, 255, 0.25), /* Light blue transition */
-    0 0 5vw rgba(0, 119, 255, 0.15),     /* Core blue */
-    0 1vh 3vh rgba(0, 0, 0, 0.5),        /* Standard drop shadow */
-    inset 0 0.2vw 0.6vw rgba(255, 255, 255, 0.04),
-    inset 0 -0.4vw 1vw rgba(0, 255, 170, 0.15);
-  backdrop-filter: blur(2px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pop-hover-effect:hover {
-  transform: scale(1.025);
-  box-shadow:
-    0 0 5vw rgba(0, 255, 170, 0.85),    /* Strong teal core */
-    0 0 10vw rgba(102, 204, 255, 0.55), /* Light blue (transition) */
-    0 0 14vw rgba(0, 119, 255, 0.35),   /* Deep blue */
-    0 0 18vw rgba(0, 85, 255, 0.2),     /* Indigo outer rim */
-    0 3vh 9vh rgba(0, 0, 0, 0.9),
-    inset 0 0.6vw 1.6vw rgba(255, 255, 255, 0.08),
-    inset 0 -0.8vw 2.4vw rgba(0, 255, 170, 0.3);
 }
 /* Footer Card */
 .footer-card {
