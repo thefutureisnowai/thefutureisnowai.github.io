@@ -27,7 +27,7 @@
   --card-border: rgb(var(--dark-grey));          /* border: classic dark grey */
   --screen-border: rgb(var(--space-grey1));          /* border: classic dark grey */
 
-  --title-font-color: rgb(var(--blue));
+  --title-font-color: rgb(var(--neon-teal));
 
   --title-text-shadow:
     0 0 2px rgba(var(--blue), 0.9),    /* bright core */
@@ -106,16 +106,19 @@ Extra space beneath each <li>
 }
 
 .header-grad {
-  height: 35vh;
+  width: 100vw;
+  min-height: 40vh;                /* ensure it can fit your title-card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5vh 0;
   z-index: 50;
-background: linear-gradient(
-  to bottom,
-  rgba(var(--blue), 0.39) 0%,
-  rgba(var(--teal), 0.23) 65%,
-  rgba(var(--space-grey2), 0.95) 100%
-);
-
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--black), 1) 0%,
+    rgba(var(--space-grey2), 0.93) 55%,
+    rgba(var(--space-grey1), 1) 100%
+  );
 }
 
 .footer-grad {
