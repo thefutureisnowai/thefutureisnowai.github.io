@@ -1,0 +1,81 @@
+
+.title-card {
+  /* Outer border */
+  border: 8px solid rgb(var(--card-border));
+  border-radius: 1.2em;
+  background: rgb(var(--bg));
+  width: clamp(320px, 40vw, 100vw);
+  height: clamp(120px, 20vw, 260px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-screen {
+  border: 1em double var(--screen-border);
+  border-radius: 1.2em;
+  background: var(--title-bg);
+  width: clamp(320px, 40vw, 100vw);
+  margin: 0 auto;
+  box-shadow: var(--title-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  overflow: hidden;
+  position: relative;  /* NEW: establish containing block for abs pos */
+  container-type: size; /* This enables both width (inline) and height (block) queries */
+
+  );
+}
+.title-and-logo {
+  position: relative;
+  display: inline-block;      /* Shrink-wrap to title size */
+  padding: 2em 1em 2em 1em; /* (optional) add some space inside, tweak as needed */
+  background: rgba(0,0,0,0.09);   /* Optional: shows the bounding box */
+  border-radius: 0.5em;
+  box-sizing: content-box;
+}
+.title {
+  /* font-family: 'Share Tech Mono', monospace; */
+  font-family: 'Audiowide', sans-serif;
+  font-weight: bold;
+  font-size: clamp(1.1rem, 4vw, 2.6rem);
+  color: var(--title-font-color);
+  text-shadow:
+  	var(--title-text-shadow);
+  line-height: 1.13;
+  display: inline-block;      /* Ensures the box only wraps the text */
+  vertical-align: top;
+  pointer-events: none;
+}
+/* Logo always keeps its bottom-right corner Xpx from border, regardless of its size */
+.main-logo {
+  position: absolute;
+  right: 12px;    /* Set your preferred gap from border */
+  bottom: 12px;
+  z-index: 10;
+  display: block; /* Remove flex; keep this simple */
+  /* No width or height here: let the image define size! */
+}
+
+/* Responsive logo sizing; scales but stays anchored */
+.main-logo img {
+  width: clamp(48px, 10vw, 128px); /* Choose suitable min/max for your site */
+  height: auto;
+  display: block;
+  filter: var(--main-logo-filter);
+  box-sizing: content-box; /* Optional, ensures padding/border don't offset anchor */
+  bottom: 12px;
+}
+@container (max-block-size: 9em) {
+  .main-logo {
+    top: 3em;
+  }
+}
+
