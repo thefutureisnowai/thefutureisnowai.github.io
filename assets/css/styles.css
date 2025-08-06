@@ -60,12 +60,31 @@
 /* Title and Logo Wrapper */
 .title-logo-wrapper {
   position: relative;
-  justify-content: center; /* Center the entire block */
-  align-items: center;
-  width: auto;  /* Let content define the width */
-  height: auto; /* Let content define the height */
-  max-width: 100%; /* Prevent overflow on small screens */
+  display: flex;
+  flex-direction: row;         /* Lay out logo and title side-by-side if needed */
+  justify-content: center;     /* Center all children horizontally */
+  align-items: center;         /* Center vertically */
+  width: 100%;                 /* Full width */
+  max-width: 100vw;            /* Prevent overflow */
+  gap: 3vw;                    /* Space between logo and title, adjust as needed */
+  padding: 0 4vw;              /* Optional: add side padding for large screens */
 }
+.main-logo img {
+  max-width: clamp(40px, 4vw, 100px);
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 0 36px #00ffe7)
+    drop-shadow(0 0 88px #00d9ff)
+    brightness(1.7)
+    contrast(1.25);
+  transition: filter 0.18s;
+}
+.logo img {
+  max-width: 320px;   /* or higher */
+  width: 20vw;        /* scales on large screens */
+}
+
 /* Font Face for Lastica */
 @font-face {
   font-family: 'Lastica';
@@ -90,7 +109,7 @@
   max-width: clamp(40px, 4vw, 100px);
   height: auto;
   display: block;
-  filter: drop-shadow(0 0 12px #00ffd0) drop-shadow(0 0 24px #00d9ff);
+  filter: drop-shadow(0 0 24px #00ffd0) drop-shadow(0 0 48px #00d9ff);
 }
 
 /* Logo Styling */
@@ -667,25 +686,33 @@ a:focus {
   max-width: 1000px;
   z-index: 1;
 
-  border: 5px solid #43484e;         /* Space-grey solid border */
-  box-shadow:
-    inset 0 0 22px 4px #72e7ff44,    /* Soft blue inward-facing glow */
-    inset 0 0 12px 2px #7d8a9655;    /* Space-grey, faintly blurred inward */
+  border: 5px outset #0000;         /* Space-grey solid border */
+box-shadow:
+  inset 0 0 24px 4px #0ff,        /* neon cyan core */
+  0 10px 40px 0 #000a;      /* subtle drop shadow */
 
-  color: #eaf9ff;                    /* Very light blue */
+  color: #b9eaff;                    /* Very light blue */
   font-size: clamp(1.03rem, 1.1vw, 1.32rem);
   line-height: 1.7;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  text-shadow: 0 0 10px #eaf9ff33, 0 0 2px #eaf9ff;
+text-shadow:
+  0 0 1px #b9eaff,         /* bright blue core */
+  0 0 2px #30eaff,        /* blue/cyan aura */
+  0 0 4px #00ffe0;        /* teal neon outer aura */
+
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;                  /* Ensures glow stays inside rounded corners */
 }
+.title-logo-wrapper:hover .main-logo img {
+  transform: scale(1.18);
+  z-index: 20;
+  transition: transform 0.18s cubic-bezier(.51,1.6,.59,1);
+}
 
-.main-content-box:hover {
-  box-shadow:
-    inset 0 0 38px 8px #b2edff66,   /* Stronger blue inward on hover */
-    inset 0 0 16px 4px #a2acba55;   /* Brighter space-grey inward */
-  transform: scale(1.012);
+.main-logo img {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.4s cubic-bezier(.51,1.6,.59,1);
 }
 
