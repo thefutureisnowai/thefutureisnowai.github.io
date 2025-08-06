@@ -660,73 +660,32 @@ a:focus {
 }
 .main-content-box {
   position: relative;
-  background: #000;
+  background: #000;                  /* Pure black */
   border-radius: 32px;
   padding: 56px 7vw;
   margin: 64px auto;
   max-width: 1000px;
   z-index: 1;
 
-  /* Inner solid border */
-  border: 4px solid #43484e; /* space-grey */
-  box-shadow: none; /* we want all glows on pseudo-elements */
+  border: 5px solid #43484e;         /* Space-grey solid border */
+  box-shadow:
+    inset 0 0 22px 4px #72e7ff44,    /* Soft blue inward-facing glow */
+    inset 0 0 12px 2px #7d8a9655;    /* Space-grey, faintly blurred inward */
 
-  /* Font: very light blue */
-  color: #eaf9ff;
+  color: #eaf9ff;                    /* Very light blue */
   font-size: clamp(1.03rem, 1.1vw, 1.32rem);
   line-height: 1.7;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  text-shadow: 0 0 10px #eaf9ff66, 0 0 2px #eaf9ff;
+  text-shadow: 0 0 10px #eaf9ff33, 0 0 2px #eaf9ff;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  overflow: visible;
+  overflow: hidden;                  /* Ensures glow stays inside rounded corners */
 }
 
-/* Layer 2: Metallic Gradient Ring (directly outside box) */
-.main-content-box::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  top: -12px; left: -12px; right: -12px; bottom: -12px;
-  border-radius: calc(32px + 12px);
-  pointer-events: none;
-  background: conic-gradient(
-    from 80deg,
-    #21242a 0deg,
-    #49505a 15deg,
-    #b8bac0 38deg,
-    #e0e2e8 70deg,
-    #b8bac0 180deg,
-    #49505a 260deg,
-    #21242a 360deg
-  );
-  /* Fine-tune stops/colors for best effect */
-  box-shadow: 0 0 0 2px #232930cc; /* subtle “frame” to blend */
-}
-
-/* Layer 3: Neon glow OUTSIDE everything */
-.main-content-box::after {
-  content: "";
-  position: absolute;
-  z-index: -3;
-  top: -32px; left: -32px; right: -32px; bottom: -32px;
-  border-radius: calc(32px + 32px);
-  pointer-events: none;
-  background: none;
-  box-shadow:
-    0 0 32px 6px #00d9ffcc,
-    0 0 90px 22px #00ffaa44,
-    0 0 150px 38px #00f2ff22;
-}
-
-/* On hover: only the outer glow intensifies */
-.main-content-box:hover::after {
-  box-shadow:
-    0 0 56px 14px #00eaffee,
-    0 0 120px 34px #00ffaa88,
-    0 0 220px 54px #00f2ff44;
-}
 .main-content-box:hover {
+  box-shadow:
+    inset 0 0 38px 8px #b2edff66,   /* Stronger blue inward on hover */
+    inset 0 0 16px 4px #a2acba55;   /* Brighter space-grey inward */
   transform: scale(1.012);
 }
 
