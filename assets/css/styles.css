@@ -331,6 +331,7 @@ text-shadow:
 /* NAV CONTAINER */
 /* NAV CONTAINER */
 .nav-menu {
+  padding: 5vh 0;
   width: 100vw;
   background:
     linear-gradient(
@@ -347,6 +348,7 @@ text-shadow:
   flex-direction: column;
   align-items: center;
   position: relative;
+  
 }
 
 /* HAMBURGER BUTTON */
@@ -439,6 +441,49 @@ text-shadow:
   box-shadow:
     0 0 12px 1.5px rgba(var(--neon-yellow), 0.13);
 }
+.nav-graphics {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;   /* allows menu items to be clicked above graphics */
+  z-index: 0;             /* stays behind nav-menu */
+  margin-bottom: -40px;   /* pulls graphics under the nav-menu */
+}
+
+.nav-mouse,
+.nav-keyboard,
+.nav-both {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 100;           /* Hide all by default; you can show as needed */
+  pointer-events: none;
+}
+
+.nav-mouse.active,
+.nav-keyboard.active,
+.nav-both.active {
+  opacity: 1;           /* Show one as needed (add/remove .active via JS or server-side) */
+}
+
+.nav-mouse img,
+.nav-keyboard img,
+.nav-both img {
+  height: 72px;        /* adjust size as desired */
+  filter: drop-shadow(0 0 18px rgb(var(--neon-teal)))
+          drop-shadow(0 0 8px rgb(var(--electric-violet)));
+  opacity: 0.88;
+  user-select: none;
+}
+
+.nav-both img {
+  height: 56px;
+  margin: 0 12px;
+  vertical-align: middle;
+}
+
 
 /* Footer Card */
 .footer-card {
