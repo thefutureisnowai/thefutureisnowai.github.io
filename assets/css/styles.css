@@ -29,13 +29,32 @@ Extra space beneath each <li>
   margin-bottom: 0.5em; /* optional: adds spacing between items */
 }
 
-/* Font Face for Lastica */
 @font-face {
-  font-family: 'Lastica';
-  src: url('/assets/fonts/Lastica.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Audiowide';
+  src: url('/assets/fonts/Audiowide-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
-  font-display: swap; /* Ensures the font loads smoothly */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('/assets/fonts/ShareTechMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Optional: CSS classes, matching Google Fonts naming */
+.audiowide-regular {
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.share-tech-mono-regular {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* FIXME: was using header and footer-gradient, now using gradient, header-grad, and footer-grad
@@ -720,7 +739,8 @@ a:focus {
 }
 
 .title {
-  font-family: 'Lastica', sans-serif;
+  /* font-family: 'Share Tech Mono', monospace; */
+  font-family: 'Audiowide', sans-serif;
   font-weight: bold;
   font-size: clamp(1.1rem, 4vw, 2.6rem);
   color: var(--neon-blue);
@@ -735,7 +755,7 @@ a:focus {
   position: absolute;
   right: 0.12em;   /* tweak to visually align logo with text's right edge */
   bottom: 0.10em;  /* tweak as needed */
-  width: clamp(36px, 2.5em, 56px); /* scales with text size */
+  width: clamp(1em, 10em, 20em);
   height: auto;
   display: flex;
   align-items: flex-end;
@@ -752,11 +772,16 @@ a:focus {
     brightness(1.4)
     contrast(1.15);
 }
-@media (max-width: 1000px) {
-  .title-and-logo {
-    padding-bottom: 1.2em; /* create space at bottom so logo doesn't hide text */
-    padding-top: 0.35em;   /* restore any top padding if needed */
-  }
+.main-logo {
+  position: absolute;
+  right: 0.12em;
+  bottom: 0.10em;
+  top: auto;
+  transition: top 0.2s, bottom 0.2s;
+}
+
+/* When viewport is narrow, move logo to top-right */
+@media (max-width: 2vw) {
   .main-logo {
     bottom: auto;
     top: 0.10em;
