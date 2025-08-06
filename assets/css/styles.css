@@ -7,7 +7,7 @@
   --space-grey1: 16,20,24;
   --space-grey2: 24,26,32;
   --teal: 0,255,208;
-  --neon-teal: 0,255,208;
+  --neon-teal: 0,255,224;
   --cyan: 0,255,255;
   --blue: 0,200,255;
   --pastel-orange: 255,201,143;
@@ -26,29 +26,25 @@
   --title-bg: rgb(var(--dark-grey));               /* screen/card background: lighter dark grey */
   --card-border: rgb(var(--dark-grey));          /* border: classic dark grey */
   --screen-border: rgb(var(--space-grey1));          /* border: classic dark grey */
-  --title-border-glow: rgba(var(--blue), 0.28);    /* blue outer glow */
-  --title-border-inner-glow: rgba(var(--teal), 0.16); /* teal inner glow */
-
-  --between-gradient-from: var(--space-grey);      /* keep between area dark if needed */
-  --between-gradient-to: var(--dark-grey);
 
   --title-font-color: rgb(var(--blue));
---title-text-shadow:
-  0 0 2px rgba(var(--blue), 0.9),    /* bright core */
-  0 0 8px rgba(var(--cyan), 0.5),    /* mid glow */
-  0 0 16px rgba(var(--teal), 0.4),   /* big teal glow */
-  0 0 32px rgba(var(--electric-violet), 1.0);  /* outer glow */
+
+  --title-text-shadow:
+    0 0 2px rgba(var(--blue), 0.9),    /* bright core */
+    0 0 8px rgba(var(--cyan), 0.5),    /* mid glow */
+    0 0 16px rgba(var(--teal), 0.4),   /* big teal glow */
+    0 0 32px rgba(var(--electric-violet), 1.0);  /* outer glow */
+
   --main-logo-filter:
     drop-shadow(0 0 16px var(--neon-teal))
     drop-shadow(0 0 32px var(--neon-blue))
     brightness(1.4)
     contrast(1.15);
 
-
   --title-shadow:
-    0 0 4px rgba(var(--blue), 0.8),
-    inset 0 0 12px rgba(var(--blue), 0.7),
-    inset 0 0 24px rgba(var(--electric-violet), 0.4),
+    0 0 4px rgba(var(--neon-teal), 0.8),
+    0 0 8px rgba(var(--blue), 0.4),
+    inset 0 0 4px rgba(var(--blue), 0.9),
     inset 0 0 48px rgba(var(--electric-violet), 0.28);
 
 }
@@ -320,19 +316,6 @@ text-shadow:
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;                  /* Ensures glow stays inside rounded corners */
-}
-
-:root {
-  --bg: #000;
-  --card-bg: #000;
-  --card-border: #15171a;
-  --neon-blue: #00d9ff;
-  --neon-teal: #00ffd0;
-  --shadow: 0 2px 32px #0009;
-  --rgb-bg: 0,0,0;
-  --rgb-card-border: 21,23,26;
-  --rgb-neon-blue: 0,217,255;
-  --rgb-neon-teal: 0,255,208;
 }
 
 /* NAV CONTAINER */
