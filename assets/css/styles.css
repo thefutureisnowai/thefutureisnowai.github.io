@@ -1,11 +1,25 @@
+/* styles.css */
+
+
+/* 1.1 high-level or universal styling */
+
+
 /* Reset and Global */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* When you add the .left-align class to a container, any <ul> or <li> inside it will have:
+
+Indented bullets (2em from the left)
+
+Bullets/numbers flush with the content (not hanging outside)
+
+Extra space beneath each <li>
+
+*/
 .left-align ul {
   padding-left: 2em; /* or whatever level of indentation you want */
   list-style-position: inside; /* optional: keeps bullets inside margin */
@@ -13,6 +27,15 @@
 
 .left-align li {
   margin-bottom: 0.5em; /* optional: adds spacing between items */
+}
+
+/* Font Face for Lastica */
+@font-face {
+  font-family: 'Lastica';
+  src: url('/assets/fonts/Lastica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures the font loads smoothly */
 }
 
 /* Header Gradient */
@@ -29,8 +52,65 @@
   position: relative;
   z-index: 50;
 }
-/* Popout Box */
-.popout-box {
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 64px; /* adjust for desired fade depth */
+  pointer-events: none;
+  z-index: 100;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,19,40, 0) 0%,
+    rgba(0,12,25, 0.8) 80%,
+    rgba(0,0,0,1) 100%
+  );
+}
+/* Footer Gradient */
+.footer-gradient::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -1px;
+  height: 64px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0,19,40, 0) 0%,
+    rgba(0,12,25, 0.8) 80%,
+    rgba(0,0,0,1) 100%
+  );
+}
+.footer-gradient {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  padding: 6vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  color: #ccc;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5vw;  /* Adjusted to match header spacing */
+  max-width: 80vw; /* Consistent with the header's responsive width */
+  width: 100%;
+  margin-bottom: 3vh;
+}
+
+/* 1.2 specific objects */
+
+/* Popout Box most objects in the site will be contained in these */
+.box {
   background: linear-gradient(145deg, #111111, #1a1a1a);
   border-radius: 20px;
   padding: 2vh 2vw;
@@ -46,7 +126,7 @@
   height: auto; /* Let content define the height */
   max-width: 100%; /* Prevent overflow on small screens */
 }
-.popout-box:hover {
+.box:hover {
   transform: scale(1.025);
   box-shadow:
     0 0 50px rgba(0, 255, 170, 0.85),   /* Strong teal core */
@@ -57,6 +137,7 @@
     inset 0 6px 16px rgba(255, 255, 255, 0.08),
     inset 0 -8px 24px rgba(0, 255, 170, 0.3);
 }
+
 /* Title and Logo Wrapper */
 .title-logo-wrapper {
   position: relative;
@@ -69,6 +150,11 @@
   gap: 3vw;                    /* Space between logo and title, adjust as needed */
   padding: 0 4vw;              /* Optional: add side padding for large screens */
 }
+.title-logo-wrapper:hover .main-logo img {
+  transform: scale(1.18);
+  z-index: 20;
+  transition: transform 0.18s cubic-bezier(.51,1.6,.59,1);
+}
 .main-logo img {
   max-width: clamp(40px, 4vw, 100px);
   height: auto;
@@ -79,20 +165,20 @@
     brightness(1.7)
     contrast(1.25);
   transition: filter 0.18s;
-}
-.logo img {
-  max-width: 320px;   /* or higher */
-  width: 20vw;        /* scales on large screens */
+  position: relative;
+  z-index: 10;
+  transition: transform 0.4s cubic-bezier(.51,1.6,.59,1);
 }
 
-/* Font Face for Lastica */
-@font-face {
-  font-family: 'Lastica';
-  src: url('/assets/fonts/Lastica.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* Ensures the font loads smoothly */
+.logo img {
+  width: 20vw;        /* scales on large screens */
+  filter: drop-shadow(0 0 24px #00ffd0) drop-shadow(0 0 48px #00d9ff);
+  max-width: clamp(40px, 4vw, 100px); /* Responsive logo size */
+  height: auto;
+  display: block;
 }
+
+
 /* Title */
 .title {
   font-family: 'Lastica', sans-serif;
@@ -103,33 +189,9 @@
   text-align: right;
   color: #00d9ff; /* neon blue */
   text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0; /* neon teal backglow */
-  /* Remove gradient background and webkit clip */
-}
-.logo img {
-  max-width: clamp(40px, 4vw, 100px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 0 24px #00ffd0) drop-shadow(0 0 48px #00d9ff);
 }
 
-/* Logo Styling */
-.logo {
-  position: absolute; /* Allows precise placement */
-  bottom: 0; /* Align to bottom */
-  left: 3vw; /* Align to left */
-  margin: 0px; /* Space from the corner */
-}
-.logo img {
-  max-width: clamp(40px, 4vw, 100px); /* Responsive logo size */
-  height: auto;
-  display: block;
-}
-
-/* Navigation Menu and Drop-Down Redesign */
-
-/* Navigation Menu Container with Enhanced Glow and Width */
-
-/* Full-Width Navigation Menu with Compact Height */
+/* Navigation Menu and Drop-Down */
 .nav-menu {
   width: 100vw;
   background-color: #111111;
@@ -229,7 +291,6 @@
     0 0 48px #00d9ff88,
     0 0 24px #00ffaa66;
 }
-
 .menu-toggle-label:hover .hamburger span,
 .menu-toggle-label:focus .hamburger span {
   background: linear-gradient(90deg, #00ffaa 10%, #00d9ff 90%);
@@ -238,48 +299,10 @@
     0 0 20px #00d9ffbb,
     0 0 28px #00ffaa88;
 }
-
 /* Active Hamburger: Optional for menu open (customize as needed) */
 .menu-toggle:checked + .menu-toggle-label .hamburger span {
   background: #00ffaa;
   box-shadow: 0 0 16px #00ffd0ff, 0 0 28px #00d9ffcc;
-}
-.header::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -1px;
-  height: 64px; /* adjust for desired fade depth */
-  pointer-events: none;
-  z-index: 100;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,19,40, 0) 0%,
-    rgba(0,12,25, 0.8) 80%,
-    rgba(0,0,0,1) 100%
-  );
-}
-.header {
-  position: relative;
-  z-index: 50;
-}
-
-.footer-gradient::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: -1px;
-  height: 64px;
-  pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(
-    to top,
-    rgba(0,19,40, 0) 0%,
-    rgba(0,12,25, 0.8) 80%,
-    rgba(0,0,0,1) 100%
-  );
-}
-.footer-gradient {
-  position: relative;
-  z-index: 1;
 }
 
 /* Drop-Down Menu */
@@ -346,34 +369,6 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #ccc;
   font-weight: 500;
-}
-
-
-/* Footer Gradient */
-.footer-gradient {
-  width: 100vw;
-  padding: 6vh 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
-  overflow: visible;
-  position: relative;
-  z-index: 1;
-  color: #ccc;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-/* Footer Wrapper */
-.footer-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5vw;  /* Adjusted to match header spacing */
-  max-width: 80vw; /* Consistent with the header's responsive width */
-  width: 100%;
-  margin-bottom: 3vh;
 }
 
 /* Pop Hover Effect */
@@ -704,15 +699,3 @@ text-shadow:
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;                  /* Ensures glow stays inside rounded corners */
 }
-.title-logo-wrapper:hover .main-logo img {
-  transform: scale(1.18);
-  z-index: 20;
-  transition: transform 0.18s cubic-bezier(.51,1.6,.59,1);
-}
-
-.main-logo img {
-  position: relative;
-  z-index: 10;
-  transition: transform 0.4s cubic-bezier(.51,1.6,.59,1);
-}
-
