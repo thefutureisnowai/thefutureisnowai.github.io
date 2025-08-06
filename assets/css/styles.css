@@ -760,6 +760,7 @@ a:focus {
   display: flex;
   align-items: flex-end;
   z-index: 1;
+  width: 20%;
 }
 
 .main-logo img {
