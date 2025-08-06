@@ -11,7 +11,7 @@
       rgba(var(--space-grey2), 0.96) 84%,
       rgba(var(--teal), 0.11) 100%
     ),
-    rgb(var(--black));
+    var(--bg);
   box-shadow:
     0 0 24px 0 rgba(var(--neon-blue), 0.19),
     0 2px 32px 0 rgba(var(--electric-violet), 0.07);
@@ -58,7 +58,7 @@
 .hamburger span {
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(var(--neon-blue)), rgb(var(--neon-teal)));
+  background: var(--bg);
   border-radius: 2px;
   box-shadow:
     0 0 6px 0.5px rgba(var(--neon-teal), 0.22),

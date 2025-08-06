@@ -1,5 +1,3 @@
-/* colors.css */
-
 :root {
   --black: 0,0,0;
   --dark-grey: 8,8,8;
@@ -21,23 +19,18 @@
   --sky: 173,245,255;
   --apricot: 255,220,186;
   --neon-lime: 204,255,0;
-  --bg: rgb(var(--black));
-  --title-bg: rgb(var(--dark-grey));               /* screen/card background: lighter dark grey */
-  --card-border: rgb(var(--dark-grey));          /* border: classic dark grey */
-  --screen-border: rgb(var(--space-grey1));          /* border: classic dark grey */
 
+  --bg: rgb(var(--black));
+  --title-bg: rgb(var(--dark-grey));
+  --card-border: rgb(var(--dark-grey));
+  --screen-border: rgb(var(--space-grey1));
   --title-font-color: rgb(var(--neon-teal));
 
   --header-grad-c:
-    /* Neon teal top left glow */
     radial-gradient(circle at 10% 12%, rgba(var(--neon-teal), 0.08) 0, transparent 60%),
-    /* Electric violet top right glow */
     radial-gradient(circle at 95% 8%, rgba(var(--electric-violet), 0.08) 0, transparent 60%),
-    /* Pastel purple bottom left glow */
     radial-gradient(circle at 8% 92%, rgba(var(--pastel-purple), 0.10) 0, transparent 70%),
-    /* Pastel orange bottom right glow */
     radial-gradient(circle at 92% 90%, rgba(var(--pastel-orange), 0.07) 0, transparent 60%),
-    /* Subtle conic shimmer at center */
     conic-gradient(
       from 180deg at 50% 52%,
       rgba(var(--sky), 0.04) 10%,
@@ -45,14 +38,14 @@
       rgba(var(--neon-teal), 0.05) 55%,
       transparent 100%
     ),
-    /* Deep black base */
     rgb(var(--black));
 
   --title-text-shadow:
-    0 0 2px rgba(var(--blue), 0.9),    /* bright core */
-    0 0 8px rgba(var(--cyan), 0.5),    /* mid glow */
-    0 0 16px rgba(var(--teal), 0.4),   /* big teal glow */
-    0 0 32px rgba(var(--electric-violet), 1.0);  /* outer glow */
+    0 0 2px rgba(var(--blue), 0.9),
+    0 0 8px rgba(var(--cyan), 0.5),
+    0 0 16px rgba(var(--teal), 0.4),
+    0 0 32px rgba(var(--electric-violet), 1.0);
+
   --main-logo-filter:
     drop-shadow(0 0 16px rgb(var(--teal)))
     drop-shadow(0 0 32px rgb(var(--blue)))
@@ -64,5 +57,5 @@
     0 0 8px rgba(var(--blue), 0.4),
     inset 0 0 4px rgba(var(--blue), 0.9),
     inset 0 0 48px rgba(var(--electric-violet), 0.28);
-
 }
+

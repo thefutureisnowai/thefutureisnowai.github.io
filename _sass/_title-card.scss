@@ -2,9 +2,9 @@
 
 .title-card {
   /* Outer border */
-  border: 8px solid rgb(var(--card-border));
+  border: 8px solid var(--card-border);
   border-radius: 1.2em;
-  background: rgb(var(--bg));
+  background: var(--bg);
   width: clamp(320px, 40vw, 100vw);
   height: clamp(120px, 20vw, 260px);
   margin: 0 auto;
@@ -36,7 +36,7 @@
   position: relative;
   display: inline-block;      /* Shrink-wrap to title size */
   padding: 2em 1em 2em 1em; /* (optional) add some space inside, tweak as needed */
-  background: rgba(0,0,0,0.09);   /* Optional: shows the bounding box */
+  background: var(--bg); 
   border-radius: 0.5em;
   box-sizing: content-box;
 }
