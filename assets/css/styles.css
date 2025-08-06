@@ -132,7 +132,7 @@ body {
 /* 1.2 specific objects */
 
 /* Popout Box most objects in the site will be contained in these */
-.box {
+.card {
   background: linear-gradient(145deg, #111111, #1a1a1a);
   border-radius: 20px;
   padding: 2vh 2vw;
@@ -148,7 +148,7 @@ body {
   height: auto; /* Let content define the height */
   max-width: 100%; /* Prevent overflow on small screens */
 }
-.box:hover {
+.card:hover {
   transform: scale(1.025);
   box-shadow:
     0 0 50px rgba(0, 255, 170, 0.85),   /* Strong teal core */
@@ -690,3 +690,48 @@ a:focus {
   text-decoration: underline;
   text-shadow: 0 0 6px #00ffaa;
 }
+
+
+
+
+
+/* Cards, this will generlize everything else. */
+.card {
+  background: var(--card-bg, linear-gradient(135deg, #181f25 70%, #292a34 100%));
+  border: 2px solid var(--card-border, #1f445f);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 28px 0 rgba(0,0,0,0.45),              /* outer shadow */
+    0 0 16px 2px var(--card-glow, #00eedd60),   /* colored glow */
+    inset 0 0 16px 2px var(--card-inner, #222a33); /* inner shadow */
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1000px;
+  width: 100%;
+  overflow: visible;
+  /* Position for non-overlap, stacking naturally */
+}
+
+.card-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.card-cell {
+  background: var(--cell-bg, #14181b);
+  border-radius: 14px;
+  padding: 1.25rem;
+  min-width: 150px;
+  min-height: 100px;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.09),
+    inset 0 2px 6px #0ff2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
