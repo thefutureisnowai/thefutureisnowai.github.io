@@ -17,6 +17,7 @@
   --sky: 173,245,255;
   --apricot: 255,220,186;
   --neon-lime: 204,255,0;
+
   --bg: rgb(var(--black));
   --title-bg: rgb(var(--dark-grey));               /* screen/card background: lighter dark grey */
   --title-border: rgb(var(--space-grey));          /* border: classic dark grey */
@@ -153,7 +154,6 @@ body.theme-alt {
 .title-screen {
   background: var(--title-bg);
   border: 1em double var(--title-border);
-  border-radius: 1.2em;
   width: clamp(320px, 40vw, 100vw);
   height: clamp(120px, 20vw, 260px);
   margin: 0 auto;
@@ -162,6 +162,11 @@ body.theme-alt {
   justify-content: center;
   align-items: center;
   z-index: 2;
+  /* Frown-shaped curve: top and bottom bulge upward at center */
+  clip-path: polygon(
+    0% 0%,     10% 7%,  50% 12%, 90% 7%,  100% 0%,   /* Top edge: middle is lowest (dips up) */
+    100% 100%, 90% 93%, 50% 88%, 10% 93%, 0% 100%    /* Bottom edge: middle is highest (dips up) */
+  );
 }
 
 
