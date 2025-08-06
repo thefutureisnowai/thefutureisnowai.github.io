@@ -40,25 +40,9 @@ Extra space beneath each <li>
 
 /* FIXME: was using header and footer-gradient, now using gradient, header-grad, and footer-grad
 
-/* Header Gradient */
-.header {
+/* Gradients */
+.gradient {
   width: 100vw;
-  height: 35vh;
-  padding: 5vh 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
-  overflow: visible; /* Ensure gradient does not expand with dropdown */
-  position: relative;
-  z-index: 50;
-}
-.footer-gradient {
-  position: relative;
-  z-index: 1;
-  width: 100vw;
-  padding: 6vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,16 +50,31 @@ Extra space beneath each <li>
   background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
   overflow: visible;
   position: relative;
+}
+
+.header-grad {
+  height: 35vh;
+  padding: 5vh 0;
+  z-index: 50;
+}
+
+.footer-grad {
+  padding: 6vh 0;
   z-index: 1;
   color: #ccc;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-.header::after {
+.header::after,
+.footer-gradient::before {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -1px;
-  height: 64px; /* adjust for desired fade depth */
+  left: 0; right: 0;
+  height: 64px;
   pointer-events: none;
+}
+
+.header::after {
+  bottom: -1px;
   z-index: 100;
   background: linear-gradient(
     to bottom,
@@ -84,13 +83,9 @@ Extra space beneath each <li>
     rgba(0,0,0,1) 100%
   );
 }
-/* Footer Gradient */
+
 .footer-gradient::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: -1px;
-  height: 64px;
-  pointer-events: none;
+  top: -1px;
   z-index: 2;
   background: linear-gradient(
     to top,
@@ -99,6 +94,7 @@ Extra space beneath each <li>
     rgba(0,0,0,1) 100%
   );
 }
+
 .footer-wrapper {
   display: flex;
   justify-content: center;
