@@ -34,12 +34,12 @@
     0 0 8px rgba(var(--cyan), 0.5),    /* mid glow */
     0 0 16px rgba(var(--teal), 0.4),   /* big teal glow */
     0 0 32px rgba(var(--electric-violet), 1.0);  /* outer glow */
-
   --main-logo-filter:
-    drop-shadow(0 0 16px var(--neon-teal))
-    drop-shadow(0 0 32px var(--neon-blue))
+    drop-shadow(0 0 16px rgb(var(--teal)))
+    drop-shadow(0 0 32px rgb(var(--blue)))
     brightness(1.4)
     contrast(1.15);
+
 
   --title-shadow:
     0 0 4px rgba(var(--neon-teal), 0.8),
