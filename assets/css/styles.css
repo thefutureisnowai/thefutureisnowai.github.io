@@ -1,12 +1,22 @@
 /* styles.css */
 
 :root {
-  /* === Base RGB Triplets === */
   --black: 0,0,0;
   --space-grey: 24,26,32;
   --teal: 0,255,208;
   --cyan: 0,255,255;
-  --blue: 0,0,255;
+  --blue: 0,200,255;
+  --pastel-orange: 255,201,143;
+  --neon-red: 255,77,136;
+  --bright-green: 140,255,158;
+  --neon-yellow: 255,255,136;
+  --pastel-pink: 255,174,246;
+  --pastel-purple: 180,154,255;
+  --mint: 182,255,240;
+  --electric-violet: 144,94,255;
+  --sky: 173,245,255;
+  --apricot: 255,220,186;
+  --neon-lime: 204,255,0;
 
   /* === Semantic Variables Using Base RGBs === */
   --bg: rgb(var(--black));
@@ -132,24 +142,19 @@ body.theme-alt {
   top: -1px;
   z-index: 2;
 }
-
 .title-card {
-  content: "";
-  position: absolute;
-  top: 8px; left: 8px; right: 8px; bottom: 8px; /* space for outer border */
-  border: 4px solid rgb(var(--inner-border));
-  border-radius: 1em;
-  z-index: 1;
-  pointer-events: none;
-  /* Gradient and glow between borders using only your variables */
-  background: linear-gradient(
-    135deg,
-    rgba(var(--between-gradient-from), 0.65),
-    rgba(var(--between-gradient-to), 0.35)
-  );
-  box-shadow: 0 0 16px rgba(var(--between-gradient-to), 0.3);
-  z-index: 1;
+  /* Outer border */
+  border: 8px solid rgb(var(--outer-border));
+  border-radius: 1.2em;
+  background: rgb(var(--bg));
+  width: clamp(320px, 40vw, 100vw);
+  height: clamp(120px, 20vw, 260px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .title-screen {
   background: var(--title-bg);
   border: 1em double var(--title-border);
