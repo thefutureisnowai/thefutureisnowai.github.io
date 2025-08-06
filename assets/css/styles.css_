@@ -2,9 +2,9 @@
 
 :root {
   --black: 0,0,0;
-  --dark-grey: 8,8,8;
-  --space-grey1: 16,20,24;
-  --space-grey2: 24,26,32;
+  --dark-grey: 35,39,46;
+  --space-grey: 24,26,32;
+  --space-grey: 24,26,32;
   --teal: 0,255,208;
   --cyan: 0,255,255;
   --blue: 0,200,255;
@@ -22,8 +22,7 @@
 
   --bg: rgb(var(--black));
   --title-bg: rgb(var(--dark-grey));               /* screen/card background: lighter dark grey */
-  --card-border: rgb(var(--dark-grey));          /* border: classic dark grey */
-  --screen-border: rgb(var(--space-grey1));          /* border: classic dark grey */
+  --title-border: rgb(var(--space-grey));          /* border: classic dark grey */
   --title-border-glow: rgba(var(--blue), 0.28);    /* blue outer glow */
   --title-border-inner-glow: rgba(var(--teal), 0.16); /* teal inner glow */
   --outer-border: var(--space-grey);               /* actual border color: grey */
@@ -141,23 +140,46 @@ body.theme-alt {
   top: -1px;
   z-index: 2;
 }
+
+/* Make the lines imperfect by varying the angle stops and width */
 .title-card {
-  /* Outer border */
-  border: 8px solid rgb(var(--card-border));
+  background:
+    repeating-conic-gradient(
+      from 12deg,
+      rgb(var(--dark-grey)) 0deg 21deg,
+      rgb(var(--space-grey)) 21deg 23deg,
+      rgb(var(--dark-grey)) 23deg 44deg,
+      rgb(var(--space-grey)) 44deg 46deg,
+      rgb(var(--space-grey)) 46deg 76deg,
+      rgb(var(--dark-grey)) 76deg 78deg,
+      rgb(var(--space-grey)) 78deg 110deg,
+      rgb(var(--dark-grey)) 110deg 113deg,
+      rgb(var(--space-grey)) 113deg 150deg,
+      rgb(var(--dark-grey)) 150deg 151.5deg,
+      rgb(var(--space-grey)) 151.5deg 185deg,
+      rgb(var(--dark-grey)) 185deg 187deg,
+      rgb(var(--space-grey)) 187deg 220deg,
+      rgb(var(--dark-grey)) 220deg 222.5deg,
+      rgb(var(--space-grey)) 222.5deg 270deg,
+      rgb(var(--dark-grey)) 270deg 271.5deg,
+      rgb(var(--space-grey)) 271.5deg 320deg,
+      rgb(var(--dark-grey)) 320deg 322deg,
+      rgb(var(--space-grey)) 322deg 360deg
+    );
+  border: 8px solid rgb(var(--space-grey));
   border-radius: 1.2em;
-  background: rgb(var(--bg));
   width: clamp(320px, 40vw, 100vw);
   height: clamp(120px, 20vw, 260px);
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .title-screen {
-  border-radius: 1.2em;
   background: var(--title-bg);
-  border: 1em double var(--screen-border);
+  border: 1em double var(--title-border);
   width: clamp(320px, 40vw, 100vw);
   height: clamp(120px, 20vw, 260px);
   margin: 0 auto;
@@ -168,7 +190,45 @@ body.theme-alt {
   z-index: 2;
   /* Frown-shaped curve: top and bottom bulge upward at center */
   clip-path: polygon(
+    0% 0%,     10% 7%,  50% 12%, 90% 7%,  100% 0%,   /* Top edge: middle is lowest (dips up) */
+    100% 100%, 90% 93%, 50% 88%, 10% 93%, 0% 100%    /* Bottom edge: middle is highest (dips up) */
   );
+}
+
+/* Make the lines imperfect by varying the angle stops and width */
+.title-card {
+  background:
+    repeating-conic-gradient(
+      from 12deg,
+      rgb(var(--dark-grey)) 0deg 21deg,
+      rgb(var(--space-grey)) 21deg 23deg,
+      rgb(var(--dark-grey)) 23deg 44deg,
+      rgb(var(--space-grey)) 44deg 46deg,
+      rgb(var(--dark-grey)) 46deg 76deg,
+      rgb(var(--space-grey)) 76deg 78deg,
+      rgb(var(--dark-grey)) 78deg 110deg,
+      rgb(var(--space-grey)) 110deg 113deg,
+      rgb(var(--dark-grey)) 113deg 150deg,
+      rgb(var(--space-grey)) 150deg 151.5deg,
+      rgb(var(--dark-grey)) 151.5deg 185deg,
+      rgb(var(--space-grey)) 185deg 187deg,
+      rgb(var(--dark-grey)) 187deg 220deg,
+      rgb(var(--space-grey)) 220deg 222.5deg,
+      rgb(var(--dark-grey)) 222.5deg 270deg,
+      rgb(var(--space-grey)) 270deg 271.5deg,
+      rgb(var(--dark-grey)) 271.5deg 320deg,
+      rgb(var(--space-grey)) 320deg 322deg,
+      rgb(var(--dark-grey)) 322deg 360deg
+    );
+  background-color: rgb(var(--dark-grey));
+  border: 8px solid rgb(var(--space-grey));
+  border-radius: 1.2em;
+  width: clamp(320px, 40vw, 100vw);
+  height: clamp(120px, 20vw, 260px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
