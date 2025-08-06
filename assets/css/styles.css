@@ -95,6 +95,30 @@ Extra space beneath each <li>
   );
 }
 
+/* Title */
+.title {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: clamp(1.0rem, 4vw, 3.0rem);
+  line-height: 1.2;
+  margin: 0;
+  text-align: right;
+  color: #00d9ff; /* neon blue */
+  text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0; /* neon teal backglow */
+}
+body {
+  background-color: #000;
+  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
+  background-repeat: repeat-y;                /* Tile vertically */
+  background-size: 100vw; /* Adjust this height */
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #ccc;
+  font-weight: 500;
+}
 .footer-wrapper {
   display: flex;
   justify-content: center;
@@ -203,19 +227,6 @@ text-shadow:
   display: block;
 }
 
-
-/* Title */
-.title {
-  font-family: 'Lastica', sans-serif;
-  font-weight: bold;
-  font-size: clamp(1.0rem, 4vw, 3.0rem);
-  line-height: 1.2;
-  margin: 0;
-  text-align: right;
-  color: #00d9ff; /* neon blue */
-  text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0; /* neon teal backglow */
-}
-
 /* Navigation Menu and Drop-Down */
 .nav-menu {
   width: 100vw;
@@ -305,7 +316,7 @@ text-shadow:
   display: block;
 }
 
-/* Hamburger Icon - Neon/Teal Glow, Compact, Consistent with UI */
+/* FIXME: moved hamburger stuff above which was below | Hamburger Icon - Neon/Teal Glow, Compact, Consistent with UI */
 .hamburger {
   width: 40px;
   height: 20px;
@@ -318,7 +329,6 @@ text-shadow:
   box-shadow: 0 0 16px #00ffd099, 0 2px 8px #00d9ff44;
   border-radius: 8px; /* Soft square for touch area, not the bars */
 }
-
 .hamburger span {
   display: block;
   height: 3px;
@@ -357,13 +367,11 @@ text-shadow:
   min-width: 600px;
   max-width: 90vw;
 }
-
 /* Drop-Down List Items */
 .drop-down li:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
-
 .drop-down a {
 	  text-align: center;
   font-family: Arial, sans-serif;
@@ -380,20 +388,6 @@ text-shadow:
   color: #fff;
 }
 
-
-body {
-  background-color: #000;
-  background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png');
-  background-repeat: repeat-y;                /* Tile vertically */
-  background-size: 100vw; /* Adjust this height */
-  background-position: center center;
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #ccc;
-  font-weight: 500;
-}
 
 /* Pop Hover Effect */
 .pop-hover-effect {
