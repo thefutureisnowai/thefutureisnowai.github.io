@@ -161,11 +161,10 @@ Extra space beneath each <li>
 }
 
 .title-screen {
+  border: 1em double var(--screen-border);
   border-radius: 1.2em;
   background: var(--title-bg);
-  border: 1em double var(--screen-border);
   width: clamp(320px, 40vw, 100vw);
-  height: clamp(120px, 20vw, 260px);
   margin: 0 auto;
   box-shadow: var(--title-shadow);
   display: flex;
@@ -177,10 +176,9 @@ Extra space beneath each <li>
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   overflow: hidden;
+  position: relative;  /* NEW: establish containing block for abs pos */
   );
 }
-
-
 .title-and-logo {
   position: relative;
   display: inline-block;      /* Shrink-wrap to title size */
@@ -189,7 +187,6 @@ Extra space beneath each <li>
   border-radius: 0.5em;
   box-sizing: content-box;
 }
-
 .title {
   /* font-family: 'Share Tech Mono', monospace; */
   font-family: 'Audiowide', sans-serif;
@@ -203,32 +200,27 @@ Extra space beneath each <li>
   vertical-align: top;
   pointer-events: none;
 }
-
-.main-logo {
-  position: absolute;
-  right: 0.12em;   /* tweak to visually align logo with text's right edge */
-  bottom: 0.10em;  /* tweak as needed */
-  width: clamp(1em, 10em, 20em);
-  height: auto;
-  display: flex;
-  align-items: flex-end;
-  z-index: 1;
-  width: 25%;
+.title-screen {
+  position: relative; /* Must be set for absolute positioning */
 }
 
+/* Logo always keeps its bottom-right corner Xpx from border, regardless of its size */
+.main-logo {
+  position: absolute;
+  right: 12px;    /* Set your preferred gap from border */
+  bottom: 12px;
+  z-index: 10;
+  display: block; /* Remove flex; keep this simple */
+  /* No width or height here: let the image define size! */
+}
+
+/* Responsive logo sizing; scales but stays anchored */
 .main-logo img {
-  width: 100%;
+  width: clamp(48px, 10vw, 128px); /* Choose suitable min/max for your site */
   height: auto;
   display: block;
-  filter:
-	var(--main-logo-filter);
-}
-.main-logo {
-  position: absolute;
-  right: 0.12em;
-  bottom: 0.10em;
-  top: auto;
-  transition: top 0.2s, bottom 0.2s;
+  filter: var(--main-logo-filter);
+  box-sizing: content-box; /* Optional, ensures padding/border don't offset anchor */
 }
 
 /* When viewport is narrow, move logo to top-right */
