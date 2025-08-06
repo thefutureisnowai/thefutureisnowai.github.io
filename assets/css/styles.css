@@ -3,33 +3,11 @@
 @import "header.css";
 @import "title-card.css";
 
-.footer-grad {
-  padding: 6vh 0;
-  z-index: 1;
-  color: #ccc;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-
-/* 1.1 high-level or universal styling */
-
-
-/* Reset and Global */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* When you add the .left-align class to a container, any <ul> or <li> inside it will have:
-
-Indented bullets (2em from the left)
-
-Bullets/numbers flush with the content (not hanging outside)
-
-Extra space beneath each <li>
-
-*/
 .left-align ul {
   padding-left: 2em; /* or whatever level of indentation you want */
   list-style-position: inside; /* optional: keeps bullets inside margin */
@@ -38,7 +16,6 @@ Extra space beneath each <li>
 .left-align li {
   margin-bottom: 0.5em; /* optional: adds spacing between items */
 }
-
 @font-face {
   font-family: 'Audiowide';
   src: url('/assets/fonts/Audiowide-Regular.ttf') format('truetype');
@@ -46,7 +23,6 @@ Extra space beneath each <li>
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Share Tech Mono';
   src: url('/assets/fonts/ShareTechMono-Regular.ttf') format('truetype');
@@ -54,7 +30,6 @@ Extra space beneath each <li>
   font-style: normal;
   font-display: swap;
 }
-
 /* Optional: CSS classes, matching Google Fonts naming */
 .audiowide-regular {
   font-family: 'Audiowide', sans-serif;
@@ -65,26 +40,6 @@ Extra space beneath each <li>
   font-family: 'Share Tech Mono', monospace;
   font-weight: 400;
   font-style: normal;
-}
-
-/* Header/footer gradient overlays */
-.header::after,
-.footer-gradient::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  height: 64px;
-  pointer-events: none;
-}
-
-.header::after {
-  bottom: -1px;
-  z-index: 100;
-}
-
-.footer-gradient::before {
-  top: -1px;
-  z-index: 2;
 }
 body {
   background-color: #000;
@@ -97,52 +52,8 @@ body {
   color: #ccc;
   font-weight: 500;
 }
-
-.footer-wrapper .header-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5vw;  /* Adjusted to match header spacing */
-  max-width: 80vw; /* Consistent with the header's responsive width */
-  width: 100%;
-}
-.header-wrapper {
-  margin-bottom: 3vh;
-}
-.footer-wrapper {
-  margin-top: 3vh;
-}
-
 /* 1.2 specific objects */
 
-/* Popout Box most objects in the site will be contained in these */
-.card {
-  background: linear-gradient(145deg, #111111, #1a1a1a);
-  border-radius: 20px;
-  padding: 2vh 2vw;
-  margin-bottom: 2vh;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4),
-              0 0 50px rgba(102, 204, 255, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;  /* Let content define the width */
-  height: auto; /* Let content define the height */
-  max-width: 100%; /* Prevent overflow on small screens */
-}
-.card:hover {
-  transform: scale(1.025);
-  box-shadow:
-    0 0 50px rgba(0, 255, 170, 0.85),   /* Strong teal core */
-    0 0 100px rgba(102, 204, 255, 0.55),/* Transition blue (light) */
-    0 0 140px rgba(0, 119, 255, 0.35),  /* Deep blue */
-    0 0 180px rgba(0, 85, 255, 0.2),    /* Indigo outer rim */
-    0 30px 90px rgba(0, 0, 0, 0.9),
-    inset 0 6px 16px rgba(255, 255, 255, 0.08),
-    inset 0 -8px 24px rgba(0, 255, 170, 0.3);
-}
 .main-content-box {
   position: relative;
   background: #000;                  /* Pure black */
@@ -170,140 +81,6 @@ text-shadow:
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;                  /* Ensures glow stays inside rounded corners */
 }
-
-/* NAV CONTAINER */
-/* NAV CONTAINER */
-.nav-menu {
-  padding: 5vh 0;
-  width: 100vw;
-  background:
-    linear-gradient(
-      120deg,
-      rgba(var(--black), 1) 58%,
-      rgba(var(--space-grey2), 0.96) 84%,
-      rgba(var(--teal), 0.11) 100%
-    ),
-    rgb(var(--black));
-  box-shadow:
-    0 0 24px 0 rgba(var(--neon-blue), 0.19),
-    0 2px 32px 0 rgba(var(--electric-violet), 0.07);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  
-}
-
-/* HAMBURGER BUTTON */
-.menu-toggle { display: none; }
-
-.menu-toggle-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 1.5em;
-  cursor: pointer;
-  color: var(--neon-blue);
-  font-size: 2rem;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(var(--blue), 0.13) 0%,
-      rgba(var(--black), 0.89) 35%,
-      rgba(var(--space-grey2), 0.66) 100%
-    );
-  border: none;
-  box-shadow:
-    0 0 10px 0 rgba(var(--teal), 0.09),
-    0 1.5px 6px rgba(var(--electric-violet), 0.10);
-}
-
-.hamburger {
-  width: 32px;
-  height: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 12px;
-}
-.hamburger span {
-  height: 4px;
-  width: 100%;
-  background: linear-gradient(90deg, rgb(var(--neon-blue)), rgb(var(--neon-teal)));
-  border-radius: 2px;
-  box-shadow:
-    0 0 6px 0.5px rgba(var(--neon-teal), 0.22),
-    0 0 7px 1px rgba(var(--blue), 0.15);
-  transition: background 0.2s;
-}
-
-/* DROPDOWN MENU */
-.drop-down {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100vw;
-  background:
-    linear-gradient(
-      110deg,
-      rgba(var(--space-grey1), 0.93) 0%,
-      rgba(var(--black), 1) 100%
-    );
-  box-shadow:
-    0 8px 32px rgba(var(--neon-blue), 0.12),
-    0 0 0 2px rgba(var(--electric-violet), 0.06);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  z-index: 10;
-}
-.menu-toggle:checked + .menu-toggle-label + .drop-down {
-  display: block;
-}
-
-.nav-graphics {
-  position: absolute;              /* key for overlaying */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;                    /* stretch over nav-menu */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.nav-keyboard,
-.nav-mouse {
-  position: static;                /* Let flexbox do the work */
-  display: flex;
-  align-items: center;
-}
-.nav-mouse {
-}
-.nav-keyboard {
-  rgba(var(--neon-teal), 0.08)
-  transition: color 0.2s;
-}
-.nav-keyboard.active {
-  color: var(--electric-violet);
-}
-
-.nav-graphics img {
-  height: 48px;                    /* adjust as needed */
-  margin: 0 0.25em 0 0;            /* only for keyboard, see below */
-  vertical-align: middle;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* Remove right margin for mouse so it's tight against keyboard */
-.nav-mouse img {
-  margin: 0;
-}
-
 /* Footer Card */
 .footer-card {
   background: linear-gradient(145deg, #111111, #1a1a1a);

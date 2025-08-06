@@ -1,0 +1,135 @@
+/* nav-menu.css */
+
+@import "colors.css";
+
+/* NAV CONTAINER */
+.nav-menu {
+  padding: 5vh 0;
+  width: 100vw;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(var(--black), 1) 58%,
+      rgba(var(--space-grey2), 0.96) 84%,
+      rgba(var(--teal), 0.11) 100%
+    ),
+    rgb(var(--black));
+  box-shadow:
+    0 0 24px 0 rgba(var(--neon-blue), 0.19),
+    0 2px 32px 0 rgba(var(--electric-violet), 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  
+}
+
+/* HAMBURGER BUTTON */
+.menu-toggle { display: none; }
+
+.menu-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 1.5em;
+  cursor: pointer;
+  color: var(--neon-blue);
+  font-size: 2rem;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--blue), 0.13) 0%,
+      rgba(var(--black), 0.89) 35%,
+      rgba(var(--space-grey2), 0.66) 100%
+    );
+  border: none;
+  box-shadow:
+    0 0 10px 0 rgba(var(--teal), 0.09),
+    0 1.5px 6px rgba(var(--electric-violet), 0.10);
+}
+
+.hamburger {
+  width: 32px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 12px;
+}
+.hamburger span {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(var(--neon-blue)), rgb(var(--neon-teal)));
+  border-radius: 2px;
+  box-shadow:
+    0 0 6px 0.5px rgba(var(--neon-teal), 0.22),
+    0 0 7px 1px rgba(var(--blue), 0.15);
+  transition: background 0.2s;
+}
+
+/* DROPDOWN MENU */
+.drop-down {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(var(--space-grey1), 0.93) 0%,
+      rgba(var(--black), 1) 100%
+    );
+  box-shadow:
+    0 8px 32px rgba(var(--neon-blue), 0.12),
+    0 0 0 2px rgba(var(--electric-violet), 0.06);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  z-index: 10;
+}
+.menu-toggle:checked + .menu-toggle-label + .drop-down {
+  display: block;
+}
+
+.nav-graphics {
+  position: absolute;              /* key for overlaying */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;                    /* stretch over nav-menu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nav-keyboard,
+.nav-mouse {
+  position: static;                /* Let flexbox do the work */
+  display: flex;
+  align-items: center;
+}
+.nav-mouse {
+}
+.nav-keyboard {
+  rgba(var(--neon-teal), 0.08)
+  transition: color 0.2s;
+}
+.nav-keyboard.active {
+  color: var(--electric-violet);
+}
+
+.nav-graphics img {
+  height: 48px;                    /* adjust as needed */
+  margin: 0 0.25em 0 0;            /* only for keyboard, see below */
+  vertical-align: middle;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Remove right margin for mouse so it's tight against keyboard */
+.nav-mouse img {
+  margin: 0;
+}
