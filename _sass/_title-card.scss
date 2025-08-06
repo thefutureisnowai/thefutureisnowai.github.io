@@ -14,28 +14,32 @@
 }
 
 .title-screen {
+  height: 100%;
+  width: 100%;
+
   border: 1em double var(--screen-border);
   border-radius: 1.2em;
+
   background: var(--title-bg);
-  width: clamp(320px, 40vw, 100vw);
-  margin: 0 auto;
   box-shadow: var(--title-shadow);
+
+  align-items: center;
+  box-sizing: border-box;
+  container-type: size;
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 2;
-  box-sizing: border-box;
-  height: 100%;
+  margin: 0 auto;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   overflow: hidden;
   position: relative;
-  container-type: size;
+
+  z-index: 1;
 }
 .title-and-logo {
   position: relative;
   display: inline-block;      /* Shrink-wrap to title size */
-  padding: 2em 1em 2em 1em; /* (optional) add some space inside, tweak as needed */
+  padding: 2em 4em 2em 4em; /* (optional) add some space inside, tweak as needed */
   background: var(--bg); 
   border-radius: 0.5em;
   box-sizing: content-box;
@@ -46,8 +50,7 @@
   font-weight: bold;
   font-size: clamp(1.1rem, 4vw, 2.6rem);
   color: var(--title-font-color);
-  text-shadow:
-  	var(--title-text-shadow);
+  text-shadow: var(--title-text-shadow);
   line-height: 1.13;
   display: inline-block;      /* Ensures the box only wraps the text */
   vertical-align: top;

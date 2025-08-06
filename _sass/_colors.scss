@@ -22,7 +22,7 @@
 
   --bg: rgb(var(--black));
   --title-bg: rgb(var(--dark-grey));
-  --card-border: rgb(var(--dark-grey));
+  --card-border: rgb(var(--space-grey2));
   --screen-border: rgb(var(--space-grey1));
   --title-font-color: rgb(var(--neon-teal));
 
@@ -40,12 +40,6 @@
     ),
     rgb(var(--black));
 
-  --title-text-shadow:
-    0 0 2px rgba(var(--blue), 0.9),
-    0 0 8px rgba(var(--cyan), 0.5),
-    0 0 16px rgba(var(--teal), 0.4),
-    0 0 32px rgba(var(--electric-violet), 1.0);
-
   --main-logo-filter:
     drop-shadow(0 0 16px rgb(var(--teal)))
     drop-shadow(0 0 32px rgb(var(--blue)))
@@ -57,5 +51,12 @@
     0 0 8px rgba(var(--blue), 0.4),
     inset 0 0 4px rgba(var(--blue), 0.9),
     inset 0 0 48px rgba(var(--electric-violet), 0.28);
+
+  --title-text-shadow:
+    0 0 2px rgba(var(--blue), 0.9),
+    0 0 8px rgba(var(--cyan), 0.5),
+    0 0 16px rgba(var(--teal), 0.4),
+    0 0 32px rgba(var(--electric-violet), 1.0);
+
 }
 
