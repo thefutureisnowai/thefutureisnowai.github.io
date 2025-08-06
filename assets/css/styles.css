@@ -752,4 +752,14 @@ a:focus {
     brightness(1.4)
     contrast(1.15);
 }
+@media (max-width: 1000px) {
+  .title-and-logo {
+    padding-bottom: 1.2em; /* create space at bottom so logo doesn't hide text */
+    padding-top: 0.35em;   /* restore any top padding if needed */
+  }
+  .main-logo {
+    bottom: auto;
+    top: 0.10em;
+  }
+}
 
