@@ -172,6 +172,11 @@ Extra space beneath each <li>
   justify-content: center;
   align-items: center;
   z-index: 2;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  overflow: hidden;
   );
 }
 
@@ -179,7 +184,7 @@ Extra space beneath each <li>
 .title-and-logo {
   position: relative;
   display: inline-block;      /* Shrink-wrap to title size */
-  padding: 0.35em 1em 0.4em 1.3em; /* (optional) add some space inside, tweak as needed */
+  padding: 2em 1em 2em 1em; /* (optional) add some space inside, tweak as needed */
   background: rgba(0,0,0,0.09);   /* Optional: shows the bounding box */
   border-radius: 0.5em;
   box-sizing: content-box;
