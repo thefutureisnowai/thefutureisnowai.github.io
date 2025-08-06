@@ -57,16 +57,35 @@ Extra space beneath each <li>
   font-style: normal;
 }
 
-/* FIXME: was using header and footer-gradient, now using gradient, header-grad, and footer-grad
+:root {
+  --bg: #000000;
+  --card-bg: #000000;
+  --card-border: #000000;
+  --neon-blue: #000000;
+  --neon-teal: #000000;
+  --shadow: 0 2px 32px #0009;
+  /* RGB equivalents for alpha usage */
+  --rgb-bg: 0,0,0;
+  --rgb-card-border: 0.0.0;
+  --rgb-neon-blue: 0,0.0;
+  --rgb-neon-teal: 0,0.8;
+}
 
-/* Gradients */
+body.theme-alt {
+}
 .gradient {
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, #003366 10%, #001830 30%, #000f20 70%, #000810 100%);
+  background: radial-gradient(
+    circle at center,
+    var(--neon-blue) 10%,
+    var(--neon-teal) 30%,
+    var(--card-border) 70%,
+    var(--bg) 100%
+  );
   overflow: visible;
   position: relative;
 }
@@ -83,6 +102,8 @@ Extra space beneath each <li>
   color: #ccc;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
+
+/* Header/footer gradient overlays */
 .header::after,
 .footer-gradient::before {
   content: "";
@@ -93,13 +114,13 @@ Extra space beneath each <li>
 }
 
 .header::after {
-  bottom: -1px; */
+  bottom: -1px;
   z-index: 100;
   background: linear-gradient(
     to bottom,
-    rgba(0,19,40, 0) 0%,
-    rgba(0,12,25, 0.8) 80%,
-    rgba(0,0,0,1) 100%
+    rgba(var(--rgb-neon-blue), 0) 0%,
+    rgba(var(--rgb-neon-teal), 0.8) 80%,
+    rgba(var(--rgb-bg), 1) 100%
   );
 }
 
@@ -108,9 +129,9 @@ Extra space beneath each <li>
   z-index: 2;
   background: linear-gradient(
     to top,
-    rgba(0,19,40, 0) 0%,
-    rgba(0,12,25, 0.8) 80%,
-    rgba(0,0,0,1) 100%
+    rgba(var(--rgb-neon-blue), 0) 0%,
+    rgba(var(--rgb-neon-teal), 0.8) 80%,
+    rgba(var(--rgb-bg), 1) 100%
   );
 }
 
@@ -195,173 +216,92 @@ text-shadow:
   overflow: hidden;                  /* Ensures glow stays inside rounded corners */
 }
 
-.logo img {
-  width: 20vw;        /* scales on large screens */
-  filter: drop-shadow(0 0 24px #00ffd0) drop-shadow(0 0 48px #00d9ff);
-  max-width: clamp(40px, 4vw, 100px); /* Responsive logo size */
-  height: auto;
-  display: block;
+:root {
+  --bg: #000;
+  --card-bg: #000;
+  --card-border: #15171a;
+  --neon-blue: #00d9ff;
+  --neon-teal: #00ffd0;
+  --shadow: 0 2px 32px #0009;
+  --rgb-bg: 0,0,0;
+  --rgb-card-border: 21,23,26;
+  --rgb-neon-blue: 0,217,255;
+  --rgb-neon-teal: 0,255,208;
 }
 
-/* Navigation Menu and Drop-Down */
+/* NAV CONTAINER */
 .nav-menu {
   width: 100vw;
-  background-color: #111111;
-  border-radius: 0; /* Flush edges if full-width */
-  padding: 0.5em 0.5em;       /* Remove internal padding */
-  margin: 0 auto;
-  box-shadow:
-    0 0 40px rgba(0, 255, 170, 0.75),
-    0 0 80px rgba(102, 204, 255, 0.5),
-    0 0 120px rgba(0, 119, 255, 0.3),
-    0 10px 30px rgba(0, 0, 0, 0.6),
-    inset 0 6px 16px rgba(255, 255, 255, 0.06),
-    inset 0 -6px 18px rgba(0, 255, 170, 0.3);
+  background: var(--card-bg);
+  box-shadow: 0 0 24px rgba(var(--rgb-neon-blue), 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 0vh;
-  display: flex;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-/* Hover Enhancement */
-.nav-menu:hover {
-  transform: scale(1.015);
-  box-shadow:
-    0 0 60px rgba(0, 255, 170, 0.85),
-    0 0 100px rgba(102, 204, 255, 0.6),
-    0 0 140px rgba(0, 119, 255, 0.4),
-    0 30px 90px rgba(0, 0, 0, 0.75),
-    inset 0 8px 18px rgba(255, 255, 255, 0.08),
-    inset 0 -10px 28px rgba(0, 255, 170, 0.4);
-}
-.nav-menu:hover .menu-toggle-label {
-  color: #70ffff;
-  text-shadow: 0 0 24px #aaffee, 0 0 48px #70ffff;
+  position: relative;
 }
 
-/* Compact Label that Fills Entire Nav Box */
+/* HAMBURGER BUTTON */
+.menu-toggle { display: none; }
+
 .menu-toggle-label {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  cursor: pointer;
-  color: #00d9ff; /* neon blue */
-  text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0; /* neon teal backglow */
-  transition: color 0.2s, text-shadow 0.2s;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 2rem;
   width: 100vw;
-  height: 48px; /* Tight vertical height */
-  box-sizing: border-box;
-  text-align: center;
+  height: 1.5em;
+  cursor: pointer;
+  color: var(--neon-blue);
+  font-size: 2rem;
+  background: transparent;
+  border: none;
 }
 
-/* Hide the navigation checkbox toggle */
-.menu-toggle {
+.hamburger {
+  width: 32px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 12px;
+}
+.hamburger span {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-teal));
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+/* DROPDOWN MENU */
+.drop-down {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background: var(--card-bg);
+  box-shadow: 0 8px 32px rgba(var(--rgb-neon-blue), 0.11);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  z-index: 10;
 }
-/* Hamburger: glow and scale on label hover or focus */
-.menu-toggle-label:hover .hamburger,
-.menu-toggle-label:focus .hamburger {
-  transform: scale(1.08);
-  box-shadow:
-    0 0 32px #00ffd0bb,
-    0 0 48px #00d9ff88,
-    0 0 24px #00ffaa66;
-}
-/* Hamburger bars: color and glow on label hover or focus */
-.menu-toggle-label:hover .hamburger span,
-.menu-toggle-label:focus .hamburger span {
-  background: linear-gradient(90deg, #00ffaa 10%, #00d9ff 90%);
-  box-shadow:
-    0 0 12px #00ffd0ee,
-    0 0 20px #00d9ffbb,
-    0 0 28px #00ffaa88;
-}
-/* Hamburger bars: active color and glow when menu is open */
-.menu-toggle:checked + .menu-toggle-label .hamburger span {
-  background: #00ffaa;
-  box-shadow: 0 0 16px #00ffd0ff, 0 0 28px #00d9ffcc;
-}
-/* Show dropdown menu when menu is toggled open */
 .menu-toggle:checked + .menu-toggle-label + .drop-down {
   display: block;
 }
 
-/* FIXME: moved hamburger stuff above which was below | Hamburger Icon - Neon/Teal Glow, Compact, Consistent with UI */
-.hamburger {
-  width: 40px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;  /* Clean, no fill */
-  transition: transform 0.25s cubic-bezier(.5,1.5,.5,1), box-shadow 0.3s;
-  box-shadow: 0 0 16px #00ffd099, 0 2px 8px #00d9ff44;
-  border-radius: 8px; /* Soft square for touch area, not the bars */
-}
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: linear-gradient(90deg, #00d9ff 10%, #00ffaa 90%);
-  border-radius: 2px;
-  box-shadow:
-    0 0 6px #00ffd0cc,
-    0 0 12px #00d9ff66;
-  transition:
-    transform 0.32s cubic-bezier(.5,1.6,.5,1),
-    background 0.32s,
-    box-shadow 0.32s;
-}
-
-/* Drop-Down Menu */
-.drop-down {
-  display: none;
-  margin-top: 8px;
+.drop-down li {
   list-style: none;
-  background: #111111;
-  border-radius: 20px;
-  box-shadow:
-    0 0 30px rgba(0, 255, 170, 0.5),
-    0 0 60px rgba(102, 204, 255, 0.3),
-    0 0 90px rgba(0, 119, 255, 0.2),
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    inset 0 2px 6px rgba(255, 255, 255, 0.04),
-    inset 0 -4px 10px rgba(0, 255, 170, 0.15);
-  padding: 10px 0;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  min-width: 600px;
-  max-width: 90vw;
-}
-/* Drop-Down List Items */
-.drop-down li:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
 }
 .drop-down a {
-	  text-align: center;
-  font-family: Arial, sans-serif;
-  font-size: 1.25rem;
-  color: #ccc;
-  text-decoration: none;
-  padding: 12px 20px;
   display: block;
-  transition: background 0.3s, color 0.3s;
+  text-align: center;
+  color: var(--neon-blue);
+  padding: 14px 0;
+  text-decoration: none;
 }
-
 .drop-down a:hover {
-  background: rgba(0, 255, 170, 0.2);
-  color: #fff;
+  background: rgba(var(--rgb-neon-teal), 0.11);
+  color: var(--neon-teal);
 }
 
 
@@ -667,55 +607,6 @@ a:focus {
   text-shadow: 0 0 6px #00ffaa;
 }
 
-
-/* Cards, this will generlize everything else. */
-.card {
-  background: var(--card-bg, linear-gradient(135deg, #181f25 70%, #292a34 100%));
-  border: 2px solid var(--card-border, #1f445f);
-  border-radius: 20px;
-  box-shadow:
-    0 4px 28px 0 rgba(0,0,0,0.45),              /* outer shadow */
-    0 0 16px 2px var(--card-glow, #00eedd60),   /* colored glow */
-    inset 0 0 16px 2px var(--card-inner, #222a33); /* inner shadow */
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-  width: 100%;
-  overflow: visible;
-  /* Position for non-overlap, stacking naturally */
-}
-
-.card-grid {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-.card-cell {
-  background: var(--cell-bg, #14181b);
-  border-radius: 14px;
-  padding: 1.25rem;
-  min-width: 150px;
-  min-height: 100px;
-  box-shadow:
-    0 2px 8px rgba(0,0,0,0.09),
-    inset 0 2px 6px #0ff2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.2s, background 0.2s;
-}
-
-:root {
-  --card-bg:     #22252a;
-  --card-border: #15171a;
-  --neon-blue:   #00d9ff;
-  --neon-teal:   #00ffd0;
-  --shadow:      0 2px 32px #0009;
-}
-
 .title-card {
   background: var(--card-bg);
   border: 3px solid var(--card-border);
@@ -744,7 +635,6 @@ a:focus {
   font-weight: bold;
   font-size: clamp(1.1rem, 4vw, 2.6rem);
   color: var(--neon-blue);
-  text-shadow: 0 0 16px var(--neon-teal), 0 0 32px var(--neon-teal);
   line-height: 1.13;
   display: inline-block;      /* Ensures the box only wraps the text */
   vertical-align: top;
