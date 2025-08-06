@@ -60,17 +60,17 @@ Extra space beneath each <li>
 :root {
   --bg: #000000;
   --title-bg: #000000;
+  --title-glow: rgba(0,0,255,0.25);
+
   --title-border: #181A20;
-  --title-border1: #23272E;
-  --title-border2: #353942;
-  --neon-blue: #000000;
-  --neon-teal: #000000;
-  --shadow: 0 2px 32px #0009;
-  /* RGB equivalents for alpha usage */
-  --rgb-bg: 0,0,0;
-  --rgb-card-border: 0.0.0;
-  --rgb-neon-blue: 0,0.0;
-  --rgb-neon-teal: 0,0.8;
+  --title-border-glow: rgba(0,0,255,0.25);
+  --title-border-inner-glow: rgba(0,255,255,0.2); /* cyan */
+
+  --title-text-shadow: 0 0 20px rgba(0,255,208,0.23), 0 0 16px rgba(0,255,208,0.13);
+
+  --title-shadow: 0 0 32px var(--title-border-glow), inset 0 0 16px var(--title-border-inner-glow);
+
+
 }
 
 body.theme-alt {
@@ -121,7 +121,6 @@ body.theme-alt {
 .title-card {
   background: var(--title-bg);
   border: 1em double var(--title-border);
-
   border-radius: 1.2em;
   width: clamp(320px, 40vw, 100vw);
   height: clamp(120px, 20vw, 260px);
@@ -131,30 +130,6 @@ body.theme-alt {
   justify-content: center;
   align-items: center;
 }
-
-.title-card::before,
-.title-card::after {
-  content: "";
-  position: absolute;
-  border-radius: 1.6em;
-  pointer-events: none;
-  left: -10px; right: -10px; top: -10px; bottom: -10px;
-  z-index: 0;
-}
-
-.title-card::before {
-  border: 4px solid var(--title-border1);
-  opacity: 0.8;
-}
-
-.title-card::after {
-  border: 6px solid var(--title-border2);
-  opacity: 0.5;
-  left: -20px; right: -20px; top: -20px; bottom: -20px;
-  border-radius: 1.8em;
-  box-shadow: 0 0 36px var(--neon-blue);
-}
-
 
 .title-and-logo {
   position: relative;
