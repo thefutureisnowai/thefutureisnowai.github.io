@@ -38,11 +38,19 @@
   0 0 8px rgba(var(--cyan), 0.5),    /* mid glow */
   0 0 16px rgba(var(--teal), 0.4),   /* big teal glow */
   0 0 32px rgba(var(--electric-violet), 1.0);  /* outer glow */
+  --main-logo-filter:
+    drop-shadow(0 0 16px var(--neon-teal))
+    drop-shadow(0 0 32px var(--neon-blue))
+    brightness(1.4)
+    contrast(1.15);
 
 
   --title-shadow:
-    0 0 32px var(--title-border-glow),
-    inset 0 0 28px var(--title-border-inner-glow);
+    0 0 4px rgba(var(--blue), 0.8),
+    inset 0 0 12px rgba(var(--blue), 0.7),
+    inset 0 0 24px rgba(var(--electric-violet), 0.4),
+    inset 0 0 48px rgba(var(--electric-violet), 0.28);
+
 }
 
 /* 1.1 high-level or universal styling */
@@ -214,10 +222,7 @@ body.theme-alt {
   height: auto;
   display: block;
   filter:
-    drop-shadow(0 0 16px var(--neon-teal))
-    drop-shadow(0 0 32px var(--neon-blue))
-    brightness(1.4)
-    contrast(1.15);
+	var(--main-logo-filter);
 }
 .main-logo {
   position: absolute;
