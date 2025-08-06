@@ -1,42 +1,4 @@
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.left-align ul {
-  padding-left: 2em; /* or whatever level of indentation you want */
-  list-style-position: inside; /* optional: keeps bullets inside margin */
-}
-
-.left-align li {
-  margin-bottom: 0.5em; /* optional: adds spacing between items */
-}
-@font-face {
-  font-family: 'Audiowide';
-  src: url('/assets/fonts/Audiowide-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Share Tech Mono';
-  src: url('/assets/fonts/ShareTechMono-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-/* Optional: CSS classes, matching Google Fonts naming */
-.audiowide-regular {
-  font-family: 'Audiowide', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.share-tech-mono-regular {
-  font-family: 'Share Tech Mono', monospace;
-  font-weight: 400;
-  font-style: normal;
-}
 body {
   background-color: #000;
   background-size: 100vw; /* Adjust this height */
