@@ -172,50 +172,58 @@
   text-align: center;
 }
 
-/* Hamburger Icon, Compact */
+/* Hamburger Icon - Neon/Teal Glow, Compact, Consistent with UI */
 .hamburger {
   width: 40px;
-  height: 20px; /* Tighter total height */
+  height: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: #0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;  /* Clean, no fill */
+  transition: transform 0.25s cubic-bezier(.5,1.5,.5,1), box-shadow 0.3s;
+  box-shadow: 0 0 16px #00ffd099, 0 2px 8px #00d9ff44;
+  border-radius: 8px; /* Soft square for touch area, not the bars */
 }
 
 .hamburger span {
+  display: block;
   height: 3px;
   width: 100%;
-  background: #00d9ff; /* neon blue */
-  border-radius: 1px;
-  transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
-}
-
-/* Hover Effects */
-.menu-toggle-label:hover .hamburger span {
-  background: #00ffaa;
+  background: linear-gradient(90deg, #00d9ff 10%, #00ffaa 90%);
+  border-radius: 2px;
   box-shadow:
-    0 0 6px rgba(0, 255, 170, 0.7),
-    0 0 10px rgba(102, 204, 255, 0.5),
-    0 0 14px rgba(0, 119, 255, 0.3);
+    0 0 6px #00ffd0cc,
+    0 0 12px #00d9ff66;
+  transition:
+    transform 0.32s cubic-bezier(.5,1.6,.5,1),
+    background 0.32s,
+    box-shadow 0.32s;
 }
 
-.menu-toggle-label:hover .hamburger {
-  transform: scale(1.05);
-}
-
-/* Hamburger Hover Glow */
-.menu-toggle-label:hover .hamburger span {
-  background: #00ffaa;
+/* Hover and Focus: strong glow + highlight + scale */
+.menu-toggle-label:hover .hamburger,
+.menu-toggle-label:focus .hamburger {
+  transform: scale(1.08);
   box-shadow:
-    0 0 8px rgba(0, 255, 170, 0.8),
-    0 0 12px rgba(102, 204, 255, 0.5),
-    0 0 16px rgba(0, 119, 255, 0.4);
+    0 0 32px #00ffd0bb,
+    0 0 48px #00d9ff88,
+    0 0 24px #00ffaa66;
 }
 
-.menu-toggle-label:hover .hamburger {
-  transform: scale(1.1);
+.menu-toggle-label:hover .hamburger span,
+.menu-toggle-label:focus .hamburger span {
+  background: linear-gradient(90deg, #00ffaa 10%, #00d9ff 90%);
+  box-shadow:
+    0 0 12px #00ffd0ee,
+    0 0 20px #00d9ffbb,
+    0 0 28px #00ffaa88;
+}
+
+/* Active Hamburger: Optional for menu open (customize as needed) */
+.menu-toggle:checked + .menu-toggle-label .hamburger span {
+  background: #00ffaa;
+  box-shadow: 0 0 16px #00ffd0ff, 0 0 28px #00d9ffcc;
 }
 
 /* Drop-Down Menu */
