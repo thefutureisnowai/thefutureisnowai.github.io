@@ -177,6 +177,8 @@ Extra space beneath each <li>
   padding-bottom: 1.5em;
   overflow: hidden;
   position: relative;  /* NEW: establish containing block for abs pos */
+  container-type: size; /* This enables both width (inline) and height (block) queries */
+
   );
 }
 .title-and-logo {
@@ -200,10 +202,6 @@ Extra space beneath each <li>
   vertical-align: top;
   pointer-events: none;
 }
-.title-screen {
-  position: relative; /* Must be set for absolute positioning */
-}
-
 /* Logo always keeps its bottom-right corner Xpx from border, regardless of its size */
 .main-logo {
   position: absolute;
@@ -221,13 +219,11 @@ Extra space beneath each <li>
   display: block;
   filter: var(--main-logo-filter);
   box-sizing: content-box; /* Optional, ensures padding/border don't offset anchor */
+  bottom: 12px;
 }
-
-/* When viewport is narrow, move logo to top-right */
-@media (max-width: 2vw) {
+@container (max-block-size: 9em) {
   .main-logo {
-    bottom: auto;
-    top: 0.10em;
+    top: 1em;
   }
 }
 
