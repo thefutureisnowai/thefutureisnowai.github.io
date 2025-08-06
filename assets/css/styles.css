@@ -649,9 +649,6 @@ a:focus {
 }
 
 
-
-
-
 /* Cards, this will generlize everything else. */
 .card {
   background: var(--card-bg, linear-gradient(135deg, #181f25 70%, #292a34 100%));
@@ -691,53 +688,68 @@ a:focus {
   justify-content: center;
   transition: box-shadow 0.2s, background 0.2s;
 }
-.title-card {
-  position: relative;
-  background: #22252a;         /* dark grey */
-  border: 3px solid #15171a;   /* darker grey */
-  border-radius: 1.2em;
-  width: clamp(320px, 40vw, 600px); /* Responsive width */
-  height: clamp(120px, 20vw, 260px);/* Responsive height */
-  margin: 0 auto;
-  overflow: hidden;
-  box-shadow: 0 2px 32px #0009;
-  padding: 0;
+
+:root {
+  --card-bg:     #22252a;
+  --card-border: #15171a;
+  --neon-blue:   #00d9ff;
+  --neon-teal:   #00ffd0;
+  --shadow:      0 2px 32px #0009;
 }
 
-/* Position logo absolutely, upper left, size responsive */
+.title-card {
+  background: var(--card-bg);
+  border: 3px solid var(--card-border);
+  border-radius: 1.2em;
+  width: clamp(320px, 40vw, 100vw);
+  height: clamp(120px, 20vw, 260px);
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-and-logo {
+  position: relative;
+  display: inline-block;      /* Shrink-wrap to title size */
+  padding: 0.35em 1em 0.4em 1.3em; /* (optional) add some space inside, tweak as needed */
+  background: rgba(0,0,0,0.09);   /* Optional: shows the bounding box */
+  border-radius: 0.5em;
+  box-sizing: content-box;
+}
+
+.title {
+  font-family: 'Lastica', sans-serif;
+  font-weight: bold;
+  font-size: clamp(1.1rem, 4vw, 2.6rem);
+  color: var(--neon-blue);
+  text-shadow: 0 0 16px var(--neon-teal), 0 0 32px var(--neon-teal);
+  line-height: 1.13;
+  display: inline-block;      /* Ensures the box only wraps the text */
+  vertical-align: top;
+  pointer-events: none;
+}
+
 .main-logo {
   position: absolute;
-  top: 8%;
-  left: 5%;
-  width: clamp(56px, 7vw, 120px);
+  right: 0.12em;   /* tweak to visually align logo with text's right edge */
+  bottom: 0.10em;  /* tweak as needed */
+  width: clamp(36px, 2.5em, 56px); /* scales with text size */
   height: auto;
-  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
 }
+
 .main-logo img {
   width: 100%;
   height: auto;
   display: block;
   filter:
-    drop-shadow(0 0 36px #00ffe7)
-    drop-shadow(0 0 88px #00d9ff)
-    brightness(1.7)
-    contrast(1.25);
-}
-
-/* Position title absolutely, bottom right, responsive size */
-.title {
-  position: absolute;
-  bottom: 10%;
-  right: 6%;
-  font-family: 'Lastica', sans-serif;
-  font-weight: bold;
-  font-size: clamp(1.1rem, 4vw, 2.6rem);
-  line-height: 1.15;
-  margin: 0;
-  text-align: right;
-  color: #00d9ff;
-  text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0;
-  z-index: 3;
-  pointer-events: none; /* So logo clicks pass through */
+    drop-shadow(0 0 16px var(--neon-teal))
+    drop-shadow(0 0 32px var(--neon-blue))
+    brightness(1.4)
+    contrast(1.15);
 }
 
