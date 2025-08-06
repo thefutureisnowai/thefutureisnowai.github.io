@@ -223,7 +223,7 @@ Extra space beneath each <li>
 }
 @container (max-block-size: 9em) {
   .main-logo {
-    top: 1em;
+    top: 3em;
   }
 }
 
