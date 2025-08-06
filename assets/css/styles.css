@@ -105,22 +105,17 @@ Extra space beneath each <li>
   font-style: normal;
 }
 
-body.theme-alt {
-}
-.gradient {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-  position: relative;
-}
-
 .header-grad {
   height: 35vh;
   padding: 5vh 0;
   z-index: 50;
+background: linear-gradient(
+  to bottom,
+  rgba(var(--blue), 0.39) 0%,
+  rgba(var(--teal), 0.23) 65%,
+  rgba(var(--space-grey2), 0.95) 100%
+);
+
 }
 
 .footer-grad {
@@ -236,11 +231,8 @@ body.theme-alt {
   }
 }
 
-
 body {
   background-color: #000;
-  /* background-image: url('/assets/images/veil-nebula-violet-blue-green-galaxy-johari-smith_cropped.png'); */
-  background-repeat: repeat-y;                /* Tile vertically */
   background-size: 100vw; /* Adjust this height */
   background-position: center center;
   background-attachment: fixed;
@@ -250,14 +242,20 @@ body {
   color: #ccc;
   font-weight: 500;
 }
-.footer-wrapper {
+
+.footer-wrapper .header-wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 5vw;  /* Adjusted to match header spacing */
   max-width: 80vw; /* Consistent with the header's responsive width */
   width: 100%;
+}
+.header-wrapper {
   margin-bottom: 3vh;
+}
+.footer-wrapper {
+  margin-top: 3vh;
 }
 
 /* 1.2 specific objects */
