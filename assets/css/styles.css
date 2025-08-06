@@ -78,16 +78,21 @@
 .title {
   font-family: 'Lastica', sans-serif;
   font-weight: bold;
-  font-size: clamp(1.0rem, 4vw, 3.0rem); /* Adjusted size */
+  font-size: clamp(1.0rem, 4vw, 3.0rem);
   line-height: 1.2;
   margin: 0;
-  text-align: right; /* Align to the right */
-  background: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  z-index: 1;
+  text-align: right;
+  color: #00d9ff; /* neon blue */
+  text-shadow: 0 0 16px #00ffd0, 0 0 32px #00ffd0; /* neon teal backglow */
+  /* Remove gradient background and webkit clip */
 }
+.logo img {
+  max-width: clamp(40px, 4vw, 100px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 12px #00ffd0) drop-shadow(0 0 24px #00d9ff);
+}
+
 /* Logo Styling */
 .logo {
   position: absolute; /* Allows precise placement */
