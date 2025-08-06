@@ -1,7 +1,3 @@
-/* styles.css */
-@import "colors.css";
-@import "header.css";
-@import "title-card.css";
 
 *, *::before, *::after {
   margin: 0;

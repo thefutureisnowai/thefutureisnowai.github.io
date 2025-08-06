@@ -1,6 +1,4 @@
-/* nav-menu.css */
-
-@import "colors.css";
+/* nav-menu.scss */
 
 /* NAV CONTAINER */
 .nav-menu {
@@ -114,7 +112,8 @@
 .nav-mouse {
 }
 .nav-keyboard {
-  rgba(var(--neon-teal), 0.08)
+  background: rgba(var(--neon-teal), 0.08);  // or color: ..., border: ..., etc.
+
   transition: color 0.2s;
 }
 .nav-keyboard.active {

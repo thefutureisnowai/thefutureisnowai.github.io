@@ -1,4 +1,4 @@
-@import "colors.css";
+/* title-card.scss */
 
 .title-card {
   /* Outer border */
@@ -29,10 +29,8 @@
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   overflow: hidden;
-  position: relative;  /* NEW: establish containing block for abs pos */
-  container-type: size; /* This enables both width (inline) and height (block) queries */
-
-  );
+  position: relative;
+  container-type: size;
 }
 .title-and-logo {
   position: relative;
