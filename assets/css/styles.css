@@ -17,29 +17,24 @@
   --sky: 173,245,255;
   --apricot: 255,220,186;
   --neon-lime: 204,255,0;
-
-  /* === Semantic Variables Using Base RGBs === */
   --bg: rgb(var(--black));
-  --title-bg: rgb(var(--black));
+  --title-bg: rgb(var(--dark-grey));               /* screen/card background: lighter dark grey */
+  --title-border: rgb(var(--space-grey));          /* border: classic dark grey */
+  --title-border-glow: rgba(var(--blue), 0.28);    /* blue outer glow */
+  --title-border-inner-glow: rgba(var(--teal), 0.16); /* teal inner glow */
+  --outer-border: var(--space-grey);               /* actual border color: grey */
+  --inner-border: var(--space-grey);
 
-  --title-glow: rgba(var(--blue), 0.25);
-
-  --title-border: rgb(var(--space-grey));
-  --title-border-glow: rgba(var(--blue), 0.25);
-  --title-border-inner-glow: rgba(var(--cyan), 0.20);
-
-  --outer-border: var(--blue);
-  --inner-border: var(--teal);
-  --between-gradient-from: var(--black);
-  --between-gradient-to: var(--cyan);
+  --between-gradient-from: var(--space-grey);      /* keep between area dark if needed */
+  --between-gradient-to: var(--dark-grey);
 
   --title-text-shadow:
-    0 0 20px rgba(var(--teal), 0.23),
-    0 0 16px rgba(var(--teal), 0.13);
+    0 0 14px rgba(var(--blue), 0.19),
+    0 0 8px rgba(var(--teal), 0.17);
 
   --title-shadow:
     0 0 32px var(--title-border-glow),
-    inset 0 0 16px var(--title-border-inner-glow);
+    inset 0 0 28px var(--title-border-inner-glow); /* bigger inglow for separation */
 }
 
 /* 1.1 high-level or universal styling */
