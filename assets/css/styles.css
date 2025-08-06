@@ -59,8 +59,8 @@ Extra space beneath each <li>
 
 :root {
   --bg: #000000;
-  --card-bg: #000000;
-  --card-border: #000000;
+  --title-bg: #000000;
+  --title-border: #000000;
   --neon-blue: #000000;
   --neon-teal: #000000;
   --shadow: 0 2px 32px #0009;
@@ -79,13 +79,6 @@ body.theme-alt {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(
-    circle at center,
-    var(--neon-blue) 10%,
-    var(--neon-teal) 30%,
-    var(--card-border) 70%,
-    var(--bg) 100%
-  );
   overflow: visible;
   position: relative;
 }
@@ -122,6 +115,79 @@ body.theme-alt {
   top: -1px;
   z-index: 2;
 }
+
+.title-card {
+  background: var(--title-bg);
+  border: 3px solid var(--title-border);
+  border-radius: 1.2em;
+  width: clamp(320px, 40vw, 100vw);
+  height: clamp(120px, 20vw, 260px);
+  margin: 0 auto;
+  box-shadow: var(--title-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-and-logo {
+  position: relative;
+  display: inline-block;      /* Shrink-wrap to title size */
+  padding: 0.35em 1em 0.4em 1.3em; /* (optional) add some space inside, tweak as needed */
+  background: rgba(0,0,0,0.09);   /* Optional: shows the bounding box */
+  border-radius: 0.5em;
+  box-sizing: content-box;
+}
+
+.title {
+  /* font-family: 'Share Tech Mono', monospace; */
+  font-family: 'Audiowide', sans-serif;
+  font-weight: bold;
+  font-size: clamp(1.1rem, 4vw, 2.6rem);
+  color: var(--neon-blue);
+  line-height: 1.13;
+  display: inline-block;      /* Ensures the box only wraps the text */
+  vertical-align: top;
+  pointer-events: none;
+}
+
+.main-logo {
+  position: absolute;
+  right: 0.12em;   /* tweak to visually align logo with text's right edge */
+  bottom: 0.10em;  /* tweak as needed */
+  width: clamp(1em, 10em, 20em);
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
+  width: 25%;
+}
+
+.main-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 0 16px var(--neon-teal))
+    drop-shadow(0 0 32px var(--neon-blue))
+    brightness(1.4)
+    contrast(1.15);
+}
+.main-logo {
+  position: absolute;
+  right: 0.12em;
+  bottom: 0.10em;
+  top: auto;
+  transition: top 0.2s, bottom 0.2s;
+}
+
+/* When viewport is narrow, move logo to top-right */
+@media (max-width: 2vw) {
+  .main-logo {
+    bottom: auto;
+    top: 0.10em;
+  }
+}
+
 
 body {
   background-color: #000;
@@ -567,77 +633,5 @@ a:focus {
   color: #ffffff; /* Bright white on hover */
   text-decoration: underline;
   text-shadow: 0 0 6px #00ffaa;
-}
-
-.title-card {
-  background: var(--card-bg);
-  border: 3px solid var(--card-border);
-  border-radius: 1.2em;
-  width: clamp(320px, 40vw, 100vw);
-  height: clamp(120px, 20vw, 260px);
-  margin: 0 auto;
-  box-shadow: var(--shadow);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.title-and-logo {
-  position: relative;
-  display: inline-block;      /* Shrink-wrap to title size */
-  padding: 0.35em 1em 0.4em 1.3em; /* (optional) add some space inside, tweak as needed */
-  background: rgba(0,0,0,0.09);   /* Optional: shows the bounding box */
-  border-radius: 0.5em;
-  box-sizing: content-box;
-}
-
-.title {
-  /* font-family: 'Share Tech Mono', monospace; */
-  font-family: 'Audiowide', sans-serif;
-  font-weight: bold;
-  font-size: clamp(1.1rem, 4vw, 2.6rem);
-  color: var(--neon-blue);
-  line-height: 1.13;
-  display: inline-block;      /* Ensures the box only wraps the text */
-  vertical-align: top;
-  pointer-events: none;
-}
-
-.main-logo {
-  position: absolute;
-  right: 0.12em;   /* tweak to visually align logo with text's right edge */
-  bottom: 0.10em;  /* tweak as needed */
-  width: clamp(1em, 10em, 20em);
-  height: auto;
-  display: flex;
-  align-items: flex-end;
-  z-index: 1;
-  width: 25%;
-}
-
-.main-logo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter:
-    drop-shadow(0 0 16px var(--neon-teal))
-    drop-shadow(0 0 32px var(--neon-blue))
-    brightness(1.4)
-    contrast(1.15);
-}
-.main-logo {
-  position: absolute;
-  right: 0.12em;
-  bottom: 0.10em;
-  top: auto;
-  transition: top 0.2s, bottom 0.2s;
-}
-
-/* When viewport is narrow, move logo to top-right */
-@media (max-width: 2vw) {
-  .main-logo {
-    bottom: auto;
-    top: 0.10em;
-  }
 }
 
