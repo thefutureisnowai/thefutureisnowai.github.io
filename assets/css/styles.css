@@ -3,9 +3,11 @@
 :root {
   --black: 0,0,0;
   --dark-grey: 8,8,8;
+  --space-grey: 16,16,8;
   --space-grey1: 16,20,24;
   --space-grey2: 24,26,32;
   --teal: 0,255,208;
+  --neon-teal: 0,255,208;
   --cyan: 0,255,255;
   --blue: 0,200,255;
   --pastel-orange: 255,201,143;
@@ -26,19 +28,21 @@
   --screen-border: rgb(var(--space-grey1));          /* border: classic dark grey */
   --title-border-glow: rgba(var(--blue), 0.28);    /* blue outer glow */
   --title-border-inner-glow: rgba(var(--teal), 0.16); /* teal inner glow */
-  --outer-border: var(--space-grey);               /* actual border color: grey */
-  --inner-border: var(--space-grey);
 
   --between-gradient-from: var(--space-grey);      /* keep between area dark if needed */
   --between-gradient-to: var(--dark-grey);
 
-  --title-text-shadow:
-    0 0 14px rgba(var(--blue), 0.19),
-    0 0 8px rgba(var(--teal), 0.17);
+  --title-font-color: rgb(var(--blue));
+--title-text-shadow:
+  0 0 2px rgba(var(--blue), 0.9),    /* bright core */
+  0 0 8px rgba(var(--cyan), 0.5),    /* mid glow */
+  0 0 16px rgba(var(--teal), 0.4),   /* big teal glow */
+  0 0 32px rgba(var(--electric-violet), 1.0);  /* outer glow */
+
 
   --title-shadow:
     0 0 32px var(--title-border-glow),
-    inset 0 0 28px var(--title-border-inner-glow); /* bigger inglow for separation */
+    inset 0 0 28px var(--title-border-inner-glow);
 }
 
 /* 1.1 high-level or universal styling */
@@ -166,8 +170,6 @@ body.theme-alt {
   justify-content: center;
   align-items: center;
   z-index: 2;
-  /* Frown-shaped curve: top and bottom bulge upward at center */
-  clip-path: polygon(
   );
 }
 
@@ -186,7 +188,9 @@ body.theme-alt {
   font-family: 'Audiowide', sans-serif;
   font-weight: bold;
   font-size: clamp(1.1rem, 4vw, 2.6rem);
-  color: var(--neon-blue);
+  color: var(--title-font-color);
+  text-shadow:
+  	var(--title-text-shadow);
   line-height: 1.13;
   display: inline-block;      /* Ensures the box only wraps the text */
   vertical-align: top;
