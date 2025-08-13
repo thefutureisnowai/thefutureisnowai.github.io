@@ -1,4 +1,4 @@
-html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-sizing:border-box;; background: var(--bg)}
+html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-sizing:border-box;; background: var(--bg); max-width: 100%}
 
  /* holds header, content, and footer */
 	.page-layout {
