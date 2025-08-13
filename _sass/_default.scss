@@ -1,8 +1,9 @@
-html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-sizing:border-box;}
+html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-sizing:border-box;; background: var(--bg)}
 
  /* holds header, content, and footer */
 	.page-layout {
-	height: 100vh;
+	min-height: 100vh;
+	width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: stretch;
