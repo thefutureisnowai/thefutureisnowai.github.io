@@ -37,3 +37,13 @@ html, body, .page-layout, .content, .main-content-box,
   box-sizing: border-box;
   max-width: 100%;
 }
+.top-menu a {
+  text-decoration: underline;
+}
+.top-menu a:hover,
+.top-menu a:focus {
+  color: #ffffff;
+  text-decoration: underline;
+  text-shadow: 0 0 6px #00ffaa;
+}
+.top-menu a { text-decoration: underline; }

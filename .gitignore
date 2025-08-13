@@ -10,3 +10,4 @@ _site
 *.zip
 prompt.txt
 .gpt-output.md
+serve.sh
