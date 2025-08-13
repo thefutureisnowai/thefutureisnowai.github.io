@@ -50,16 +50,22 @@ function openDeets(details) {
 	details.open = true;
 	// get scrollAmount
 	let scrollAmount = 0;
-	if ( details.getBoundingClientRect().bottom > window.innerHeight ) { // not on screen
-		if (details.getBoundingClientRect().height <= document.documentElement.clientHeight) {
+	if ( details.getBoundingClientRect().bottom > window.innerHeight ) { // bottom is below screen
+		if (details.getBoundingClientRect().height < document.documentElement.clientHeight) {
 			// it will fit entirely on screen, align bottoms
 			scrollAmount = details.getBoundingClientRect().bottom - window.innerHeight // negative number
 		} else {
 			// will not fit on screen, align to the top of details
 			scrollAmount = details.getBoundingClientRect().top;
 		}
+	}
+	else if (details.getBoundingClientRect().top < 0) { // top is above screen
+		scrollAmount = details.getBoundingClientRect().top;
+	}
+	if (scrollAmount != 0) {
 		smoothScrollBy(scrollAmount, dt_up);
 	}
+
 	// Set to 0 then transition to scrollHeight
 	details.style.overflow = 'hidden';
 	details.style.maxHeight = '0px';
