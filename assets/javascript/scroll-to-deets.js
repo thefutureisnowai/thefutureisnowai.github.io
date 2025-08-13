@@ -29,13 +29,24 @@ function smoothScrollBy(scrollAmount, duration) {
 	}
 	requestAnimationFrame(animate);
 }
-function animateMaxHeight(element, from, to, duration, callback) {
+
+function animateMaxHeight(element, from, to, duration, callback, padFrom, padTo) {
 	const startTime = performance.now();
 
 	function animate(now) {
 		const elapsed = now - startTime;
 		const progress = Math.min(elapsed / duration, 1);
 		element.style.maxHeight = (from + (to - from) * progress) + "px";
+		const curPad = padFrom + (padTo - padFrom) * progress;
+		element.style.paddingTop = element.style.paddingBottom = curPad + "px";
+
+		if (progress < 1) {
+			requestAnimationFrame(animate);
+		} else {
+			element.style.maxHeight = '';
+			element.style.paddingTop = element.style.paddingBottom = '';
+			if (callback) callback();
+		}
 		if (progress < 1) {
 			requestAnimationFrame(animate);
 		} else if (callback) {
@@ -46,11 +57,19 @@ function animateMaxHeight(element, from, to, duration, callback) {
 }
 
 function openDeets(details) {
+
 	// open temporarily to get dims: FIXME make invisible?
+	const sizeClosed = details.getBoundingClientRect().height;
 	details.open = true;
+	const sizeOpen = details.getBoundingClientRect().height;
+	const padAmount = ( sizeOpen - sizeClosed ) / 2;
 	// get scrollAmount
 	let scrollAmount = 0;
-	if ( details.getBoundingClientRect().bottom > window.innerHeight ) { // bottom is below screen
+	if (details.getBoundingClientRect().top < 0) { // top is above screen
+		scrollAmount = details.getBoundingClientRect().top;
+	}
+
+	else if ( details.getBoundingClientRect().bottom > window.innerHeight ) { // bottom is below screen
 		if (details.getBoundingClientRect().height < document.documentElement.clientHeight) {
 			// it will fit entirely on screen, align bottoms
 			scrollAmount = details.getBoundingClientRect().bottom - window.innerHeight // negative number
@@ -58,9 +77,6 @@ function openDeets(details) {
 			// will not fit on screen, align to the top of details
 			scrollAmount = details.getBoundingClientRect().top;
 		}
-	}
-	else if (details.getBoundingClientRect().top < 0) { // top is above screen
-		scrollAmount = details.getBoundingClientRect().top;
 	}
 	if (scrollAmount != 0) {
 		smoothScrollBy(scrollAmount, dt_up);
@@ -75,7 +91,7 @@ function openDeets(details) {
 
 	const targetHeight = details.scrollHeight;
 
-	animateMaxHeight(details, 0, targetHeight, dt_down, () => {
+	animateMaxHeight(details, from=0, to=targetHeight, dt_down, padFrom=0, padTo= () => {
 			details.style.maxHeight = '';
 			details.style.overflow = '';
 			});
