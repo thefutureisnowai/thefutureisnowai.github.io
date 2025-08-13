@@ -33,24 +33,29 @@ function smoothScrollBy(scrollAmount, duration) {
 function animateMaxHeight(element, from, to, duration, callback, padFrom, padTo) {
 	const startTime = performance.now();
 
-	function animate(now) {
-		const elapsed = now - startTime;
-		const progress = Math.min(elapsed / duration, 1);
-		element.style.maxHeight = (from + (to - from) * progress) + "px";
-		const curPad = padFrom + (padTo - padFrom) * progress;
-		element.style.paddingTop = element.style.paddingBottom = curPad + "px";
+	const scrollTotal = to - from;
+	const padTotal = padTo - padFrom;
 
-		if (progress < 1) {
+	const scrollRate = scrollTotal / duration;
+	const padRate = padTotal / duration;
+
+	function animate(now) {
+		let elapsed = now - startTime;
+		elapsed = elapsed > duration && duration || elapsed; 
+		const curScroll = scrollRate * elapsed;
+		
+		element.style.maxHeight = (from + curScroll) + "px";
+
+		const curPad = padRate * elapsed;
+		element.style.paddingTop = element.style.paddingBottom = padFrom + curPad + "px";
+
+		if (Math.abs(elapsed - duration) > 1e-6) {
 			requestAnimationFrame(animate);
 		} else {
 			element.style.maxHeight = '';
 			element.style.paddingTop = element.style.paddingBottom = '';
+
 			if (callback) callback();
-		}
-		if (progress < 1) {
-			requestAnimationFrame(animate);
-		} else if (callback) {
-			callback();
 		}
 	}
 	requestAnimationFrame(animate);
@@ -91,7 +96,7 @@ function openDeets(details) {
 
 	const targetHeight = details.scrollHeight;
 
-	animateMaxHeight(details, from=0, to=targetHeight, dt_down, padFrom=0, padTo= () => {
+	animateMaxHeight(details, 0, targetHeight, dt_down, 0, () => {
 			details.style.maxHeight = '';
 			details.style.overflow = '';
 			});
