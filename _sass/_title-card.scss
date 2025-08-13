@@ -1,83 +1,100 @@
 /* title-card.scss */
 
+/* header bounding box */
+.header-grad {
+	max-width: 100%;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	align-items: center;
+	background: var(--header-grad-c);
+	z-index: 1;
+        border-radius: 1.5rem;
+	border: 4px double var(--title-card-border);
+}
+/* title bounding box */
 .title-card {
-  /* Outer border */
-  border: 8px solid var(--card-border);
-  border-radius: 1.2em;
-  background: var(--bg);
-  width: clamp(320px, 40vw, 100vw);
-  height: clamp(120px, 20vw, 260px);
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  width: auto;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	padding: .4em;
+	align-items: center;
+	justify-content: center;
 
+	background: var(--title-bg);
+
+        border-radius: 1.5rem;
+	border: 4px double var(--title-card-border);
+
+	z-index: 1; /* show up over header gradient */
+}
+/* title contents. We want the default size to show Secure Computer on its own line, but for zooming in to readily wrap Computer into the next line. */
+/* Secure Computer is 15em, Bellingham is 10em.*/
 .title-screen {
-  height: 100%;
-  width: 100%;
+	height: clamp(5vh,32vh,60vh);
+	max-width: 100%;
+	box-sizing: border-box;
+  	row-gap: 0.25em;
+  	column-gap: 1em;
+	padding: 2.5vw;
 
-  border: 1em double var(--screen-border);
-  border-radius: 1.2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* align-items: stretch; */
+	flex-wrap: wrap;
 
-  background: var(--title-bg);
-  box-shadow: var(--title-shadow);
+	background: var(--title-bg);
+	box-shadow: var(--title-shadow);
+	filter: var(--title-screen-filter);
 
-  align-items: center;
-  box-sizing: border-box;
-  container-type: size;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-  overflow: hidden;
-  position: relative;
+	overflow: hidden;
+	z-index: 2; /* show up on top of title-card */
 
-  z-index: 1;
-}
-.title-and-logo {
-  position: relative;
-  display: inline-block;      /* Shrink-wrap to title size */
-  padding: 2em 4em 2em 4em; /* (optional) add some space inside, tweak as needed */
-  background: var(--bg); 
-  border-radius: 0.5em;
-  box-sizing: content-box;
+	border-radius: 1.5rem;
+	border: 4px single var(--title-screen-border);
 }
 .title {
-  /* font-family: 'Share Tech Mono', monospace; */
-  font-family: 'Audiowide', sans-serif;
-  font-weight: bold;
-  font-size: clamp(1.1rem, 4vw, 2.6rem);
-  color: var(--title-font-color);
-  text-shadow: var(--title-text-shadow);
-  line-height: 1.13;
-  display: inline-block;      /* Ensures the box only wraps the text */
-  vertical-align: top;
-  pointer-events: none;
+	font-family: 'Audiowide', sans-serif;
+	font-weight: bold;
+	font-size: 3rem;      /* = 32px if root is 16px */
+	margin-bottom: 1.5rem; /* = 24px */
+
+	color: var(--title-font-color);
+	text-shadow: var(--title-text-shadow);
+	z-index: 2;
 }
-/* Logo always keeps its bottom-right corner Xpx from border, regardless of its size */
 .main-logo {
-  position: absolute;
-  right: 12px;    /* Set your preferred gap from border */
-  bottom: 12px;
-  z-index: 10;
-  display: block; /* Remove flex; keep this simple */
-  /* No width or height here: let the image define size! */
+	width: 5em;
+	height: 3em;
+	z-index: 3;
+}
+.main-logo-img {
+	height: 5em;
+	width: 5em;
+	z-index: 3;
+  	filter: var(--main-logo-filter);
 }
 
-/* Responsive logo sizing; scales but stays anchored */
-.main-logo img {
-  width: clamp(48px, 10vw, 128px); /* Choose suitable min/max for your site */
-  height: auto;
-  display: block;
-  filter: var(--main-logo-filter);
-  box-sizing: content-box; /* Optional, ensures padding/border don't offset anchor */
-  bottom: 12px;
-}
-@container (max-block-size: 9em) {
+@media (max-width: 600px) {
+  .title {
+  	font-family: 'Audiowide', sans-serif;
+  	font-weight: bold;
+  	font-size: 1.4rem;
+	margin-bottom: 0;
+  }
+  .title-screen {
+    height: clamp(5vh,32vh,100%);
+    gap: 0;
+    align-items: stretch;
+  }
   .main-logo {
-    top: 3em;
+    width: 0em;
+    height: 5em;
   }
 }
-

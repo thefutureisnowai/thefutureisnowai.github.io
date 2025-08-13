@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Computer Solutions Bellingham</title>
+  <style>
+    :root {
+      --header-grad-c: linear-gradient(90deg, #273656 0%, #0e2233 100%);
+      --black: #191919;
+      --title-bg: #26262e;
+      --title-shadow: 0 4px 24px 0 rgba(0,0,0,0.42);
+    }
+
+    /* header bounding box */
+    .header-grad {
+      display: flex; /* 1d layout in rows or columns. Items expand or shrink */
+      flex-direction: column;     /* stack vertically */
+      justify-content: flex-start; /* simply stack the items, no extra vertical alignment */
+      align-items: center;        /* center horizontally */
+      width: 100%;                /* avoids 100vw overflow issues */
+      background: var(--header-grad-c);
+      z-index: 0;
+    }
+
+    /* title bounding box */
+    .title-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: var(--black);
+      z-index: 1; /* show up over header gradient */
+			  padding: 100px; /* or whatever value you want for border thickness */
+
+      padding: 32px;
+      box-sizing: border-box;
+    }
+
+    .title-screen {
+      width: clamp(120px, 40vw, 100vw);
+      height: clamp(72px, 5vw, 60vw);
+      background: var(--title-bg);
+      box-shadow: var(--title-shadow);
+      overflow: hidden;
+      z-index: 2; /* show up on top of title-card */
+      display: flex;
+      padding: 1rem 2rem;
+      gap: 2rem;
+      border-radius: 1.5rem;
+    }
+
+    .title {
+      font-family: "Segoe UI", "Arial", sans-serif;
+      font-size: 2.1rem;
+      color: #fafafa;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.13);
+      display: block;
+    }
+
+    .main-logo img {
+      display: block;
+      height: 64px;
+      width: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      background: #fff1;
+    }
+
+    @media (max-width: 600px) {
+      .title-screen {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        min-height: 60px;
+        padding: 0.7rem 1rem;
+        gap: 1rem;
+      }
+      .main-logo img {
+        height: 44px;
+      }
+      .title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-grad"><!-- contains title-card and nav-menu -->
+      <div class="title-card"><!-- contains title-screen -->
+        <div class="title-screen"><!-- contains title and logo -->
+          <span class="title">Secure Computer<br>Solutions<br>Bellingham</span>
+          <span class="main-logo">
+            <img src="assets/images/shield_upscaled_smudge.png" alt="Logo">
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+</body>
+</html>
+

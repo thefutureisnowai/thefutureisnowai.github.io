@@ -7,3 +7,6 @@ _site
 archive
 _site
 *.swo
+*.zip
+prompt.txt
+.gpt-output.md

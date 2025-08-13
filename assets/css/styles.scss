@@ -1,21 +1,6 @@
 ---
 ---
 
-/* Reset and Global */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.left-align ul {
-  padding-left: 2em; /* or whatever level of indentation you want */
-  list-style-position: inside; /* optional: keeps bullets inside margin */
-}
-
-.left-align li {
-  margin-bottom: 0.5em; /* optional: adds spacing between items */
-}
 @font-face {
   font-family: 'Audiowide';
   src: url('/assets/fonts/Audiowide-Regular.ttf') format('truetype');
@@ -25,7 +10,7 @@
 }
 @font-face {
   font-family: 'Share Tech Mono';
-  src: url('/assets/fonts/ShareTechMono-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -42,8 +27,13 @@
   font-style: normal;
 }
 @import "colors";
-@import "header";
-@import "nav-menu";
 @import "title-card";
-@import "remainder";
+@import "nav-menu";
+@import "default";
+@import "footer";
 
+html, body, .page-layout, .content, .main-content-box,
+.top-menu, .nav-menu, .nav-card {
+  box-sizing: border-box;
+  max-width: 100%;
+}

@@ -44,19 +44,64 @@
     <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
 
 <!-- Generic Page Layout -->
-<title>SCS Bham</title>
+		<title>SCS Bham</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	</head>
-	<body>
+</head>
+
+<body>
 	{% include header.html prefix="" %}
-	<main>
-	<div class="main-content-box">
-	{{ content }}
+	<div class="page-layout">
+
+		<header class="top-menu">
+			<a href="ai">AI and Data</a>
+			<a href="it">IT and Cyber Security</a>
+			<a href="scheduling">Scheduling and Payment</a>
+			<a href="security">Security Tips</a>
+			<a href="contact">Contact</a>
+			<a href="index">Home</a>
+			<a href="about">About</a>
+			<a href="privacy">Privacy</a>
+    </header>
+		<button class="scroll-to-top" id="scrollToTopBtn" style="display:none;">↑ Navigation Menu</button>
+
+		<div class="content">
+			<div class="header-grad"> <!-- contains title-card and nav-menu --> 
+				<div class="title-card"> <!-- contains title-screen -->
+					<div class="title-screen"> <!-- contains title and logo -->
+						<span class="title">Secure Computer Solutions</span>
+						<span class="title">Bellingham</span>
+						<span class="main-logo"><img class="main-logo-img" src="assets/images/shield_upscaled_smudge.png" alt="Logo"></span>
+					</div>
+				</div>
+				<nav class="nav-menu">
+					<div class="nav-card">
+						<textarea id="search-bar" type="text" placeholder="Search..." class="search-box"></textarea>
+						<div class="nav-graphics">
+							<div class="nav-keyboard">
+								<img src="assets/images/keyboard-from-top-view-with-buttons-and-bar-svgrepo-com.svg" alt="Keyboard icon" draggable="false" />
+							</div>
+							<div class="nav-mouse">
+								<img src="assets/images/computer-mouse-with-long-cable-svgrepo-com.svg" alt="Mouse icon" draggable="false" />
+							</div>
+						</div>
+					</div>
+				</nav>
+  
+				<button class="scroll-to-next" id="scrollNextBtn">↓ Content</button>
+				<div id="fixedContentBtnContainer"></div>
+				
+			</div>
+		{{ content }}
+		{% include footer.html prefix="" %}
+		</div>	
 	</div>
-	</main>
-	{% include footer.html prefix="" %}
-	</body>
-	</html>
+
+</body>
+<script src="assets/javascript/scroll-to-content.js"></script>
+<script src="assets/javascript/main-width.js"></script>
+<script src="assets/javascript/scroll-to-deets.js"></script>
+<script src="assets/javascript/update-plasma-borders.js"></script>
+</html>
 

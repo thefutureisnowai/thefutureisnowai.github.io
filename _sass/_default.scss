@@ -1,0 +1,124 @@
+html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-sizing:border-box;}
+
+ /* holds header, content, and footer */
+	.page-layout {
+	height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-items: space-between;
+  background: var(--bg);
+
+}
+ /* holds header-grad and multiple main-content-box instences */
+.content {
+  display: flex;
+  flex-direction: row;
+	flex-wrap: wrap;
+  align-items: start;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+  background: var(--bg);
+	gap: 3vh; 
+}
+/* all content which changes between pages (defined in .md files) should be contained in these */
+.main-content-box {
+  background: var(--main-content-background);
+
+	font-size: clamp(1.03rem, 1.1vw, 1.32rem);
+	line-height: 1.7;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+
+  border: 5px outset var(--main-border);
+  border-radius: 1em;
+
+	filter: var(--main-content-shadow-drop);
+	color: var(--main-font-color);
+	box-shadow: var(--main-content-inset);
+  z-index: 1;
+}
+/* main-content text blocks */
+.main-content {
+	max-width: 100%;
+	text-shadow: var(--main-text-aura);
+  display: flex;
+  flex-direction: column;
+	justify-items: flex-start;
+  align-items: center;
+	text-align: center;
+}
+.main-summary {
+	max-width: 100%;
+  display: list-item; /* keeps the arrow */
+  list-style-position: inside;
+}
+.main-deets .main-summary {
+	max-width: 100%;
+  list-style-position: inside;
+  cursor: pointer;
+	padding-right: 1em;
+}
+.main-deets {
+	padding: 1em;
+}
+
+.main-header {
+	padding-bottom: 0;
+}
+
+@keyframes plasma-glow {
+  from { box-shadow: var(--nav-menu-font-glow); }
+  to { box-shadow: var(--title-text-shadow); } 
+}
+
+.main-content-box {
+    position: relative;
+}
+
+.main-content-box.has-unopened-details::before {
+	  max-width: 100%;
+    content: "";
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border-radius: inherit;
+    pointer-events: none;
+    border: 3.5px solid var(--nav-menu-font-color);
+    animation: plasma-glow infinite linear alternate-reverse both;
+    animation-duration:1.75s;
+    z-index:999;
+}
+/* Hide default marker */
+.main-deets > .main-summary {
+	max-width: 100%;
+  list-style: none;
+  position: relative;
+  padding-left: 2em; /* space for custom arrow */
+}
+
+/* Custom animated plasma glow arrow */
+.main-deets > .main-summary::before {
+  content: "▼";
+  position: absolute;
+  left: 0.1em;
+  top: 0.35em;
+  font-size: 1.2em;
+  color: var(--neon-teal);
+  text-shadow:
+    var(--title-text-shadow),
+    var(--nav-menu-font-glow);
+  filter:
+    drop-shadow(0 0 8px var(--blue))
+    drop-shadow(0 0 16px var(--electric-violet));
+
+  /* Plasma Glow Animation */
+  animation: plasma-glow infinite linear alternate both;
+}
+.main-deets > .main-summary::before {
+  content: "➤";
+  /* existing styles ... */
+  transition: transform 400ms;
+}
+.main-deets[open] > .main-summary::before {
+  transform: rotate(90deg);
+}

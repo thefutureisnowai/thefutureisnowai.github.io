@@ -4,6 +4,7 @@
   --space-grey: 16,16,8;
   --space-grey1: 16,20,24;
   --space-grey2: 24,26,32;
+  --light-grey: 128,128,128;
   --teal: 0,255,208;
   --neon-teal: 0,255,224;
   --cyan: 0,255,255;
@@ -21,10 +22,8 @@
   --neon-lime: 204,255,0;
 
   --bg: rgb(var(--black));
-  --title-bg: rgb(var(--dark-grey));
-  --card-border: rgb(var(--space-grey2));
-  --screen-border: rgb(var(--space-grey1));
-  --title-font-color: rgb(var(--neon-teal));
+
+  --header-bg: rgb(var(--dark-grey));
 
   --header-grad-c:
     radial-gradient(circle at 10% 12%, rgba(var(--neon-teal), 0.08) 0, transparent 60%),
@@ -40,6 +39,25 @@
     ),
     rgb(var(--black));
 
+  --title-bg: rgb(var(--dark-grey));
+
+  --title-card-border: rgb(var(--space-grey2));
+  --title-screen-border: rgb(var(--space-grey1));
+  --title-font-color: rgb(var(--neon-teal));
+
+  --search-box-background: var(--bg);
+  --nav-menu-font-color: rgb(var(--bright-green));
+  --nav-menu-font-glow:
+    0 0 1em rgba(var(--electric-violet), .99),
+    0 0 2em rgba(var(--blue), 0.9),
+    0 0 3em rgba(var(--bright-green), 0.4);
+  --nav-menu-border-color: rgb(var(--neon-teal));
+
+  --main-content-border: var(--bg);
+  --main-content-background: var(--bg);
+
+  --title-screen-filter: brightness(1.1) contrast(1.083);
+
   --main-logo-filter:
     drop-shadow(0 0 16px rgb(var(--teal)))
     drop-shadow(0 0 32px rgb(var(--blue)))
@@ -49,8 +67,8 @@
   --title-shadow:
     0 0 4px rgba(var(--neon-teal), 0.8),
     0 0 8px rgba(var(--blue), 0.4),
-    inset 0 0 4px rgba(var(--blue), 0.9),
-    inset 0 0 48px rgba(var(--electric-violet), 0.28);
+    inset 0 0 1em rgba(var(--blue), 0.9),
+    inset 0 0 2em rgba(var(--electric-violet), 0.5);
 
   --title-text-shadow:
     0 0 2px rgba(var(--blue), 0.9),
@@ -58,5 +76,24 @@
     0 0 16px rgba(var(--teal), 0.4),
     0 0 32px rgba(var(--electric-violet), 1.0);
 
-}
+  --main-content-inset: inset 0 0 24px 16px rgba(var(--space-grey2), 1);
 
+  --main-content-shadow-drop: 0 10px 40px 0 rgba(var(--black), .66);
+
+  --main-font-color: rgb(var(--light-grey));
+
+  --main-text-aura:   0 0 2px   rgba(var(--blue), .7);        /* blue/cyan aura */
+  --main-border:    0 0 4px   rgba(var(--neon-teal),.66); /* teal neon outer aura */
+
+  --nav-menu-border: --var(--main-border);
+
+  --plasma-glow-color1: rgba(var(--nav-menu-font-color), 0.7);
+  --plasma-glow-color2: rgba(var(--main-font-color), 0.95);
+
+  --plasma-shadow: inset 0 0 24px 16px rgba(var(--nav-menu-font-color), .9);
+  --plasma-glow: inset 0 0 32px 24px rgba(var(--nav-menu-font-color), .7);
+  --plasma-glow-1: 0 0 16px 4px var(--plasma-glow-color1),
+                    0 0 32px 8px var(--plasma-glow-color2);
+  --plasma-glow-2: 0 0 18px 6px var(--plasma-glow-color2),
+                    0 0 36px 12px var(--plasma-glow-color2);
+}

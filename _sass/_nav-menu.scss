@@ -1,134 +1,123 @@
-/* nav-menu.scss */
+.top-menu{
+  width: 100%;
+  max-width: 100%;
+  padding: 1em;
 
-/* NAV CONTAINER */
-.nav-menu {
-  padding: 5vh 0;
-  width: 100vw;
-  background:
-    linear-gradient(
-      120deg,
-      rgba(var(--black), 1) 58%,
-      rgba(var(--space-grey2), 0.96) 84%,
-      rgba(var(--teal), 0.11) 100%
-    ),
-    var(--bg);
-  box-shadow:
-    0 0 24px 0 rgba(var(--neon-blue), 0.19),
-    0 2px 32px 0 rgba(var(--electric-violet), 0.07);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  justify-items: center;
+  gap: 3vw;
+  font-family: 'Share Tech Mono', monospace;
+	flex-wrap: wrap;
+  background-color: var(--header-bg);
 }
 
-/* HAMBURGER BUTTON */
-.menu-toggle { display: none; }
+.scroll-to-top {
+  background: var(--title-bg, #fff);
+  color: var(--title-font-color, #222);
+  border: 2px solid var(--title-card-border, #888);
+  border-radius: 1.25em;
+  cursor: pointer;
+  box-shadow: 0 6px 30px 0 rgba(0,0,0,0.08);
+  transition: background .15s, opacity .25s;
 
-.menu-toggle-label {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index:1001;
+
+  opacity:1;
+}
+
+.scroll-to-top.hide {
+    opacity:.001;
+    pointer-events:none;
+}
+
+.nav-menu {
+  max-width: 100%;
+}
+
+.nav-card {
+  max-width: 100%;
+
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 1.5em;
-  cursor: pointer;
-  color: var(--neon-blue);
+  gap: 3vw;
+}
+.search-box {
+	background-color: var(--search-box-background);
+  width: clamp(6em, 9em, 20em);
+  height: clamp(1.1em, 1.2em, 5em);
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
   font-size: 2rem;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(var(--blue), 0.13) 0%,
-      rgba(var(--black), 0.89) 35%,
-      rgba(var(--space-grey2), 0.66) 100%
-    );
-  border: none;
-  box-shadow:
-    0 0 10px 0 rgba(var(--teal), 0.09),
-    0 1.5px 6px rgba(var(--electric-violet), 0.10);
+  color: var(--nav-menu-font-color);
+  text-shadow: var(--nav-menu-font-glow);
+	overflow: hidden;               /* Hides scrollbars */
 }
 
-.hamburger {
-  width: 32px;
-  height: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 12px;
-}
-.hamburger span {
-  height: 4px;
-  width: 100%;
-  background: var(--bg);
-  border-radius: 2px;
-  box-shadow:
-    0 0 6px 0.5px rgba(var(--neon-teal), 0.22),
-    0 0 7px 1px rgba(var(--blue), 0.15);
-  transition: background 0.2s;
-}
-
-/* DROPDOWN MENU */
-.drop-down {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100vw;
-  background:
-    linear-gradient(
-      110deg,
-      rgba(var(--space-grey1), 0.93) 0%,
-      rgba(var(--black), 1) 100%
-    );
-  box-shadow:
-    0 8px 32px rgba(var(--neon-blue), 0.12),
-    0 0 0 2px rgba(var(--electric-violet), 0.06);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  z-index: 10;
-}
-.menu-toggle:checked + .menu-toggle-label + .drop-down {
-  display: block;
-}
 
 .nav-graphics {
-  position: absolute;              /* key for overlaying */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;                    /* stretch over nav-menu */
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
+  gap: 1em;
+  pointer-events: none; /* so menu clicks pass through */
   z-index: 2;
 }
 
 .nav-keyboard,
 .nav-mouse {
-  position: static;                /* Let flexbox do the work */
-  display: flex;
-  align-items: center;
-}
-.nav-mouse {
-}
-.nav-keyboard {
-  background: rgba(var(--neon-teal), 0.08);  // or color: ..., border: ..., etc.
-
-  transition: color 0.2s;
-}
-.nav-keyboard.active {
-  color: var(--electric-violet);
+    display: flex;
+    align-items: center;
 }
 
-.nav-graphics img {
-  height: 48px;                    /* adjust as needed */
-  margin: 0 0.25em 0 0;            /* only for keyboard, see below */
-  vertical-align: middle;
-  user-select: none;
+.nav-keyboard img,
+.nav-mouse img {
+    vertical-align: middle;
+    user-select: none;
+    pointer-events: none;       /* decorational only */
+  filter: drop-shadow(0 0 4px #00ffaa)
+          brightness(1.3) saturate(2);
+}
+.nav-keyboard img {
+    width: clamp(1vw, 7em, 30vw);
+}
+.nav-mouse img {
+    height: 3em;
+		max-width: 10vw;
+}
+
+.scroll-to-next {
+  background: var(--title-bg, #fff);
+  color: var(--title-font-color, #222);
+  border: 2px solid var(--title-card-border, #888);
+  border-radius: 1.25em;
+  cursor: pointer;
+  box-shadow: 0 6px 30px 0 rgba(0,0,0,0.08);
+  transition: background 0.15s, opacity 0.25s;
+}
+
+.scroll-to-next.hide {
+  opacity: 0;
   pointer-events: none;
 }
 
-/* Remove right margin for mouse so it's tight against keyboard */
-.nav-mouse img {
-  margin: 0;
+.scroll-to-next:hover {
+  background: var(--header-grad-c, #eef);
+}
+  
+.scroll-to-next.fixed-bottom {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;    /* or whatever offset looks good */
+  z-index: 999;
 }
