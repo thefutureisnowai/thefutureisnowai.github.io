@@ -6,7 +6,7 @@ function isInView(details) {
 	const rect = details.getBoundingClientRect();
 	return (
 			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-			);
+	       );
 }
 function smoothScrollBy(scrollAmount, duration) {
 	const startY = window.scrollY;
@@ -30,19 +30,19 @@ function smoothScrollBy(scrollAmount, duration) {
 	requestAnimationFrame(animate);
 }
 function animateMaxHeight(element, from, to, duration, callback) {
-    const startTime = performance.now();
+	const startTime = performance.now();
 
-    function animate(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        element.style.maxHeight = (from + (to - from) * progress) + "px";
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        } else if (callback) {
-            callback();
-        }
-    }
-    requestAnimationFrame(animate);
+	function animate(now) {
+		const elapsed = now - startTime;
+		const progress = Math.min(elapsed / duration, 1);
+		element.style.maxHeight = (from + (to - from) * progress) + "px";
+		if (progress < 1) {
+			requestAnimationFrame(animate);
+		} else if (callback) {
+			callback();
+		}
+	}
+	requestAnimationFrame(animate);
 }
 
 function openDeets(details) {
@@ -60,34 +60,34 @@ function openDeets(details) {
 		}
 		smoothScrollBy(scrollAmount, dt_up);
 	}
-// Set to 0 then transition to scrollHeight
-details.style.overflow = 'hidden';
-details.style.maxHeight = '0px';
+	// Set to 0 then transition to scrollHeight
+	details.style.overflow = 'hidden';
+	details.style.maxHeight = '0px';
 
-// Force reflow to apply maxHeight=0 immediately
-void details.offsetHeight;
+	// Force reflow to apply maxHeight=0 immediately
+	void details.offsetHeight;
 
-const targetHeight = details.scrollHeight;
+	const targetHeight = details.scrollHeight;
 
-animateMaxHeight(details, 0, targetHeight, dt_down, () => {
-    details.style.maxHeight = '';
-    details.style.overflow = '';
-});
+	animateMaxHeight(details, 0, targetHeight, dt_down, () => {
+			details.style.maxHeight = '';
+			details.style.overflow = '';
+			});
 } 
 
 function closeDeets(details) {
-const startHeight = details.scrollHeight;
-details.style.overflow = 'hidden';
-details.style.maxHeight = startHeight + 'px';
+	const startHeight = details.scrollHeight;
+	details.style.overflow = 'hidden';
+	details.style.maxHeight = startHeight + 'px';
 
-// Force reflow to apply initial height immediately
-void details.offsetHeight;
+	// Force reflow to apply initial height immediately
+	void details.offsetHeight;
 
-animateMaxHeight(details, startHeight, 0, dt_up, () => {
-    details.open = false;
-    details.style.maxHeight = '';
-    details.style.overflow = '';
-});
+	animateMaxHeight(details, startHeight, 0, dt_up, () => {
+			details.open = false;
+			details.style.maxHeight = '';
+			details.style.overflow = '';
+			});
 }
 
 // Scrolls the element into view vertically so its entire height fits in viewport if possible                                                                                                                                              
@@ -113,4 +113,4 @@ document.addEventListener('DOMContentLoaded', () => {
 						details.isAnimating = false;
 						});
 				});
-		});
+});
