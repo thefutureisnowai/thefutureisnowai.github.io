@@ -67,7 +67,6 @@ Secure Computer Solutions is committed to protecting your data. We utilize advan
   <li>Virus removal
   </li>
 </ul>
-</div>
 </details> </div> </div>
 
 <div class="main-content-box"> <div class="main-content">

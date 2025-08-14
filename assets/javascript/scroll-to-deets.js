@@ -1,143 +1,134 @@
 // Helper to check if an element is fully visible vertically in viewport
-const dt_down = 1000;
-const dt_up = 500;
+const deltaT_down = 500;
+const deltaT_up = 500;
 
-function isInView(details) {
-	const rect = details.getBoundingClientRect();
-	return (
-			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-	       );
-}
-function smoothScrollBy(scrollAmount, duration) {
-	const startY = window.scrollY;
-	const scrollRate = scrollAmount / duration;
+eps = 1e-6;
+scrollEps = 50
 
-	const startTime = performance.now();
-	let dt=0;
+function animateHeightscroll(details, startH, endH, scrollFrom, scrollTo, duration, callback) {
+	// re-size details from startH to endH and simultaneously scroll by scrollAmount
+	// record position for restoring scroll height
+	const t0 = performance.now();
 
-	function animate(now) {
-		dt = now - startTime; 
-		if (dt >= duration) {
-			window.scrollTo(0, startY + scrollAmount);
-		} else {
-			let amountScrolled = scrollRate * dt;
-			window.scrollTo(0, startY + amountScrolled);
-		}
-		if (dt < duration) {
-			requestAnimationFrame(animate);
-		}
-	}
-	requestAnimationFrame(animate);
-}
+	details.scrollYPrev = window.scrollY; // back up current scroll location 
 
-function animateMaxHeight(element, from, to, duration, callback, padFrom, padTo) {
-	const startTime = performance.now();
+	const deltaHeightT = endH - startH;
+	const deltaYT      = scrollTo - scrollFrom; // scroll amount
 
-	const scrollTotal = to - from;
-	const padTotal = padTo - padFrom;
-
-	const scrollRate = scrollTotal / duration;
-	const padRate = padTotal / duration;
+	const scrollRate   = deltaYT / duration;
+	const heightRate   = deltaHeightT / duration;
+	const yRate        = deltaYT / duration;
 
 	function animate(now) {
-		let elapsed = now - startTime;
-		elapsed = elapsed > duration && duration || elapsed; 
-		const curScroll = scrollRate * elapsed;
-		
-		element.style.maxHeight = (from + curScroll) + "px";
+		// scroll if necessary, and change height
 
-		const curPad = padRate * elapsed;
-		element.style.paddingTop = element.style.paddingBottom = padFrom + curPad + "px";
+		let deltaT = now - t0; 
+		deltaT = deltaT > duration && duration || deltaT;  // min of duration
 
-		if (Math.abs(elapsed - duration) > 1e-6) {
+		const deltaScroll = scrollRate * deltaT;
+		const deltaY = scrollRate * deltaT;
+		const deltaHeight = heightRate * deltaT;
+	
+		if ( deltaHeight < -eps || deltaHeight > eps)
+			details.style.maxHeight = (startH + deltaHeight) + "px";
+
+		if ( deltaY < -eps || deltaY > eps)
+			details.style.maxHeight = startH + deltaHeight;
+
+		if ( deltaScroll < -eps || deltaScroll > eps)
+			window.scrollTo(0, scrollFrom + deltaY);
+
+		if (deltaT < duration - eps) { // slight upper tolerance for numberical errors
 			requestAnimationFrame(animate);
 		} else {
-			element.style.maxHeight = '';
-			element.style.paddingTop = element.style.paddingBottom = '';
-
+			details.style.maxHeight = '';
 			if (callback) callback();
+			details.preCloseScrollY = window.scrollY;
 		}
 	}
 	requestAnimationFrame(animate);
 }
 
 function openDeets(details) {
-
-	// open temporarily to get dims: FIXME make invisible?
+	details.preOpenScrollY = window.scrollY;
+	console.log("details.preOpenScrollY", details.preOpenScrollY);
 	const sizeClosed = details.getBoundingClientRect().height;
-	details.open = true;
-	const sizeOpen = details.getBoundingClientRect().height;
-	const padAmount = ( sizeOpen - sizeClosed ) / 2;
-	// get scrollAmount
-	let scrollAmount = 0;
-	if (details.getBoundingClientRect().top < 0) { // top is above screen
-		scrollAmount = details.getBoundingClientRect().top;
+	details.open = true; // FIXME: 
+	void details.offsetHeight;
+	const sizeOpen = details.scrollHeight;
+
+	// restore closed dimensions without closing
+	details.style.maxHeight = details.sizeClosed + "px";
+
+	details.sizeClosed = sizeClosed;
+
+	let scrollTo = window.scrollY; // will add to in the following branches
+	if (details.getBoundingClientRect().top < 0) {// scroll up
+		scrollTo +=details.getBoundingClientRect().top;
 	}
 
-	else if ( details.getBoundingClientRect().bottom > window.innerHeight ) { // bottom is below screen
-		if (details.getBoundingClientRect().height < document.documentElement.clientHeight) {
-			// it will fit entirely on screen, align bottoms
-			scrollAmount = details.getBoundingClientRect().bottom - window.innerHeight // negative number
-		} else {
-			// will not fit on screen, align to the top of details
-			scrollAmount = details.getBoundingClientRect().top;
+	// else scroll down if off-sccreen
+	else {
+		const bottom = details.getBoundingClientRect().top + details.scrollHeight;
+
+		if ( bottom > window.innerHeight + eps ) { // bottom is below screen
+			if ( sizeOpen < document.documentElement.clientHeight ) {
+				// it will fit entirely on screen, align bottoms
+				scrollTo +=bottom - window.innerHeight // negative number
+			}
+			else { // will not fit on screen, scroll down to align to the top of details
+				scrollTo +=details.getBoundingClientRect().top;
+			}
 		}
 	}
-	if (scrollAmount != 0) {
-		smoothScrollBy(scrollAmount, dt_up);
-	}
 
-	// Set to 0 then transition to scrollHeight
-	details.style.overflow = 'hidden';
-	details.style.maxHeight = '0px';
-
-	// Force reflow to apply maxHeight=0 immediately
+	// Force reflow to apply maxHeight=0 immediately FIXME: ? 
 	void details.offsetHeight;
 
-	const targetHeight = details.scrollHeight;
-
-	animateMaxHeight(details, 0, targetHeight, dt_down, 0, () => {
-			details.style.maxHeight = '';
-			details.style.overflow = '';
+	animateHeightscroll(details, 
+			details.sizeClosed, sizeOpen, 
+			window.scrollY, scrollTo,
+			deltaT_down,  () => {
+				details.style.maxHeight = '';
 			});
-} 
+}
 
 function closeDeets(details) {
-	const startHeight = details.scrollHeight;
-	details.style.overflow = 'hidden';
-	details.style.maxHeight = startHeight + 'px';
+	let scrollTo;
+	if (details.preCloseScrollY - scrollEps < window.scrollY < details.preCloseScrollY + scrollEps)
+		scrollTo = details.preOpenScrollY;
+	else
+		scrollTo = window.scrollY;
+
+	details.style.maxHeight = details.scrollHeight + 'px';
 
 	// Force reflow to apply initial height immediately
 	void details.offsetHeight;
 
-	animateMaxHeight(details, startHeight, 0, dt_up, () => {
-			details.open = false;
-			details.style.maxHeight = '';
-			details.style.overflow = '';
+	animateHeightscroll(details, 
+			details.scrollHeight, details.sizeClosed, 
+			window.scrollY, scrollTo,
+			deltaT_up,  () => {
+				details.style.maxHeight = '';
+				details.open = false;
 			});
 }
 
 // Scrolls the element into view vertically so its entire height fits in viewport if possible                                                                                                                                              
 document.addEventListener('DOMContentLoaded', () => {                                                                                                                                                                                      
-		document.querySelectorAll('details.main-deets').forEach(details => {
-				console.log(details);
-				details.isAnimating = false;
-				details.addEventListener("click", (e) => {
-						e.preventDefault();
+document.querySelectorAll('details.main-deets').forEach(details => {
+	details.isAnimating = false;
+	details.addEventListener("click", (e) => {
+			e.preventDefault();
+			if (! details.isAnimating) {
+				details.isAnimating = true;
 
-						if (! details.isAnimating) {
-						details.isAnimating = true;
-
-						if (! details.open) { // since it's not closed yet, it's open!
-
-						setTimeout(() => openDeets(details), 0); // after expand animation/layout
-						}
-
-						else {
-						setTimeout(() => closeDeets(details), 0); // after expand animation/layout
-						}
-						}
-						details.isAnimating = false;
-						});
-				});
+				if (! details.open) // since it's not closed yet, it's open!
+					setTimeout(() => openDeets(details), 0); // after expand animation/layout
+				else 
+					setTimeout(() => closeDeets(details), 0); // after expand animation/layout
+			}
+			details.isAnimating = false;
+		});
+	});
 });

@@ -1,125 +1,127 @@
 html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-sizing:border-box;; background: var(--bg); max-width: 100%}
 
- /* holds header, content, and footer */
-	.page-layout {
+/* holds header, content, and footer */
+.page-layout {
 	min-height: 100vh;
 	width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-items: space-between;
-  background: var(--bg);
-
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-items: space-between;
+	background: var(--bg);
 }
- /* holds header-grad and multiple main-content-box instences */
+/* holds header-grad and multiple main-content-box instences */
 .content {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
-  align-items: start;
-	justify-content: center;
-	align-content: center;
 	align-items: center;
-  background: var(--bg);
+	justify-content: start;
+	align-content: center;
+	align-items: space-around;
+	background: var(--bg);
 	gap: 3vh; 
+	padding-left: 1em;
 }
+
 /* all content which changes between pages (defined in .md files) should be contained in these */
 .main-content-box {
-  background: var(--main-content-background);
+	background: var(--main-content-background);
 
 	font-size: clamp(1.03rem, 1.1vw, 1.32rem);
 	line-height: 1.7;
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 
-  border: 5px outset var(--main-border);
-  border-radius: 1em;
+	border: 5px outset var(--main-border);
+	border-radius: 1em;
 
 	filter: var(--main-content-shadow-drop);
 	color: var(--main-font-color);
 	box-shadow: var(--main-content-inset);
-  z-index: 1;
+	z-index: 1;
 }
-/* main-content text blocks */
+	/* main-content text blocks */
 .main-content {
+	overflow: hidden;
 	max-width: 100%;
 	text-shadow: var(--main-text-aura);
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	justify-items: flex-start;
-  align-items: center;
+	align-items: center;
 	text-align: center;
+	padding: 2em;
 }
 .main-summary {
 	max-width: 100%;
-  display: list-item; /* keeps the arrow */
-  list-style-position: inside;
+	display: list-item; /* keeps the arrow */
+	list-style-position: inside;
+	text-align: left;
 }
 .main-deets .main-summary {
 	max-width: 100%;
-  list-style-position: inside;
-  cursor: pointer;
-	padding-right: 1em;
+	list-style-position: inside;
+	cursor: pointer;
 }
 .main-deets {
-	padding: 1em;
+	text-align: left;
 }
-
 .main-header {
 	padding-bottom: 0;
 }
 
 @keyframes plasma-glow {
-  from { box-shadow: var(--nav-menu-font-glow); }
-  to { box-shadow: var(--title-text-shadow); } 
+	from { box-shadow: var(--nav-menu-font-glow); }
+	to { box-shadow: var(--title-text-shadow); } 
 }
 
 .main-content-box {
-    position: relative;
+	position: relative;
 }
 
 .main-content-box.has-unopened-details::before {
-	  max-width: 100%;
-    content: "";
-    position: absolute;
-    top: -6px; left: -6px; right: -6px; bottom: -6px;
-    border-radius: inherit;
-    pointer-events: none;
-    border: 3.5px solid var(--nav-menu-font-color);
-    animation: plasma-glow infinite linear alternate-reverse both;
-    animation-duration:1.75s;
-    z-index:999;
+	max-width: 100%;
+	content: "";
+	position: absolute;
+	top: -6px; left: -6px; right: -6px; bottom: -6px;
+	border-radius: inherit;
+	pointer-events: none;
+	border: 3.5px solid var(--nav-menu-font-color);
+	animation: plasma-glow infinite linear alternate-reverse both;
+	animation-duration:1.75s;
+	z-index:999;
 }
 /* Hide default marker */
 .main-deets > .main-summary {
 	max-width: 100%;
-  list-style: none;
-  position: relative;
-  padding-left: 2em; /* space for custom arrow */
+	list-style: none;
+	position: relative;
+	padding-left: 2em; /* space for custom arrow */
 }
 
 /* Custom animated plasma glow arrow */
 .main-deets > .main-summary::before {
-  content: "▼";
-  position: absolute;
-  left: 0.1em;
-  top: 0.35em;
-  font-size: 1.2em;
-  color: var(--neon-teal);
-  text-shadow:
-    var(--title-text-shadow),
-    var(--nav-menu-font-glow);
-  filter:
-    drop-shadow(0 0 8px var(--blue))
-    drop-shadow(0 0 16px var(--electric-violet));
+	content: "▼";
+	position: absolute;
+	left: 0.1em;
+	top: 0.35em;
+	font-size: 1.2em;
+	color: var(--neon-teal);
+	text-shadow:
+	var(--title-text-shadow),
+	var(--nav-menu-font-glow);
+	filter:
+	drop-shadow(0 0 8px var(--blue))
+	drop-shadow(0 0 16px var(--electric-violet));
 
-  /* Plasma Glow Animation */
-  animation: plasma-glow infinite linear alternate both;
+	/* Plasma Glow Animation */
+	animation: plasma-glow infinite linear alternate both;
 }
 .main-deets > .main-summary::before {
-  content: "➤";
-  /* existing styles ... */
-  transition: transform 400ms;
+	content: "➤";
+	/* existing styles ... */
+	transition: transform 400ms;
 }
 .main-deets[open] > .main-summary::before {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 }
