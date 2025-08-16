@@ -2,28 +2,30 @@
 
 /* header bounding box */
 .header-grad {
-	max-width: 100%;
+	overflow: hidden;
 	box-sizing: border-box;
-
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	align-items: center;
+	justify-content: center;
 
 	align-items: center;
 	background: var(--header-grad-c);
 	z-index: 1;
         border-radius: 1.5rem;
 	border: 4px double var(--title-card-border);
+	padding: 1em;
 }
+
 /* title bounding box */
 .title-card {
-  width: auto;
-	max-width: 100%;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	padding: .4em;
-	align-items: center;
+
+/*  align-items: baseline; */
+	align-items: stretch;
 	justify-content: center;
 
 	background: var(--title-bg);
@@ -33,81 +35,72 @@
 
 	z-index: 1; /* show up over header gradient */
 }
-/* title contents. We want the default size to show Secure Computer on its own line, but for zooming in to readily wrap Computer into the next line. */
 /* Secure Computer is 15em, Bellingham is 10em.*/
 .title-screen {
-	height: 32vh;
-	max-height: 100%;
-	max-width: 100%;
-	box-sizing: border-box;
-  	row-gap: 0.25em;
-  	column-gap: 1em;
-	padding: 2.5vw;
+  font-size: 2.5rem;
+  box-sizing: border-box;
+  max-height: 70vh;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+  align-content: center;
+  align-items: center;
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	/* align-items: stretch; */
-	flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
 
-	background: var(--title-bg);
-	box-shadow: var(--title-shadow);
-	filter: var(--title-screen-filter);
-
-	z-index: 2; /* show up on top of title-card */
-
-	border-radius: 1.5rem;
-	border: 4px single var(--title-screen-border);
+  overflow-wrap: break-word;
+  padding: 1em;
+  overflow: visible;
+  
+  
+  background: var(--title-bg);
+  box-shadow: var(--title-shadow);
+  filter: var(--title-screen-filter);
+  
+  z-index: 2; /* show up on top of title-card */
+  
+  border-radius: 1.5rem;
+  border: 4px single var(--title-screen-border);
 }
 .title {
-	max-width: 100%;
+	column-gap: .5em;
 	font-family: 'Audiowide', sans-serif;
-	font-weight: bold;
-	font-size: 3rem;      /* = 32px if root is 16px */
-	margin-bottom: 1.5rem; /* = 24px */
 
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	flex-wrap: wrap;
+	overflow-wrap: break-word;
+	
+	overflow: show;
+
+	/* align-items: stretch; */
+	font-weight: bold;
+	text-overflow: wrap;
+	text-wrap: pretty;
 	color: var(--title-font-color);
 	text-shadow: var(--title-text-shadow);
 	z-index: 2;
+	white-space: normal;
 }
-.title-screen {
-    max-width: 95vw;
-    width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-.title {
-    max-width: 95vw;
-    width: 100%;
-    white-space: normal;
+.title-word {
+ display: inline-block;
 }
 .main-logo {
-	width: 5em;
+	width: 2em;
 	height: 3em;
 	z-index: 3;
 }
 .main-logo-img {
-	height: 5em;
-	width: 5em;
+	height: 3em;
+	width: 3em;
 	z-index: 3;
   	filter: var(--main-logo-filter);
 }
 
-@media (max-width: 600px) {
-  .title {
-  	font-family: 'Audiowide', sans-serif;
-  	font-weight: bold;
-  	font-size: 1.4rem;
-	margin-bottom: 0;
-  }
-  .title-screen {
-    height: clamp(5vh,32vh,100%);
-    gap: 0;
-    align-items: stretch;
-  }
-  .main-logo {
-    width: 0em;
-    height: 5em;
-  }
-}
