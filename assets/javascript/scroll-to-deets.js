@@ -51,7 +51,6 @@ function animateHeightscroll(details, startH, endH, scrollFrom, scrollTo, durati
 
 function openDeets(details) {
 	details.preOpenScrollY = window.scrollY;
-	console.log("details.preOpenScrollY", details.preOpenScrollY);
 	const sizeClosed = details.getBoundingClientRect().height;
 	details.open = true; // FIXME: 
 	void details.offsetHeight;
@@ -59,7 +58,6 @@ function openDeets(details) {
 
 	// restore closed dimensions without closing
 	details.style.maxHeight = details.sizeClosed + "px";
-
 	details.sizeClosed = sizeClosed;
 
 	let scrollTo = window.scrollY; // will add to in the following branches
@@ -95,7 +93,7 @@ function openDeets(details) {
 
 function closeDeets(details) {
 	let scrollTo;
-	if (details.preCloseScrollY - scrollEps < window.scrollY < details.preCloseScrollY + scrollEps)
+	if (details.preCloseScrollY + scrollEps < window.scrollY < details.preCloseScrollY + scrollEps)
 		scrollTo = details.preOpenScrollY;
 	else
 		scrollTo = window.scrollY;
@@ -114,7 +112,9 @@ function closeDeets(details) {
 			});
 }
 function setScrollToDeets(details) {
-	details.isAnimating = false;
+	if (details.hasEventHandler) return;
+	details.hasEventHandler = true;
+
 	details.addEventListener("click", (e) => {
 			e.preventDefault();
 			if (! details.isAnimating) {

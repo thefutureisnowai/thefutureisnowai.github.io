@@ -40,7 +40,6 @@ class DivWrapper {
 	// Move a div by setting its position inside its .title-screen container using fractional coordinates.
 	// Requires .title-screen to be relative or absolute positioned ancestor. This function sets absolute positioning.
 	move(y, x) {
-		console.log(this.toString(), "moving from", this.r_left, this.r_top, "to ", y, x);
 		const compStyle = window.getComputedStyle(this.screen);
 		if (compStyle.position === "static") {
 			this.screen.style.position = "relative";
@@ -84,7 +83,6 @@ class ScreenWrapper {
 		// Find all visible elements that comprise the actual content:
 		this.divs = [];
 		const screen = document.querySelector('.title-screen');
-		console.log("screen", screen);
 		let contentElems = [
 			...screen.querySelectorAll('.title'),
 			...screen.querySelectorAll('.main-logo')
@@ -199,7 +197,6 @@ class ScreenWrapper {
 	checkAndResposition() {
 		if (this.isFixed || this.isOutOfBounds()){
 			this.fixedTitleScreen();
-			console.log("reposition");
 			this.repositionDivs();	
 		}
 	}
