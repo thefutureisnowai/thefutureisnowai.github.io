@@ -49,6 +49,7 @@ return results.map(r => r.item);
 
 }
 function insertModulesToContent(modules) {
+	if (modules.length==0) return;
 	const contentContainer = document.querySelector('.content');
 	// Remove existing .main-content-box children first
 	contentContainer.querySelectorAll('.main-content-box').forEach(box => box.remove());
