@@ -62,6 +62,8 @@ function insertModulesToContent(modules) {
 	modules[0].id = "main-content";
 	modules.forEach(mod => {
 			mod.style.display = '';
+			const details = mod.querySelector('details.main-deets');
+			if (details) setScrollToDeets(details);
 			contentContainer.insertBefore(mod, insertAfter.nextSibling);
 			insertAfter = mod;
 			});
@@ -96,7 +98,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 				// Empty field: restore all original boxes
 				restoreOriginalContent();
 				}
-				setScrollToDeets();
 				});
 
 		// Helper to restore all content boxes (show original)
@@ -107,4 +108,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 		}
 
 
+});
+// when Enter is pressed the prompt text should vanish (rather than a newline), and the loaded content should stay the same.
+document.querySelector('.search-box').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        this.value='';
+        // Don't call restoreOriginalContent(), just keep displayed matches.
+    }
 });

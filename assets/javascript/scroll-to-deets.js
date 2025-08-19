@@ -113,25 +113,25 @@ function closeDeets(details) {
 			details.open = false;
 			});
 }
-function setScrollToDeets() {
-	document.querySelectorAll('details.main-deets').forEach(details => {
-			details.isAnimating = false;
-			details.addEventListener("click", (e) => {
-					e.preventDefault();
-					if (! details.isAnimating) {
-					details.isAnimating = true;
+function setScrollToDeets(details) {
+	details.isAnimating = false;
+	details.addEventListener("click", (e) => {
+			e.preventDefault();
+			if (! details.isAnimating) {
+			details.isAnimating = true;
 
-					if (! details.open) // since it's not closed yet, it's open!
-					setTimeout(() => openDeets(details), 0); // after expand animation/layout
-					else 
-					setTimeout(() => closeDeets(details), 0); // after expand animation/layout
-					}
-					details.isAnimating = false;
-					});
+			if (! details.open) // since it's not closed yet, it's open!
+			setTimeout(() => openDeets(details), 0); // after expand animation/layout
+			else 
+			setTimeout(() => closeDeets(details), 0); // after expand animation/layout
+			}
+			details.isAnimating = false;
 			});
 }
-// Scrolls the element into view vertically so its entire height fits in viewport if possible                                                                                                                                              
+// Scrolls the element into view vertically so its entire height fits in viewport if possible
 // FIXME: we also have to run this every time a module is inserted into html body content
-document.addEventListener('DOMContentLoaded', () => {                                                                                                                                                                                      
-		setScrollToDeets();
+document.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('details.main-deets').forEach(details => {
+				setScrollToDeets(details);
+				});
 		});
