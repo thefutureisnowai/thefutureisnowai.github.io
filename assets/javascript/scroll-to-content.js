@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+function setScrollToContent() {
 		const headerGrad = document.querySelector('.header-grad');
 		const contentBtn = document.getElementById('scrollNextBtn');
 
@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				}
 				});
+}
+document.addEventListener("DOMContentLoaded", function() {
+		setScrollToContent();
 });
 document.addEventListener("DOMContentLoaded", function () {
 		const header = document.querySelector('.top-menu');

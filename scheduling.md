@@ -10,9 +10,6 @@ title: Scheduling SCS Bham | Freeland
 </div></div>
 
 <div class="main-content-box"> <div class="main-content">
-</div></div>
-
-<div class="main-content-box"> <div class="main-content">
 <h2> Pricing </h2>
 <p class="main-deets">
 General IT and security services offered in <a href="it.html">IT and Cyber Security</a> are $120/hr for small jobs.<br>

@@ -113,7 +113,7 @@ class ScreenWrapper {
 
 	    this.screen.style.width = rect.width + 'px';
 	    this.screen.style.height = rect.height + 'px';
-	    this.screen.style.position = 'relative'; // Ensure rel. pos for abs children
+	    this.screen.style.position = 'relative';
 
 	    // Optionally kill flexbox behavior:
 	    this.screen.style.display = 'block';

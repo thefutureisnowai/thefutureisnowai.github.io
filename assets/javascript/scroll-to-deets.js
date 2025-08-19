@@ -28,7 +28,7 @@ function animateHeightscroll(details, startH, endH, scrollFrom, scrollTo, durati
 		const deltaScroll = scrollRate * deltaT;
 		const deltaY = scrollRate * deltaT;
 		const deltaHeight = heightRate * deltaT;
-	
+
 		if ( deltaHeight < -eps || deltaHeight > eps)
 			details.style.maxHeight = (startH + deltaHeight) + "px";
 
@@ -89,7 +89,7 @@ function openDeets(details) {
 			details.sizeClosed, sizeOpen, 
 			window.scrollY, scrollTo,
 			deltaT_down,  () => {
-				details.style.maxHeight = '';
+			details.style.maxHeight = '';
 			});
 }
 
@@ -109,26 +109,29 @@ function closeDeets(details) {
 			details.scrollHeight, details.sizeClosed, 
 			window.scrollY, scrollTo,
 			deltaT_up,  () => {
-				details.style.maxHeight = '';
-				details.open = false;
+			details.style.maxHeight = '';
+			details.open = false;
 			});
 }
-
-// Scrolls the element into view vertically so its entire height fits in viewport if possible                                                                                                                                              
-document.addEventListener('DOMContentLoaded', () => {                                                                                                                                                                                      
-document.querySelectorAll('details.main-deets').forEach(details => {
-	details.isAnimating = false;
-	details.addEventListener("click", (e) => {
-			e.preventDefault();
-			if (! details.isAnimating) {
-				details.isAnimating = true;
-
-				if (! details.open) // since it's not closed yet, it's open!
-					setTimeout(() => openDeets(details), 0); // after expand animation/layout
-				else 
-					setTimeout(() => closeDeets(details), 0); // after expand animation/layout
-			}
+function setScrollToDeets() {
+	document.querySelectorAll('details.main-deets').forEach(details => {
 			details.isAnimating = false;
+			details.addEventListener("click", (e) => {
+					e.preventDefault();
+					if (! details.isAnimating) {
+					details.isAnimating = true;
+
+					if (! details.open) // since it's not closed yet, it's open!
+					setTimeout(() => openDeets(details), 0); // after expand animation/layout
+					else 
+					setTimeout(() => closeDeets(details), 0); // after expand animation/layout
+					}
+					details.isAnimating = false;
+					});
+			});
+}
+// Scrolls the element into view vertically so its entire height fits in viewport if possible                                                                                                                                              
+// FIXME: we also have to run this every time a module is inserted into html body content
+document.addEventListener('DOMContentLoaded', () => {                                                                                                                                                                                      
+		setScrollToDeets();
 		});
-	});
-});
