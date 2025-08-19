@@ -58,11 +58,6 @@ html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-s
 	list-style-position: inside;
 	text-align: left;
 }
-.main-deets .main-summary {
-	max-width: 100%;
-	list-style-position: inside;
-	cursor: pointer;
-}
 .main-deets {
 	text-align: left;
 }
@@ -124,4 +119,14 @@ html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-s
 }
 .main-deets[open] > .main-summary::before {
 	transform: rotate(90deg);
+}
+.main-deets .main-summary {
+	list-style-position: inside;
+	cursor: pointer;
+}
+.main-deets a {
+	max-width: 100%;
+	display: inline-block;
+	word-break: break-all;
+  	overflow-wrap: anywhere;
 }

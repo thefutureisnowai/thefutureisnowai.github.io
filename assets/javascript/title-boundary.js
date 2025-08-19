@@ -174,7 +174,7 @@ class ScreenWrapper {
 			const rightOfSolutions = solutions.getBoundingClientRect().right - this.screen.getBoundingClientRect().left;
 			const topOfSolutions     = vGap + em;
 			this.logo.move(topOfSolutions + em / 3, rightOfSolutions + hGap);
-		} else {
+		} else { // each of secure computer and solutions is on a different line
 			const vGap = (vSpaceUnderSCS - bhamHeight) / 3;
 			// horizontal space limit is between scs and logo
 			const hSpace = this.screen.getBoundingClientRect().right - computer.getBoundingClientRect().right;
@@ -183,7 +183,12 @@ class ScreenWrapper {
 			this.bham.move(vGap + bottomOfSolutions + vGap, hGap);
 			const rightOfSecure = secure.getBoundingClientRect().right - this.screen.getBoundingClientRect().left;
 			const topOfSecure     = vGap;
-			this.logo.move(topOfSecure + em / 3, rightOfSecure + hGap);
+			// this.logo.move(topOfSecure + em / 3, rightOfSecure + hGap);
+			this.logo.move(0, screenWidth - em);
+			const logoImg = this.logo.div.querySelector('.main-logo-img')
+			logoImg.style.width = em + "px";
+			logoImg.style.height = em + "px";
+
 		}
 	}
 	isOutOfBounds() {

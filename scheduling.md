@@ -24,7 +24,7 @@ For larger projects will make a contract and agree on milestone payments.
 <p class="main-deets">
 Online payments can be made to our PayPal business account at the following external URL:<br>
 <br>
-<a href="https://www.paypal.com/ncp/payment/2945BQTEQSAHW" target="_blank" rel="noopener">
+<a class="main-deets" href="https://www.paypal.com/ncp/payment/2945BQTEQSAHW" target="_blank" rel="noopener">
   https://www.paypal.com/ncp/payment/2945BQTEQSAHW
 </a>
 <br>
