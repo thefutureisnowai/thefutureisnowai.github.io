@@ -1,14 +1,22 @@
-function setScrollToContent() {
+class ScrollToContent {
+	constructor() {
+		this.button = document.getElementById('scrollNextBtn');
+		this.setScrollToContent();
+	}
+	scrollToContent() {
+		this.mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+	setScrollToContent() {
 		const headerGrad = document.querySelector('.header-grad');
 		const contentBtn = document.getElementById('scrollNextBtn');
 
 		function updateButtonPosition() {
-		const rect = headerGrad.getBoundingClientRect();
-		if (rect.bottom >= window.innerHeight) {
-		contentBtn.classList.add('fixed-bottom');
-		} else {
-		contentBtn.classList.remove('fixed-bottom');
-		}
+			const rect = headerGrad.getBoundingClientRect();
+			if (rect.bottom >= window.innerHeight) {
+				contentBtn.classList.add('fixed-bottom');
+			} else {
+				contentBtn.classList.remove('fixed-bottom');
+			}
 		}
 
 		window.addEventListener('scroll', updateButtonPosition);
@@ -19,19 +27,18 @@ function setScrollToContent() {
 
 		// Initialize again after full page load (images/styles)
 		window.addEventListener('load', updateButtonPosition);
-
-		document.getElementById('scrollNextBtn').addEventListener('click', function() {
-				const mainContent = document.getElementById('main-content');
-				if(mainContent) {
-				// Scroll so the top of main-content is at the very top of viewport
-				mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-				}
+		const scroll = this;
+		this.button.addEventListener('click', function() {
+				scroll.scrollToContent();
 				});
+
+		this.mainContent = document.getElementById('main-content');
+	}
 }
 document.addEventListener("DOMContentLoaded", function() {
-		setScrollToContent();
-});
-document.addEventListener("DOMContentLoaded", function () {
+		scroller = new ScrollToContent();
+
+		// keep Content button on-screen
 		const header = document.querySelector('.top-menu');
 		const scrollTopBtn = document.getElementById('scrollToTopBtn');
 
@@ -62,4 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		scrollTopBtn.addEventListener('click', function () {
 				window.scrollTo({ top: 0, behavior: 'smooth' });
 				});
-});
+
+		const params = new URLSearchParams(window.location.search);
+		if (params.get('doscroll') === 'true') {
+			console.log("do scroll");
+			scroller.scrollToContent();
+		}
+	}
+);
