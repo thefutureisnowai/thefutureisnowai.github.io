@@ -72,8 +72,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		const params = new URLSearchParams(window.location.search);
 		if (params.get('doscroll') === 'true') {
-			console.log("do scroll");
-			scroller.scrollToContent();
+			window.addEventListener('DOMContentLoaded', () => {
+			    scroller.scrollToContent();
+			});
 		}
 	}
 );

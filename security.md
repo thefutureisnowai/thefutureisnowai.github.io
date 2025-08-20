@@ -1,7 +1,7 @@
 ---
 layout: default
 id: security
-title: Security SCS Bham | Freeland
+title: Security SCS Bham
 ---
 
 <div id="main-content" class="main-content-box"> <div class="main-content">

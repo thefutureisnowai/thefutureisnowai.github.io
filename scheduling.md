@@ -1,7 +1,7 @@
 ---
 layout: default
 id: scheduling
-title: Scheduling SCS Bham | Freeland
+title: Scheduling SCS Bham
 ---
 <div id="main-content" class="main-content-box"> <div class="main-content">
 <h2>Scheduling</h2>

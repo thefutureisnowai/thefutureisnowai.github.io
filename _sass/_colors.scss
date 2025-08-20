@@ -56,7 +56,7 @@
   --main-content-border: var(--bg);
   --main-content-background: var(--bg);
 
-  --title-screen-filter: brightness(.7) contrast(2);
+  --title-screen-filter: brightness(1) contrast(1.5);
 
   --main-logo-filter:
     drop-shadow(0 0 16px rgb(var(--teal)))
@@ -70,12 +70,12 @@
     inset 0 0 1em rgba(var(--blue), 0.9),
     inset 0 0 2em rgba(var(--electric-violet), 0.5);
 
-  --title-text-shadow:
-    0 0 2px rgba(var(--blue), 0.9),
+  --title-text-shadow: black;
+/*    0 0 2px rgba(var(--blue), 0.9),
     0 0 8px rgba(var(--cyan), 0.5),
     0 0 16px rgba(var(--teal), 0.4),
     0 0 32px rgba(var(--electric-violet), 1.0);
-
+*/
   --main-content-inset: inset 0 0 24px 16px rgba(var(--space-grey2), 1);
 
   --main-content-shadow-drop: 0 10px 40px 0 rgba(var(--black), .66);
