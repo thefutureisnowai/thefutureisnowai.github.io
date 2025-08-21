@@ -8,7 +8,7 @@ title: Privacy SCS Bham
 
 <div id="main-content" class="main-content-box"> <div class="main-content">
 <p class="main-deets">
-The following privacy policy applies to The Future is Now Ai, LLC under all of our trade names. Including Secure Computer Solutions.
+The following privacy policy applies to The Future is Now Ai, LLC under all of our trade names and brands. Including Secure Computer Solutions, SCS, and TFinAI.
 </p>
 </div></div>
 
@@ -23,7 +23,7 @@ Google provides us some statistics regarding how users find our site through Goo
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary">Commitment to Privacy</summary>
-     We will never gather or congregate any customer / user data (aside from the Google caveat above), beyond information you explicitly provide us which will be used only for the necessities of conducting business with you, and providing the services you request. We will never share your data with any third parties for marketing purposes, training AI, or any purpose not directly related to the services you request. If the services you request require us to share your data with a third party, we will only do so after receiving your explicit consent. We believe data collection should be an opt-in process, rather than an opt-out process as many companies practice.
+     We will never gather or congregate any customer / user data (aside from the Google caveat above), beyond information you explicitly provide us which will be used only for the necessities of conducting business with you, and providing the services you request. We will never share your data with any third parties for marketing purposes, training AI, or any purpose beyond what is necessary for the services you request. If the services you request require us to share your data with a third party, we will only do so after receiving your explicit consent.
 </details>
 </div></div>
 
@@ -44,7 +44,7 @@ If third-party services are required to complete your order (e.g. warranty repai
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary">AI</summary>
-We believe the mass use of data for training AI, or other analytics, without consent, is highly unethical. We as a company will never use your data for such purposes, unless you specifically request it. Some of our custom AI services will require the use of data for training, in which case we will clearly communicate this with you, and only use data you provide us with your explicit consent.
+We believe the mass use of data for training AI, or other analytics, without consent, is unethical. We as a company will never use your data for such purposes, unless you specifically request it. Some of our custom AI services will require the use of data for training, in which case we will clearly communicate this with you, and only use data you provide us with your permission.
 </details></div></div>
 
 <div class="main-content-box"> <div class="main-content">

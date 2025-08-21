@@ -50,8 +50,6 @@ Secure Computer Solutions is committed to protecting your data. We utilize advan
   </li>
   <li>Performance upgrades
   </li>
-  <li>Privacy
-  </li>
   <li>Remote access methods (third-party free)
   </li>
   <li>Remote services (third-party free)
