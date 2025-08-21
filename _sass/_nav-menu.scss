@@ -96,6 +96,7 @@
 }
 
 .scroll-to-next {
+  font-size: 1rem;
   background: var(--title-bg, #fff);
   color: var(--title-font-color, #222);
   border: 2px solid var(--title-card-border, #888);
@@ -115,6 +116,9 @@
 }
   
 .scroll-to-next.fixed-bottom {
+  font-size: 2rem;
+	animation: plasma-glow infinite linear alternate-reverse both;
+	animation-duration:1.75s;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);

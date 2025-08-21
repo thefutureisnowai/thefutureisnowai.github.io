@@ -12,7 +12,7 @@ title: SCS Bham
   <details class="main-deets">
     <summary class="main-summary">
 	AI and Data: <a href="ai.html">securecomputer.ai/ai</a><br>
-	Contact us now for a free consultation, to see how AI can enhance your business.
+	Contact us now for a free consultation, to see how AI can enhance your business or personal life.
     </summary>
     Examples of AI solutions we offer include:<br>
 - Custom chatbot for your website.<br>

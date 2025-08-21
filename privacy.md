@@ -8,7 +8,7 @@ title: Privacy SCS Bham
 
 <div id="main-content" class="main-content-box"> <div class="main-content">
 <p class="main-deets">
-The following privacy policy applies to The Future is Now Ai, LLC under all of our trade names and brands. Including Secure Computer Solutions, SCS, and TFinAI.
+The following privacy policy applies to The Future is Now AI, LLC under all of our trade names and brands. Including Secure Computer Solutions, SCS, and TFinAI.
 </p>
 </div></div>
 
@@ -54,7 +54,7 @@ We believe the mass use of data for training AI, or other analytics, without con
 <a href="https://github.com/thefutureisnowai/thefutureisnowai.github.io" target="_blank" rel="noopener">
   https://github.com/thefutureisnowai/thefutureisnowai.github.io
 </a>.
-<br>Note that The Future is Now Ai, LLC is our company name, but our Doing-Business-As name is Secure Computer Solutions. We control this repository and no other entity can modify it.
+<br>Note that The Future is now AI, LLC is our company name, but our Doing-Business-As name is Secure Computer Solutions. We control this repository and no other entity can modify it.
 </p>
 
 <p>

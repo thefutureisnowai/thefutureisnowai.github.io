@@ -48,7 +48,7 @@ Some malicious software can run in the background, and even wait until your comp
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Anti-Virus Software </summary>
-It is a good idea to regularly scan your computer for viruses, and to use real-time detection services. If you use Windows, you can use Windows Defender for free and already built-in to Windows. There are good pr better alternatives, but be cautious about which service you choose. However, it's best to try to avoid viruses in the first place.
+It is a good idea to regularly scan your computer for viruses, and to use real-time detection services. If you use Windows, you can use Windows Defender, which is free and already built-in to Windows. There are good or better alternatives, but be cautious about which service you choose. It's best to try to avoid viruses in the first place rather than relying on virus scans.
 </details>
 </div></div>
 

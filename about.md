@@ -6,6 +6,6 @@ title: About SCS Bham
 <div class="main-content-box" id="main-content"> <div class="main-content">
 <h2 class="main-header">About</h2>
 <p class="main-deets">
-Secure Computer Solutions is a trade-name of The Future is now AI, LLC, which was founded in November 2024 by <a href="https://sethbriney.com/">Seth Briney</a>, a double master's graduate of WWU. Our purpose is to provide IT solutions for individuals and businesses, with a focus on ethical AI, ethical data practices, and cyber security.
+Secure Computer Solutions is a trade-name of The Future is now AI, LLC, which was founded in November 2024 by <a href="https://sethbriney.com/">Seth Briney</a>, a double master's graduate of Western Washington University. Our purpose is to provide IT solutions for individuals and businesses, with a focus on creativity and individualized solutions, ethical AI, ethical data practices, and cyber security.
 </p>
 </div></div>
