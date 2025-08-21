@@ -85,12 +85,11 @@
 	text-overflow: wrap;
 	text-wrap: pretty;
 	color: var(--title-font-color);
-	text-shadow: var(--title-text-shadow);
 	z-index: 2;
 	white-space: normal;
 }
 .title-word {
- display: inline-block;
+	display: inline-block;
 }
 .main-logo {
 	width: 2em;

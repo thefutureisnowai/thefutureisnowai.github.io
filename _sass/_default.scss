@@ -67,7 +67,7 @@ html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-s
 
 @keyframes plasma-glow {
 	from { box-shadow: var(--nav-menu-font-glow); }
-	to { box-shadow: var(--title-text-shadow); } 
+	to { box-shadow: var(--plasma-shadow); } 
 }
 
 .main-content-box {
@@ -102,15 +102,11 @@ html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-s
 	top: 0.35em;
 	font-size: 1.2em;
 	color: var(--neon-teal);
-	text-shadow:
-	var(--title-text-shadow),
-	var(--nav-menu-font-glow);
-	filter:
-	drop-shadow(0 0 8px var(--blue))
-	drop-shadow(0 0 16px var(--electric-violet));
+	text-shadow: var(--plasma-shadow2);
+	animation: plasma-glow infinite linear alternate-reverse both;
+	animation-duration:1.75s;
 
 	/* Plasma Glow Animation */
-	animation: plasma-glow infinite linear alternate both;
 }
 .main-deets > .main-summary::before {
 	content: "➤";

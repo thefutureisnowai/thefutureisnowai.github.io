@@ -70,17 +70,11 @@
     inset 0 0 1em rgba(var(--blue), 0.9),
     inset 0 0 2em rgba(var(--electric-violet), 0.5);
 
-  --title-text-shadow: black;
-/*    0 0 2px rgba(var(--blue), 0.9),
-    0 0 8px rgba(var(--cyan), 0.5),
-    0 0 16px rgba(var(--teal), 0.4),
-    0 0 32px rgba(var(--electric-violet), 1.0);
-*/
   --main-content-inset: inset 0 0 24px 16px rgba(var(--space-grey2), 1);
 
   --main-content-shadow-drop: 0 10px 40px 0 rgba(var(--black), .66);
 
-  --main-font-color: rgb(var(--light-grey));
+  --main-font-color: rgb(255, 255, 255);
 
   --main-text-aura:   0 0 2px   rgba(var(--blue), .7);        /* blue/cyan aura */
   --main-border:    0 0 4px   rgba(var(--neon-teal),.66); /* teal neon outer aura */
@@ -91,6 +85,12 @@
   --plasma-glow-color2: rgba(var(--main-font-color), 0.95);
 
   --plasma-shadow: inset 0 0 24px 16px rgba(var(--nav-menu-font-color), .9);
+  --plasma-shadow2: 
+	  0 0 2px rgba(var(--blue), 0.9),
+	  0 0 8px rgba(var(--cyan), 0.5),
+	  0 0 16px rgba(var(--teal), 0.4),
+	  0 0 32px rgba(var(--electric-violet), 1.0);
+
   --plasma-glow: inset 0 0 32px 24px rgba(var(--nav-menu-font-color), .7);
   --plasma-glow-1: 0 0 16px 4px var(--plasma-glow-color1),
                     0 0 32px 8px var(--plasma-glow-color2);

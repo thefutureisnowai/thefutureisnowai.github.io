@@ -13,21 +13,21 @@ title: Security SCS Bham
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary">Back up your data</summary>
-Any data you care about should be backed up in at least two places. There are numerous options for this including cloud backups, external SSDs, flash drives, ... . There are options for creating incremental snapshots of your entire system, or you can manually copy files, or something in between. Let us know if you want advice for your individualized setup, and if desired we can handle the entire process for you. 
+Any data you care about should be backed up in at least two places. There are numerous options for this including cloud backups, external SSDs, flash drives, ... . There are options for creating incremental snapshots of your entire system, or you can manually copy files, or something in between. We can handle the entire process for you. 
 </details>
 </div></div>
 
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Use a firewall </summary>
-A firewall acts as a barrier to prevent unauthorized access to your device while connected to the internet. If possible, we recommend this is the first thing you do (BEFORE connecting to the internet) when setting up a new computer or operating system. Many operating systems come with a firewall installed, but often do not have it enabled by default. Historically many applications (especially online games) would conflict with firewalls, however with modern technology this less common, and for most use-cases default firewall settings (deny incoming, accept outgoing) will work just fine. The methods for setting up a firewall vary by operating system, but we can always set one up for you, or walk you through the setup over a remote consultation (and in edge-cases ensure it doesn't conflict with software).
+A firewall acts as a barrier to prevent unauthorized access to your device while connected to the internet, we advise you to make sure yours is enabled. Most operating systems come with a firewall installed, but often do not have it enabled by default. Historically, firewalls would often conflict with online games and other programs, however with modern technology this less common, if a conflict does arise we can configure your firewill to work for you.
 </details>
 </div></div>
 
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Verify Programs </summary>
-Don't run anything you don't trust, and always use official sources for your downloads. Be extremely cautious about running programs you download off the internet. Some vendors provide cryptographic verification (many package managers will perform verification automatically), and if they don't, you should be very cautious about running their software. Check URLs, make sure they start with https://, and NOT http:// (many browsers will indicate whether https is working by a locked padlock to the left of the addressbar, if the padlock is unlocked your connect is not secure): http connections are not secure (the s DOES stand for secure, as https traffic is encrypted). Cross reference the website, read reviews, download from multiple sources and compare cryptographic hashes of downloaded files if provided (sha256sum, for example), ... If you need help, don't hesitate to reach out to us.
+Don't run anything you don't trust, and always use official sources for your downloads. Be extremely cautious about running programs you download off the internet, and verify your downloads when possible.
 </details>
 </div></div>
 
@@ -41,34 +41,20 @@ Ideally you should check for and install security updates every time you use you
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Power Off / Disconnect the Internet </summary>
-Some malicious software can run in the background, and even wait until your computer is inactive to kick in. In mission-critical settings, disconnecting the internet every time you step away from your computer is a good idea, and will reduce the chance of being hacked, or data leakage. Powering off your computer can reset bugs, and will stop some malicious software in its tracks. If you believe your computer has been infected, your first step should be to disconnect the internet as soon as possible, then power down your computer. Next, we advise you contact Secure Computer Solutions us for a malware / virus removal service, as we cannot guarantee that any other service will be as committed to ensuring your data integrity, or as thorough at removing any traces of malicious software.
+Some malicious software can run in the background, and even wait until your computer is inactive to kick in. Disconnecting the internet is the most important first step if you think your computer has been infected. After disconnecting the internet, turn your computer off and bring it in for a full virus / malware removal.
 </details>
 </div></div>
 
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Anti-Virus Software </summary>
-It is a good idea to regularly scan your computer for viruses, and to use real-time detection services. If you use Windows, you can use Windows Defender for free, which isn't a bad choice. There are plenty of other paid options to consider, and we encourage you to research various options, and of course, you can always reach out to us for advice or installation. Avoid Over-Dependence on Antivirus. Even the best virus software is not a replacement for safe usage habits: avoiding viruses in the first place should be the goal, since no virus removal / protection program is perfect. Antivirus software can help, but it should be part of a broader security strategy.
+It is a good idea to regularly scan your computer for viruses, and to use real-time detection services. If you use Windows, you can use Windows Defender for free and already built-in to Windows. There are good pr better alternatives, but be cautious about which service you choose. However, it's best to try to avoid viruses in the first place.
 </details>
 </div></div>
 
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Avoid http: Use https </summary>
-Using http (without the s) is especially risky when sensitive information is involved (such as passwords or your birth date), and can greatly increase the attack surface of your browser to things like script injection. Enable https only in your browser. If your browser does not have https only, use a different browser. If you must use http, doing so through a VPN can reduce the risk. Verify anything you download: downloading things through http is very dangerous as it is susceptible to "man in the middle" attacks, though if you can verify the download through cryptographic hashes, this mitigates the risk. Using a VPN can make it harder for a malicious agent to single you out. Even when using HTTPS, always verify URLs, as scammers can make URLs which look similar to popular websites (referred to as "typosquatting"). Note that sometimes legitimate websites can have issues with their https: if you get a browser security warning on a site which you are confident is a legitimate domain, try reseting your internet connection or opening it in a new private-browsing window.
-</details>
-</div></div>
-
-<div class="main-content-box"> <div class="main-content">
-<details class="main-deets">
-  <summary class="main-summary"> Run your Browser in Private / Incognito mode when possible </summary>
-(note that private mode does NOT make your activity anonymous). If whatever you are doing does not require logging in or remembering your preferences, then there's no reason to drag cookies around. Typically in private / incognito mode, browsers will erase all cookies and cache when closed, which can even improve internet stability. Again, this NOT make you anonymous by itself, but it will reduce cookie tracking (but not other types of tracking such as IP address tracking or fingerprinting). You can have a private window open at the same time as a regular window, so keep your main logins in a regular window, and use a private window for things which don't require logging in, or even to separate different logins.
-</details>
-</div></div>
-
-<div class="main-content-box"> <div class="main-content">
-<details class="main-deets">
-  <summary class="main-summary"> Use a VPN (maybe) </summary>
-Using a VPN is especially valuable when using a public network, as public networks can open you up to various attacks (such as DHCP spoofing) and surveillance. Using a VPN can make it harder for hackers to target you and steal your data. It can make it harder for companies to profile you. It can hide your activity from your Internet Service Provider (and from your local network). Many VPN providers even offer real-time malware protection and ad-blocking: ad-blocking carries several benefits, as it can improve performance, and even stop some malware and tracking. However, a bad VPN (or ad-blocker) can be worse than no VPN (or ad-blocker), and just because a VPN is popular does not mean it is good. For example, we do NOT recommend NordVPN as their client software (at least for Linux) makes alarmingly insecure modifications to your firewall (without your consent), and NordVPN support refuses to explain why this is necessary, citing it as a "commercial secret". Feel free to ask us for more details, evidence, and additonal reasons why we dislike NordVPN. Ad-blockers can also carry some risk, as they can potentially contain spyware. Installing additional software always carries some risk, as it requires trusting the developers, and can increase the attack surface of your machine. If you follow all of our other security guidelines, in some contexts, especially on a private network, using a VPN may not be necessary or even recommended. Let us know if you want advice on which VPN or ad-blocker to choose, or if you need help installing it. Be cautious, as many scammers will masquerade as VPN providers. Not all VPNs are created equal: if you're unsure about which VPN to choose or need help installing one, feel free to reach out to Secure Computer Solutions.
+  Most browsers have an indicator immediately to the left of the address bar which tells you if a page is using http or https. Using http is not secure, and can leave you vulnerable to data-theft, man-in-the-middle attacks, and other cyber attacks. On the other hand, https is encrypted which makes it far less vulnerable.
 </details>
 </div></div>

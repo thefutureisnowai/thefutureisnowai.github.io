@@ -5,8 +5,7 @@ title: SCS Bham
 ---
 <div id="main-content" class="main-content-box"> <div class="main-content">
 <h2> Welcome to Secure Computer Solutions!<br>Located in Bellingham, WA.</h2>
-  <p>We provide AI consulting and development, cyber security, software development, and other IT solutions tailored to your business needs.</p>
-  <p>Rigorous measures for ethical, safe, and secure data handling are integrated into all of our work. We do not collect or use your data for any purpose beyond the bare minimum necessary to conduct business.</p>
+  <p>We provide AI consulting and development, cyber security, software development, and other IT solutions tailored to your needs.</p>
 </div> </div>
 
 <div class="main-content-box"> <div class="main-content">
@@ -35,7 +34,7 @@ Whether you're optimizing workflow or building new tools, we help you leverage A
   <details class="main-deets">
     <summary class="main-summary"><strong>How we protect and optimize your systems</strong></summary>
     <br>
-    We provide expert IT services across all major platforms, including repair, security hardening, network setup, data recovery, and privacy consulting. Our approach emphasizes resilience, data safety, and operational uptime.
+    We provide expert IT services across all major platforms, including software engineering, computer repair, security hardening, network setup, data recovery, and consulting. Our approach emphasizes hand-tailored solutions to unique problems, efficiency, and reliability.
   </details>
 </div></div>
 
@@ -49,7 +48,7 @@ Whether you're optimizing workflow or building new tools, we help you leverage A
 		<br><br>
 		<strong>Rates:</strong>
 		<ul>
-			<li>$120/hr for IT and security services</li>
+			<li>$120/hr for general IT and cyber security</li>
 			<li>$160/hr for AI consulting and development</li>
 		</ul>
 		<br>
