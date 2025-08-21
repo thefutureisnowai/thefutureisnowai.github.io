@@ -15,10 +15,12 @@ html, body, .page-layout .content .main-content-box { margin:0; padding:0; box-s
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+
 	align-items: center;
-	justify-content: start;
+	justify-content: center;
 	align-content: center;
-	align-items: space-around;
+	align-items: center;
+
 	background: var(--bg);
 	gap: 3vh; 
 	padding-left: 1em;
