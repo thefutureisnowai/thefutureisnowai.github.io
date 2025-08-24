@@ -1,14 +1,8 @@
-function blockForSeconds(seconds) {
-    var start = Date.now();
-    while (Date.now() - start < seconds * 1000) {
-        // Busy waiting
-    }
-}
 class DivWrapper {
 	constructor(div, screen) {
 		this.div = div, screen;
 		this.screen = screen
-		this.isText = div.classList.contains('title');
+			this.isText = div.classList.contains('title');
 		this.words = Array.from(this.div.querySelectorAll('.title-word'));
 		this.string = this.toString();
 		// const screenRect = this.title.getBoundingClientRect();
@@ -71,9 +65,9 @@ class DivWrapper {
 		// Test if "content box" is outside viewport (ignores margins/padding/gaps)
 		const vw = window.innerWidth, vh = window.innerHeight;
 		if (rect.left	< 0	||
-		    rect.right	> vw 	||
-		    rect.top	< 0	||
-		    rect.bottom	> vh	) return true;
+				rect.right	> vw 	||
+				rect.top	< 0	||
+				rect.bottom	> vh	) return true;
 
 		return false;
 	}
@@ -102,21 +96,22 @@ class ScreenWrapper {
 		this.screen = screen;
 		this.isFixed = false;
 		this.keepGoing = true;
-		}
+	}
+	clampScreen() {
+		const rect = this.screen.getBoundingClientRect();
 
+		this.screen.style.width = rect.width + 'px';
+		this.screen.style.height = rect.height + 'px';
+		this.screen.style.position = 'relative';
+
+		// Optionally kill flexbox behavior:
+		this.screen.style.display = 'block';
+
+	}
 	fixedTitleScreen() {
-	    if (this.isFixed) return;
-
-	    const rect = this.screen.getBoundingClientRect();
-
-	    this.screen.style.width = rect.width + 'px';
-	    this.screen.style.height = rect.height + 'px';
-	    this.screen.style.position = 'relative';
-
-	    // Optionally kill flexbox behavior:
-	    this.screen.style.display = 'block';
-
-	    this.isFixed = true;
+		if (this.isFixed) return;
+		this.clampScreen();
+		this.isFixed = true;
 	}
 	reset() {
 		// FIXME: refresh page
@@ -134,12 +129,12 @@ class ScreenWrapper {
 		this.scs.move(0, 0);
 		this.scs.div.style.justifyContent = "start"
 
-		const numLines = 
+			const numLines = 
 			// if on different lines secure.top should be less than  solutions.top, and still less 
 			(secure.getBoundingClientRect().top   + em / 2 < computer.getBoundingClientRect().top)  && 3 ||
 			(computer.getBoundingClientRect().top + em / 2 < solutions.getBoundingClientRect().top) && 2 ||
-														   1; 
-														   
+			1; 
+
 		const bottomOfSolutions = solutions.getBoundingClientRect().bottom - this.screen.getBoundingClientRect().top;
 		const vSpaceUnderSCS    = screenHeight - bottomOfSolutions;
 
@@ -184,7 +179,7 @@ class ScreenWrapper {
 			// this.logo.move(topOfSecure + em / 3, rightOfSecure + hGap);
 			this.logo.move(0, screenWidth - em);
 			const logoImg = this.logo.div.querySelector('.main-logo-img')
-			logoImg.style.width = em + "px";
+				logoImg.style.width = em + "px";
 			logoImg.style.height = em + "px";
 
 		}
@@ -198,6 +193,7 @@ class ScreenWrapper {
 		if (this.isFixed || this.isOutOfBounds()){
 			this.fixedTitleScreen();
 			this.repositionDivs();	
+			this.clampScreen();
 		}
 	}
 }

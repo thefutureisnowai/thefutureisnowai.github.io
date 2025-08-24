@@ -15,6 +15,8 @@
 }
 
 .scroll-to-top {
+	animation: plasma-glow infinite linear alternate-reverse both;
+	animation-duration:1.75s;
   background: var(--title-bg, #fff);
   color: var(--title-font-color, #222);
   border: 2px solid var(--title-card-border, #888);

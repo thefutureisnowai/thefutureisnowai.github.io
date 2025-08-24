@@ -3,7 +3,7 @@ layout: default
 id: contact
 title: Contact SCS Bham 
 ---
-<div class="main-content-box" id="main-content"> <div class="main-content">
+<div class="main-content-box"> <div class="main-content">
 <h2 class="main-header"> Contact </h2>
 <p class="main-deets">
 You are welcome to contact us through any method listed in the footer at the bottom of this page.
