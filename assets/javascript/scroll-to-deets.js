@@ -128,10 +128,3 @@ function setScrollToDeets(details) {
 			details.isAnimating = false;
 			});
 }
-// Scrolls the element into view vertically so its entire height fits in viewport if possible
-// FIXME: we also have to run this every time a module is inserted into html body content
-document.addEventListener('DOMContentLoaded', () => {
-		document.querySelectorAll('details.main-deets').forEach(details => {
-				setScrollToDeets(details);
-				});
-		});

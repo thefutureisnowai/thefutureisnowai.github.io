@@ -1,90 +1,101 @@
 // Loads listed HTML files and collects all .main-content-box DOM nodes; returns them in an array.
+// FIXME add hashtags to boxes, and all boxes will have their page name as a tag
 class Search {
 	constructor() {}
 	async setUp() {
-	// load modules from files
-	// save content for efficient memory usage
-		const contentContainer = document.querySelector('.content');
-	// back up original modules for restoring
-		const originalModules = [];
-		contentContainer.querySelectorAll('.main-content-box').forEach(box => originalModules.push(box));
-	// set up fuzzy-search event handler
+		// initially page is populated with the original page contents which is recieved from a template. Loop throught the template boxes and insert them (after resizing them)
+		// search should check to see if a box is already in the page before showing it to avoid excessive insertions and deletions
+		// main page boxes are hidden, but never removed or inserted after the first setUp call
+		// maybe best to perform two separate searches: one on the original page contents, another on the remainder
+		// first just get the initial page setup working.
+		// boxes in this.pageName should never be deleted or cloned. Other boxes are deleted and cloned. No, don't make an exception.
+		// if this.currentBoxes in null then we show original, if [] we show nothing.
+
+		this.contentContainer = document.querySelector('.content');
+		this.headerGrad = this.contentContainer.querySelector('.header-grad');
+		this.pageName = window.location.pathname.split('/').filter(Boolean).pop();
+		this.currentBoxes = null;
+		this.originalBoxes = await this.insertOriginalBoxes();
+		// this.pageDict = this.getPageDict() // do this externally because it's time consuming
+
 		const search = this;
-		this.allModules = await this.loadModuleList();
 		document.querySelector('.search-box').addEventListener('input', async function(e){
 				const query = e.target.value.trim();
-				if (query) {
-				const results = await search.searchModules(query);
-				if (results.length == 0) return;
-				search.currentModules.forEach(box => box.remove());
-				search.currentModules = results;
-				await search.insertModules();
 
-				} else { // Empty field: restore all original boxes
-				await search.restoreOriginalContent();
-				}
+				if (query.length == 0) return await search.restoreOriginalContent(); // empty search pattern
+				if (query.length < 3) return;
+
+				const results = await search.searchBoxes(query);
+
+				if (results.length == 0) return; // empty results
+
+				if (search.currentBoxes) search.currentBoxes.forEach(box => box.remove());
+				search.currentBoxes = results;
+
+				const boxes = search.currentBoxes;
+				await search.insertBoxes(boxes);
 				});
-	// save values for efficient memory use
-		this.headerGrad = contentContainer.querySelector('.header-grad');
-		this.contentContainer = contentContainer;
-		this.originalModules = originalModules;
-		this.currentModules = [];
 	}
-	// Helper to restore all content boxes (show original)
+	async insertOriginalBoxes() {
+		const contentTemplate = document.getElementById('page-content');
+		// this.contentContainer.appendChild(contentTemplate.content.cloneNode(true));
+		const originalBoxes = Array.from(contentTemplate.content.children).filter(el => el.tagName === 'DIV');
+		await this.insertBoxes(originalBoxes);
+		console.log("finished insertOriginalBoxes");
+		return originalBoxes;
+	}
 	async restoreOriginalContent() {
-		this.currentModules = this.originalModules;
-		await this.insertModules();
+		if (this.currentBoxes) this.currentBoxes.forEach( box => box.remove() );
+		this.pageDict[this.pageName].forEach( box => {
+				box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
+				box.style.display = '';
+				});
 	}
-
-	async loadModuleList() {
+	async getPageDict() {
 		const htmlFiles = [
 			"about.html", "ai.html", "contact.html",
 			"index.html", "it.html", "privacy.html",
 			"scheduling.html", "security.html"
 		];
-		const moduleList  = [];
+		const pageDict = {};
 		for (const file of htmlFiles) {
-			try {
-				const res = await fetch(file);
-				if (!res.ok) continue;
-				const htmlText = await res.text();
-				const tempDiv = document.createElement('div');
-				tempDiv.innerHTML = htmlText;
-				tempDiv.querySelectorAll('.main-content-box').forEach(box =>
-						moduleList.push(box.cloneNode(true))
-						);
-			} catch (e) { console.error('Error loading:', file); }
+			const basename = file.split(".")[0];
+			pageDict[basename] = [];
+			const res = await fetch(file);
+			const htmlText = await res.text();
+			const tempDiv = document.createElement('div');
+			tempDiv.innerHTML = htmlText;
+			const contentTemplate = tempDiv.querySelector('#page-content');
+			pageDict[basename] = Array.from(contentTemplate.content.children).filter(el => el.tagName === 'DIV');
 		}
-		return moduleList;
+		return pageDict;
 	}
-
 	// Searches a module array for a query string, returns matching module objects (case-insensitive)
-	async searchModules(query) {
+	async searchBoxes(query) {
 		if (!query) return [];
-		const modules = this.allModules;
 		// Case-insensitive substring/fuzzy search using Fuse.js
-
-		const fuse = new Fuse(modules, {
-			keys: [
-			{
-			name: 'textContent',
-			getFn: (mod) => mod.textContent,
-			weight: 1
-			}
-			],
-			threshold: 0.3, // adjust for fuzziness
-			ignoreLocation: true,
-			minMatchCharLength: 2,
-			includeScore: false
-			});
-			
-			const results = fuse.search(query);
-			return results.map(r => r.item);
-
+		const boxes = Object.values(this.pageDict).flat(); // concatenate all boxes
+		const fuse = new Fuse(boxes, {
+	keys: [
+	{
+	name: 'textContent',
+	getFn: (mod) => mod.textContent,
+	weight: 1
 	}
-	async insertModules() {
-		if (this.currentModules.length==0) return;
-		const modules = this.currentModules;
+	],
+	threshold: 0.3, // adjust for fuzziness
+	ignoreLocation: true,
+	minMatchCharLength: 2,
+	includeScore: false
+	});
+
+	const results = fuse.search(query);
+	return results.map(r => r.item);
+	}
+	async removeBoxes() {
+		this.currentBoxes.forEach( box => { box.remove(); } );
+	}
+	async insertBoxes(boxes) {
 		const contentContainer = this.contentContainer;
 		const headerGrad = this.headerGrad;
 
@@ -92,45 +103,21 @@ class Search {
 		let insertAfter = headerGrad;
 
 		// Insert each module right after the headerGrad, preserving order
-		modules[0].id = "main-content";
-		modules.forEach(mod => {
-				mod.style.display = '';
-				const details = mod.querySelector('.main-content-box details.main-deets');
-				contentContainer.insertBefore(mod, insertAfter.nextSibling);
-				insertAfter = mod;
-				});
+		this.contentAnchor = false;
+		boxes.forEach(box => {
+				console.log("BOX", box);
+				if (!this.contentAnchor && box.querySelector(".scroll-to")) {
+					this.contentAnchor = box;
+				}
+				box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
+				box.style.display = '';
+				
+				const details = box.querySelector('.main-content-box details.main-deets');
+				if (details) setScrollToDeets(details);
 
-		contentContainer.querySelectorAll('.main-content-box details.main-deets').forEach(details => {
-				setScrollToDeets(details);
+				contentContainer.insertBefore(box, insertAfter.nextSibling);
+				insertAfter = box;
 				});
-		return contentContainer;
+			
 	}
 }
-// DOM
-document.addEventListener('DOMContentLoaded', async function() {
-		search = new Search();
-		search.setUp();
-		}); // DOM
-
-// when Enter is pressed the prompt text should vanish (rather than a newline), and the loaded content should stay the same.
-document.querySelector('.search-box').addEventListener('keydown', function(e){
-		if(e.key === 'Enter'){
-		e.preventDefault();
-		this.value='';
-		// Don't call restoreOriginalContent(), just keep displayed matches.
-		}
-		});
-document.addEventListener('DOMContentLoaded', function(){
-		const searchBar = document.getElementById('search-bar');
-		// Always focus on page load:
-		if(searchBar) searchBar.focus();
-
-		// Helper: Make images clickable and focus bar
-		document.querySelectorAll('.nav-keyboard img, .nav-mouse img').forEach(img => {
-				img.style.pointerEvents = 'auto';     // Allow clicking these images now!
-				img.style.cursor = 'pointer';
-				img.addEventListener('click', () => {
-						if(searchBar) searchBar.focus();
-						});
-				});
-		});

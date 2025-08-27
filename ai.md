@@ -4,7 +4,7 @@ id: ai
 title: AI SCS Bham 
 ---
 
-<div class="main-content-box" id="main-content"> <div class="main-content"><details class="main-deets"> <summary class="main-summary"> <strong>
+<div class="main-content-box" id="scroll-to"> <div class="main-content"><details class="main-deets"> <summary class="main-summary"> <strong>
 AI and Data </strong></summary>
 
 AI can streamline your business by improving workflow, increasing worker productivity, answering questions about your business or promoting your business, automating scheduling and other repetitive tasks, impressing your customers, and ultimately generating more revenue for your business. AI and other statistical techniques can provide data-driven insights, and help you make decisions with cost-benefit analysis. You may have various forms of business data, in various formats, on various devices. We can bring all your data together, and make it work for you. Whatever your AI or data-related needs, we have you covered.

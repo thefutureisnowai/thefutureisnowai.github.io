@@ -3,7 +3,7 @@ layout: default
 id: scheduling
 title: Scheduling SCS Bham
 ---
-<div id="main-content" class="main-content-box"> <div class="main-content">
+<div id="scroll-to" class="main-content-box"> <div class="main-content">
 <h2>Scheduling</h2>
 <p> 11am–5pm, 7 days a week </p>
 <p class="main-deets"> We are open by appointment only, please contact us ahead of time to make sure we will be ready for you. Feel free to contact us outside of our normal hours of operation. We will always find a time that will work for you.  </p>

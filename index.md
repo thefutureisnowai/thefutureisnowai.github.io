@@ -3,15 +3,18 @@ layout: default
 id: intro
 title: SCS Bham
 ---
-<div id="main-content" class="main-content-box"> <div class="main-content">
+<div id="scroll-to" class="main-content-box"> <div class="main-content">
 <h2> Welcome to Secure Computer Solutions!<br>Located in Bellingham, WA.</h2>
   <p>We provide AI consulting and development, cyber security, software development, and other IT solutions tailored to your needs.</p>
 </div> </div>
 
 <div class="main-content-box"> <div class="main-content">
+  <div class="main-deets">
+	<h2>AI and Data</h2>
+	<a href="ai.html">securecomputer.ai/ai</a><br>
+  </div>
   <details class="main-deets">
     <summary class="main-summary">
-	AI and Data: <a href="ai.html">securecomputer.ai/ai</a><br>
 	Contact us now for a free consultation, to see how AI can enhance your business or personal life.
     </summary>
     Examples of AI solutions we offer include:<br>

@@ -1,11 +1,10 @@
 class DivWrapper {
 	constructor(div, screen) {
 		this.div = div, screen;
-		this.screen = screen
-			this.isText = div.classList.contains('title');
+		this.screen = screen;
+		this.isText = div.classList.contains('title');
 		this.words = Array.from(this.div.querySelectorAll('.title-word'));
 		this.string = this.toString();
-		// const screenRect = this.title.getBoundingClientRect();
 	}
 	toString() {
 		if (this.div.classList.contains('title')) {
@@ -73,7 +72,7 @@ class DivWrapper {
 	}
 }
 class ScreenWrapper {
-	constructor(div) {
+	constructor() {
 		// Find all visible elements that comprise the actual content:
 		this.divs = [];
 		const screen = document.querySelector('.title-screen');
@@ -189,14 +188,11 @@ class ScreenWrapper {
 			this.logo.isOutOfBounds() ||
 			this.bham.isOutOfBounds();
 	}
-	checkAndResposition() {
+	async checkAndResposition() {
 		if (this.isFixed || this.isOutOfBounds()){
 			this.fixedTitleScreen();
-			this.repositionDivs();	
+			this.repositionDivs();
 			this.clampScreen();
 		}
 	}
 }
-const screenWrapper = new ScreenWrapper();
-window.addEventListener('resize', () => screenWrapper.checkAndResposition());
-window.addEventListener('load', () => screenWrapper.checkAndResposition());

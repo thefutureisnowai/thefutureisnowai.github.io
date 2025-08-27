@@ -48,16 +48,16 @@ upgrade-insecure-requests;
 <body>
 	{% include header.html prefix="" %}
 	<div class="page-layout">
-
+contact?doscroll=true
 	<header class="top-menu">
-		<ul><a href="ai">AI and Data</a></ul>
-		<ul><a href="it">IT and Cyber Security</a></ul>
-		<ul><a href="scheduling">Scheduling and Payment</a></ul>
-		<ul><a href="security">Security Tips</a></ul>
-		<ul><a href="contact">Contact</a></ul>
-		<ul><a href="index">Home</a></ul>
-		<ul><a href="about">About</a></ul>
-		<ul><a href="privacy">Privacy</a></ul>
+		<ul><a href="ai?doscroll=true">AI and Data</a></ul>
+		<ul><a href="it?doscroll=true">IT and Cyber Security</a></ul>
+		<ul><a href="scheduling?doscroll=true">Scheduling and Payment</a></ul>
+		<ul><a href="security?doscroll=true">Security Tips</a></ul>
+		<ul><a href="contact?doscroll=true">Contact</a></ul>
+		<ul><a href="index?doscroll=true">Home</a></ul>
+		<ul><a href="about?doscroll=true">About</a></ul>
+		<ul><a href="privacy?doscroll=true">Privacy</a></ul>
 	</header>
 
 	<button class="scroll-to-top" id="scrollToTopBtn" style="display:none;">↑ Navigation Menu</button>
@@ -89,18 +89,25 @@ upgrade-insecure-requests;
 			<div id="fixedContentBtnContainer"></div>
 
 		</div>
-		{{ content }}
+		<template id="page-content">
+			{{ content }}
+		</template>
+		<noscript>
+			{{ content }}
+		</noscript>
+
 		{% include footer.html prefix="" %}
 		</div>	
 	</div>
 
 </body>
 <script src="assets/javascript/title-boundary.js"></script>
-<script src="assets/javascript/update-plasma-borders.js"></script>
-<script src="assets/javascript/scroll-to-content.js"></script>
-<script src="assets/javascript/main-width.js"></script>
-<script src="assets/javascript/scroll-to-deets.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script src="assets/javascript/search.js"></script>
+<script src="assets/javascript/scroll-to-content.js"></script>
+<script src="assets/javascript/scroll-to-deets.js"></script>
+
+<script src="assets/javascript/set-search-and-scroll.js"></script>
+<script src="assets/javascript/update-plasma-borders.js"></script>
 </html>
 
