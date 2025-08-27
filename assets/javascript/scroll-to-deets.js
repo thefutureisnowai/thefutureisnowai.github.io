@@ -111,20 +111,38 @@ function closeDeets(details) {
 			details.open = false;
 			});
 }
-function setScrollToDeets(details) {
-	if (details.hasEventHandler) return;
-	details.hasEventHandler = true;
+function openOrClose(details) {
+	if (! details.isAnimating) {
+		details.isAnimating = true;
 
-	details.addEventListener("click", (e) => {
-			e.preventDefault();
-			if (! details.isAnimating) {
-			details.isAnimating = true;
-
-			if (! details.open) // since it's not closed yet, it's open!
+		if (! details.open) // since it's not closed yet, it's open!
 			setTimeout(() => openDeets(details), 0); // after expand animation/layout
-			else 
+		else 
 			setTimeout(() => closeDeets(details), 0); // after expand animation/layout
-			}
-			details.isAnimating = false;
+	}
+	details.isAnimating = false;
+}
+function setupPlasmaBorders() {
+	function updatePlasmaBorders() {
+		document.querySelectorAll('.main-content-box').forEach(
+				box => {
+				const deets = box.querySelector('.main-content > details.main-deets');
+				const summary = deets?.querySelector(':scope > summary.main-summary');
+				box.classList.toggle('has-unopened-details', !!deets && !!summary && !deets.open);
+				if (deets && summary) {
+				box.style.cursor = "pointer";
+				box.addEventListener("click", (e) => {
+						if (e.target.closest('a')) return;
+						e.preventDefault();
+						openOrClose(deets);
+						});
+				}
+				});
+	}
+	updatePlasmaBorders();
+
+	// Listen only on direct .main-deets under .main-content in each .main-content-box
+	document.querySelectorAll('.main-content-box .main-content > details.main-deets').forEach(deets => {
+			deets.addEventListener('toggle', updatePlasmaBorders);
 			});
 }

@@ -105,16 +105,12 @@ class Search {
 		// Insert each module right after the headerGrad, preserving order
 		this.contentAnchor = false;
 		boxes.forEach(box => {
-				console.log("BOX", box);
 				if (!this.contentAnchor && box.querySelector(".scroll-to")) {
 					this.contentAnchor = box;
 				}
 				box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
 				box.style.display = '';
 				
-				const details = box.querySelector('.main-content-box details.main-deets');
-				if (details) setScrollToDeets(details);
-
 				contentContainer.insertBefore(box, insertAfter.nextSibling);
 				insertAfter = box;
 				});

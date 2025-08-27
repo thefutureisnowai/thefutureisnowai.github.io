@@ -1,19 +1,14 @@
 async function setUp() {
-console.log("setting up screen");
 	const screenWrapper = new ScreenWrapper();
 	await screenWrapper.checkAndResposition();
-console.log("setting up search");
 	const search = new Search();
 	await search.setUp();
-console.log("setting up scroll, anchor is",search.contentAnchor);
 	const scroll = new ScrollToContent();
 	await scroll.setUp(search.contentAnchor);
-console.log("setting pageDict");
 
-	search.pageDict = search.getPageDict()
+	search.pageDict = search.getPageDict();
 
 	const params = new URLSearchParams(window.location.search);
-	// FIXME: the next line is sometimes running before search.setUp finishes this.originalBoxes = await this.insertOriginalBoxes();
 	// arange titlescreen, insert items, set up scroll
 	// event handlers
 	['load', 'resize'].forEach(eventType => {
@@ -24,10 +19,10 @@ console.log("setting pageDict");
 			});
 
 	['scroll', 'resize'].forEach(eventType => {
-		window.addEventListener(eventType, () => {
-			updateButtonPositions(scroll)},
-			{ passive: true });
-		});
+			window.addEventListener(eventType, () => {
+					updateButtonPositions(scroll)},
+					{ passive: true });
+			});
 
 	scroll.scrollToTopBtn.addEventListener('click', function () {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -56,15 +51,11 @@ console.log("setting pageDict");
 			}
 			});
 
-	document.querySelectorAll('details.main-deets').forEach(details => {
-			setScrollToDeets(details);
-			});
-
 	if (params.get('doscroll') === 'true') {
 		console.log("scroll to content", scroll.contentAnchor);
 		scroll.contentAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
-
+	setupPlasmaBorders();
 	await search.pageDict;
 }
 document.addEventListener('DOMContentLoaded', setUp);
