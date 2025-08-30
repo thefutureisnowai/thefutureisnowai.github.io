@@ -74,49 +74,64 @@ class Search {
 	}
 	// Searches a module array for a query string, returns matching module objects (case-insensitive)
 	async searchBoxes(query) {
-	console.log("searchBoxes");
+		console.log("searchBoxes");
 		if (!query) return [];
 		// Case-insensitive substring/fuzzy search using Fuse.js
 		const boxes = Object.values(this.pageDict).flat(); // concatenate all boxes
 		const fuse = new Fuse(boxes, {
-	keys: [
-	{
-	name: 'textContent',
-	getFn: (mod) => mod.textContent,
-	weight: 1
-	}
-	],
-	threshold: 0.3, // adjust for fuzziness
-	ignoreLocation: true,
-	minMatchCharLength: 2,
-	includeScore: false
+keys: [
+{
+name: 'textContent',
+getFn: (mod) => mod.textContent,
+weight: 1
+}
+],
+threshold: 0.3, // adjust for fuzziness
+ignoreLocation: true,
+minMatchCharLength: 2,
+includeScore: false
+});
+
+const results = fuse.search(query);
+return results.map(r => r.item);
+}
+async removeBoxes() {
+	this.currentBoxes.forEach( box => { box.remove(); } );
+}
+async insertBoxes(boxes) {
+	const contentContainer = this.contentContainer;
+	const headerGrad = this.headerGrad;
+
+	// Find the header-grad div
+	let insertAfter = headerGrad;
+
+	// Insert each module right after the headerGrad, preserving order
+	this.contentAnchor = false;
+	boxes.forEach(box => {
+			if (!this.contentAnchor && box.querySelector(".scroll-to")) {
+			this.contentAnchor = box;
+			}
+			box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
+			box.style.display = '';
+
+			const deets = box.querySelector('.main-content > details.main-deets');
+			const summary = deets?.querySelector(':scope > summary.main-summary');
+
+			if (deets && summary) {
+			const deetsData = new DeetsData();
+			DeetsData.map.set(deets, deetsData);
+			box.style.cursor = "pointer";
+			box.addEventListener("click", (e) => {
+					if (e.target.closest('a')) return;
+					e.preventDefault();
+					const deetsData = DeetsData.map.get(deets);
+					openOrClose(deets, deetsData);
+					});	
+			}
+
+			contentContainer.insertBefore(box, insertAfter.nextSibling);
+			insertAfter = box;
 	});
 
-	const results = fuse.search(query);
-	return results.map(r => r.item);
-	}
-	async removeBoxes() {
-		this.currentBoxes.forEach( box => { box.remove(); } );
-	}
-	async insertBoxes(boxes) {
-		const contentContainer = this.contentContainer;
-		const headerGrad = this.headerGrad;
-
-		// Find the header-grad div
-		let insertAfter = headerGrad;
-
-		// Insert each module right after the headerGrad, preserving order
-		this.contentAnchor = false;
-		boxes.forEach(box => {
-				if (!this.contentAnchor && box.querySelector(".scroll-to")) {
-					this.contentAnchor = box;
-				}
-				box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
-				box.style.display = '';
-				
-				contentContainer.insertBefore(box, insertAfter.nextSibling);
-				insertAfter = box;
-				});
-			
-	}
+}
 }
