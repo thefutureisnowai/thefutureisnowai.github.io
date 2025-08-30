@@ -20,6 +20,7 @@ class Search {
 
 		const search = this;
 		document.querySelector('.search-box').addEventListener('input', async function(e){
+				console.log("Search querySelector");
 				const query = e.target.value.trim();
 
 				if (query.length == 0) return await search.restoreOriginalContent(); // empty search pattern
@@ -68,10 +69,12 @@ class Search {
 			const contentTemplate = tempDiv.querySelector('#page-content');
 			pageDict[basename] = Array.from(contentTemplate.content.children).filter(el => el.tagName === 'DIV');
 		}
+		console.log("getPageDict");
 		return pageDict;
 	}
 	// Searches a module array for a query string, returns matching module objects (case-insensitive)
 	async searchBoxes(query) {
+	console.log("searchBoxes");
 		if (!query) return [];
 		// Case-insensitive substring/fuzzy search using Fuse.js
 		const boxes = Object.values(this.pageDict).flat(); // concatenate all boxes

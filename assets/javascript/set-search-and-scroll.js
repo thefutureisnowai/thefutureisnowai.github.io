@@ -1,4 +1,5 @@
 async function setUp() {
+	console.log("setUp");
 	const screenWrapper = new ScreenWrapper();
 	await screenWrapper.checkAndResposition();
 	const search = new Search();
@@ -7,6 +8,7 @@ async function setUp() {
 	await scroll.setUp(search.contentAnchor);
 
 	search.pageDict = search.getPageDict();
+	setupDeetsAnime();
 
 	const params = new URLSearchParams(window.location.search);
 	// arange titlescreen, insert items, set up scroll
@@ -43,19 +45,11 @@ async function setUp() {
 					if(searchBar) searchBar.focus();
 					});
 			});
-	document.querySelector('.search-box').addEventListener('keydown', function(e){
-			if(e.key === 'Enter'){
-			e.preventDefault();
-			this.value='';
-			// Don't call restoreOriginalContent(), just keep displayed matches.
-			}
-			});
 
 	if (params.get('doscroll') === 'true') {
 		console.log("scroll to content", scroll.contentAnchor);
 		scroll.contentAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
-	setupPlasmaBorders();
-	await search.pageDict;
+	search.pageDict = await search.pageDict;
 }
 document.addEventListener('DOMContentLoaded', setUp);

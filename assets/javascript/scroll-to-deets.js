@@ -5,12 +5,19 @@ const deltaT_up = 500;
 eps = 1e-6;
 scrollEps = 50
 
-function animateHeightscroll(details, startH, endH, scrollFrom, scrollTo, duration, callback) {
-	// re-size details from startH to endH and simultaneously scroll by scrollAmount
+class DeetsData {
+	static map = new WeakMap();
+	constructor() {
+		this.isAnimating = false;
+	}
+}
+function animateHeightscroll(deets, startH, endH, scrollFrom, scrollTo, duration, callback) {
+	// re-size deets from startH to endH and simultaneously scroll by scrollAmount
 	// record position for restoring scroll height
+	console.log("animateHeightscroll");
 	const t0 = performance.now();
 
-	details.scrollYPrev = window.scrollY; // back up current scroll location 
+	deets.scrollYPrev  = window.scrollY; // back up current scroll location 
 
 	const deltaHeightT = endH - startH;
 	const deltaYT      = scrollTo - scrollFrom; // scroll amount
@@ -21,128 +28,129 @@ function animateHeightscroll(details, startH, endH, scrollFrom, scrollTo, durati
 
 	function animate(now) {
 		// scroll if necessary, and change height
-
+		console.log("animate");
 		let deltaT = now - t0; 
 		deltaT = deltaT > duration && duration || deltaT;  // min of duration
 
 		const deltaScroll = scrollRate * deltaT;
-		const deltaY = scrollRate * deltaT;
 		const deltaHeight = heightRate * deltaT;
 
-		if ( deltaHeight < -eps || deltaHeight > eps)
-			details.style.maxHeight = (startH + deltaHeight) + "px";
+		if ( deltaHeight < -eps || deltaHeight > eps) { // change deets height (expand or close)
+								// console.log("change height to", startH, "+", deltaHeight);
+			deets.style.maxHeight = (startH + deltaHeight) + "px";
+		}
 
-		if ( deltaY < -eps || deltaY > eps)
-			details.style.maxHeight = startH + deltaHeight;
+		if ( deltaScroll < -eps || deltaScroll > eps) { // do scroll
+								// console.log("change scroll to", scrollFrom, "+", deltaY);
+			window.scrollTo(0, scrollFrom + deltaScroll);
+		}
 
-		if ( deltaScroll < -eps || deltaScroll > eps)
-			window.scrollTo(0, scrollFrom + deltaY);
-
-		if (deltaT < duration - eps) { // slight upper tolerance for numberical errors
+		if (deltaT < duration - eps) { // keep animating
+					       // console.log("keep animating");
 			requestAnimationFrame(animate);
-		} else {
-			details.style.maxHeight = '';
+		} else { // finished animation
+			 // console.log("finished animate");
+			deets.style.maxHeight = '';
 			if (callback) callback();
-			details.preCloseScrollY = window.scrollY;
+			deets.preCloseScrollY = window.scrollY;
 		}
 	}
 	requestAnimationFrame(animate);
 }
 
-function openDeets(details) {
-	details.preOpenScrollY = window.scrollY;
-	const sizeClosed = details.getBoundingClientRect().height;
-	details.open = true; // FIXME: 
-	void details.offsetHeight;
-	const sizeOpen = details.scrollHeight;
+function openDeets(deets, deetsData) {
+	deets.preOpenScrollY = window.scrollY;
+	const sizeClosed = deets.getBoundingClientRect().height;
+	deets.open = true; // FIXME: 
+	void deets.offsetHeight;
+	const sizeOpen = deets.scrollHeight;
 
 	// restore closed dimensions without closing
-	details.style.maxHeight = details.sizeClosed + "px";
-	details.sizeClosed = sizeClosed;
+	deets.style.maxHeight = deets.sizeClosed + "px";
 
 	let scrollTo = window.scrollY; // will add to in the following branches
-	if (details.getBoundingClientRect().top < 0) {// scroll up
-		scrollTo +=details.getBoundingClientRect().top;
+	if (deets.getBoundingClientRect().top < 0) {// scroll up
+		scrollTo +=deets.getBoundingClientRect().top;
 	}
 
 	// else scroll down if off-sccreen
 	else {
-		const bottom = details.getBoundingClientRect().top + details.scrollHeight;
+		const bottom = deets.getBoundingClientRect().top + deets.scrollHeight;
 
 		if ( bottom > window.innerHeight + eps ) { // bottom is below screen
 			if ( sizeOpen < document.documentElement.clientHeight ) {
 				// it will fit entirely on screen, align bottoms
 				scrollTo +=bottom - window.innerHeight // negative number
 			}
-			else { // will not fit on screen, scroll down to align to the top of details
-				scrollTo +=details.getBoundingClientRect().top;
+			else { // will not fit on screen, scroll down to align to the top of deets
+				scrollTo +=deets.getBoundingClientRect().top;
 			}
 		}
 	}
 
 	// Force reflow to apply maxHeight=0 immediately FIXME: ? 
-	void details.offsetHeight;
+	void deets.offsetHeight;
 
-	animateHeightscroll(details, 
-			details.sizeClosed, sizeOpen, 
+	animateHeightscroll(deets, 
+			sizeClosed, sizeOpen, 
 			window.scrollY, scrollTo,
 			deltaT_down,  () => {
-			details.style.maxHeight = '';
+			deets.style.maxHeight = '';
 			});
+
+	deetsData.sizeClosed = sizeClosed;
 }
 
-function closeDeets(details) {
+function closeDeets(deets, deetsData) {
 	let scrollTo;
-	if (details.preCloseScrollY + scrollEps < window.scrollY < details.preCloseScrollY + scrollEps)
-		scrollTo = details.preOpenScrollY;
+	if (deets.preCloseScrollY + scrollEps < window.scrollY < deets.preCloseScrollY + scrollEps)
+		scrollTo = deets.preOpenScrollY;
 	else
 		scrollTo = window.scrollY;
 
-	details.style.maxHeight = details.scrollHeight + 'px';
+	deets.style.maxHeight = deets.scrollHeight + 'px';
 
 	// Force reflow to apply initial height immediately
-	void details.offsetHeight;
+	void deets.offsetHeight;
 
-	animateHeightscroll(details, 
-			details.scrollHeight, details.sizeClosed, 
+	animateHeightscroll(deets, 
+			deets.scrollHeight, deetsData.sizeClosed, 
 			window.scrollY, scrollTo,
 			deltaT_up,  () => {
-			details.style.maxHeight = '';
-			details.open = false;
+			deets.style.maxHeight = '';
+			deets.open = false;
 			});
 }
-function openOrClose(details) {
-	if (! details.isAnimating) {
-		details.isAnimating = true;
-
-		if (! details.open) // since it's not closed yet, it's open!
-			setTimeout(() => openDeets(details), 0); // after expand animation/layout
+function openOrClose(deets, deetsData) {
+	console.log("openOrClose deetsData.isAnimating 0", deetsData.isAnimating);
+	if (! deetsData.isAnimating) {
+		deetsData.isAnimating = true;
+		console.log("openOrClose deetsData.isAnimating 1", deetsData.isAnimating);
+		if (! deets.open) // since it's not closed yet, it's open!
+			setTimeout(() => openDeets(deets, deetsData), 0); // after expand animation/layout
 		else 
-			setTimeout(() => closeDeets(details), 0); // after expand animation/layout
+			setTimeout(() => closeDeets(deets, deetsData), 0); // after expand animation/layout
 	}
-	details.isAnimating = false;
+	deetsData.isAnimating = false;
 }
-function setupPlasmaBorders() {
-	function updatePlasmaBorders() {
-		document.querySelectorAll('.main-content-box').forEach(
-				box => {
-				const deets = box.querySelector('.main-content > details.main-deets');
-				const summary = deets?.querySelector(':scope > summary.main-summary');
-				box.classList.toggle('has-unopened-details', !!deets && !!summary && !deets.open);
-				if (deets && summary) {
-				box.style.cursor = "pointer";
-				box.addEventListener("click", (e) => {
-						if (e.target.closest('a')) return;
-						e.preventDefault();
-						openOrClose(deets);
-						});
-				}
-				});
-	}
-	updatePlasmaBorders();
+function setupDeetsAnime() {
+	document.querySelectorAll('.main-content-box').forEach(
+			box => {
 
-	// Listen only on direct .main-deets under .main-content in each .main-content-box
-	document.querySelectorAll('.main-content-box .main-content > details.main-deets').forEach(deets => {
-			deets.addEventListener('toggle', updatePlasmaBorders);
+			const deets = box.querySelector('.main-content > details.main-deets');
+			const summary = deets?.querySelector(':scope > summary.main-summary');
+
+			if (deets && summary) {
+
+			const deetsData = new DeetsData();
+			DeetsData.map.set(deets, deetsData);
+			box.style.cursor = "pointer";
+			box.addEventListener("click", (e) => {
+					if (e.target.closest('a')) return;
+					e.preventDefault();
+					const deetsData = DeetsData.map.get(deets);
+					openOrClose(deets, deetsData);
+					});	
+			}
 			});
 }
