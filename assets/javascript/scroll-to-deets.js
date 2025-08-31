@@ -9,12 +9,13 @@ class DeetsData {
 	static map = new WeakMap();
 	constructor() {
 		this.isAnimating = false;
+		this.hasEventListener = false;
 	}
 }
 function animateHeightscroll(deets, startH, endH, scrollFrom, scrollTo, duration, callback) {
 	// re-size deets from startH to endH and simultaneously scroll by scrollAmount
 	// record position for restoring scroll height
-	console.log("animateHeightscroll");
+	// console.log("animateHeightscroll");
 	const t0 = performance.now();
 
 	deets.scrollYPrev  = window.scrollY; // back up current scroll location 
@@ -28,7 +29,7 @@ function animateHeightscroll(deets, startH, endH, scrollFrom, scrollTo, duration
 
 	function animate(now) {
 		// scroll if necessary, and change height
-		console.log("animate");
+		// console.log("animate");
 		let deltaT = now - t0; 
 		deltaT = deltaT > duration && duration || deltaT;  // min of duration
 
