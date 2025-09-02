@@ -122,15 +122,19 @@ function closeDeets(deets, deetsData) {
 			deets.open = false;
 			});
 }
-function openOrClose(deets, deetsData) {
+function openOrClose(box, deets, deetsData) {
 	console.log("openOrClose deetsData.isAnimating 0", deetsData.isAnimating);
 	if (! deetsData.isAnimating) {
 		deetsData.isAnimating = true;
 		console.log("openOrClose deetsData.isAnimating 1", deetsData.isAnimating);
-		if (! deets.open) // since it's not closed yet, it's open!
+		if (! deets.open) { // since it's not closed yet, it's open!
+    			box.classList.remove('has-unopened-details');
 			setTimeout(() => openDeets(deets, deetsData), 0); // after expand animation/layout
-		else 
+		}
+		else {
+    			box.classList.add('has-unopened-details');
 			setTimeout(() => closeDeets(deets, deetsData), 0); // after expand animation/layout
+		}
 	}
 	deetsData.isAnimating = false;
 }

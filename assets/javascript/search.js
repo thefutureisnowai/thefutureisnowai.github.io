@@ -122,12 +122,13 @@ class Search {
 					const deetsData = new DeetsData();
 					DeetsData.map.set(deets, deetsData);
 					box.style.cursor = "pointer";
-						box.addEventListener("click", (e) => {
-								if (e.target.closest('a')) return;
-								e.preventDefault();
-								const deetsData = DeetsData.map.get(deets);
-								openOrClose(deets, deetsData);
-								});
+					box.addEventListener("click", (e) => {
+							if (e.target.closest('a')) return;
+							e.preventDefault();
+							const deetsData = DeetsData.map.get(deets);
+							openOrClose(box, deets, deetsData);
+							});
+					box.classList.add('has-unopened-details');
 					}
 					}
 				contentContainer.insertBefore(box, insertAfter.nextSibling);
