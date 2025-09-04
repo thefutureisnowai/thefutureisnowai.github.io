@@ -2,12 +2,11 @@ async function setUp() {
 	console.log("setUp");
 	const screenWrapper = new ScreenWrapper();
 	await screenWrapper.checkAndResposition();
-	const search = new Search();
-	await search.setUp();
-	const scroll = new ScrollToContent();
-	await scroll.setUp(search.contentAnchor);
+	const scrollSearch = new ScrollSearch();
+	await scrollSearch.setUp();
+	console.log("scrollSearch.currentAnchor 1", scrollSearch.currentAnchor);
 
-	search.pageDict = search.getPageDict();
+	scrollSearch.pageDict = scrollSearch.getPageDict();
 
 	const params = new URLSearchParams(window.location.search);
 	// arange titlescreen, insert items, set up scroll
@@ -15,28 +14,39 @@ async function setUp() {
 	['load', 'resize'].forEach(eventType => {
 			window.addEventListener(eventType, async () => {
 					await screenWrapper.checkAndResposition();
-					updateButtonPositions(scroll);
+					updateButtonPositions(scrollSearch);
 					});
 			});
 
 	['scroll', 'resize'].forEach(eventType => {
 			window.addEventListener(eventType, () => {
-					updateButtonPositions(scroll)},
+					updateButtonPositions(scrollSearch)},
 					{ passive: true });
 			});
 
-	scroll.scrollToTopBtn.addEventListener('click', function () {
+	scrollSearch.scrollToTopBtn.addEventListener('click', function () {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 			});
 
-	scroll.scrollToContentBtn.addEventListener('click', function() {
-			scroll.contentAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	scrollSearch.scrollToContentBtn.addEventListener('click', function() {
+			scrollSearch.currentAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			});
 
 	// query loops
 	// set up search feature
 	const searchBar = document.getElementById('search-bar');
-	if(searchBar) searchBar.focus();
+	if(searchBar) {
+		searchBar.focus();
+		searchBar.addEventListener('keydown', function(e) {
+				if (e.key === "Enter") {
+				e.preventDefault();
+				this.value='';
+				if (scrollSearch && scrollSearch.currentAnchor) {
+					scrollSearch.currentAnchor.scrollIntoView({behavior:'smooth',block:'start'});
+				}
+				}
+				});
+	}
 	document.querySelectorAll('.nav-keyboard img, .nav-mouse img').forEach(img => {
 			img.style.pointerEvents = 'auto';     // Allow clicking these images now!
 			img.style.cursor = 'pointer';
@@ -44,11 +54,11 @@ async function setUp() {
 					if(searchBar) searchBar.focus();
 					});
 			});
+	console.log("scrollSearch.currentAnchor 2", scrollSearch.currentAnchor);
 
 	if (params.get('doscroll') === 'true') {
-		console.log("scroll to content", scroll.contentAnchor);
-		scroll.contentAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		scrollSearch.currentAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
-	search.pageDict = await search.pageDict;
+	scrollSearch.pageDict = await scrollSearch.pageDict;
 }
 document.addEventListener('DOMContentLoaded', setUp);

@@ -1,6 +1,23 @@
-// Loads listed HTML files and collects all .main-content-box DOM nodes; returns them in an array.
-// FIXME add hashtags to boxes, and all boxes will have their page name as a tag
-class Search {
+async function updateButtonPositions(scrollSearch) {
+	// scrollToTopBtn
+	if (scrollSearch.topMenu.getBoundingClientRect().bottom < 20) { // is out of view
+		console.log("scroll.topMenu.getBoundingClientRect() < 20");
+		scrollSearch.scrollToTopBtn.style.display = '';
+		setTimeout(() => scrollSearch.scrollToTopBtn.classList.remove('hide'), 10);
+	} else {	
+		console.log("scrollSearch.topMenu.getBoundingClientRect() >= 20");
+		scrollSearch.scrollToTopBtn.classList.add('hide');
+		setTimeout(() => { if (scrollSearch.scrollToTopBtn.classList.contains('hide')) scrollSearch.scrollToTopBtn.style.display = 'none'; }, 300);
+	}
+	// scrollToContentBtn
+	const rect = scrollSearch.headerGrad.getBoundingClientRect();
+	if (rect.bottom >= window.innerHeight) {
+		scrollSearch.scrollToContentBtn.classList.add('fixed-bottom');
+	} else {
+		scrollSearch.scrollToContentBtn.classList.remove('fixed-bottom');
+	}
+}
+class ScrollSearch {
 	constructor() {}
 	async setUp() {
 		// initially page is populated with the original page contents which is recieved from a template. Loop throught the template boxes and insert them (after resizing them)
@@ -10,17 +27,26 @@ class Search {
 		// first just get the initial page setup working.
 		// boxes in this.pageName should never be deleted or cloned. Other boxes are deleted and cloned. No, don't make an exception.
 		// if this.currentBoxes in null then we show original, if [] we show nothing.
-
 		this.contentContainer = document.querySelector('.content');
 		this.headerGrad = this.contentContainer.querySelector('.header-grad');
 		this.pageName = window.location.pathname.split('/').filter(Boolean).pop();
 		this.currentBoxes = null;
-		this.originalBoxes = await this.insertOriginalBoxes();
+
+		this.scrollToTopBtn 		= document.getElementById('scrollToTopBtn');
+		this.scrollToContentBtn 	= document.getElementById('scrollNextBtn');
+
+		this.topMenu 		= document.querySelector('.top-menu');
+		this.headerGrad 	= document.querySelector('.header-grad');
 		// this.pageDict = this.getPageDict() // do this externally because it's time consuming
+
+		this.originalBoxes = await this.insertOriginalBoxes();
+		this.contentAnchor = document.getElementById('scroll-to');
+		this.currentAnchor = this.contentAnchor;
+		console.log("this.currentAnchor = this.contentAnchor;", this.currentAnchor, this.contentAnchor);
+		console.log("setUp: this.currentAnchor = this.contentAnchor;", this.currentAnchor, this.contentAnchor);
 
 		const search = this;
 		document.querySelector('.search-box').addEventListener('input', async function(e){
-				console.log("Search querySelector");
 				const query = e.target.value.trim();
 
 				if (query.length == 0) return await search.restoreOriginalContent(); // empty search pattern
@@ -34,8 +60,12 @@ class Search {
 				search.currentBoxes = results;
 
 				const boxes = search.currentBoxes;
+				if (boxes.length > 0)	search.currentAnchor = boxes[0];
+				console.log("search this.currentAnchor = this.contentAnchor;", this.currentAnchor, this.contentAnchor);
 				await search.insertBoxes(boxes);
 				});
+
+		await updateButtonPositions(this);
 	}
 	async insertOriginalBoxes() {
 		const contentTemplate = document.getElementById('page-content');
@@ -51,6 +81,8 @@ class Search {
 				box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
 				box.style.display = '';
 				});
+
+		this.currentAnchor = this.contentAnchor;
 	}
 	async getPageDict() {
 		const htmlFiles = [
@@ -106,10 +138,11 @@ class Search {
 		let insertAfter = headerGrad;
 
 		// Insert each module right after the headerGrad, preserving order
-		this.contentAnchor = false;
+		let contentAnchor = false;
 		boxes.forEach(box => {
-				if (!this.contentAnchor && box.querySelector(".scroll-to")) {
-				this.contentAnchor = box;
+				if (!contentAnchor && box.querySelector(".scroll-to")) {
+				console.log("has scroll-to");
+				contentAnchor = box;
 				}
 				box.style.maxWidth = this.headerGrad.offsetWidth + "px"; // no boxes are wider than the header
 				box.style.display = '';
@@ -135,5 +168,6 @@ class Search {
 				insertAfter = box;
 				});
 
+	this.currentAnchor = contentAnchor || this.currentAnchor;
 	}
 }
