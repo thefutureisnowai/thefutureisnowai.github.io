@@ -9,6 +9,72 @@ title: SCS Bham
 </div> </div>
 
 <div class="main-content-box"> <div class="main-content">
+    <div>
+        <h2>IT and Cyber Security</h2>
+        <a href="it.html?doscroll=true">securecomputer.ai/it</a>
+    </div>
+  <details class="main-deets">
+    <summary class="main-summary"><strong>How we protect and optimize your systems</strong></summary>
+    <br>
+
+    We provide computer repair, data recovery, privacy hardening, and small-business IT support.
+    Our work is rooted in science and engineering — precise, methodical, and action-oriented.
+    We fix problems others give up on, reduce unnecessary costs, and help you get the most out of the hardware you already own.
+    <br><br>
+
+    <strong>Computer Repair & Optimization</strong><br>
+    • Laptop and desktop repair<br>
+    • Cleanups, speedups, malware removal<br>
+    • Broken installs, failed updates, boot issues<br><br>
+
+    <strong>System Services</strong><br>
+    • Windows 11 migration and clean installs<br>
+    • macOS, and Linux installations and system tuning<br>
+    • OS configuration, debloating, and troubleshooting<br><br>
+
+    <strong>Hardware Upgrades</strong><br>
+    • SSD and RAM upgrades<br>
+    • Battery replacements, component swaps<br>
+    • Extending hardware lifespan and improving performance<br><br>
+
+    <strong>Privacy Hardening</strong><br>
+    Reduce telemetry and data harvesting on Windows, Mac, Android, iPhone, and Linux.
+    Maintain control of your data and minimize unnecessary tracking.<br><br>
+
+    <strong>Data Recovery & Memories</strong><br>
+    Extract photos and files from old laptops, phones, hard drives, and forgotten devices — even failed systems.
+    We consolidate and organize your important memories with forensic-level scraping when needed.<br><br>
+
+    <strong>Hardware Salvage & Trade-In Options</strong><br>
+    Revive old computers, salvage usable components, or trade them in for value.
+    Our cost-saving mindset prioritizes re-use over replacement whenever possible.<br><br>
+
+  </details>
+</div></div>
+
+<div class="main-content-box"> <div class="main-content">
+    <div>
+        <h2>Professional Business IT</h2>
+        <a href="it.html?business=true">securecomputer.ai/it#business</a>
+    </div>
+  <details class="main-deets">
+    <summary class="main-summary"><strong>Specialized engineering for business needs</strong></summary>
+    <br>
+We assist businesses with specialized technical projects, including:
+<ul>
+  <li>Designing custom systems for unique workflows</li>
+  <li>Building small custom software tools and integrations</li>
+  <li>Solving technical problems that don’t fit off-the-shelf solutions</li>
+  <li>Reducing reliance on large vendors and high recurring software costs</li>
+  <li>Introducing efficient, low-cost or open technologies when appropriate</li>
+</ul>
+
+Our focus is on clear, dependable solutions shaped around the specific requirements of the job.
+  </details>
+</div></div>
+
+
+<div class="main-content-box"> <div class="main-content">
   <div class="main-deets">
 	<h2>AI and Data</h2>
 	<a href="ai.html?doscroll=true">securecomputer.ai/ai</a><br>
@@ -28,18 +94,6 @@ title: SCS Bham
 Whether you're optimizing workflow or building new tools, we help you leverage AI effectively, securely, and profitably.
   </details>
 </div> </div>
-
-<div class="main-content-box"> <div class="main-content">
-	<div>
-		<h2>IT and Cyber Security</h2>
-		<a href="it.html?doscroll=true">securecomputer.ai/it</a>
-	</div>
-  <details class="main-deets">
-    <summary class="main-summary"><strong>How we protect and optimize your systems</strong></summary>
-    <br>
-    We provide expert IT services across all major platforms, including software engineering, computer repair, security hardening, network setup, data recovery, and consulting. Our approach emphasizes hand-tailored solutions to unique problems, efficiency, and reliability.
-  </details>
-</div></div>
 
 <div class="main-content-box"> <div class="main-content">
 	<h2>Scheduling and Payment</h2>

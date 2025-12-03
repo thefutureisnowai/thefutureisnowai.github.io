@@ -16,3 +16,4 @@ tmp.js
 .prompt.txt.swn .prompt.txt.swo .prompt.txt.swp
 .prompt.txt.sw*
 *prompt.txt*
+*.swn
