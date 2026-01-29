@@ -151,7 +151,7 @@ Any data you care about should be backed up in at least two places. There are nu
 <div class="main-content-box"> <div class="main-content">
 <details class="main-deets">
   <summary class="main-summary"> Use a firewall </summary>
-A firewall acts as a barrier to prevent unauthorized access to your device while connected to the internet, we advise you to make sure yours is enabled. Most operating systems come with a firewall installed, but often do not have it enabled by default. Historically, firewalls would often conflict with online games and other programs, however with modern technology this less common, if a conflict does arise we can configure your firewill to work for you.
+A firewall acts as a barrier to prevent unauthorized access to your device while connected to the internet, we advise you to make sure yours is enabled. Most operating systems come with a firewall installed, but often do not have it enabled by default. Historically, firewalls would often conflict with online games and other programs, however with modern technology this less common, if a conflict does arise we can configure your firewall to work for you.
 </details>
 </div></div>
 
