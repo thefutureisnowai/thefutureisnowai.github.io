@@ -5,7 +5,12 @@ title: SCS Bham
 ---
 <div id="scroll-to" class="main-content-box"> <div class="main-content">
 <h2> Welcome to Secure Computer Solutions!<br>Located in Bellingham, WA.</h2>
-  <p>We provide AI consulting and development, cyber security, software development, and other IT solutions tailored to your needs.</p>
+<p>
+Secure Computer Solutions provides security-focused IT services, cyber security, computer repair, and carefully engineered technology solutions for individuals and businesses.
+<br><br>
+
+Our philosophy emphasizes reliability, integrity, privacy, and cautious systems design. We prioritize dependable infrastructure, practical security, ethical technology, and solutions engineered to protect the people who rely on them.
+</p>
 </div> </div>
 
 <div class="main-content-box"> <div class="main-content">

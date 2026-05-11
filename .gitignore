@@ -17,3 +17,5 @@ tmp.js
 .prompt.txt.sw*
 *prompt.txt*
 *.swn
+.DS_Store
+backup/

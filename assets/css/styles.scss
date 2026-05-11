@@ -1,6 +1,12 @@
 ---
 ---
-
+.scs-link-row {       
+  display: flex;               
+  justify-content: center;                                                  
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;                         
+}                          
 @font-face {
   font-family: 'Audiowide';
   src: url('/assets/fonts/Audiowide-Regular.ttf') format('truetype');
