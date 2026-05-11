@@ -12,11 +12,21 @@ title: Scheduling SCS Bham
 <div class="main-content-box"> <div class="main-content">
 <h2> Pricing </h2>
 <p class="main-deets">
-General IT and security services offered in <a href="it.html">IT and Cyber Security</a> are $120/hr for small jobs.<br>
+Secure Computer Solutions and TFinAI offer overlapping technical services, but with different engineering philosophies and operational styles.<br>
 <br>
-AI consulting, development, and integration offered in <a href="ai.html">AI and Data</a> are $160/hr for small jobs.<br>
+
+Secure Computer Solutions focuses on reliability, stability, careful systems administration, traditional IT support, cyber security, infrastructure maintenance, and cautious long-term engineering.<br>
+SCS services are billed at $120/hr for smaller jobs.<br>
 <br>
-For larger projects will make a contract and agree on milestone payments.
+
+TFinAI focuses on accelerated development, advanced automation, adaptive systems, AI integration, experimental technologies, custom engineering, and rapid modernization strategies designed to help organizations move ahead quickly and decisively.<br>
+TFinAI services are billed at $160/hr for smaller jobs.<br>
+<br>
+
+Some projects may fall naturally under one brand or the other, while more complex projects may combine elements of both approaches depending on the needs, priorities, and risk tolerance of the client.<br>
+<br>
+
+For larger projects we work through contracts with milestone payment checkpoints.
 </p></div></div>
 
 <div class="main-content-box"> <div class="main-content">

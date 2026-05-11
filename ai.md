@@ -3,8 +3,18 @@ layout: default
 id: ai
 title: AI SCS Bham 
 ---
+<div id="scroll-to" class="main-content-box"> <div class="main-content">
+<p class="main-deets">
+All products and services described on this page are TFinAI products rather than traditional Secure Computer Solutions (SCS) services.<br>
+<br>
 
-<div class="main-content-box" id="scroll-to"> <div class="main-content"><details class="main-deets"> <summary class="main-summary"> <strong>
+TFinAI is our future-oriented engineering and advanced technology brand focused on intelligent systems, automation, adaptive infrastructure, custom software, AI integration, and accelerated technical development.<br>
+<br>
+
+For more details, visit <a href="https://tfin.ai">tfin.ai</a>.
+</p>
+</div></div>
+<div class="main-content-box"> <div class="main-content"><details class="main-deets"> <summary class="main-summary"> <strong>
 AI and Data </strong></summary>
 
 AI can streamline your business by improving workflow, increasing worker productivity, answering questions about your business or promoting your business, automating scheduling and other repetitive tasks, impressing your customers, and ultimately generating more revenue for your business. AI and other statistical techniques can provide data-driven insights, and help you make decisions with cost-benefit analysis. You may have various forms of business data, in various formats, on various devices. We can bring all your data together, and make it work for you. Whatever your AI or data-related needs, we have you covered.
