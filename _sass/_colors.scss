@@ -96,4 +96,49 @@
                     0 0 32px 8px var(--plasma-glow-color2);
   --plasma-glow-2: 0 0 18px 6px var(--plasma-glow-color2),
                     0 0 36px 12px var(--plasma-glow-color2);
-}
+:root {
+  --bg: rgb(245, 247, 250);
+  --header-bg: rgb(232, 236, 240);
+
+  --header-grad-c:
+    radial-gradient(circle at 10% 12%, rgba(var(--neon-teal), 0.05) 0, transparent 60%),
+    radial-gradient(circle at 95% 8%, rgba(var(--electric-violet), 0.05) 0, transparent 60%),
+    radial-gradient(circle at 8% 92%, rgba(var(--pastel-purple), 0.07) 0, transparent 70%),
+    radial-gradient(circle at 92% 90%, rgba(var(--pastel-orange), 0.05) 0, transparent 60%),
+    rgb(245, 247, 250);
+
+  --search-box-background: rgb(255, 255, 255);
+
+  --nav-menu-font-color: rgb(0, 96, 80);
+  --nav-menu-font-glow: 0 0 1px rgba(var(--teal), 0.35);
+  --nav-menu-border-color: rgb(0, 120, 105);
+
+  --main-content-border: rgb(210, 215, 222);
+  --main-content-background: rgb(255, 255, 255);
+  --main-content-inset: inset 0 0 12px 4px rgba(0, 0, 0, 0.04);
+  --main-content-shadow-drop: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  --main-font-color: rgb(20, 24, 28);
+  --main-text-aura: none;
+
+  --main-border: 0 0 2px rgba(var(--teal), 0.35);
+
+  --plasma-glow-color1: rgba(var(--teal), 0.35);
+  --plasma-glow-color2: rgba(0, 0, 0, 0.12);
+
+  --plasma-shadow:
+    inset 0 0 12px 4px rgba(var(--teal), 0.12);
+
+  --plasma-shadow2:
+    0 0 2px rgba(var(--blue), 0.35),
+    0 0 5px rgba(var(--teal), 0.20);
+
+  --plasma-glow:
+    inset 0 0 16px 6px rgba(var(--teal), 0.15);
+
+  --plasma-glow-1:
+    0 0 6px 1px rgba(var(--teal), 0.25);
+
+  --plasma-glow-2:
+    0 0 8px 2px rgba(var(--blue), 0.20);
+}}

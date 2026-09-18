@@ -53,3 +53,44 @@ html, body, .page-layout, .content, .main-content-box,
   text-shadow: 0 0 6px #00ffaa;
 }
 .top-menu a { text-decoration: underline; }
+
+@media (prefers-color-scheme: light) {
+
+  :root {
+    --bg: white !important;
+    --header-bg: #eeeeee !important;
+    --main-content-background: white !important;
+    --main-font-color: black !important;
+    --search-box-background: white !important;
+  }
+
+  html,
+  body,
+  .page-layout,
+  .content,
+  .main-content-box {
+    background: white !important;
+    color: black !important;
+  }
+
+  .footer-card {
+    background: white !important;
+    color: black !important;
+  }
+
+  .search-box {
+    background: white !important;
+    color: black !important;
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    outline: 10px solid lime !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    outline: 10px solid red !important;
+  }
+}
