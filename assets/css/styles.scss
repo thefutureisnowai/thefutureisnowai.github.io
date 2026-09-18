@@ -53,44 +53,95 @@ html, body, .page-layout, .content, .main-content-box,
   text-shadow: 0 0 6px #00ffaa;
 }
 .top-menu a { text-decoration: underline; }
+/* Links are always underlined. Leave existing dark-theme colors alone. */
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline !important;
+}
 
+
+/* Hacky light-theme overrides */
 @media (prefers-color-scheme: light) {
 
   :root {
-    --bg: white !important;
-    --header-bg: #eeeeee !important;
-    --main-content-background: white !important;
-    --main-font-color: black !important;
-    --search-box-background: white !important;
+    --bg: #c4c9cf !important;
+    --header-bg: #b9bfc6 !important;
+    --main-content-background: #f3f4f5 !important;
+    --main-font-color: #181b1f !important;
+    --search-box-background: #e4e7e9 !important;
+    --nav-menu-font-color: #263b42 !important;
+    --nav-menu-border-color: #52646b !important;
+    --nav-menu-font-glow: none !important;
   }
 
   html,
   body,
   .page-layout,
-  .content,
+  .content {
+    background: #c4c9cf !important;
+    color: #252a2f !important;
+  }
+
   .main-content-box {
-    background: white !important;
-    color: black !important;
+    background: #f3f4f5 !important;
+    color: #181b1f !important;
+  }
+
+  .top-menu,
+  .scs-link-row,
+  .nav-menu {
+    color: #263b42 !important;
+    text-shadow: none !important;
   }
 
   .footer-card {
-    background: white !important;
-    color: black !important;
+    background: #e4e7e9 !important;
+    color: #202428 !important;
+  }
+
+  .footer-card *,
+  .footer-bottom {
+    color: #30363b !important;
+    text-shadow: none !important;
+  }
+
+  .footer-title,
+  .footer-header,
+  .footer-title a,
+  a .footer-title {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #182b32 !important;
+    color: #182b32 !important;
+    text-shadow: none !important;
   }
 
   .search-box {
-    background: white !important;
-    color: black !important;
+    background: #e4e7e9 !important;
+    color: #181b1f !important;
   }
-}
-@media (prefers-color-scheme: light) {
-  body {
-    outline: 10px solid lime !important;
-  }
-}
 
-@media (prefers-color-scheme: dark) {
-  body {
-    outline: 10px solid red !important;
+  /* Darker blue links in light mode only */
+  a,
+  a:link {
+    color: #0057b8 !important;
+    text-shadow: none !important;
+  }
+
+  a:visited {
+    color: #244f9e !important;
+    text-shadow: none !important;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: #003f8f !important;
+    text-shadow: none !important;
   }
 }
