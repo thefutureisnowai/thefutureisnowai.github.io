@@ -67,6 +67,10 @@
 // Title card
 // =============================================================================
 // --- dark ---
+// =============================================================================
+// Title card
+// =============================================================================
+// --- dark ---
 :root {
   --title-bg: rgb(var(--dark-grey));
   --title-card-border: rgb(var(--space-grey2));
@@ -83,13 +87,23 @@
     drop-shadow(0 0 32px rgb(var(--blue)))
     brightness(1.4)
     contrast(1.15);
+  --header-glow:
+    0 0 16px 4px rgba(var(--electric-violet), 0.6),
+    0 0 32px 8px rgba(var(--electric-violet), 0.15);   /* violet outer glow */
+}
+
+.header-grad {
+  box-shadow: var(--header-glow);
 }
 
 // --- light ---
 @media (prefers-color-scheme: light) {
-  // (none yet)
+  :root {
+    --header-glow:
+      0 0 6px rgba(110, 60, 200, 0.4),
+      0 0 14px rgba(110, 60, 200, 0.18);               /* deeper violet */
+  }
 }
-
 // =============================================================================
 // Nav / top menu / search
 // =============================================================================
@@ -202,7 +216,25 @@
 // Footer
 // =============================================================================
 // --- dark ---
-// (uses the colors in _footer.scss)
+:root {
+  --footer-bg: var(--main-content-background);
+  --footer-glow:
+    0 0 2vw rgba(0, 255, 170, 0.4),        /* teal edge */
+    0 0 3.5vw rgba(102, 204, 255, 0.25),   /* light blue */
+    0 0 5vw rgba(0, 119, 255, 0.15),       /* core blue */
+    0 1vh 3vh rgba(0, 0, 0, 0.5),          /* drop shadow */
+    inset 0 0.2vw 0.6vw rgba(255, 255, 255, 0.04),
+    inset 0 -0.4vw 1vw rgba(0, 255, 170, 0.15);
+  --footer-title-gradient: linear-gradient(90deg, #0077ff, #00ffaa, #0055ff);
+  --footer-divider: linear-gradient(90deg,
+    transparent 0%, #0077ff 20%, #00ffaa 50%, #0055ff 80%, transparent 100%);
+  --footer-divider-small: linear-gradient(90deg,
+    transparent 0%, #0077ff 47%, #00ffaa 50%, #0077ff 53%, transparent 100%);
+  --footer-icon-glow: drop-shadow(0 0 2px #00ffaa) drop-shadow(0 0 5px #00ffaa);
+  --footer-label-color: #88aadd;
+  --footer-value-color: #ccc;
+  --footer-muted-color: #777;
+}
 
 // --- light ---
 @media (prefers-color-scheme: light) {
@@ -234,7 +266,20 @@
 // Links
 // =============================================================================
 // --- dark ---
-// (browser/partial defaults)
+:root {
+  --link-color: #33ddff;          /* cyan-blue */
+  --link-visited-color: #bb66ff;  /* violet */
+  --link-hover-color: #ffffff;
+  --link-hover-glow: 0 0 6px #00ffaa;
+}
+
+a:link    { color: var(--link-color); }
+a:visited { color: var(--link-visited-color); }
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+  text-shadow: var(--link-hover-glow);
+}
 
 // --- light ---
 @media (prefers-color-scheme: light) {
