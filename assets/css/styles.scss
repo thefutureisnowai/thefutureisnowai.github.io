@@ -32,7 +32,6 @@
   font-weight: 400;
   font-style: normal;
 }
-@import "colors";
 @import "title-card";
 @import "nav-menu";
 @import "default";
@@ -62,7 +61,7 @@ a:focus,
 a:active {
   text-decoration: underline !important;
 }
-
+@import "colors";
 
 /* Hacky light-theme overrides */
 @media (prefers-color-scheme: light) {
@@ -145,3 +144,4 @@ a:active {
     text-shadow: none !important;
   }
 }
+
