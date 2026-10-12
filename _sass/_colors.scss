@@ -146,8 +146,8 @@
   --main-text-aura: 0 0 2px rgba(var(--blue), .7);     /* blue/cyan aura */
   --main-border: 0 0 4px rgba(var(--neon-teal), .66);  /* teal neon outer aura */
   --box-glow:
-    0 0 8px rgba(var(--pastel-orange), 0.6),
-    0 0 16px rgba(var(--pastel-orange), 0.3);           /* orange outer glow */
+    0 0 16px 4px rgba(var(--pastel-orange), 0.6),
+    0 0 32px 8px rgba(var(--pastel-orange), 0.1);           /* orange outer glow */
 }
 
 .main-content-box {
