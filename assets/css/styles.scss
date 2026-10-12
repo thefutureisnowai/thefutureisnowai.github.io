@@ -46,11 +46,12 @@ html, body, .page-layout, .content, .main-content-box,
   text-decoration: underline;
 }
 .top-menu a:hover,
+// styles.scss
 .top-menu a:focus {
-  color: #ffffff;
   text-decoration: underline;
-  text-shadow: 0 0 6px #00ffaa;
 }
+
+
 .top-menu a { text-decoration: underline; }
 /* Links are always underlined. Leave existing dark-theme colors alone. */
 a,

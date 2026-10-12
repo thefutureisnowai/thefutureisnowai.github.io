@@ -225,3 +225,8 @@
   }
 }
 
+// _colors.scss
+.top-menu a:focus {
+  color: #ffffff;
+  text-shadow: 0 0 6px #00ffaa;
+}
