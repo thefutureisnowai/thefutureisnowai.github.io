@@ -1,3 +1,6 @@
+// =============================================================================
+// Palette
+// =============================================================================
 :root {
   --black: 0,0,0;
   --dark-grey: 8,8,8;
@@ -20,11 +23,15 @@
   --sky: 173,245,255;
   --apricot: 255,220,186;
   --neon-lime: 204,255,0;
+}
 
+// =============================================================================
+// Page
+// =============================================================================
+// --- dark ---
+:root {
   --bg: rgb(var(--black));
-
   --header-bg: rgb(var(--dark-grey));
-
   --header-grad-c:
     radial-gradient(circle at 10% 12%, rgba(var(--neon-teal), 0.08) 0, transparent 60%),
     radial-gradient(circle at 95% 8%, rgba(var(--electric-violet), 0.08) 0, transparent 60%),
@@ -38,123 +45,13 @@
       transparent 100%
     ),
     rgb(var(--black));
+}
 
-  --title-bg: rgb(var(--dark-grey));
-
-  --title-card-border: rgb(var(--space-grey2));
-  --title-screen-border: rgb(var(--space-grey1));
-  --title-font-color: rgb(var(--neon-teal));
-
-  --search-box-background: var(--bg);
-  --nav-menu-font-color: rgb(var(--bright-green));
-  --nav-menu-font-glow:
-    0 0 1em rgba(var(--electric-violet), .99),
-    0 0 2em rgba(var(--blue), 0.9),
-    0 0 3em rgba(var(--bright-green), 0.4);
-  --nav-menu-border-color: rgb(var(--neon-teal));
-
-  --main-content-border: var(--bg);
-  --main-content-background: var(--bg);
-
-  --title-screen-filter: brightness(1) contrast(1.5);
-
-  --main-logo-filter:
-    drop-shadow(0 0 16px rgb(var(--teal)))
-    drop-shadow(0 0 32px rgb(var(--blue)))
-    brightness(1.4)
-    contrast(1.15);
-
-  --title-shadow:
-    0 0 4px rgba(var(--neon-teal), 0.8),
-    0 0 8px rgba(var(--blue), 0.4),
-    inset 0 0 1em rgba(var(--blue), 0.9),
-    inset 0 0 2em rgba(var(--electric-violet), 0.5);
-
-  --main-content-inset: inset 0 0 24px 16px rgba(var(--space-grey2), 1);
-
-  --main-content-shadow-drop: 0 10px 40px 0 rgba(var(--black), .66);
-
-  --main-font-color: rgb(255, 255, 255);
-
-  --main-text-aura:   0 0 2px   rgba(var(--blue), .7);        /* blue/cyan aura */
-  --main-border:    0 0 4px   rgba(var(--neon-teal),.66); /* teal neon outer aura */
-
-  --nav-menu-border: --var(--main-border);
-
-  --plasma-glow-color1: rgba(var(--nav-menu-font-color), 0.7);
-  --plasma-glow-color2: rgba(var(--main-font-color), 0.95);
-
-  --plasma-shadow: inset 0 0 24px 16px rgba(var(--nav-menu-font-color), .9);
-  --plasma-shadow2: 
-	  0 0 2px rgba(var(--blue), 0.9),
-	  0 0 8px rgba(var(--cyan), 0.5),
-	  0 0 16px rgba(var(--teal), 0.4),
-	  0 0 32px rgba(var(--electric-violet), 1.0);
-
-  --plasma-glow: inset 0 0 32px 24px rgba(var(--nav-menu-font-color), .7);
-  --plasma-glow-1: 0 0 16px 4px var(--plasma-glow-color1),
-                    0 0 32px 8px var(--plasma-glow-color2);
-  --plasma-glow-2: 0 0 18px 6px var(--plasma-glow-color2),
-                    0 0 36px 12px var(--plasma-glow-color2);
-:root {
-  --bg: rgb(245, 247, 250);
-  --header-bg: rgb(232, 236, 240);
-
-  --header-grad-c:
-    radial-gradient(circle at 10% 12%, rgba(var(--neon-teal), 0.05) 0, transparent 60%),
-    radial-gradient(circle at 95% 8%, rgba(var(--electric-violet), 0.05) 0, transparent 60%),
-    radial-gradient(circle at 8% 92%, rgba(var(--pastel-purple), 0.07) 0, transparent 70%),
-    radial-gradient(circle at 92% 90%, rgba(var(--pastel-orange), 0.05) 0, transparent 60%),
-    rgb(245, 247, 250);
-
-  --search-box-background: rgb(255, 255, 255);
-
-  --nav-menu-font-color: rgb(0, 96, 80);
-  --nav-menu-font-glow: 0 0 1px rgba(var(--teal), 0.35);
-  --nav-menu-border-color: rgb(0, 120, 105);
-
-  --main-content-border: rgb(210, 215, 222);
-  --main-content-background: rgb(255, 255, 255);
-  --main-content-inset: inset 0 0 12px 4px rgba(0, 0, 0, 0.04);
-  --main-content-shadow-drop: 0 10px 30px rgba(0, 0, 0, 0.12);
-
-  --main-font-color: rgb(20, 24, 28);
-  --main-text-aura: none;
-
-  --main-border: 0 0 2px rgba(var(--teal), 0.35);
-
-  --plasma-glow-color1: rgba(var(--teal), 0.35);
-  --plasma-glow-color2: rgba(0, 0, 0, 0.12);
-
-  --plasma-shadow:
-    inset 0 0 12px 4px rgba(var(--teal), 0.12);
-
-  --plasma-shadow2:
-    0 0 2px rgba(var(--blue), 0.35),
-    0 0 5px rgba(var(--teal), 0.20);
-
-  --plasma-glow:
-    inset 0 0 16px 6px rgba(var(--teal), 0.15);
-
-  --plasma-glow-1:
-    0 0 6px 1px rgba(var(--teal), 0.25);
-
-  --plasma-glow-2:
-    0 0 8px 2px rgba(var(--blue), 0.20);
-}}
-
-/* Hacky light-theme overrides */
+// --- light ---
 @media (prefers-color-scheme: light) {
-
   :root {
-    --bg: #c4c9cf !important;
-    --header-bg: #b9bfc6 !important;
-    --main-content-background: #f3f4f5 !important;
-    --main-font-color: #181b1f !important;
-    --search-box-background: #e4e7e9 !important;
-    --nav-menu-font-color: #263b42 !important;
-    --nav-menu-border-color: #52646b !important;
-    --nav-menu-font-glow: none !important;
+    --bg: #c4c9cf;
+    --header-bg: #b9bfc6;
   }
 
   html,
@@ -164,10 +61,63 @@
     background: #c4c9cf !important;
     color: #252a2f !important;
   }
+}
 
-  .main-content-box {
-    background: #f3f4f5 !important;
-    color: #181b1f !important;
+// =============================================================================
+// Title card
+// =============================================================================
+// --- dark ---
+:root {
+  --title-bg: rgb(var(--dark-grey));
+  --title-card-border: rgb(var(--space-grey2));
+  --title-screen-border: rgb(var(--space-grey1));
+  --title-font-color: rgb(var(--neon-teal));
+  --title-screen-filter: brightness(1) contrast(1.5);
+  --title-shadow:
+    0 0 4px rgba(var(--neon-teal), 0.8),
+    0 0 8px rgba(var(--blue), 0.4),
+    inset 0 0 1em rgba(var(--blue), 0.9),
+    inset 0 0 2em rgba(var(--electric-violet), 0.5);
+  --main-logo-filter:
+    drop-shadow(0 0 16px rgb(var(--teal)))
+    drop-shadow(0 0 32px rgb(var(--blue)))
+    brightness(1.4)
+    contrast(1.15);
+}
+
+// --- light ---
+@media (prefers-color-scheme: light) {
+  // (none yet)
+}
+
+// =============================================================================
+// Nav / top menu / search
+// =============================================================================
+// --- dark ---
+:root {
+  --search-box-background: var(--bg);
+  --nav-menu-font-color: rgb(var(--bright-green));
+  --nav-menu-font-glow:
+    0 0 1em rgba(var(--electric-violet), .99),
+    0 0 2em rgba(var(--blue), 0.9),
+    0 0 3em rgba(var(--bright-green), 0.4);
+  --nav-menu-border-color: rgb(var(--neon-teal));
+  --nav-menu-border: --var(--main-border);
+}
+
+.top-menu a:hover,
+.top-menu a:focus {
+  color: #ffffff;
+  text-shadow: 0 0 6px #00ffaa;
+}
+
+// --- light ---
+@media (prefers-color-scheme: light) {
+  :root {
+    --search-box-background: #e4e7e9;
+    --nav-menu-font-color: #263b42;
+    --nav-menu-border-color: #52646b;
+    --nav-menu-font-glow: none;
   }
 
   .top-menu,
@@ -177,6 +127,84 @@
     text-shadow: none !important;
   }
 
+  .search-box {
+    background: #e4e7e9 !important;
+    color: #181b1f !important;
+  }
+}
+
+// =============================================================================
+// Main content
+// =============================================================================
+// --- dark ---
+:root {
+  --main-content-border: var(--bg);
+  --main-content-background: var(--bg);
+  --main-content-inset: inset 0 0 24px 16px rgba(var(--space-grey2), 1);
+  --main-content-shadow-drop: 0 10px 40px 0 rgba(var(--black), .66);
+  --main-font-color: rgb(255, 255, 255);
+  --main-text-aura: 0 0 2px rgba(var(--blue), .7);     /* blue/cyan aura */
+  --main-border: 0 0 4px rgba(var(--neon-teal), .66);  /* teal neon outer aura */
+  --box-glow:
+    0 0 8px rgba(var(--pastel-orange), 0.6),
+    0 0 16px rgba(var(--pastel-orange), 0.3);           /* orange outer glow */
+}
+
+.main-content-box {
+  box-shadow: var(--main-content-inset), var(--box-glow);
+}
+
+// --- light ---
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-content-background: #f3f4f5;
+    --main-font-color: #181b1f;
+    --box-glow:
+      0 0 6px rgba(230, 120, 30, 0.45),
+      0 0 14px rgba(230, 120, 30, 0.2);                /* deeper orange */
+  }
+
+  .main-content-box {
+    background: #f3f4f5 !important;
+    color: #181b1f !important;
+  }
+}
+
+// =============================================================================
+// Plasma effects
+// =============================================================================
+// --- dark ---
+:root {
+  --plasma-glow-color1: rgba(var(--nav-menu-font-color), 0.7);
+  --plasma-glow-color2: rgba(var(--main-font-color), 0.95);
+  --plasma-shadow: inset 0 0 24px 16px rgba(var(--nav-menu-font-color), .9);
+  --plasma-shadow2:
+    0 0 2px rgba(var(--blue), 0.9),
+    0 0 8px rgba(var(--cyan), 0.5),
+    0 0 16px rgba(var(--teal), 0.4),
+    0 0 32px rgba(var(--electric-violet), 1.0);
+  --plasma-glow: inset 0 0 32px 24px rgba(var(--nav-menu-font-color), .7);
+  --plasma-glow-1:
+    0 0 16px 4px var(--plasma-glow-color1),
+    0 0 32px 8px var(--plasma-glow-color2);
+  --plasma-glow-2:
+    0 0 18px 6px var(--plasma-glow-color2),
+    0 0 36px 12px var(--plasma-glow-color2);
+}
+
+// --- light ---
+@media (prefers-color-scheme: light) {
+  // (none yet)
+}
+
+// =============================================================================
+// Footer
+// =============================================================================
+// --- dark ---
+// (uses the colors in _footer.scss)
+
+// --- light ---
+@media (prefers-color-scheme: light) {
   .footer-card {
     background: #e4e7e9 !important;
     color: #202428 !important;
@@ -199,13 +227,16 @@
     color: #182b32 !important;
     text-shadow: none !important;
   }
+}
 
-  .search-box {
-    background: #e4e7e9 !important;
-    color: #181b1f !important;
-  }
+// =============================================================================
+// Links
+// =============================================================================
+// --- dark ---
+// (browser/partial defaults)
 
-  /* Darker blue links in light mode only */
+// --- light ---
+@media (prefers-color-scheme: light) {
   a,
   a:link {
     color: #0057b8 !important;
@@ -223,10 +254,4 @@
     color: #003f8f !important;
     text-shadow: none !important;
   }
-}
-
-// _colors.scss
-.top-menu a:focus {
-  color: #ffffff;
-  text-shadow: 0 0 6px #00ffaa;
 }
