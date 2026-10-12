@@ -103,6 +103,7 @@
     0 0 3em rgba(var(--bright-green), 0.4);
   --nav-menu-border-color: rgb(var(--neon-teal));
   --nav-menu-border: --var(--main-border);
+  --top-link-border: rgb(var(--neon-teal));
 }
 
 .top-menu a:hover,
@@ -118,6 +119,7 @@
     --nav-menu-font-color: #263b42;
     --nav-menu-border-color: #52646b;
     --nav-menu-font-glow: none;
+    --top-link-border: #52646b;
   }
 
   .top-menu,
@@ -132,7 +134,6 @@
     color: #181b1f !important;
   }
 }
-
 // =============================================================================
 // Main content
 // =============================================================================

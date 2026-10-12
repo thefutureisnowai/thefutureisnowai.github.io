@@ -1,5 +1,6 @@
 ---
 ---
+
 .scs-link-row {       
   display: flex;               
   justify-content: center;                                                  
@@ -38,20 +39,26 @@
 @import "footer";
 
 html, body, .page-layout, .content, .main-content-box,
-.top-menu, {
+
+.top-menu {
   box-sizing: border-box;
   max-width: 100%;
 }
+
+/* Top menu link boxes */
+.top-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
 .top-menu a {
-  text-decoration: underline;
+  display: inline-block;
+  padding: 0.4em 0.9em;
+  border: 2px solid var(--top-link-border);
+  border-radius: 0.6em;
 }
-.top-menu a:hover,
-// styles.scss
-.top-menu a:focus {
-  text-decoration: underline;
-}
-.top-menu a { text-decoration: underline; }
-/* Links are always underlined. Leave existing dark-theme colors alone. */
+
+/* Links are always underlined. */
 a,
 a:link,
 a:visited,
