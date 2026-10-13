@@ -50,17 +50,15 @@
 // --- light: metallic graphite and prismatic atmosphere ---
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #b4bdc9;
-    --header-bg: #a8b5c6;
+    --bg: #cdd5d5;
+    --header-bg: #b7c5c5;
     --header-grad-c:
-      radial-gradient(ellipse at 12% 15%, rgba(0, 221, 206, 0.28) 0, transparent 48%),
-      radial-gradient(ellipse at 92% 9%, rgba(126, 76, 255, 0.25) 0, transparent 52%),
-      radial-gradient(ellipse at 10% 95%, rgba(34, 120, 255, 0.18) 0, transparent 54%),
-      radial-gradient(ellipse at 88% 85%, rgba(255, 126, 66, 0.13) 0, transparent 48%),
-      conic-gradient(from 180deg at 50% 52%, rgba(55, 235, 230, .06), rgba(112, 79, 228, .10), rgba(55, 235, 230, .06)),
-      linear-gradient(140deg, #ccd6e1, #a6b4c5 55%, #c2cbd9);
+      radial-gradient(ellipse at 15% 18%, rgba(25, 196, 157, .24) 0, transparent 51%),
+      radial-gradient(ellipse at 91% 13%, rgba(102, 93, 177, .16) 0, transparent 48%),
+      radial-gradient(ellipse at 80% 87%, rgba(245, 162, 78, .14) 0, transparent 52%),
+      linear-gradient(135deg, #c6d8d2 0%, #bdc9ce 50%, #d9d3c9 100%);
   }
-  body { color: #14212f; }
+  body { color: #192e30; }
 }
 
 // =============================================================================
@@ -95,24 +93,23 @@
 // --- light: luminous cockpit display ---
 @media (prefers-color-scheme: light) {
   :root {
-    --title-bg: #c6d1de;
-    --title-card-border: #5f7c9d;
-    --title-screen-border: #547d98;
-    --title-font-color: #006f7a;
-    --title-screen-filter: brightness(1.07) contrast(1.25) saturate(1.18);
+    --title-bg: #d4e0dc;
+    --title-card-border: #518f8d;
+    --title-screen-border: #789da6;
+    --title-font-color: #006d61;
+    --title-screen-filter: brightness(1.05) contrast(1.18) saturate(1.08);
     --title-shadow:
-      0 0 2px rgba(0, 180, 194, .65),
-      0 0 12px rgba(0, 162, 183, .26),
-      inset 0 0 15px rgba(27, 129, 235, .19),
-      inset 0 0 28px rgba(133, 78, 238, .16);
+      0 0 5px rgba(0, 163, 137, .34),
+      0 0 16px rgba(10, 151, 143, .18),
+      inset 0 0 20px rgba(47, 151, 150, .14);
     --main-logo-filter:
-      drop-shadow(0 0 5px rgba(0, 163, 181, .72))
-      drop-shadow(0 0 16px rgba(99, 59, 224, .32))
-      contrast(1.15);
+      drop-shadow(0 0 6px rgba(0, 148, 132, .46))
+      drop-shadow(0 0 16px rgba(64, 107, 171, .15))
+      contrast(1.12);
     --header-glow:
-      0 0 0 1px rgba(49, 75, 133, .35),
-      0 0 17px 3px rgba(103, 72, 221, .32),
-      0 0 35px 8px rgba(16, 159, 188, .14);
+      0 0 0 1px rgba(28, 105, 103, .38),
+      0 0 20px 3px rgba(0, 180, 151, .24),
+      0 0 36px 8px rgba(94, 93, 165, .13);
   }
 }
 
@@ -141,18 +138,18 @@
 // --- light: etched cyan controls ---
 @media (prefers-color-scheme: light) {
   :root {
-    --search-box-background: #bfcddd;
-    --nav-menu-font-color: #143d55;
-    --nav-menu-border-color: #238eaa;
-    --nav-menu-font-glow: 0 0 8px rgba(0, 170, 190, .22);
-    --top-link-border: #2299af;
-    --nav-menu-border: 0 0 5px rgba(0, 166, 193, .5);
+    --search-box-background: #dce6e2;
+    --nav-menu-font-color: #174c4b;
+    --nav-menu-border-color: #348783;
+    --nav-menu-font-glow: 0 0 6px rgba(0, 163, 134, .20);
+    --top-link-border: #4c9391;
+    --nav-menu-border: 0 0 5px rgba(0, 166, 138, .38);
   }
   .top-menu a:hover,
   .top-menu a:focus {
-    color: #005b72;
-    text-shadow: 0 0 8px rgba(0, 199, 211, .6);
-    border-color: #0496b0;
+    color: #006c5e;
+    text-shadow: 0 0 7px rgba(0, 171, 141, .32);
+    border-color: #00a88a;
   }
 }
 
@@ -177,22 +174,23 @@
   box-shadow: var(--main-content-inset), var(--box-glow);
 }
 
-// --- light: brushed metal panels, teal edge and amber energy glow ---
+// --- light: brushed metal panels, teal and ultraviolet energy glow ---
 @media (prefers-color-scheme: light) {
   :root {
-    --main-content-border: #608da4;
-    --main-content-background: #cdd6e1;
+    --main-content-border: #6b9d98;
+    --main-content-background: #e0e7e3;
     --main-content-inset:
-      inset 0 0 0 1px rgba(10, 103, 143, .35),
-      inset 0 0 24px 5px rgba(37, 83, 144, .13);
-    --main-content-shadow-drop: 0 12px 35px rgba(24, 44, 83, .3);
-    --main-font-color: #13283a;
-    --main-text-aura: 0 0 4px rgba(18, 133, 176, .18);
-    --main-border: 0 0 6px rgba(0, 147, 173, .75);
+      inset 0 0 0 1px rgba(22, 112, 107, .25),
+      inset 0 0 24px 7px rgba(47, 115, 112, .09);
+    --main-content-shadow-drop: 0 12px 32px rgba(24, 58, 60, .18);
+    --main-font-color: #1a3031;
+    --main-text-aura: none;
+    --main-border: 0 0 5px rgba(0, 166, 137, .48);
     --box-glow:
-      0 0 0 1px rgba(255, 165, 80, .45),
-      0 0 16px 3px rgba(235, 124, 35, .35),
-      0 0 32px 8px rgba(252, 169, 84, .15);
+      0 0 0 1px rgba(20, 152, 130, .58),
+      0 0 17px 3px rgba(0, 177, 149, .27),
+      0 0 34px 8px rgba(95, 95, 172, .13),
+      0 8px 23px rgba(25, 62, 64, .16);
   }
 }
 
@@ -221,23 +219,23 @@
 // --- light: energized, not washed out ---
 @media (prefers-color-scheme: light) {
   :root {
-    --plasma-glow-color1: rgba(0, 150, 175, .65);
-    --plasma-glow-color2: rgba(91, 55, 205, .42);
-    --plasma-shadow: inset 0 0 22px 8px rgba(0, 181, 180, .28);
+    --plasma-glow-color1: rgba(0, 166, 133, .65);
+    --plasma-glow-color2: rgba(99, 102, 172, .30);
+    --plasma-shadow: inset 0 0 22px 7px rgba(0, 164, 137, .24);
     --plasma-shadow2:
-      0 0 4px rgba(0, 143, 197, .8),
-      0 0 12px rgba(0, 215, 206, .55),
-      0 0 24px rgba(114, 64, 224, .30);
-    --plasma-glow: inset 0 0 30px 12px rgba(0, 178, 197, .26);
+      0 0 5px rgba(0, 161, 135, .55),
+      0 0 15px rgba(1, 171, 142, .28),
+      0 0 26px rgba(107, 102, 176, .16);
+    --plasma-glow: inset 0 0 27px 11px rgba(0, 167, 138, .20);
     --plasma-glow-1:
-      0 0 12px 3px var(--plasma-glow-color1),
-      0 0 25px 6px var(--plasma-glow-color2);
+      0 0 11px 3px var(--plasma-glow-color1),
+      0 0 23px 6px var(--plasma-glow-color2);
     --plasma-glow-2:
-      0 0 15px 4px var(--plasma-glow-color2),
-      0 0 30px 8px var(--plasma-glow-color1);
+      0 0 15px 4px var(--plasma-glow-color1),
+      0 0 28px 8px var(--plasma-glow-color2);
   }
   .main-content-box.has-unopened-details::before {
-    border-color: #008ea6;
+    border-color: #00a786;
   }
 }
 
@@ -268,22 +266,21 @@
 // --- light: graphite-tinted metallic cards with neon circuitry ---
 @media (prefers-color-scheme: light) {
   :root {
-    --footer-bg: #bdc9d8;
+    --footer-bg: #d4dfd9;
     --footer-glow:
-      0 0 0 1px rgba(0, 132, 168, .55),
-      0 0 16px rgba(0, 180, 194, .28),
-      0 0 30px rgba(107, 70, 219, .19),
-      0 12px 28px rgba(25, 39, 82, .23),
-      inset 0 1px 0 rgba(238, 252, 255, .62);
-    --footer-title-gradient: linear-gradient(95deg, #005fa5 5%, #007d91 48%, #6b3bb5 95%);
+      0 0 0 1px rgba(13, 118, 112, .52),
+      0 0 20px rgba(0, 169, 139, .21),
+      0 9px 26px rgba(26, 62, 61, .17),
+      inset 0 1px 0 rgba(255, 255, 255, .48);
+    --footer-title-gradient: linear-gradient(100deg, #126c71, #009a7d 48%, #5264aa 100%);
     --footer-divider: linear-gradient(90deg,
-      transparent 0%, #0064af 20%, #00abb8 50%, #7545cd 80%, transparent 100%);
+      transparent 0%, #188f82 20%, #009e89 48%, #6b77b7 78%, transparent 100%);
     --footer-divider-small: linear-gradient(90deg,
-      transparent 0%, #0064af 47%, #00abb8 50%, #7545cd 53%, transparent 100%);
-    --footer-icon-glow: drop-shadow(0 0 3px rgba(0, 175, 190, .7));
-    --footer-label-color: #155c85;
-    --footer-value-color: #162d40;
-    --footer-muted-color: #40576e;
+      transparent 0%, #188f82 47%, #009e89 50%, #6b77b7 53%, transparent 100%);
+    --footer-icon-glow: drop-shadow(0 0 4px rgba(0, 170, 143, .52));
+    --footer-label-color: #32666a;
+    --footer-value-color: #203a3e;
+    --footer-muted-color: #5b7072;
   }
 }
 
@@ -309,9 +306,9 @@ a:focus {
 // --- light: electric cobalt, purple and cyan hover ---
 @media (prefers-color-scheme: light) {
   :root {
-    --link-color: #005b9c;
-    --link-visited-color: #713ba5;
-    --link-hover-color: #007c92;
-    --link-hover-glow: 0 0 7px rgba(0, 179, 198, .45);
+    --link-color: #006e77;
+    --link-visited-color: #6256a0;
+    --link-hover-color: #007d68;
+    --link-hover-glow: 0 0 6px rgba(0, 177, 144, .25);
   }
 }
