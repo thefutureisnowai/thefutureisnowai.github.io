@@ -1,5 +1,5 @@
 // =============================================================================
-// Palette
+// Palette (unchanged)
 // =============================================================================
 :root {
   --black: 0,0,0;
@@ -28,7 +28,7 @@
 // =============================================================================
 // Page
 // =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --bg: rgb(var(--black));
   --header-bg: rgb(var(--dark-grey));
@@ -47,30 +47,26 @@
     rgb(var(--black));
 }
 
-// --- light ---
+// --- light: metallic graphite and prismatic atmosphere ---
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #c4c9cf;
-    --header-bg: #b9bfc6;
+    --bg: #b4bdc9;
+    --header-bg: #a8b5c6;
+    --header-grad-c:
+      radial-gradient(ellipse at 12% 15%, rgba(0, 221, 206, 0.28) 0, transparent 48%),
+      radial-gradient(ellipse at 92% 9%, rgba(126, 76, 255, 0.25) 0, transparent 52%),
+      radial-gradient(ellipse at 10% 95%, rgba(34, 120, 255, 0.18) 0, transparent 54%),
+      radial-gradient(ellipse at 88% 85%, rgba(255, 126, 66, 0.13) 0, transparent 48%),
+      conic-gradient(from 180deg at 50% 52%, rgba(55, 235, 230, .06), rgba(112, 79, 228, .10), rgba(55, 235, 230, .06)),
+      linear-gradient(140deg, #ccd6e1, #a6b4c5 55%, #c2cbd9);
   }
-
-  html,
-  body,
-  .page-layout,
-  .content {
-    background: #c4c9cf !important;
-    color: #252a2f !important;
-  }
+  body { color: #14212f; }
 }
 
 // =============================================================================
 // Title card
 // =============================================================================
-// --- dark ---
-// =============================================================================
-// Title card
-// =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --title-bg: rgb(var(--dark-grey));
   --title-card-border: rgb(var(--space-grey2));
@@ -96,18 +92,34 @@
   box-shadow: var(--header-glow);
 }
 
-// --- light ---
+// --- light: luminous cockpit display ---
 @media (prefers-color-scheme: light) {
   :root {
+    --title-bg: #c6d1de;
+    --title-card-border: #5f7c9d;
+    --title-screen-border: #547d98;
+    --title-font-color: #006f7a;
+    --title-screen-filter: brightness(1.07) contrast(1.25) saturate(1.18);
+    --title-shadow:
+      0 0 2px rgba(0, 180, 194, .65),
+      0 0 12px rgba(0, 162, 183, .26),
+      inset 0 0 15px rgba(27, 129, 235, .19),
+      inset 0 0 28px rgba(133, 78, 238, .16);
+    --main-logo-filter:
+      drop-shadow(0 0 5px rgba(0, 163, 181, .72))
+      drop-shadow(0 0 16px rgba(99, 59, 224, .32))
+      contrast(1.15);
     --header-glow:
-      0 0 6px rgba(110, 60, 200, 0.4),
-      0 0 14px rgba(110, 60, 200, 0.18);               /* deeper violet */
+      0 0 0 1px rgba(49, 75, 133, .35),
+      0 0 17px 3px rgba(103, 72, 221, .32),
+      0 0 35px 8px rgba(16, 159, 188, .14);
   }
 }
+
 // =============================================================================
 // Nav / top menu / search
 // =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --search-box-background: var(--bg);
   --nav-menu-font-color: rgb(var(--bright-green));
@@ -126,32 +138,28 @@
   text-shadow: 0 0 6px #00ffaa;
 }
 
-// --- light ---
+// --- light: etched cyan controls ---
 @media (prefers-color-scheme: light) {
   :root {
-    --search-box-background: #e4e7e9;
-    --nav-menu-font-color: #263b42;
-    --nav-menu-border-color: #52646b;
-    --nav-menu-font-glow: none;
-    --top-link-border: #52646b;
+    --search-box-background: #bfcddd;
+    --nav-menu-font-color: #143d55;
+    --nav-menu-border-color: #238eaa;
+    --nav-menu-font-glow: 0 0 8px rgba(0, 170, 190, .22);
+    --top-link-border: #2299af;
+    --nav-menu-border: 0 0 5px rgba(0, 166, 193, .5);
   }
-
-  .top-menu,
-  .scs-link-row,
-  .nav-menu {
-    color: #263b42 !important;
-    text-shadow: none !important;
-  }
-
-  .search-box {
-    background: #e4e7e9 !important;
-    color: #181b1f !important;
+  .top-menu a:hover,
+  .top-menu a:focus {
+    color: #005b72;
+    text-shadow: 0 0 8px rgba(0, 199, 211, .6);
+    border-color: #0496b0;
   }
 }
+
 // =============================================================================
 // Main content
 // =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --main-content-border: var(--bg);
   --main-content-background: var(--bg);
@@ -169,26 +177,29 @@
   box-shadow: var(--main-content-inset), var(--box-glow);
 }
 
-// --- light ---
+// --- light: brushed metal panels, teal edge and amber energy glow ---
 @media (prefers-color-scheme: light) {
   :root {
-    --main-content-background: #f3f4f5;
-    --main-font-color: #181b1f;
+    --main-content-border: #608da4;
+    --main-content-background: #cdd6e1;
+    --main-content-inset:
+      inset 0 0 0 1px rgba(10, 103, 143, .35),
+      inset 0 0 24px 5px rgba(37, 83, 144, .13);
+    --main-content-shadow-drop: 0 12px 35px rgba(24, 44, 83, .3);
+    --main-font-color: #13283a;
+    --main-text-aura: 0 0 4px rgba(18, 133, 176, .18);
+    --main-border: 0 0 6px rgba(0, 147, 173, .75);
     --box-glow:
-      0 0 6px rgba(230, 120, 30, 0.45),
-      0 0 14px rgba(230, 120, 30, 0.2);                /* deeper orange */
-  }
-
-  .main-content-box {
-    background: #f3f4f5 !important;
-    color: #181b1f !important;
+      0 0 0 1px rgba(255, 165, 80, .45),
+      0 0 16px 3px rgba(235, 124, 35, .35),
+      0 0 32px 8px rgba(252, 169, 84, .15);
   }
 }
 
 // =============================================================================
 // Plasma effects
 // =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --plasma-glow-color1: rgba(var(--nav-menu-font-color), 0.7);
   --plasma-glow-color2: rgba(var(--main-font-color), 0.95);
@@ -207,15 +218,33 @@
     0 0 36px 12px var(--plasma-glow-color2);
 }
 
-// --- light ---
+// --- light: energized, not washed out ---
 @media (prefers-color-scheme: light) {
-  // (none yet)
+  :root {
+    --plasma-glow-color1: rgba(0, 150, 175, .65);
+    --plasma-glow-color2: rgba(91, 55, 205, .42);
+    --plasma-shadow: inset 0 0 22px 8px rgba(0, 181, 180, .28);
+    --plasma-shadow2:
+      0 0 4px rgba(0, 143, 197, .8),
+      0 0 12px rgba(0, 215, 206, .55),
+      0 0 24px rgba(114, 64, 224, .30);
+    --plasma-glow: inset 0 0 30px 12px rgba(0, 178, 197, .26);
+    --plasma-glow-1:
+      0 0 12px 3px var(--plasma-glow-color1),
+      0 0 25px 6px var(--plasma-glow-color2);
+    --plasma-glow-2:
+      0 0 15px 4px var(--plasma-glow-color2),
+      0 0 30px 8px var(--plasma-glow-color1);
+  }
+  .main-content-box.has-unopened-details::before {
+    border-color: #008ea6;
+  }
 }
 
 // =============================================================================
 // Footer
 // =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --footer-bg: var(--main-content-background);
   --footer-glow:
@@ -236,36 +265,32 @@
   --footer-muted-color: #777;
 }
 
-// --- light ---
+// --- light: graphite-tinted metallic cards with neon circuitry ---
 @media (prefers-color-scheme: light) {
-  .footer-card {
-    background: #e4e7e9 !important;
-    color: #202428 !important;
-  }
-
-  .footer-card *,
-  .footer-bottom {
-    color: #30363b !important;
-    text-shadow: none !important;
-  }
-
-  .footer-title,
-  .footer-header,
-  .footer-title a,
-  a .footer-title {
-    background: none !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-    -webkit-text-fill-color: #182b32 !important;
-    color: #182b32 !important;
-    text-shadow: none !important;
+  :root {
+    --footer-bg: #bdc9d8;
+    --footer-glow:
+      0 0 0 1px rgba(0, 132, 168, .55),
+      0 0 16px rgba(0, 180, 194, .28),
+      0 0 30px rgba(107, 70, 219, .19),
+      0 12px 28px rgba(25, 39, 82, .23),
+      inset 0 1px 0 rgba(238, 252, 255, .62);
+    --footer-title-gradient: linear-gradient(95deg, #005fa5 5%, #007d91 48%, #6b3bb5 95%);
+    --footer-divider: linear-gradient(90deg,
+      transparent 0%, #0064af 20%, #00abb8 50%, #7545cd 80%, transparent 100%);
+    --footer-divider-small: linear-gradient(90deg,
+      transparent 0%, #0064af 47%, #00abb8 50%, #7545cd 53%, transparent 100%);
+    --footer-icon-glow: drop-shadow(0 0 3px rgba(0, 175, 190, .7));
+    --footer-label-color: #155c85;
+    --footer-value-color: #162d40;
+    --footer-muted-color: #40576e;
   }
 }
 
 // =============================================================================
 // Links
 // =============================================================================
-// --- dark ---
+// --- dark (unchanged) ---
 :root {
   --link-color: #33ddff;          /* cyan-blue */
   --link-visited-color: #bb66ff;  /* violet */
@@ -281,23 +306,12 @@ a:focus {
   text-shadow: var(--link-hover-glow);
 }
 
-// --- light ---
+// --- light: electric cobalt, purple and cyan hover ---
 @media (prefers-color-scheme: light) {
-  a,
-  a:link {
-    color: #0057b8 !important;
-    text-shadow: none !important;
-  }
-
-  a:visited {
-    color: #244f9e !important;
-    text-shadow: none !important;
-  }
-
-  a:hover,
-  a:focus,
-  a:active {
-    color: #003f8f !important;
-    text-shadow: none !important;
+  :root {
+    --link-color: #005b9c;
+    --link-visited-color: #713ba5;
+    --link-hover-color: #007c92;
+    --link-hover-glow: 0 0 7px rgba(0, 179, 198, .45);
   }
 }
